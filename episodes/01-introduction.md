@@ -3,11 +3,11 @@ title: "Introduction"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "What is gained from good experimental design?"
 objectives:
-- "First learning objective. (FIXME)"
+- "Connect experimental design with data quality and meaningful findings."
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Good experimental design generates information-rich data with a clear message."
 ---
 FIXME
 
