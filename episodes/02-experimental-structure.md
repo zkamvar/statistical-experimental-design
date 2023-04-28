@@ -8,6 +8,7 @@ questions:
 - "How are comparative experiments structured?"
 objectives:
 - "Describe the common features of comparative experiments."
+- "Identify experimental units, treatments, response measurements, ancillary and nuisance variables"
 keypoints:
 - "The raw ingredients of comparative experiments are experimental units, treatments and responses."
 source: Rmd
@@ -166,8 +167,8 @@ Another way to define blocks of experimental units is to use characteristics or
 traits that are likely associated with the response. Sex and age, for example, 
 can serve as blocking factors in experiments, with experimental units randomly
 allocated to each block based on age category and sex. *Stratified randomization*
-places experimental units into separate blocks for each category and sex. As 
-with nuisance variables, these blocking factors should be used in the subsequent 
-data analysis.
+places experimental units into separate blocks for each age category and sex. As 
+with nuisance variables, these blocking factors (age and sex) should be used in 
+the subsequent data analysis.
 
 {% include links.md %}
