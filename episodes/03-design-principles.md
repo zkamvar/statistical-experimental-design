@@ -18,7 +18,10 @@ source: Rmd
 
 Variability is natural in the real world. A medication given to a group of 
 patients will affect each of them differently. A specific diet given to a cage
-of mice will affect each mouse differently. To figure out whether a difference
+of mice will affect each mouse differently. 
+
+## Replication
+To figure out whether a difference
 in responses is real or inherently random, *replication* applies the same 
 treatment to multiple experimental units. Ideally if something is measured many 
 times, each measurement will give exactly the same result and will represent 
@@ -92,5 +95,159 @@ measurements, animal behavior, and indoor relative humidity, which introduces
 random error. We could assume that all random error will balance itself out, and 
 that all samples will be equally subject to random error. A more precise way to 
 mitigate random error is through blocking. 
+
+## Randomization
+
+Why should treatments be randomly assigned to experimental units? Randomization
+minimizes bias and moderates experimental error (a.k.a. noise). A hat full of 
+numbers, a random number table or a computational random number generator can be 
+used to assign random numbers to experimental units so that any experimental 
+unit has equal chances of being assigned to a specific treatment group. 
+
+Here is an example of randomization using a random number generator. The study
+asks how a high-fat diet affects blood chemistry in mice. If the number is odd, 
+the sample is assigned to the treatment group, which receives the high-fat diet.
+If the random number is even, the sample is assigned to the control group (the 
+group that doesn't receive the treatment, in this case, regular chow). 
+
+
+~~~
+exp_unit <- LETTERS
+random_number <- sample(x = 100, size = 26)
+
+# %% is the modulo operator, which returns the remainder from division
+group <- ifelse(random_number %% 2 == 0, "chow", "high fat")
+random_allocation <- data.frame(exp_unit, random_number, group)
+random_allocation
+~~~
+{: .language-r}
+
+
+
+~~~
+   exp_unit random_number    group
+1         A            47 high fat
+2         B            80     chow
+3         C             9 high fat
+4         D            65 high fat
+5         E            57 high fat
+6         F             6     chow
+7         G            95 high fat
+8         H            29 high fat
+9         I            10     chow
+10        J            19 high fat
+11        K            42     chow
+12        L            81 high fat
+13        M            15 high fat
+14        N             2     chow
+15        O            89 high fat
+16        P             7 high fat
+17        Q            45 high fat
+18        R            36     chow
+19        S            46     chow
+20        T            27 high fat
+21        U            61 high fat
+22        V            93 high fat
+23        W             4     chow
+24        X            30     chow
+25        Y            24     chow
+26        Z            72     chow
+~~~
+{: .output}
+
+This might produce unequal numbers between treatment and control groups. It 
+isn’t necessary to have equal numbers, however, *sensitivity* (the true positive 
+rate, or ability to detect an effect when it truly exists) is maximized when 
+sample numbers are equal.
+
+
+~~~
+table(random_allocation$group)
+~~~
+{: .language-r}
+
+
+
+~~~
+
+    chow high fat 
+      11       15 
+~~~
+{: .output}
+
+To randomly assign samples to groups with equal numbers, you can do the 
+following.
+
+
+~~~
+# place IDs and random numbers in data frame
+equal_allocation <- data.frame(exp_unit, random_number)
+
+# sort by random numbers (not by sample IDs)
+equal_allocation <- equal_allocation[order(random_number),]
+
+# now assign to treatment or control groups
+treatment <- sort(rep(x = c("chow", "high fat"), times = 13))
+equal_allocation <- cbind(equal_allocation, treatment)
+row.names(equal_allocation) <- 1:26
+equal_allocation
+~~~
+{: .language-r}
+
+
+
+~~~
+   exp_unit random_number treatment
+1         N             2      chow
+2         W             4      chow
+3         F             6      chow
+4         P             7      chow
+5         C             9      chow
+6         I            10      chow
+7         M            15      chow
+8         J            19      chow
+9         Y            24      chow
+10        T            27      chow
+11        H            29      chow
+12        X            30      chow
+13        R            36      chow
+14        K            42  high fat
+15        Q            45  high fat
+16        S            46  high fat
+17        A            47  high fat
+18        E            57  high fat
+19        U            61  high fat
+20        D            65  high fat
+21        Z            72  high fat
+22        B            80  high fat
+23        L            81  high fat
+24        O            89  high fat
+25        V            93  high fat
+26        G            95  high fat
+~~~
+{: .output}
+
+> ## Discussion
+> Why not assign treatment and control groups to samples in alphabetical order?  
+> Did we really need a random number generator to obtain randomized equal groups?
+>
+> >
+> > ## Solution 
+> > 
+> > 1). Scenario: One technician processed samples A through M, and a different 
+> > technician processed samples N through Z.  
+> > 2). Another scenario: Samples A through M were processed on a Monday, and 
+> > samples N through Z on a Tuesday.  
+> > 3). Yet another scenario: Samples A through M were from one strain, and 
+> > samples N through Z from a different strain.    
+> > 4). Yet another scenario: Samples with consecutive ids were all sibling 
+> > groups. For example, samples A, B and C were all siblings, and all assigned 
+> > to the same treatment.  
+> > All of these cases would have introduced an effect (from the technician, the 
+> > day of the week, the strain, or sibling relationships) that would confound 
+> > the results and lead to misinterpretation.
+> > 
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}
