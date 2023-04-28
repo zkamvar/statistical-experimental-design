@@ -105,7 +105,7 @@ used to assign random numbers to experimental units so that any experimental
 unit has equal chances of being assigned to a specific treatment group. 
 
 Here is an example of randomization using a random number generator. The study
-asks how a high-fat diet affects blood chemistry in mice. If the number is odd, 
+asks how a high-fat diet affects blood pressure in mice. If the number is odd, 
 the sample is assigned to the treatment group, which receives the high-fat diet.
 If the random number is even, the sample is assigned to the control group (the 
 group that doesn't receive the treatment, in this case, regular chow). 
@@ -116,8 +116,8 @@ exp_unit <- LETTERS
 random_number <- sample(x = 100, size = 26)
 
 # %% is the modulo operator, which returns the remainder from division
-group <- ifelse(random_number %% 2 == 0, "chow", "high fat")
-random_allocation <- data.frame(exp_unit, random_number, group)
+treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
+random_allocation <- data.frame(exp_unit, random_number, treatment)
 random_allocation
 ~~~
 {: .language-r}
@@ -125,33 +125,33 @@ random_allocation
 
 
 ~~~
-   exp_unit random_number    group
-1         A            47 high fat
-2         B            80     chow
-3         C             9 high fat
-4         D            65 high fat
-5         E            57 high fat
-6         F             6     chow
-7         G            95 high fat
-8         H            29 high fat
-9         I            10     chow
-10        J            19 high fat
-11        K            42     chow
-12        L            81 high fat
-13        M            15 high fat
-14        N             2     chow
-15        O            89 high fat
-16        P             7 high fat
-17        Q            45 high fat
-18        R            36     chow
-19        S            46     chow
-20        T            27 high fat
-21        U            61 high fat
-22        V            93 high fat
-23        W             4     chow
-24        X            30     chow
-25        Y            24     chow
-26        Z            72     chow
+   exp_unit random_number treatment
+1         A             1  high fat
+2         B            93  high fat
+3         C            37  high fat
+4         D            64      chow
+5         E            53  high fat
+6         F            73  high fat
+7         G            71  high fat
+8         H            32      chow
+9         I            99  high fat
+10        J            77  high fat
+11        K            87  high fat
+12        L            25  high fat
+13        M             9  high fat
+14        N            14      chow
+15        O            69  high fat
+16        P            13  high fat
+17        Q            23  high fat
+18        R            90      chow
+19        S            95  high fat
+20        T            74      chow
+21        U            65  high fat
+22        V            66      chow
+23        W            21  high fat
+24        X            89  high fat
+25        Y            59  high fat
+26        Z             6      chow
 ~~~
 {: .output}
 
@@ -162,7 +162,7 @@ sample numbers are equal.
 
 
 ~~~
-table(random_allocation$group)
+table(random_allocation$treatment)
 ~~~
 {: .language-r}
 
@@ -171,7 +171,7 @@ table(random_allocation$group)
 ~~~
 
     chow high fat 
-      11       15 
+       7       19 
 ~~~
 {: .output}
 
@@ -198,35 +198,44 @@ equal_allocation
 
 ~~~
    exp_unit random_number treatment
-1         N             2      chow
-2         W             4      chow
-3         F             6      chow
-4         P             7      chow
-5         C             9      chow
-6         I            10      chow
-7         M            15      chow
-8         J            19      chow
-9         Y            24      chow
-10        T            27      chow
-11        H            29      chow
-12        X            30      chow
-13        R            36      chow
-14        K            42  high fat
-15        Q            45  high fat
-16        S            46  high fat
-17        A            47  high fat
-18        E            57  high fat
-19        U            61  high fat
-20        D            65  high fat
-21        Z            72  high fat
-22        B            80  high fat
-23        L            81  high fat
-24        O            89  high fat
-25        V            93  high fat
-26        G            95  high fat
+1         A             1      chow
+2         Z             6      chow
+3         M             9      chow
+4         P            13      chow
+5         N            14      chow
+6         W            21      chow
+7         Q            23      chow
+8         L            25      chow
+9         H            32      chow
+10        C            37      chow
+11        E            53      chow
+12        Y            59      chow
+13        D            64      chow
+14        U            65  high fat
+15        V            66  high fat
+16        O            69  high fat
+17        G            71  high fat
+18        F            73  high fat
+19        T            74  high fat
+20        J            77  high fat
+21        K            87  high fat
+22        X            89  high fat
+23        R            90  high fat
+24        B            93  high fat
+25        S            95  high fat
+26        I            99  high fat
 ~~~
 {: .output}
 
+You can write out this treatment plan to a comma-separated values (csv) file,
+then open it in Excel and use it to record your data collection or just keep
+track of which samples are randomly assigned which diet.
+
+
+~~~
+write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
+~~~
+{: .language-r}
 > ## Discussion
 > Why not assign treatment and control groups to samples in alphabetical order?  
 > Did we really need a random number generator to obtain randomized equal groups?
@@ -249,5 +258,8 @@ equal_allocation
 > > 
 > {: .solution}
 {: .challenge}
+
+## Blocking
+
 
 {% include links.md %}

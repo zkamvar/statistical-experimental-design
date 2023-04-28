@@ -106,7 +106,7 @@ used to assign random numbers to experimental units so that any experimental
 unit has equal chances of being assigned to a specific treatment group. 
 
 Here is an example of randomization using a random number generator. The study
-asks how a high-fat diet affects blood chemistry in mice. If the number is odd, 
+asks how a high-fat diet affects blood pressure in mice. If the number is odd, 
 the sample is assigned to the treatment group, which receives the high-fat diet.
 If the random number is even, the sample is assigned to the control group (the 
 group that doesn't receive the treatment, in this case, regular chow). 
@@ -116,8 +116,8 @@ exp_unit <- LETTERS
 random_number <- sample(x = 100, size = 26)
 
 # %% is the modulo operator, which returns the remainder from division
-group <- ifelse(random_number %% 2 == 0, "chow", "high fat")
-random_allocation <- data.frame(exp_unit, random_number, group)
+treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
+random_allocation <- data.frame(exp_unit, random_number, treatment)
 random_allocation
 ```
 
@@ -127,7 +127,7 @@ rate, or ability to detect an effect when it truly exists) is maximized when
 sample numbers are equal.
 
 ```{r, random_assignment_table1}
-table(random_allocation$group)
+table(random_allocation$treatment)
 ```
 
 To randomly assign samples to groups with equal numbers, you can do the 
@@ -148,6 +148,13 @@ row.names(equal_allocation) <- 1:26
 equal_allocation
 ```
 
+You can write out this treatment plan to a comma-separated values (csv) file,
+then open it in Excel and use it to record your data collection or just keep
+track of which samples are randomly assigned which diet.
+
+```{r, write_out_plan}
+write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
+```
 > ## Discussion
 > Why not assign treatment and control groups to samples in alphabetical order?  
 > Did we really need a random number generator to obtain randomized equal groups?
@@ -170,5 +177,8 @@ equal_allocation
 > > 
 > {: .solution}
 {: .challenge}
+
+## Blocking
+
 
 {% include links.md %}
