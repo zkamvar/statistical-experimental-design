@@ -18,21 +18,18 @@ source: Rmd
 
 Variability is natural in the real world. A medication given to a group of 
 patients will affect each of them differently. A specific diet given to a cage
-of mice will affect each mouse differently. 
+of mice will affect each mouse differently. Ideally if something is measured 
+many times, each measurement will give exactly the same result and will 
+represent the true value. This ideal doesn't exist in the real world. For 
+example, the mass of one kilogram is defined by the International Prototype 
+Kilogram, a cylinder composed of platinum and iridium. Copies of this prototype kilogram (replicates) are distributed worldwide and are regularly compared to 
+the original to ensure the standard mass of one kilogram. None of the copies of 
+the prototype measure precisely the same despite careful storage and handling. 
+The reasons for this variation in measurements is not known.
 
 ## Replication
-To figure out whether a difference
-in responses is real or inherently random, *replication* applies the same 
-treatment to multiple experimental units. Ideally if something is measured many 
-times, each measurement will give exactly the same result and will represent 
-the true value. This ideal doesn't exist in the real world. For example, the 
-mass of one kilogram is defined by the International Prototype Kilogram, a 
-cylinder composed of platinum and iridium. Copies of this prototype kilogram 
-(replicates) are distributed worldwide and are regularly compared to the 
-original to ensure the standard mass of one kilogram. None of the copies of the prototype measure precisely the same despite careful storage and handling. The 
-reasons for this variation in measurements is not known.
-
-The variability of the responses within a set of replicates provides a measure 
+To figure out whether a difference in responses is real or inherently random, *replication* applies the same treatment to multiple experimental units. The
+variability of the responses within a set of replicates provides a measure 
 against which we can compare differences among different treatments. This 
 variability is known as *experimental error*. This does not mean that something 
 was done wrongly! It's a phrase describing the variability in the responses. 
@@ -126,32 +123,32 @@ random_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A             1  high fat
-2         B            93  high fat
-3         C            37  high fat
-4         D            64      chow
-5         E            53  high fat
-6         F            73  high fat
-7         G            71  high fat
-8         H            32      chow
-9         I            99  high fat
-10        J            77  high fat
-11        K            87  high fat
-12        L            25  high fat
-13        M             9  high fat
-14        N            14      chow
-15        O            69  high fat
-16        P            13  high fat
-17        Q            23  high fat
-18        R            90      chow
-19        S            95  high fat
-20        T            74      chow
-21        U            65  high fat
-22        V            66      chow
-23        W            21  high fat
-24        X            89  high fat
-25        Y            59  high fat
-26        Z             6      chow
+1         A            90      chow
+2         B            69  high fat
+3         C            26      chow
+4         D            25  high fat
+5         E            30      chow
+6         F            40      chow
+7         G            29  high fat
+8         H            42      chow
+9         I            78      chow
+10        J            63  high fat
+11        K            71  high fat
+12        L            16      chow
+13        M            65  high fat
+14        N            68      chow
+15        O            47  high fat
+16        P            32      chow
+17        Q            91  high fat
+18        R            62      chow
+19        S            82      chow
+20        T            98      chow
+21        U            13  high fat
+22        V            96      chow
+23        W            23  high fat
+24        X            95  high fat
+25        Y            55  high fat
+26        Z            88      chow
 ~~~
 {: .output}
 
@@ -171,7 +168,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-       7       19 
+      14       12 
 ~~~
 {: .output}
 
@@ -198,32 +195,32 @@ equal_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A             1      chow
-2         Z             6      chow
-3         M             9      chow
-4         P            13      chow
-5         N            14      chow
-6         W            21      chow
-7         Q            23      chow
-8         L            25      chow
-9         H            32      chow
-10        C            37      chow
-11        E            53      chow
-12        Y            59      chow
-13        D            64      chow
-14        U            65  high fat
-15        V            66  high fat
-16        O            69  high fat
-17        G            71  high fat
-18        F            73  high fat
-19        T            74  high fat
-20        J            77  high fat
-21        K            87  high fat
-22        X            89  high fat
-23        R            90  high fat
-24        B            93  high fat
-25        S            95  high fat
-26        I            99  high fat
+1         U            13      chow
+2         L            16      chow
+3         W            23      chow
+4         D            25      chow
+5         C            26      chow
+6         G            29      chow
+7         E            30      chow
+8         P            32      chow
+9         F            40      chow
+10        H            42      chow
+11        O            47      chow
+12        Y            55      chow
+13        R            62      chow
+14        J            63  high fat
+15        M            65  high fat
+16        N            68  high fat
+17        B            69  high fat
+18        K            71  high fat
+19        I            78  high fat
+20        S            82  high fat
+21        Z            88  high fat
+22        A            90  high fat
+23        Q            91  high fat
+24        X            95  high fat
+25        V            96  high fat
+26        T            98  high fat
 ~~~
 {: .output}
 
@@ -260,6 +257,54 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 {: .challenge}
 
 ## Blocking
+Experimental units can be grouped, or *blocked*, to increase the precision of
+treatment comparisons. Imagine that you want to evaluate the effect of different 
+doses of a new drug on the proliferation of cancer cells in vitro. Divide the 
+cells into four groups, each consisting of the same number of cells. Treat each 
+group with a different dose of the drug for five consecutive days. For example, 
+the four treatments could be:
+
+Group 1: Control (no drug)
+Group 2: Low dose (10 μM)
+Group 3: Medium dose (50 μM)
+Group 4: High dose (100 μM)
 
 
+~~~
+# create dosage levels
+f <- factor(c("control", "low", "medium", "high"))
+b1t <- sample(f, 4)
+b2t <- sample(f, 4)
+b3t <- sample(f, 4)
+b4t <- sample(f, 4)
+t <- c(b1t, b2t, b3t, b4t)
+block <- factor(rep(c("shelf1", "shelf2", "shelf3", "shelf4"), each = 4))
+cagenum <- rep(1:4, 4)
+plan <- data.frame(block = block, CageNumber = cagenum, treatment = t)
+plan
+~~~
+{: .language-r}
+
+
+
+~~~
+    block CageNumber treatment
+1  shelf1          1    medium
+2  shelf1          2       low
+3  shelf1          3      high
+4  shelf1          4   control
+5  shelf2          1      high
+6  shelf2          2       low
+7  shelf2          3   control
+8  shelf2          4    medium
+9  shelf3          1   control
+10 shelf3          2      high
+11 shelf3          3       low
+12 shelf3          4    medium
+13 shelf4          1    medium
+14 shelf4          2       low
+15 shelf4          3      high
+16 shelf4          4   control
+~~~
+{: .output}
 {% include links.md %}

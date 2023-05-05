@@ -19,21 +19,18 @@ knitr_fig_path("03-")
 
 Variability is natural in the real world. A medication given to a group of 
 patients will affect each of them differently. A specific diet given to a cage
-of mice will affect each mouse differently. 
+of mice will affect each mouse differently. Ideally if something is measured 
+many times, each measurement will give exactly the same result and will 
+represent the true value. This ideal doesn't exist in the real world. For 
+example, the mass of one kilogram is defined by the International Prototype 
+Kilogram, a cylinder composed of platinum and iridium. Copies of this prototype kilogram (replicates) are distributed worldwide and are regularly compared to 
+the original to ensure the standard mass of one kilogram. None of the copies of 
+the prototype measure precisely the same despite careful storage and handling. 
+The reasons for this variation in measurements is not known.
 
 ## Replication
-To figure out whether a difference
-in responses is real or inherently random, *replication* applies the same 
-treatment to multiple experimental units. Ideally if something is measured many 
-times, each measurement will give exactly the same result and will represent 
-the true value. This ideal doesn't exist in the real world. For example, the 
-mass of one kilogram is defined by the International Prototype Kilogram, a 
-cylinder composed of platinum and iridium. Copies of this prototype kilogram 
-(replicates) are distributed worldwide and are regularly compared to the 
-original to ensure the standard mass of one kilogram. None of the copies of the prototype measure precisely the same despite careful storage and handling. The 
-reasons for this variation in measurements is not known.
-
-The variability of the responses within a set of replicates provides a measure 
+To figure out whether a difference in responses is real or inherently random, *replication* applies the same treatment to multiple experimental units. The
+variability of the responses within a set of replicates provides a measure 
 against which we can compare differences among different treatments. This 
 variability is known as *experimental error*. This does not mean that something 
 was done wrongly! It's a phrase describing the variability in the responses. 
@@ -179,6 +176,31 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 {: .challenge}
 
 ## Blocking
+Experimental units can be grouped, or *blocked*, to increase the precision of
+treatment comparisons. Imagine that you want to evaluate the effect of different 
+doses of a new drug on the proliferation of cancer cells in vitro. Divide the 
+cells into four groups, each consisting of the same number of cells. Treat each 
+group with a different dose of the drug for five consecutive days. For example, 
+the four treatments could be:
 
+Group 1: Control (no drug)
+Group 2: Low dose (10 μM)
+Group 3: Medium dose (50 μM)
+Group 4: High dose (100 μM)
 
+```{r, complete_random_block}
+
+# create dosage levels
+f <- factor(c("control", "low", "medium", "high"))
+b1t <- sample(f, 4)
+b2t <- sample(f, 4)
+b3t <- sample(f, 4)
+b4t <- sample(f, 4)
+t <- c(b1t, b2t, b3t, b4t)
+block <- factor(rep(c("shelf1", "shelf2", "shelf3", "shelf4"), each = 4))
+cagenum <- rep(1:4, 4)
+plan <- data.frame(block = block, CageNumber = cagenum, treatment = t)
+plan
+
+```
 {% include links.md %}

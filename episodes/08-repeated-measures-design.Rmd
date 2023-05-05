@@ -1,0 +1,86 @@
+---
+title: "Repeated Measures Designs"
+teaching: 0
+exercises: 0
+questions:
+- "What is a repeated measures design?"
+objectives:
+- "A repeated measures design measures the response of experimental units repeatedly during the study."
+keypoints:
+- "."
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("03-")
+```
+
+
+> ## Exercise 1: Which kind of error?
+> A study used to determine the effect of a drug on weight loss 
+> could have the following sources of experimental error. 
+> Classify the following sources as either biological, 
+> systematic, or random error.  
+> 1). A scale is broken and provides inconsistent readings.  
+> 2). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.   
+> 3). A mouse has an unusually high weight compared to its experimental group (i.e., it is an outlier).  
+> 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
+>
+> >
+> > ## Solution to Exercise 1
+> > 
+> > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
+> > 2). systematic  
+> > 3). biological  
+> > 4). random or systematic; you argue which and explain why
+> > 
+> {: .solution}
+{: .challenge}
+
+## Drug effect on heart rate
+
+
+
+```{r, random_number_generator}
+exp_unit <- LETTERS
+random_number <- sample(x = 100, size = 26)
+
+# %% is the modulo operator, which returns the remainder from division
+treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
+random_allocation <- data.frame(exp_unit, random_number, treatment)
+random_allocation
+```
+
+
+
+> ## Discussion
+> Why not assign treatment and control groups to samples in alphabetical order?  
+> Did we really need a random number generator to obtain randomized equal groups?
+>
+> >
+> > ## Solution 
+> > 
+> > 1). Scenario: One technician processed samples A through M, and a different 
+> > technician processed samples N through Z.  
+> > 2). Another scenario: Samples A through M were processed on a Monday, and 
+> > samples N through Z on a Tuesday.  
+> > 3). Yet another scenario: Samples A through M were from one strain, and 
+> > samples N through Z from a different strain.    
+> > 4). Yet another scenario: Samples with consecutive ids were all sibling 
+> > groups. For example, samples A, B and C were all siblings, and all assigned 
+> > to the same treatment.  
+> > All of these cases would have introduced an effect (from the technician, the 
+> > day of the week, the strain, or sibling relationships) that would confound 
+> > the results and lead to misinterpretation.
+> > 
+> {: .solution}
+{: .challenge}
+
+## Among-subject vs. within-subject variability
+Each subject can be its own control
+
+## crossover design for heart rate
+
+
+{% include links.md %}
