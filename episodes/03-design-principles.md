@@ -21,14 +21,21 @@ patients will affect each of them differently. A specific diet given to a cage
 of mice will affect each mouse differently. Ideally if something is measured 
 many times, each measurement will give exactly the same result and will 
 represent the true value. This ideal doesn't exist in the real world. For 
-example, the mass of one kilogram is defined by the International Prototype 
-Kilogram, a cylinder composed of platinum and iridium. Copies of this prototype kilogram (replicates) are distributed worldwide and are regularly compared to 
-the original to ensure the standard mass of one kilogram. None of the copies of 
-the prototype measure precisely the same despite careful storage and handling. 
-The reasons for this variation in measurements is not known.
+example, the mass of one kilogram is defined by the [https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram](International Prototype 
+Kilogram), a cylinder composed of platinum and iridium. 
+![International Prototype of the Kilogram](../fig/International_prototype_of_the_kilogram_aka_Le_Grand_K)
+
+Copies of this prototype kilogram (replicates) are distributed worldwide so each 
+country hosting a replica has its own national standard kilogram. None of the 
+replicas measure precisely the same despite careful storage and handling. 
+The reasons for this variation in measurements are not known. A kilogram in 
+Austria differs from a kilogram in Australia, which differs from that in Brazil,
+Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute 
+measure of mass shows real-world natural variability.
 
 ## Replication
-To figure out whether a difference in responses is real or inherently random, *replication* applies the same treatment to multiple experimental units. The
+To figure out whether a difference in responses is real or inherently random, 
+*replication* applies the same treatment to multiple experimental units. The
 variability of the responses within a set of replicates provides a measure 
 against which we can compare differences among different treatments. This 
 variability is known as *experimental error*. This does not mean that something 
@@ -94,6 +101,31 @@ that all samples will be equally subject to random error. A more precise way to
 mitigate random error is through blocking. 
 
 ## Randomization
+> ## Exercise 2: The efficient technician
+> Your technician colleague finds a way to simplify and expedite an experiment.
+> The experiment applies four different wheel-running treatments to twenty 
+> different mice over the course of five days. Four mice are treated 
+> individually each day for two hours each with a random selection of the four
+> treatments. Your clever colleague decides that a simplified protocol would 
+> work just as well and save time. Run treatment 1 five times on day 1, 
+> treatment 2 five times on day 2, and so on. Some overtime would be required 
+> each day but the experiment would be completed in only four days, and then 
+> they can take Friday off! 
+> Does this adjustment make sense to you?    
+> Can you foresee any problems with the experimental results?   
+>
+> >
+> > ## Solution to Exercise 2
+> > 
+> > Since each treatment is run on only one day, the day effectively becomes
+> > the experimental unit (explain this). Each experimental unit (day) has five
+> > samples (mice), but only one replication of each treatment. There is no 
+> > valid way to compare treatments as a result. There is no way to separate
+> > the treatment effect from the day-to-day differences in environment, 
+> > equipment setup, personnel, and other extraneous variables.
+> > 
+> {: .solution}
+{: .challenge}
 
 Why should treatments be randomly assigned to experimental units? Randomization
 minimizes bias and moderates experimental error (a.k.a. noise). A hat full of 
@@ -123,32 +155,32 @@ random_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A            90      chow
-2         B            69  high fat
-3         C            26      chow
-4         D            25  high fat
-5         E            30      chow
-6         F            40      chow
-7         G            29  high fat
-8         H            42      chow
-9         I            78      chow
-10        J            63  high fat
-11        K            71  high fat
-12        L            16      chow
-13        M            65  high fat
-14        N            68      chow
-15        O            47  high fat
-16        P            32      chow
-17        Q            91  high fat
-18        R            62      chow
-19        S            82      chow
-20        T            98      chow
-21        U            13  high fat
-22        V            96      chow
-23        W            23  high fat
-24        X            95  high fat
-25        Y            55  high fat
-26        Z            88      chow
+1         A            15  high fat
+2         B             3  high fat
+3         C            70      chow
+4         D            44      chow
+5         E            29  high fat
+6         F            24      chow
+7         G            17  high fat
+8         H            84      chow
+9         I            97  high fat
+10        J            79  high fat
+11        K            80      chow
+12        L            10      chow
+13        M            20      chow
+14        N            86      chow
+15        O            98      chow
+16        P            43  high fat
+17        Q            64      chow
+18        R            69  high fat
+19        S            38      chow
+20        T            56      chow
+21        U            30      chow
+22        V            42      chow
+23        W            33  high fat
+24        X            47  high fat
+25        Y            41  high fat
+26        Z            74      chow
 ~~~
 {: .output}
 
@@ -168,7 +200,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-      14       12 
+      15       11 
 ~~~
 {: .output}
 
@@ -195,32 +227,32 @@ equal_allocation
 
 ~~~
    exp_unit random_number treatment
-1         U            13      chow
-2         L            16      chow
-3         W            23      chow
-4         D            25      chow
-5         C            26      chow
-6         G            29      chow
-7         E            30      chow
-8         P            32      chow
-9         F            40      chow
-10        H            42      chow
-11        O            47      chow
-12        Y            55      chow
-13        R            62      chow
-14        J            63  high fat
-15        M            65  high fat
-16        N            68  high fat
-17        B            69  high fat
-18        K            71  high fat
-19        I            78  high fat
-20        S            82  high fat
-21        Z            88  high fat
-22        A            90  high fat
-23        Q            91  high fat
-24        X            95  high fat
-25        V            96  high fat
-26        T            98  high fat
+1         B             3      chow
+2         L            10      chow
+3         A            15      chow
+4         G            17      chow
+5         M            20      chow
+6         F            24      chow
+7         E            29      chow
+8         U            30      chow
+9         W            33      chow
+10        S            38      chow
+11        Y            41      chow
+12        V            42      chow
+13        P            43      chow
+14        D            44  high fat
+15        X            47  high fat
+16        T            56  high fat
+17        Q            64  high fat
+18        R            69  high fat
+19        C            70  high fat
+20        Z            74  high fat
+21        J            79  high fat
+22        K            80  high fat
+23        H            84  high fat
+24        N            86  high fat
+25        I            97  high fat
+26        O            98  high fat
 ~~~
 {: .output}
 
@@ -233,6 +265,7 @@ track of which samples are randomly assigned which diet.
 write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 ~~~
 {: .language-r}
+
 > ## Discussion
 > Why not assign treatment and control groups to samples in alphabetical order?  
 > Did we really need a random number generator to obtain randomized equal groups?
@@ -259,28 +292,29 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 ## Blocking
 Experimental units can be grouped, or *blocked*, to increase the precision of
 treatment comparisons. Imagine that you want to evaluate the effect of different 
-doses of a new drug on the proliferation of cancer cells in vitro. Divide the 
-cells into four groups, each consisting of the same number of cells. Treat each 
-group with a different dose of the drug for five consecutive days. For example, 
-the four treatments could be:
+doses of a new drug on the proliferation of four different cancer cell lines in
+vitro. Divide each of the cell lines into four treatment groups, each with the 
+same number of cells. Treat each group with a different dose of the drug for 
+five consecutive days.
 
-Group 1: Control (no drug)
-Group 2: Low dose (10 μM)
-Group 3: Medium dose (50 μM)
-Group 4: High dose (100 μM)
+Group 1: Control (no drug)  
+Group 2: Low dose (10 μM) 
+Group 3: Medium dose (50 μM) 
+Group 4: High dose (100 μM) 
 
 
 ~~~
 # create dosage levels
 f <- factor(c("control", "low", "medium", "high"))
+# create random orderings of the treatment levels
 b1t <- sample(f, 4)
 b2t <- sample(f, 4)
 b3t <- sample(f, 4)
 b4t <- sample(f, 4)
 t <- c(b1t, b2t, b3t, b4t)
-block <- factor(rep(c("shelf1", "shelf2", "shelf3", "shelf4"), each = 4))
-cagenum <- rep(1:4, 4)
-plan <- data.frame(block = block, CageNumber = cagenum, treatment = t)
+block <- factor(rep(c("cellLine1", "cellLine2", "cellLine3", "cellLine4"), each = 4))
+groupnum <- rep(1:4, 4)
+plan <- data.frame(block = block, GroupNumber = groupnum, treatment = t)
 plan
 ~~~
 {: .language-r}
@@ -288,23 +322,23 @@ plan
 
 
 ~~~
-    block CageNumber treatment
-1  shelf1          1    medium
-2  shelf1          2       low
-3  shelf1          3      high
-4  shelf1          4   control
-5  shelf2          1      high
-6  shelf2          2       low
-7  shelf2          3   control
-8  shelf2          4    medium
-9  shelf3          1   control
-10 shelf3          2      high
-11 shelf3          3       low
-12 shelf3          4    medium
-13 shelf4          1    medium
-14 shelf4          2       low
-15 shelf4          3      high
-16 shelf4          4   control
+       block GroupNumber treatment
+1  cellLine1           1    medium
+2  cellLine1           2      high
+3  cellLine1           3       low
+4  cellLine1           4   control
+5  cellLine2           1       low
+6  cellLine2           2      high
+7  cellLine2           3    medium
+8  cellLine2           4   control
+9  cellLine3           1      high
+10 cellLine3           2       low
+11 cellLine3           3   control
+12 cellLine3           4    medium
+13 cellLine4           1       low
+14 cellLine4           2    medium
+15 cellLine4           3      high
+16 cellLine4           4   control
 ~~~
 {: .output}
 {% include links.md %}

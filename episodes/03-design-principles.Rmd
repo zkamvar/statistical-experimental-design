@@ -22,14 +22,21 @@ patients will affect each of them differently. A specific diet given to a cage
 of mice will affect each mouse differently. Ideally if something is measured 
 many times, each measurement will give exactly the same result and will 
 represent the true value. This ideal doesn't exist in the real world. For 
-example, the mass of one kilogram is defined by the International Prototype 
-Kilogram, a cylinder composed of platinum and iridium. Copies of this prototype kilogram (replicates) are distributed worldwide and are regularly compared to 
-the original to ensure the standard mass of one kilogram. None of the copies of 
-the prototype measure precisely the same despite careful storage and handling. 
-The reasons for this variation in measurements is not known.
+example, the mass of one kilogram is defined by the [https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram](International Prototype 
+Kilogram), a cylinder composed of platinum and iridium. 
+![International Prototype of the Kilogram](../fig/International_prototype_of_the_kilogram_aka_Le_Grand_K)
+
+Copies of this prototype kilogram (replicates) are distributed worldwide so each 
+country hosting a replica has its own national standard kilogram. None of the 
+replicas measure precisely the same despite careful storage and handling. 
+The reasons for this variation in measurements are not known. A kilogram in 
+Austria differs from a kilogram in Australia, which differs from that in Brazil,
+Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute 
+measure of mass shows real-world natural variability.
 
 ## Replication
-To figure out whether a difference in responses is real or inherently random, *replication* applies the same treatment to multiple experimental units. The
+To figure out whether a difference in responses is real or inherently random, 
+*replication* applies the same treatment to multiple experimental units. The
 variability of the responses within a set of replicates provides a measure 
 against which we can compare differences among different treatments. This 
 variability is known as *experimental error*. This does not mean that something 
@@ -95,6 +102,31 @@ that all samples will be equally subject to random error. A more precise way to
 mitigate random error is through blocking. 
 
 ## Randomization
+> ## Exercise 2: The efficient technician
+> Your technician colleague finds a way to simplify and expedite an experiment.
+> The experiment applies four different wheel-running treatments to twenty 
+> different mice over the course of five days. Four mice are treated 
+> individually each day for two hours each with a random selection of the four
+> treatments. Your clever colleague decides that a simplified protocol would 
+> work just as well and save time. Run treatment 1 five times on day 1, 
+> treatment 2 five times on day 2, and so on. Some overtime would be required 
+> each day but the experiment would be completed in only four days, and then 
+> they can take Friday off! 
+> Does this adjustment make sense to you?    
+> Can you foresee any problems with the experimental results?   
+>
+> >
+> > ## Solution to Exercise 2
+> > 
+> > Since each treatment is run on only one day, the day effectively becomes
+> > the experimental unit (explain this). Each experimental unit (day) has five
+> > samples (mice), but only one replication of each treatment. There is no 
+> > valid way to compare treatments as a result. There is no way to separate
+> > the treatment effect from the day-to-day differences in environment, 
+> > equipment setup, personnel, and other extraneous variables.
+> > 
+> {: .solution}
+{: .challenge}
 
 Why should treatments be randomly assigned to experimental units? Randomization
 minimizes bias and moderates experimental error (a.k.a. noise). A hat full of 
@@ -152,6 +184,7 @@ track of which samples are randomly assigned which diet.
 ```{r, write_out_plan}
 write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 ```
+
 > ## Discussion
 > Why not assign treatment and control groups to samples in alphabetical order?  
 > Did we really need a random number generator to obtain randomized equal groups?
@@ -178,28 +211,29 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 ## Blocking
 Experimental units can be grouped, or *blocked*, to increase the precision of
 treatment comparisons. Imagine that you want to evaluate the effect of different 
-doses of a new drug on the proliferation of cancer cells in vitro. Divide the 
-cells into four groups, each consisting of the same number of cells. Treat each 
-group with a different dose of the drug for five consecutive days. For example, 
-the four treatments could be:
+doses of a new drug on the proliferation of four different cancer cell lines in
+vitro. Divide each of the cell lines into four treatment groups, each with the 
+same number of cells. Treat each group with a different dose of the drug for 
+five consecutive days.
 
-Group 1: Control (no drug)
-Group 2: Low dose (10 μM)
-Group 3: Medium dose (50 μM)
-Group 4: High dose (100 μM)
+Group 1: Control (no drug)  
+Group 2: Low dose (10 μM) 
+Group 3: Medium dose (50 μM) 
+Group 4: High dose (100 μM) 
 
 ```{r, complete_random_block}
 
 # create dosage levels
 f <- factor(c("control", "low", "medium", "high"))
+# create random orderings of the treatment levels
 b1t <- sample(f, 4)
 b2t <- sample(f, 4)
 b3t <- sample(f, 4)
 b4t <- sample(f, 4)
 t <- c(b1t, b2t, b3t, b4t)
-block <- factor(rep(c("shelf1", "shelf2", "shelf3", "shelf4"), each = 4))
-cagenum <- rep(1:4, 4)
-plan <- data.frame(block = block, CageNumber = cagenum, treatment = t)
+block <- factor(rep(c("cellLine1", "cellLine2", "cellLine3", "cellLine4"), each = 4))
+groupnum <- rep(1:4, 4)
+plan <- data.frame(block = block, GroupNumber = groupnum, treatment = t)
 plan
 
 ```

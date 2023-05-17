@@ -60,31 +60,31 @@ random_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A            62      chow
-2         B            95  high fat
-3         C            96      chow
-4         D            22      chow
-5         E            17  high fat
-6         F            97  high fat
-7         G            87  high fat
-8         H            39  high fat
-9         I            16      chow
-10        J            24      chow
-11        K            19  high fat
-12        L            91  high fat
-13        M             5  high fat
-14        N            75  high fat
-15        O             6      chow
-16        P            45  high fat
-17        Q            63  high fat
-18        R             9  high fat
-19        S             7  high fat
-20        T            84      chow
-21        U            78      chow
-22        V            37  high fat
-23        W            55  high fat
-24        X            42      chow
-25        Y            90      chow
+1         A            24      chow
+2         B            90      chow
+3         C            57  high fat
+4         D            87  high fat
+5         E            83  high fat
+6         F            23  high fat
+7         G            98      chow
+8         H            26      chow
+9         I            60      chow
+10        J            30      chow
+11        K            80      chow
+12        L            93  high fat
+13        M            63  high fat
+14        N            45  high fat
+15        O            15  high fat
+16        P            48      chow
+17        Q           100      chow
+18        R            38      chow
+19        S            66      chow
+20        T            16      chow
+21        U            28      chow
+22        V            59  high fat
+23        W            82      chow
+24        X             5  high fat
+25        Y            12      chow
 26        Z            49  high fat
 ~~~
 {: .output}
@@ -166,22 +166,22 @@ plan
 
 ~~~
     block CageNumber treatment
-1  shelf1          1   control
-2  shelf1          2      high
-3  shelf1          3       low
-4  shelf1          4    medium
+1  shelf1          1    medium
+2  shelf1          2   control
+3  shelf1          3      high
+4  shelf1          4       low
 5  shelf2          1       low
-6  shelf2          2    medium
-7  shelf2          3      high
-8  shelf2          4   control
+6  shelf2          2   control
+7  shelf2          3    medium
+8  shelf2          4      high
 9  shelf3          1    medium
 10 shelf3          2       low
 11 shelf3          3      high
 12 shelf3          4   control
-13 shelf4          1      high
-14 shelf4          2    medium
-15 shelf4          3   control
-16 shelf4          4       low
+13 shelf4          1    medium
+14 shelf4          2       low
+15 shelf4          3      high
+16 shelf4          4   control
 ~~~
 {: .output}
 {% include links.md %}
