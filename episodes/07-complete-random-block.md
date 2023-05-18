@@ -60,32 +60,32 @@ random_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A            24      chow
-2         B            90      chow
-3         C            57  high fat
-4         D            87  high fat
-5         E            83  high fat
-6         F            23  high fat
-7         G            98      chow
-8         H            26      chow
-9         I            60      chow
-10        J            30      chow
-11        K            80      chow
-12        L            93  high fat
-13        M            63  high fat
-14        N            45  high fat
-15        O            15  high fat
-16        P            48      chow
-17        Q           100      chow
-18        R            38      chow
-19        S            66      chow
-20        T            16      chow
-21        U            28      chow
-22        V            59  high fat
-23        W            82      chow
-24        X             5  high fat
-25        Y            12      chow
-26        Z            49  high fat
+1         A            75  high fat
+2         B            72      chow
+3         C            65  high fat
+4         D            48      chow
+5         E             7  high fat
+6         F            35  high fat
+7         G            69  high fat
+8         H            12      chow
+9         I            25  high fat
+10        J            42      chow
+11        K            81  high fat
+12        L            89  high fat
+13        M            16      chow
+14        N            57  high fat
+15        O            13  high fat
+16        P            64      chow
+17        Q            79  high fat
+18        R            55  high fat
+19        S            39  high fat
+20        T            96      chow
+21        U            36      chow
+22        V            93  high fat
+23        W            88      chow
+24        X            15  high fat
+25        Y            85  high fat
+26        Z            51  high fat
 ~~~
 {: .output}
 
@@ -166,18 +166,18 @@ plan
 
 ~~~
     block CageNumber treatment
-1  shelf1          1    medium
-2  shelf1          2   control
+1  shelf1          1   control
+2  shelf1          2       low
 3  shelf1          3      high
-4  shelf1          4       low
-5  shelf2          1       low
-6  shelf2          2   control
-7  shelf2          3    medium
-8  shelf2          4      high
+4  shelf1          4    medium
+5  shelf2          1    medium
+6  shelf2          2      high
+7  shelf2          3   control
+8  shelf2          4       low
 9  shelf3          1    medium
-10 shelf3          2       low
-11 shelf3          3      high
-12 shelf3          4   control
+10 shelf3          2   control
+11 shelf3          3       low
+12 shelf3          4      high
 13 shelf4          1    medium
 14 shelf4          2       low
 15 shelf4          3      high

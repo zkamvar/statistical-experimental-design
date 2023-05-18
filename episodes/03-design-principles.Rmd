@@ -141,12 +141,14 @@ If the random number is even, the sample is assigned to the control group (the
 group that doesn't receive the treatment, in this case, regular chow). 
 
 ```{r, random_number_generator}
-exp_unit <- LETTERS
+# create the mouse IDs and 26 random numbers between 1 and 100
+mouse_ID <- LETTERS
 random_number <- sample(x = 100, size = 26)
 
-# %% is the modulo operator, which returns the remainder from division
+# %% is the modulo operator, which returns the remainder from division by 2
+# if the remainder is 0 (even number), regular chow diet is assigned
 treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
-random_allocation <- data.frame(exp_unit, random_number, treatment)
+random_allocation <- data.frame(mouse_ID, random_number, treatment)
 random_allocation
 ```
 
@@ -165,7 +167,7 @@ following.
 ```{r, equal_numbers}
 
 # place IDs and random numbers in data frame
-equal_allocation <- data.frame(exp_unit, random_number)
+equal_allocation <- data.frame(mouse_ID, random_number)
 
 # sort by random numbers (not by sample IDs)
 equal_allocation <- equal_allocation[order(random_number),]

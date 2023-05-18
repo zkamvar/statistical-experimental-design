@@ -62,32 +62,32 @@ random_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A            70      chow
-2         B            67  high fat
-3         C            64      chow
-4         D            55  high fat
-5         E            49  high fat
-6         F            91  high fat
-7         G            75  high fat
-8         H            93  high fat
-9         I             8      chow
-10        J            85  high fat
-11        K            16      chow
-12        L             6      chow
-13        M             5  high fat
-14        N            15  high fat
-15        O            76      chow
-16        P            57  high fat
-17        Q            81  high fat
-18        R            37  high fat
-19        S            45  high fat
-20        T            22      chow
-21        U            60      chow
-22        V            40      chow
-23        W            66      chow
-24        X            82      chow
-25        Y            73  high fat
-26        Z            31  high fat
+1         A            74      chow
+2         B            45  high fat
+3         C            24      chow
+4         D            61  high fat
+5         E             9  high fat
+6         F            66      chow
+7         G            46      chow
+8         H            21  high fat
+9         I            42      chow
+10        J            13  high fat
+11        K            17  high fat
+12        L            67  high fat
+13        M            22      chow
+14        N            44      chow
+15        O            77  high fat
+16        P            49  high fat
+17        Q            47  high fat
+18        R            86      chow
+19        S             5  high fat
+20        T            76      chow
+21        U            41  high fat
+22        V            53  high fat
+23        W            34      chow
+24        X            89  high fat
+25        Y            39  high fat
+26        Z             3  high fat
 ~~~
 {: .output}
 
@@ -103,7 +103,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-      11       15 
+      10       16 
 ~~~
 {: .output}
 
@@ -129,32 +129,32 @@ equal_allocation
 
 ~~~
    exp_unit random_number treatment
-1         M             5      chow
-2         L             6      chow
-3         I             8      chow
-4         N            15      chow
-5         K            16      chow
-6         T            22      chow
-7         Z            31      chow
-8         R            37      chow
-9         V            40      chow
-10        S            45      chow
-11        E            49      chow
-12        D            55      chow
-13        P            57      chow
-14        U            60  high fat
-15        C            64  high fat
-16        W            66  high fat
-17        B            67  high fat
-18        A            70  high fat
-19        Y            73  high fat
-20        G            75  high fat
-21        O            76  high fat
-22        Q            81  high fat
-23        X            82  high fat
-24        J            85  high fat
-25        F            91  high fat
-26        H            93  high fat
+1         Z             3      chow
+2         S             5      chow
+3         E             9      chow
+4         J            13      chow
+5         K            17      chow
+6         H            21      chow
+7         M            22      chow
+8         C            24      chow
+9         W            34      chow
+10        Y            39      chow
+11        U            41      chow
+12        I            42      chow
+13        N            44      chow
+14        B            45  high fat
+15        G            46  high fat
+16        Q            47  high fat
+17        P            49  high fat
+18        V            53  high fat
+19        D            61  high fat
+20        F            66  high fat
+21        L            67  high fat
+22        A            74  high fat
+23        T            76  high fat
+24        O            77  high fat
+25        R            86  high fat
+26        X            89  high fat
 ~~~
 {: .output}
 

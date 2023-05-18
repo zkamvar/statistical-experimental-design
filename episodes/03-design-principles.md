@@ -141,12 +141,14 @@ group that doesn't receive the treatment, in this case, regular chow).
 
 
 ~~~
-exp_unit <- LETTERS
+# create the mouse IDs and 26 random numbers between 1 and 100
+mouse_ID <- LETTERS
 random_number <- sample(x = 100, size = 26)
 
-# %% is the modulo operator, which returns the remainder from division
+# %% is the modulo operator, which returns the remainder from division by 2
+# if the remainder is 0 (even number), regular chow diet is assigned
 treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
-random_allocation <- data.frame(exp_unit, random_number, treatment)
+random_allocation <- data.frame(mouse_ID, random_number, treatment)
 random_allocation
 ~~~
 {: .language-r}
@@ -154,33 +156,33 @@ random_allocation
 
 
 ~~~
-   exp_unit random_number treatment
-1         A            15  high fat
-2         B             3  high fat
-3         C            70      chow
-4         D            44      chow
-5         E            29  high fat
-6         F            24      chow
-7         G            17  high fat
-8         H            84      chow
-9         I            97  high fat
-10        J            79  high fat
-11        K            80      chow
-12        L            10      chow
-13        M            20      chow
-14        N            86      chow
-15        O            98      chow
-16        P            43  high fat
-17        Q            64      chow
-18        R            69  high fat
-19        S            38      chow
-20        T            56      chow
-21        U            30      chow
-22        V            42      chow
-23        W            33  high fat
-24        X            47  high fat
-25        Y            41  high fat
-26        Z            74      chow
+   mouse_ID random_number treatment
+1         A            82      chow
+2         B             8      chow
+3         C            53  high fat
+4         D            79  high fat
+5         E            52      chow
+6         F            80      chow
+7         G             3  high fat
+8         H            73  high fat
+9         I            43  high fat
+10        J            13  high fat
+11        K            44      chow
+12        L            76      chow
+13        M            92      chow
+14        N            38      chow
+15        O            91  high fat
+16        P            40      chow
+17        Q            23  high fat
+18        R             1  high fat
+19        S            83  high fat
+20        T            22      chow
+21        U            70      chow
+22        V             6      chow
+23        W            48      chow
+24        X            69  high fat
+25        Y             2      chow
+26        Z            26      chow
 ~~~
 {: .output}
 
@@ -210,7 +212,7 @@ following.
 
 ~~~
 # place IDs and random numbers in data frame
-equal_allocation <- data.frame(exp_unit, random_number)
+equal_allocation <- data.frame(mouse_ID, random_number)
 
 # sort by random numbers (not by sample IDs)
 equal_allocation <- equal_allocation[order(random_number),]
@@ -226,33 +228,33 @@ equal_allocation
 
 
 ~~~
-   exp_unit random_number treatment
-1         B             3      chow
-2         L            10      chow
-3         A            15      chow
-4         G            17      chow
-5         M            20      chow
-6         F            24      chow
-7         E            29      chow
-8         U            30      chow
-9         W            33      chow
-10        S            38      chow
-11        Y            41      chow
-12        V            42      chow
-13        P            43      chow
-14        D            44  high fat
-15        X            47  high fat
-16        T            56  high fat
-17        Q            64  high fat
-18        R            69  high fat
-19        C            70  high fat
-20        Z            74  high fat
-21        J            79  high fat
-22        K            80  high fat
-23        H            84  high fat
-24        N            86  high fat
-25        I            97  high fat
-26        O            98  high fat
+   mouse_ID random_number treatment
+1         R             1      chow
+2         Y             2      chow
+3         G             3      chow
+4         V             6      chow
+5         B             8      chow
+6         J            13      chow
+7         T            22      chow
+8         Q            23      chow
+9         Z            26      chow
+10        N            38      chow
+11        P            40      chow
+12        I            43      chow
+13        K            44      chow
+14        W            48  high fat
+15        E            52  high fat
+16        C            53  high fat
+17        X            69  high fat
+18        U            70  high fat
+19        H            73  high fat
+20        L            76  high fat
+21        D            79  high fat
+22        F            80  high fat
+23        A            82  high fat
+24        S            83  high fat
+25        O            91  high fat
+26        M            92  high fat
 ~~~
 {: .output}
 
@@ -323,22 +325,22 @@ plan
 
 ~~~
        block GroupNumber treatment
-1  cellLine1           1    medium
-2  cellLine1           2      high
-3  cellLine1           3       low
-4  cellLine1           4   control
-5  cellLine2           1       low
+1  cellLine1           1      high
+2  cellLine1           2    medium
+3  cellLine1           3   control
+4  cellLine1           4       low
+5  cellLine2           1    medium
 6  cellLine2           2      high
-7  cellLine2           3    medium
+7  cellLine2           3       low
 8  cellLine2           4   control
-9  cellLine3           1      high
-10 cellLine3           2       low
-11 cellLine3           3   control
-12 cellLine3           4    medium
-13 cellLine4           1       low
-14 cellLine4           2    medium
-15 cellLine4           3      high
-16 cellLine4           4   control
+9  cellLine3           1    medium
+10 cellLine3           2   control
+11 cellLine3           3       low
+12 cellLine3           4      high
+13 cellLine4           1    medium
+14 cellLine4           2   control
+15 cellLine4           3       low
+16 cellLine4           4      high
 ~~~
 {: .output}
 {% include links.md %}
