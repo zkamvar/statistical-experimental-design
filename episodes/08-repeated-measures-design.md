@@ -57,32 +57,32 @@ random_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A            15  high fat
-2         B            58      chow
-3         C             8      chow
-4         D            79  high fat
-5         E            86      chow
-6         F            65  high fat
-7         G            60      chow
-8         H            69  high fat
-9         I            32      chow
-10        J           100      chow
-11        K            78      chow
-12        L            33  high fat
-13        M            74      chow
-14        N            28      chow
-15        O            97  high fat
-16        P            68      chow
-17        Q            83  high fat
-18        R            29  high fat
-19        S            23  high fat
-20        T            91  high fat
-21        U            10      chow
-22        V            76      chow
-23        W            49  high fat
-24        X            96      chow
-25        Y            39  high fat
-26        Z             3  high fat
+1         A            30      chow
+2         B            52      chow
+3         C            55  high fat
+4         D             6      chow
+5         E            51  high fat
+6         F            99  high fat
+7         G            98      chow
+8         H            60      chow
+9         I            56      chow
+10        J            45  high fat
+11        K            80      chow
+12        L            37  high fat
+13        M            84      chow
+14        N            33  high fat
+15        O            61  high fat
+16        P            97  high fat
+17        Q            59  high fat
+18        R            28      chow
+19        S            57  high fat
+20        T            18      chow
+21        U            64      chow
+22        V            49  high fat
+23        W            72      chow
+24        X             2      chow
+25        Y            15  high fat
+26        Z            38      chow
 ~~~
 {: .output}
 

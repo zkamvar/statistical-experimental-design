@@ -5,7 +5,7 @@ exercises: 0
 questions:
 - "How can information be extracted and communicated from experimental data?"
 objectives:
-- "Plotting the data reveals information in the data."
+- "Plotting reveals information in the data."
 - "Statistical significance testing compares experimental data obtained to probability distributions of data that might also be possible."
 - "A probability distribution is a mathematical function that gives the probabilities of different possible outcomes for an experiment."
 keypoints:
@@ -18,40 +18,51 @@ source("../bin/chunk-options.R")
 knitr_fig_path("03-")
 ```
 
-Variability is natural in the real world. A medication given to a group of 
-patients will affect each of them differently. A specific diet given to a cage
-of mice will affect each mouse differently. Ideally if something is measured 
-many times, each measurement will give exactly the same result and will 
-represent the true value. This ideal doesn't exist in the real world. For 
-example, the mass of one kilogram is defined by the International Prototype 
-Kilogram, a cylinder composed of platinum and iridium. Copies of this prototype kilogram (replicates) are distributed worldwide and are regularly compared to 
-the original to ensure the standard mass of one kilogram. None of the copies of 
-the prototype measure precisely the same despite careful storage and handling. 
-The reasons for this variation in measurements is not known.
+## The first step in data analysis: plot the data!
+A picture is worth a thousand words, and a picture of your data could reveal
+important information that can guide you forward. So first, plot the data!
 
-## the experiment
+```{r, simulate_gen100_data}
+# simulate Generation 100 resting heart rate data for the 1,567 study 
+# participants
+# rnorm() generates a random normal distribution from the mean and standard
+# deviation values you provide
+simulated_heart_rates <- rnorm(n = 1567, mean = 80, sd = 10)
+hist(simulated_heart_rates, xlab = "resting heart rate")
+```
+## A picture is worth a thousand words
 
-> ## Exercise 1: Which kind of error?
-> A study used to determine the effect of a drug on weight loss 
-> could have the following sources of experimental error. 
-> Classify the following sources as either biological, 
-> systematic, or random error.  
-> 1). A scale is broken and provides inconsistent readings.  
-> 2). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.   
-> 3). A mouse has an unusually high weight compared to its experimental group (i.e., it is an outlier).  
-> 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
->
+> ## Exercise 1: What does this picture tell you about resting heart rates?  
+> Are there gaps in the data?  
+> Are there large clusters of similar heart rate values in the data?  
+> Are there apparent outliers?  
+> Do the left and right tails of the data seem to mirror each other or not?
 > >
 > > ## Solution to Exercise 1
 > > 
-> > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
-> > 2). systematic  
-> > 3). biological  
-> > 4). random or systematic; you argue which and explain why
+> > 
 > > 
 > {: .solution}
 {: .challenge}
 
+Now create a boxplot of the same data.
+
+```{r, boxplot_simulated_gen100_data}
+boxplot(simulated_heart_rates)
+```
+
+> ## Exercise 2: What does this boxplot tell you about resting heart rates?  
+> What does the box signify?  
+> What does horizontal black line dividing the box signify?  
+> Are there apparent outliers?  
+> How does the boxplot relate to the histogram?
+> >
+> > ## Solution to Exercise 2
+> > 
+> > 
+> > 
+> {: .solution}
+{: .challenge}
 ## Plotting
 
 

@@ -19,27 +19,61 @@ source: Rmd
 
 ## Design issues
 
-> ## Exercise 1: Which kind of error?
-> A study used to determine the effect of a drug on weight loss 
-> could have the following sources of experimental error. 
-> Classify the following sources as either biological, 
-> systematic, or random error.  
-> 1). A scale is broken and provides inconsistent readings.  
-> 2). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.   
-> 3). A mouse has an unusually high weight compared to its experimental group (i.e., it is an outlier).  
-> 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
->
-> >
-> > ## Solution to Exercise 1
-> > 
-> > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
-> > 2). systematic  
-> > 3). biological  
-> > 4). random or systematic; you argue which and explain why
-> > 
-> {: .solution}
-{: .challenge}
+Imagine that you want to evaluate the effect of different 
+doses of a new drug on the proliferation of cancer cell lines in vitro. You use
+four different cancer cell lines because you would like the results to 
+generalize to many types of cell lines. Divide each of the cell lines into four 
+treatment groups, each with the same number of cells. Each treatment group
+receives a different dose of the drug for five consecutive days.
 
+Group 1: Control (no drug)  
+Group 2: Low dose (10 μM) 
+Group 3: Medium dose (50 μM) 
+Group 4: High dose (100 μM) 
+
+
+~~~
+# create treatment levels
+f <- factor(c("control", "low", "medium", "high"))
+
+# create random orderings of the treatment levels
+block1 <- sample(f, 4)
+block2 <- sample(f, 4)
+block3 <- sample(f, 4)
+block4 <- sample(f, 4)
+treatment <- c(block1, block2, block3, block4)
+block <- factor(rep(c("cellLine1", "cellLine2", "cellLine3", "cellLine4"), each = 4))
+dishnum <- rep(1:4, 4)
+plan <- data.frame(cellLine = block, DishNumber = dishnum, treatment = treatment)
+plan
+~~~
+{: .language-r}
+
+
+
+~~~
+    cellLine DishNumber treatment
+1  cellLine1          1   control
+2  cellLine1          2       low
+3  cellLine1          3    medium
+4  cellLine1          4      high
+5  cellLine2          1   control
+6  cellLine2          2       low
+7  cellLine2          3      high
+8  cellLine2          4    medium
+9  cellLine3          1      high
+10 cellLine3          2   control
+11 cellLine3          3       low
+12 cellLine3          4    medium
+13 cellLine4          1      high
+14 cellLine4          2       low
+15 cellLine4          3   control
+16 cellLine4          4    medium
+~~~
+{: .output}
+
+When analyzing a random complete block design, the effect of the block is 
+included in the equation along with the effect of the treatment. 
 
 ## Randomized block design with a single replication
 
@@ -60,32 +94,32 @@ random_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A            75  high fat
-2         B            72      chow
-3         C            65  high fat
-4         D            48      chow
-5         E             7  high fat
-6         F            35  high fat
-7         G            69  high fat
-8         H            12      chow
-9         I            25  high fat
-10        J            42      chow
-11        K            81  high fat
-12        L            89  high fat
-13        M            16      chow
-14        N            57  high fat
-15        O            13  high fat
-16        P            64      chow
-17        Q            79  high fat
-18        R            55  high fat
-19        S            39  high fat
-20        T            96      chow
-21        U            36      chow
-22        V            93  high fat
-23        W            88      chow
-24        X            15  high fat
-25        Y            85  high fat
-26        Z            51  high fat
+1         A            95  high fat
+2         B            38      chow
+3         C             2      chow
+4         D            32      chow
+5         E            55  high fat
+6         F            17  high fat
+7         G            24      chow
+8         H            31  high fat
+9         I            90      chow
+10        J            18      chow
+11        K            82      chow
+12        L            98      chow
+13        M            68      chow
+14        N            47  high fat
+15        O            41  high fat
+16        P            26      chow
+17        Q            11  high fat
+18        R            72      chow
+19        S            27  high fat
+20        T            83  high fat
+21        U             8      chow
+22        V            60      chow
+23        W            37  high fat
+24        X            51  high fat
+25        Y            33  high fat
+26        Z            13  high fat
 ~~~
 {: .output}
 
@@ -130,58 +164,4 @@ Error in is.data.frame(x): object 'equal_allocation' not found
 
 ## Balanced incomplete block designs
 
-
-
-
-
-Experimental units can be grouped, or *blocked*, to increase the precision of
-treatment comparisons. Imagine that you want to evaluate the effect of different 
-doses of a new drug on the proliferation of cancer cells in vitro. Divide the 
-cells into four groups, each consisting of the same number of cells. Treat each 
-group with a different dose of the drug for five consecutive days. For example, 
-the four treatments could be:
-
-Group 1: Control (no drug)
-Group 2: Low dose (10 μM)
-Group 3: Medium dose (50 μM)
-Group 4: High dose (100 μM)
-
-
-~~~
-# create dosage levels
-f <- factor(c("control", "low", "medium", "high"))
-b1t <- sample(f, 4)
-b2t <- sample(f, 4)
-b3t <- sample(f, 4)
-b4t <- sample(f, 4)
-t <- c(b1t, b2t, b3t, b4t)
-block <- factor(rep(c("shelf1", "shelf2", "shelf3", "shelf4"), each = 4))
-cagenum <- rep(1:4, 4)
-plan <- data.frame(block = block, CageNumber = cagenum, treatment = t)
-plan
-~~~
-{: .language-r}
-
-
-
-~~~
-    block CageNumber treatment
-1  shelf1          1   control
-2  shelf1          2       low
-3  shelf1          3      high
-4  shelf1          4    medium
-5  shelf2          1    medium
-6  shelf2          2      high
-7  shelf2          3   control
-8  shelf2          4       low
-9  shelf3          1    medium
-10 shelf3          2   control
-11 shelf3          3       low
-12 shelf3          4      high
-13 shelf4          1    medium
-14 shelf4          2       low
-15 shelf4          3      high
-16 shelf4          4   control
-~~~
-{: .output}
 {% include links.md %}

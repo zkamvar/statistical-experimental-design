@@ -7,7 +7,7 @@ exercises: 0
 questions:
 - "How can information be extracted and communicated from experimental data?"
 objectives:
-- "Plotting the data reveals information in the data."
+- "Plotting reveals information in the data."
 - "Statistical significance testing compares experimental data obtained to probability distributions of data that might also be possible."
 - "A probability distribution is a mathematical function that gives the probabilities of different possible outcomes for an experiment."
 keypoints:
@@ -17,40 +17,59 @@ source: Rmd
 
 
 
-Variability is natural in the real world. A medication given to a group of 
-patients will affect each of them differently. A specific diet given to a cage
-of mice will affect each mouse differently. Ideally if something is measured 
-many times, each measurement will give exactly the same result and will 
-represent the true value. This ideal doesn't exist in the real world. For 
-example, the mass of one kilogram is defined by the International Prototype 
-Kilogram, a cylinder composed of platinum and iridium. Copies of this prototype kilogram (replicates) are distributed worldwide and are regularly compared to 
-the original to ensure the standard mass of one kilogram. None of the copies of 
-the prototype measure precisely the same despite careful storage and handling. 
-The reasons for this variation in measurements is not known.
+## The first step in data analysis: plot the data!
+A picture is worth a thousand words, and a picture of your data could reveal
+important information that can guide you forward. So first, plot the data!
 
-## the experiment
 
-> ## Exercise 1: Which kind of error?
-> A study used to determine the effect of a drug on weight loss 
-> could have the following sources of experimental error. 
-> Classify the following sources as either biological, 
-> systematic, or random error.  
-> 1). A scale is broken and provides inconsistent readings.  
-> 2). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.   
-> 3). A mouse has an unusually high weight compared to its experimental group (i.e., it is an outlier).  
-> 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
->
+~~~
+# simulate Generation 100 resting heart rate data for the 1,567 study 
+# participants
+# rnorm() generates a random normal distribution from the mean and standard
+# deviation values you provide
+simulated_heart_rates <- rnorm(n = 1567, mean = 80, sd = 10)
+hist(simulated_heart_rates, xlab = "resting heart rate")
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-03-simulate_gen100_data-1.png" alt="plot of chunk simulate_gen100_data" width="612" style="display: block; margin: auto;" />
+## A picture is worth a thousand words
+
+> ## Exercise 1: What does this picture tell you about resting heart rates?  
+> Are there gaps in the data?  
+> Are there large clusters of similar heart rate values in the data?  
+> Are there apparent outliers?  
+> Do the left and right tails of the data seem to mirror each other or not?
 > >
 > > ## Solution to Exercise 1
 > > 
-> > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
-> > 2). systematic  
-> > 3). biological  
-> > 4). random or systematic; you argue which and explain why
+> > 
 > > 
 > {: .solution}
 {: .challenge}
 
+Now create a boxplot of the same data.
+
+
+~~~
+boxplot(simulated_heart_rates)
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-03-boxplot_simulated_gen100_data-1.png" alt="plot of chunk boxplot_simulated_gen100_data" width="612" style="display: block; margin: auto;" />
+
+> ## Exercise 2: What does this boxplot tell you about resting heart rates?  
+> What does the box signify?  
+> What does horizontal black line dividing the box signify?  
+> Are there apparent outliers?  
+> How does the boxplot relate to the histogram?
+> >
+> > ## Solution to Exercise 2
+> > 
+> > 
+> > 
+> {: .solution}
+{: .challenge}
 ## Plotting
 
 
@@ -70,32 +89,32 @@ random_allocation
 
 ~~~
    exp_unit random_number treatment
-1         A            90      chow
-2         B            52      chow
-3         C            42      chow
-4         D            63  high fat
-5         E            60      chow
-6         F             2      chow
-7         G            19  high fat
-8         H            83  high fat
-9         I            86      chow
-10        J            89  high fat
-11        K            81  high fat
-12        L            93  high fat
-13        M            65  high fat
-14        N             7  high fat
-15        O            67  high fat
-16        P            61  high fat
-17        Q            70      chow
-18        R            57  high fat
-19        S            77  high fat
-20        T            53  high fat
-21        U            51  high fat
-22        V            50      chow
-23        W            92      chow
-24        X            75  high fat
-25        Y            34      chow
-26        Z             8      chow
+1         A            72      chow
+2         B            34      chow
+3         C            96      chow
+4         D            97  high fat
+5         E            81  high fat
+6         F            57  high fat
+7         G            49  high fat
+8         H            44      chow
+9         I            23  high fat
+10        J            73  high fat
+11        K            80      chow
+12        L            18      chow
+13        M            85  high fat
+14        N            25  high fat
+15        O            94      chow
+16        P            22      chow
+17        Q            36      chow
+18        R            82      chow
+19        S            48      chow
+20        T            11  high fat
+21        U            31  high fat
+22        V            76      chow
+23        W            69  high fat
+24        X             6      chow
+25        Y            62      chow
+26        Z            65  high fat
 ~~~
 {: .output}
 
@@ -112,7 +131,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-      11       15 
+      14       12 
 ~~~
 {: .output}
 
@@ -138,32 +157,32 @@ equal_allocation
 
 ~~~
    exp_unit random_number treatment
-1         F             2      chow
-2         N             7      chow
-3         Z             8      chow
-4         G            19      chow
-5         Y            34      chow
-6         C            42      chow
-7         V            50      chow
-8         U            51      chow
-9         B            52      chow
-10        T            53      chow
-11        R            57      chow
-12        E            60      chow
-13        P            61      chow
-14        D            63  high fat
-15        M            65  high fat
-16        O            67  high fat
-17        Q            70  high fat
-18        X            75  high fat
-19        S            77  high fat
-20        K            81  high fat
-21        H            83  high fat
-22        I            86  high fat
-23        J            89  high fat
-24        A            90  high fat
-25        W            92  high fat
-26        L            93  high fat
+1         X             6      chow
+2         T            11      chow
+3         L            18      chow
+4         P            22      chow
+5         I            23      chow
+6         N            25      chow
+7         U            31      chow
+8         B            34      chow
+9         Q            36      chow
+10        H            44      chow
+11        S            48      chow
+12        G            49      chow
+13        F            57      chow
+14        Y            62  high fat
+15        Z            65  high fat
+16        W            69  high fat
+17        A            72  high fat
+18        J            73  high fat
+19        V            76  high fat
+20        K            80  high fat
+21        E            81  high fat
+22        R            82  high fat
+23        M            85  high fat
+24        O            94  high fat
+25        C            96  high fat
+26        D            97  high fat
 ~~~
 {: .output}
 

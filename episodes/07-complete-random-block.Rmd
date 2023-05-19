@@ -20,27 +20,37 @@ knitr_fig_path("03-")
 
 ## Design issues
 
-> ## Exercise 1: Which kind of error?
-> A study used to determine the effect of a drug on weight loss 
-> could have the following sources of experimental error. 
-> Classify the following sources as either biological, 
-> systematic, or random error.  
-> 1). A scale is broken and provides inconsistent readings.  
-> 2). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.   
-> 3). A mouse has an unusually high weight compared to its experimental group (i.e., it is an outlier).  
-> 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
->
-> >
-> > ## Solution to Exercise 1
-> > 
-> > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
-> > 2). systematic  
-> > 3). biological  
-> > 4). random or systematic; you argue which and explain why
-> > 
-> {: .solution}
-{: .challenge}
+Imagine that you want to evaluate the effect of different 
+doses of a new drug on the proliferation of cancer cell lines in vitro. You use
+four different cancer cell lines because you would like the results to 
+generalize to many types of cell lines. Divide each of the cell lines into four 
+treatment groups, each with the same number of cells. Each treatment group
+receives a different dose of the drug for five consecutive days.
 
+Group 1: Control (no drug)  
+Group 2: Low dose (10 μM) 
+Group 3: Medium dose (50 μM) 
+Group 4: High dose (100 μM) 
+
+```{r, complete_random_block}
+
+# create treatment levels
+f <- factor(c("control", "low", "medium", "high"))
+
+# create random orderings of the treatment levels
+block1 <- sample(f, 4)
+block2 <- sample(f, 4)
+block3 <- sample(f, 4)
+block4 <- sample(f, 4)
+treatment <- c(block1, block2, block3, block4)
+block <- factor(rep(c("cellLine1", "cellLine2", "cellLine3", "cellLine4"), each = 4))
+dishnum <- rep(1:4, 4)
+plan <- data.frame(cellLine = block, DishNumber = dishnum, treatment = treatment)
+plan
+```
+
+When analyzing a random complete block design, the effect of the block is 
+included in the equation along with the effect of the treatment. 
 
 ## Randomized block design with a single replication
 
@@ -87,35 +97,4 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 
 ## Balanced incomplete block designs
 
-
-
-
-
-Experimental units can be grouped, or *blocked*, to increase the precision of
-treatment comparisons. Imagine that you want to evaluate the effect of different 
-doses of a new drug on the proliferation of cancer cells in vitro. Divide the 
-cells into four groups, each consisting of the same number of cells. Treat each 
-group with a different dose of the drug for five consecutive days. For example, 
-the four treatments could be:
-
-Group 1: Control (no drug)
-Group 2: Low dose (10 μM)
-Group 3: Medium dose (50 μM)
-Group 4: High dose (100 μM)
-
-```{r, complete_random_block}
-
-# create dosage levels
-f <- factor(c("control", "low", "medium", "high"))
-b1t <- sample(f, 4)
-b2t <- sample(f, 4)
-b3t <- sample(f, 4)
-b4t <- sample(f, 4)
-t <- c(b1t, b2t, b3t, b4t)
-block <- factor(rep(c("shelf1", "shelf2", "shelf3", "shelf4"), each = 4))
-cagenum <- rep(1:4, 4)
-plan <- data.frame(block = block, CageNumber = cagenum, treatment = t)
-plan
-
-```
 {% include links.md %}

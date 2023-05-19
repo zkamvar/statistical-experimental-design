@@ -22,9 +22,10 @@ patients will affect each of them differently. A specific diet given to a cage
 of mice will affect each mouse differently. Ideally if something is measured 
 many times, each measurement will give exactly the same result and will 
 represent the true value. This ideal doesn't exist in the real world. For 
-example, the mass of one kilogram is defined by the [https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram](International Prototype 
-Kilogram), a cylinder composed of platinum and iridium. 
-![International Prototype of the Kilogram](../fig/International_prototype_of_the_kilogram_aka_Le_Grand_K)
+example, the mass of one kilogram is defined by the (https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram)[International Prototype 
+Kilogram], a cylinder composed of platinum and iridium about the size of a golf
+ball. 
+![International Prototype of the Kilogram](../fig/International_prototype_of_the_kilogram_aka_Le_Grand_K.png)
 
 Copies of this prototype kilogram (replicates) are distributed worldwide so each 
 country hosting a replica has its own national standard kilogram. None of the 
@@ -32,7 +33,8 @@ replicas measure precisely the same despite careful storage and handling.
 The reasons for this variation in measurements are not known. A kilogram in 
 Austria differs from a kilogram in Australia, which differs from that in Brazil,
 Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute 
-measure of mass shows real-world natural variability.
+measure of mass shows real-world natural variability. Variability is also a 
+natural part of every experiment we undertake.
 
 ## Replication
 To figure out whether a difference in responses is real or inherently random, 
@@ -195,11 +197,21 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 > > ## Solution 
 > > 
 > > 1). Scenario: One technician processed samples A through M, and a different 
-> > technician processed samples N through Z.  
+> > technician processed samples N through Z. Might the first technician have
+> > processed samples somewhat differently from the second technician? If so,
+> > there would be a "technician effect" in the results that would be difficult
+> > to separate from the treatment effect.
 > > 2). Another scenario: Samples A through M were processed on a Monday, and 
-> > samples N through Z on a Tuesday.  
+> > samples N through Z on a Tuesday. Might the weather or the environment in
+> > general have been different between Monday and Tuesday? What if a big
+> > construction project started on Tuesday, or the whole team had a birthday
+> > gathering for one of their members, or anything else in the environment 
+> > differed between Monday and Tuesday? If so, there would be a 
+> > "day-of-the-week effect" in the results that would be difficult to
+> > separate from the treatment effect. 
 > > 3). Yet another scenario: Samples A through M were from one strain, and 
-> > samples N through Z from a different strain.    
+> > samples N through Z from a different strain. How would you be able to 
+> > distinguish between the treatment effect and the strain effect?
 > > 4). Yet another scenario: Samples with consecutive ids were all sibling 
 > > groups. For example, samples A, B and C were all siblings, and all assigned 
 > > to the same treatment.  
@@ -212,31 +224,5 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 
 ## Blocking
 Experimental units can be grouped, or *blocked*, to increase the precision of
-treatment comparisons. Imagine that you want to evaluate the effect of different 
-doses of a new drug on the proliferation of four different cancer cell lines in
-vitro. Divide each of the cell lines into four treatment groups, each with the 
-same number of cells. Treat each group with a different dose of the drug for 
-five consecutive days.
-
-Group 1: Control (no drug)  
-Group 2: Low dose (10 μM) 
-Group 3: Medium dose (50 μM) 
-Group 4: High dose (100 μM) 
-
-```{r, complete_random_block}
-
-# create dosage levels
-f <- factor(c("control", "low", "medium", "high"))
-# create random orderings of the treatment levels
-b1t <- sample(f, 4)
-b2t <- sample(f, 4)
-b3t <- sample(f, 4)
-b4t <- sample(f, 4)
-t <- c(b1t, b2t, b3t, b4t)
-block <- factor(rep(c("cellLine1", "cellLine2", "cellLine3", "cellLine4"), each = 4))
-groupnum <- rep(1:4, 4)
-plan <- data.frame(block = block, GroupNumber = groupnum, treatment = t)
-plan
-
-```
+treatment comparisons. 
 {% include links.md %}

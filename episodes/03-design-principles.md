@@ -21,9 +21,10 @@ patients will affect each of them differently. A specific diet given to a cage
 of mice will affect each mouse differently. Ideally if something is measured 
 many times, each measurement will give exactly the same result and will 
 represent the true value. This ideal doesn't exist in the real world. For 
-example, the mass of one kilogram is defined by the [https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram](International Prototype 
-Kilogram), a cylinder composed of platinum and iridium. 
-![International Prototype of the Kilogram](../fig/International_prototype_of_the_kilogram_aka_Le_Grand_K)
+example, the mass of one kilogram is defined by the (https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram)[International Prototype 
+Kilogram], a cylinder composed of platinum and iridium about the size of a golf
+ball. 
+![International Prototype of the Kilogram](../fig/International_prototype_of_the_kilogram_aka_Le_Grand_K.png)
 
 Copies of this prototype kilogram (replicates) are distributed worldwide so each 
 country hosting a replica has its own national standard kilogram. None of the 
@@ -31,7 +32,8 @@ replicas measure precisely the same despite careful storage and handling.
 The reasons for this variation in measurements are not known. A kilogram in 
 Austria differs from a kilogram in Australia, which differs from that in Brazil,
 Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute 
-measure of mass shows real-world natural variability.
+measure of mass shows real-world natural variability. Variability is also a 
+natural part of every experiment we undertake.
 
 ## Replication
 To figure out whether a difference in responses is real or inherently random, 
@@ -157,32 +159,32 @@ random_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         A            82      chow
+1         A            45  high fat
 2         B             8      chow
-3         C            53  high fat
-4         D            79  high fat
-5         E            52      chow
-6         F            80      chow
-7         G             3  high fat
-8         H            73  high fat
-9         I            43  high fat
-10        J            13  high fat
-11        K            44      chow
-12        L            76      chow
-13        M            92      chow
-14        N            38      chow
-15        O            91  high fat
-16        P            40      chow
-17        Q            23  high fat
-18        R             1  high fat
-19        S            83  high fat
-20        T            22      chow
-21        U            70      chow
-22        V             6      chow
-23        W            48      chow
-24        X            69  high fat
-25        Y             2      chow
-26        Z            26      chow
+3         C            11  high fat
+4         D            28      chow
+5         E            59  high fat
+6         F             5  high fat
+7         G            19  high fat
+8         H            46      chow
+9         I            30      chow
+10        J            96      chow
+11        K            67  high fat
+12        L            62      chow
+13        M            94      chow
+14        N            69  high fat
+15        O            87  high fat
+16        P            72      chow
+17        Q            76      chow
+18        R            89  high fat
+19        S            75  high fat
+20        T             7  high fat
+21        U            44      chow
+22        V            52      chow
+23        W           100      chow
+24        X            65  high fat
+25        Y            10      chow
+26        Z            14      chow
 ~~~
 {: .output}
 
@@ -202,7 +204,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-      15       11 
+      14       12 
 ~~~
 {: .output}
 
@@ -229,32 +231,32 @@ equal_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         R             1      chow
-2         Y             2      chow
-3         G             3      chow
-4         V             6      chow
-5         B             8      chow
-6         J            13      chow
-7         T            22      chow
-8         Q            23      chow
-9         Z            26      chow
-10        N            38      chow
-11        P            40      chow
-12        I            43      chow
-13        K            44      chow
-14        W            48  high fat
-15        E            52  high fat
-16        C            53  high fat
-17        X            69  high fat
-18        U            70  high fat
-19        H            73  high fat
-20        L            76  high fat
-21        D            79  high fat
-22        F            80  high fat
-23        A            82  high fat
-24        S            83  high fat
-25        O            91  high fat
-26        M            92  high fat
+1         F             5      chow
+2         T             7      chow
+3         B             8      chow
+4         Y            10      chow
+5         C            11      chow
+6         Z            14      chow
+7         G            19      chow
+8         D            28      chow
+9         I            30      chow
+10        U            44      chow
+11        A            45      chow
+12        H            46      chow
+13        V            52      chow
+14        E            59  high fat
+15        L            62  high fat
+16        X            65  high fat
+17        K            67  high fat
+18        N            69  high fat
+19        P            72  high fat
+20        S            75  high fat
+21        Q            76  high fat
+22        O            87  high fat
+23        R            89  high fat
+24        M            94  high fat
+25        J            96  high fat
+26        W           100  high fat
 ~~~
 {: .output}
 
@@ -276,11 +278,21 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 > > ## Solution 
 > > 
 > > 1). Scenario: One technician processed samples A through M, and a different 
-> > technician processed samples N through Z.  
+> > technician processed samples N through Z. Might the first technician have
+> > processed samples somewhat differently from the second technician? If so,
+> > there would be a "technician effect" in the results that would be difficult
+> > to separate from the treatment effect.
 > > 2). Another scenario: Samples A through M were processed on a Monday, and 
-> > samples N through Z on a Tuesday.  
+> > samples N through Z on a Tuesday. Might the weather or the environment in
+> > general have been different between Monday and Tuesday? What if a big
+> > construction project started on Tuesday, or the whole team had a birthday
+> > gathering for one of their members, or anything else in the environment 
+> > differed between Monday and Tuesday? If so, there would be a 
+> > "day-of-the-week effect" in the results that would be difficult to
+> > separate from the treatment effect. 
 > > 3). Yet another scenario: Samples A through M were from one strain, and 
-> > samples N through Z from a different strain.    
+> > samples N through Z from a different strain. How would you be able to 
+> > distinguish between the treatment effect and the strain effect?
 > > 4). Yet another scenario: Samples with consecutive ids were all sibling 
 > > groups. For example, samples A, B and C were all siblings, and all assigned 
 > > to the same treatment.  
@@ -293,54 +305,5 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 
 ## Blocking
 Experimental units can be grouped, or *blocked*, to increase the precision of
-treatment comparisons. Imagine that you want to evaluate the effect of different 
-doses of a new drug on the proliferation of four different cancer cell lines in
-vitro. Divide each of the cell lines into four treatment groups, each with the 
-same number of cells. Treat each group with a different dose of the drug for 
-five consecutive days.
-
-Group 1: Control (no drug)  
-Group 2: Low dose (10 μM) 
-Group 3: Medium dose (50 μM) 
-Group 4: High dose (100 μM) 
-
-
-~~~
-# create dosage levels
-f <- factor(c("control", "low", "medium", "high"))
-# create random orderings of the treatment levels
-b1t <- sample(f, 4)
-b2t <- sample(f, 4)
-b3t <- sample(f, 4)
-b4t <- sample(f, 4)
-t <- c(b1t, b2t, b3t, b4t)
-block <- factor(rep(c("cellLine1", "cellLine2", "cellLine3", "cellLine4"), each = 4))
-groupnum <- rep(1:4, 4)
-plan <- data.frame(block = block, GroupNumber = groupnum, treatment = t)
-plan
-~~~
-{: .language-r}
-
-
-
-~~~
-       block GroupNumber treatment
-1  cellLine1           1      high
-2  cellLine1           2    medium
-3  cellLine1           3   control
-4  cellLine1           4       low
-5  cellLine2           1    medium
-6  cellLine2           2      high
-7  cellLine2           3       low
-8  cellLine2           4   control
-9  cellLine3           1    medium
-10 cellLine3           2   control
-11 cellLine3           3       low
-12 cellLine3           4      high
-13 cellLine4           1    medium
-14 cellLine4           2   control
-15 cellLine4           3       low
-16 cellLine4           4      high
-~~~
-{: .output}
+treatment comparisons. 
 {% include links.md %}
