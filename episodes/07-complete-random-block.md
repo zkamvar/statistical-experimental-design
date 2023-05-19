@@ -53,22 +53,22 @@ plan
 
 ~~~
     cellLine DishNumber treatment
-1  cellLine1          1   control
-2  cellLine1          2       low
-3  cellLine1          3    medium
-4  cellLine1          4      high
+1  cellLine1          1      high
+2  cellLine1          2    medium
+3  cellLine1          3   control
+4  cellLine1          4       low
 5  cellLine2          1   control
-6  cellLine2          2       low
+6  cellLine2          2    medium
 7  cellLine2          3      high
-8  cellLine2          4    medium
-9  cellLine3          1      high
-10 cellLine3          2   control
+8  cellLine2          4       low
+9  cellLine3          1   control
+10 cellLine3          2      high
 11 cellLine3          3       low
 12 cellLine3          4    medium
-13 cellLine4          1      high
-14 cellLine4          2       low
-15 cellLine4          3   control
-16 cellLine4          4    medium
+13 cellLine4          1       low
+14 cellLine4          2   control
+15 cellLine4          3    medium
+16 cellLine4          4      high
 ~~~
 {: .output}
 
@@ -78,87 +78,8 @@ included in the equation along with the effect of the treatment.
 ## Randomized block design with a single replication
 
 
-
-~~~
-exp_unit <- LETTERS
-random_number <- sample(x = 100, size = 26)
-
-# %% is the modulo operator, which returns the remainder from division
-treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
-random_allocation <- data.frame(exp_unit, random_number, treatment)
-random_allocation
-~~~
-{: .language-r}
-
-
-
-~~~
-   exp_unit random_number treatment
-1         A            95  high fat
-2         B            38      chow
-3         C             2      chow
-4         D            32      chow
-5         E            55  high fat
-6         F            17  high fat
-7         G            24      chow
-8         H            31  high fat
-9         I            90      chow
-10        J            18      chow
-11        K            82      chow
-12        L            98      chow
-13        M            68      chow
-14        N            47  high fat
-15        O            41  high fat
-16        P            26      chow
-17        Q            11  high fat
-18        R            72      chow
-19        S            27  high fat
-20        T            83  high fat
-21        U             8      chow
-22        V            60      chow
-23        W            37  high fat
-24        X            51  high fat
-25        Y            33  high fat
-26        Z            13  high fat
-~~~
-{: .output}
-
 ## Sizing a randomized block experiment
 
-
-~~~
-write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in is.data.frame(x): object 'equal_allocation' not found
-~~~
-{: .error}
-> ## Discussion
-> Why not assign treatment and control groups to samples in alphabetical order?  
-> Did we really need a random number generator to obtain randomized equal groups?
->
-> >
-> > ## Solution 
-> > 
-> > 1). Scenario: One technician processed samples A through M, and a different 
-> > technician processed samples N through Z.  
-> > 2). Another scenario: Samples A through M were processed on a Monday, and 
-> > samples N through Z on a Tuesday.  
-> > 3). Yet another scenario: Samples A through M were from one strain, and 
-> > samples N through Z from a different strain.    
-> > 4). Yet another scenario: Samples with consecutive ids were all sibling 
-> > groups. For example, samples A, B and C were all siblings, and all assigned 
-> > to the same treatment.  
-> > All of these cases would have introduced an effect (from the technician, the 
-> > day of the week, the strain, or sibling relationships) that would confound 
-> > the results and lead to misinterpretation.
-> > 
-> {: .solution}
-{: .challenge}
 
 ## True replication
 

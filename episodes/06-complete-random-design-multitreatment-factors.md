@@ -17,28 +17,4 @@ source: Rmd
 
 
 
-
-> ## Exercise 1: Which kind of error?
-> A study used to determine the effect of a drug on weight loss 
-> could have the following sources of experimental error. 
-> Classify the following sources as either biological, 
-> systematic, or random error.  
-> 1). A scale is broken and provides inconsistent readings.  
-> 2). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.   
-> 3). A mouse has an unusually high weight compared to its experimental group (i.e., it is an outlier).  
-> 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
->
-> >
-> > ## Solution to Exercise 1
-> > 
-> > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
-> > 2). systematic  
-> > 3). biological  
-> > 4). random or systematic; you argue which and explain why
-> > 
-> {: .solution}
-{: .challenge}
-
-
-## 
 {% include links.md %}

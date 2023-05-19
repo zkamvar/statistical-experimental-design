@@ -63,68 +63,8 @@ boxplot(simulated_heart_rates)
 > > 
 > {: .solution}
 {: .challenge}
+
 ## Plotting
-
-
-```{r, random_number_generator}
-exp_unit <- LETTERS
-random_number <- sample(x = 100, size = 26)
-
-# %% is the modulo operator, which returns the remainder from division
-treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
-random_allocation <- data.frame(exp_unit, random_number, treatment)
-random_allocation
-```
-
-
-
-```{r, random_assignment_table1}
-table(random_allocation$treatment)
-```
-
-
-
-```{r, equal_numbers}
-
-# place IDs and random numbers in data frame
-equal_allocation <- data.frame(exp_unit, random_number)
-
-# sort by random numbers (not by sample IDs)
-equal_allocation <- equal_allocation[order(random_number),]
-
-# now assign to treatment or control groups
-treatment <- sort(rep(x = c("chow", "high fat"), times = 13))
-equal_allocation <- cbind(equal_allocation, treatment)
-row.names(equal_allocation) <- 1:26
-equal_allocation
-```
-
-
-```{r, write_out_plan}
-write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
-```
-> ## Discussion
-> Why not assign treatment and control groups to samples in alphabetical order?  
-> Did we really need a random number generator to obtain randomized equal groups?
->
-> >
-> > ## Solution 
-> > 
-> > 1). Scenario: One technician processed samples A through M, and a different 
-> > technician processed samples N through Z.  
-> > 2). Another scenario: Samples A through M were processed on a Monday, and 
-> > samples N through Z on a Tuesday.  
-> > 3). Yet another scenario: Samples A through M were from one strain, and 
-> > samples N through Z from a different strain.    
-> > 4). Yet another scenario: Samples with consecutive ids were all sibling 
-> > groups. For example, samples A, B and C were all siblings, and all assigned 
-> > to the same treatment.  
-> > All of these cases would have introduced an effect (from the technician, the 
-> > day of the week, the strain, or sibling relationships) that would confound 
-> > the results and lead to misinterpretation.
-> > 
-> {: .solution}
-{: .challenge}
 
 ## Statistical significance testing
 
