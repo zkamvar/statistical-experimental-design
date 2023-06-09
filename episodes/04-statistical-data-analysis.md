@@ -19,7 +19,7 @@ source: Rmd
 
 ## The first step in data analysis: plot the data!
 A picture is worth a thousand words, and a picture of your data could reveal
-important information that can guide you forward. So first, plot the data!
+important information that can guide you forward. So firxst, plot the data!
 
 
 ~~~
@@ -32,14 +32,19 @@ hist(simulated_heart_rates, xlab = "resting heart rate")
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-03-simulate_gen100_data-1.png" alt="plot of chunk simulate_gen100_data" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-simulate_gen100_data-1.png" alt="plot of chunk simulate_gen100_data" width="612" />
+<p class="caption">plot of chunk simulate_gen100_data</p>
+</div>
 ## A picture is worth a thousand words
 
 > ## Exercise 1: What does this picture tell you about resting heart rates?  
+> Do the data appear to be normally distributed? Why does this matter?  
+> Do the left and right tails of the data seem to mirror each other or not?  
 > Are there gaps in the data?  
 > Are there large clusters of similar heart rate values in the data?  
 > Are there apparent outliers?  
-> Do the left and right tails of the data seem to mirror each other or not?
+> What message do the data deliver in this histogram?  
 > >
 > > ## Solution to Exercise 1
 > > 
@@ -56,13 +61,17 @@ boxplot(simulated_heart_rates)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-03-boxplot_simulated_gen100_data-1.png" alt="plot of chunk boxplot_simulated_gen100_data" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-boxplot_simulated_gen100_data-1.png" alt="plot of chunk boxplot_simulated_gen100_data" width="612" />
+<p class="caption">plot of chunk boxplot_simulated_gen100_data</p>
+</div>
 
 > ## Exercise 2: What does this boxplot tell you about resting heart rates?  
 > What does the box signify?  
 > What does horizontal black line dividing the box signify?  
 > Are there apparent outliers?  
 > How does the boxplot relate to the histogram?
+> What message do the data deliver in this boxplot?  
 > >
 > > ## Solution to Exercise 2
 > > 
@@ -72,10 +81,28 @@ boxplot(simulated_heart_rates)
 {: .challenge}
 
 ## Plotting
+Plotting the data can reveal relationships between variables, identify unusual 
+response measurements (**outliers**) and guide further statistical analysis.
+When data are not normally distributed (bell-shaped and symmetrical), many of 
+the statistical methods typically used will not perform well. In these cases
+the data can be transformed to a more symmetrical bell-shaped curve.
 
 ## Statistical significance testing
+The Generation 100 studied aims to determine whether high-intensity exercise in
+elderly adults affects lifespan and healthspan. High cardiorespiratory fitness,
+the supply of oxygen to skeletal muscles, is linked to high blood volume in the 
+elderly. It is well known that physical activity can increase blood volume and
+that high blood volume is crucial to athletic performance, however, this is the
+first study to demonstrate this relationship in elderly people.
 
-## Probability and distributions
+To test whether exercise affects blood volume, a substudy of 50 volunteers from
+the Generation 100 study were [placed in two groups](https://frontiersin.org/articles/10.3389/fspor.2021.638139/full) 
+- fit or unfit - depending on results of peak oxygen uptake testing. Exercise
+was objectively measured with a wearable sensor for one week between peak 
+oxygen testing and blood volume measurements.
+
+
+## Probability and distribution
 
 ## The perils of p-values
 

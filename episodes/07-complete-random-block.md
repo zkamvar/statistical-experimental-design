@@ -53,22 +53,22 @@ plan
 
 ~~~
     cellLine DishNumber treatment
-1  cellLine1          1      high
+1  cellLine1          1       low
 2  cellLine1          2    medium
 3  cellLine1          3   control
-4  cellLine1          4       low
+4  cellLine1          4      high
 5  cellLine2          1   control
-6  cellLine2          2    medium
-7  cellLine2          3      high
-8  cellLine2          4       low
-9  cellLine3          1   control
+6  cellLine2          2      high
+7  cellLine2          3       low
+8  cellLine2          4    medium
+9  cellLine3          1       low
 10 cellLine3          2      high
-11 cellLine3          3       low
-12 cellLine3          4    medium
+11 cellLine3          3    medium
+12 cellLine3          4   control
 13 cellLine4          1       low
-14 cellLine4          2   control
-15 cellLine4          3    medium
-16 cellLine4          4      high
+14 cellLine4          2      high
+15 cellLine4          3   control
+16 cellLine4          4    medium
 ~~~
 {: .output}
 

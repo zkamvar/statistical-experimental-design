@@ -20,7 +20,7 @@ knitr_fig_path("03-")
 
 ## The first step in data analysis: plot the data!
 A picture is worth a thousand words, and a picture of your data could reveal
-important information that can guide you forward. So first, plot the data!
+important information that can guide you forward. So firxst, plot the data!
 
 ```{r, simulate_gen100_data}
 # simulate Generation 100 resting heart rate data for the 1,567 study 
@@ -33,10 +33,12 @@ hist(simulated_heart_rates, xlab = "resting heart rate")
 ## A picture is worth a thousand words
 
 > ## Exercise 1: What does this picture tell you about resting heart rates?  
+> Do the data appear to be normally distributed? Why does this matter?  
+> Do the left and right tails of the data seem to mirror each other or not?  
 > Are there gaps in the data?  
 > Are there large clusters of similar heart rate values in the data?  
 > Are there apparent outliers?  
-> Do the left and right tails of the data seem to mirror each other or not?
+> What message do the data deliver in this histogram?  
 > >
 > > ## Solution to Exercise 1
 > > 
@@ -56,6 +58,7 @@ boxplot(simulated_heart_rates)
 > What does horizontal black line dividing the box signify?  
 > Are there apparent outliers?  
 > How does the boxplot relate to the histogram?
+> What message do the data deliver in this boxplot?  
 > >
 > > ## Solution to Exercise 2
 > > 
@@ -65,10 +68,44 @@ boxplot(simulated_heart_rates)
 {: .challenge}
 
 ## Plotting
+Plotting the data can reveal relationships between variables, identify unusual 
+response measurements (**outliers**) and guide further statistical analysis.
+When data are not normally distributed (bell-shaped and symmetrical), many of 
+the statistical methods typically used will not perform well. In these cases
+the data can be transformed to a more symmetrical bell-shaped curve.
 
 ## Statistical significance testing
+The Generation 100 studied aims to determine whether high-intensity exercise in
+elderly adults affects lifespan and healthspan. High cardiorespiratory fitness,
+the supply of oxygen to skeletal muscles, is linked to high blood volume in the 
+elderly. It is well known that physical activity can increase blood volume and
+that high blood volume is crucial to athletic performance, however, this is the
+first study to demonstrate this relationship in elderly people.
 
-## Probability and distributions
+To test whether exercise affects blood volume, a substudy of 50 volunteers from
+the Generation 100 study were [placed in two groups](https://frontiersin.org/articles/10.3389/fspor.2021.638139/full) 
+- fit or unfit - depending on results of peak oxygen uptake testing. Exercise
+was objectively measured with a wearable sensor for one week between peak 
+oxygen testing and blood volume measurements.
+
+```{r, simulate_BV_data, include=FALSE}
+# simulate blood volume data
+blood_volume <- as.data.frame(matrix(rnorm(n = 25, mean = 5, sd = 1), 
+                                     nrow = 25))
+blood_volume <- rbind(blood_volume, 
+                      as.data.frame(matrix(rnorm(n = 25, mean = 4, sd = 1), 
+                                           nrow = 25)))
+triaxial_cpm <- as.data.frame(matrix(rnorm(n = 25, mean = 571, sd = 193), 
+                                     nrow = 25))
+triaxial_cpm <- rbind(triaxial_cpm,
+                      matrix(rnorm(n = 25, mean = 408, sd = 182), 
+                                     nrow = 25))
+fitness <- rep(c("fit", "unfit"), each = 25) 
+blood_volume <- cbind(blood_volume, triaxial_cpm, fitness)
+names(blood_volume) <- c("blood_volume", "physical_activity", "CR fitness")
+boxplot(blood_volume ~ fitness, data = blood_volume)
+```
+## Probability and distribution
 
 ## The perils of p-values
 

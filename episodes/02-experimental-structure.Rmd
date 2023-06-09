@@ -38,7 +38,8 @@ clinical exams.
 >
 > 1. What is the research question in this study? If you prefer to name a 
 > hypothesis, turn the research question into a declarative statement.  
-> 2. What are the treatments?  
+> 2. What is the treatment (treatment factor)? How many levels are there for
+> this treatment factor?
 > 3. What are the experimental units (the entities to which treatments are 
 > applied)?  
 > 4. What are the responses (the measurements used to determine treatment 
