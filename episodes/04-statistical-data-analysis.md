@@ -19,7 +19,7 @@ source: Rmd
 
 ## The first step in data analysis: plot the data!
 A picture is worth a thousand words, and a picture of your data could reveal
-important information that can guide you forward. So firxst, plot the data!
+important information that can guide you forward. So first, plot the data!
 
 
 ~~~
@@ -28,7 +28,12 @@ important information that can guide you forward. So firxst, plot the data!
 # rnorm() generates a random normal distribution from the mean and standard
 # deviation values you provide
 simulated_heart_rates <- rnorm(n = 1567, mean = 80, sd = 10)
-hist(simulated_heart_rates, xlab = "resting heart rate")
+
+# take a sample of 100 and create a histogram
+# first set the seed for the random number generator
+set.seed(42)
+sample100 <- sample(simulated_heart_rates, 100)
+hist(sample100, xlab = "resting heart rate for 100 participants")
 ~~~
 {: .language-r}
 
@@ -36,7 +41,6 @@ hist(simulated_heart_rates, xlab = "resting heart rate")
 <img src="../fig/rmd-03-simulate_gen100_data-1.png" alt="plot of chunk simulate_gen100_data" width="612" />
 <p class="caption">plot of chunk simulate_gen100_data</p>
 </div>
-## A picture is worth a thousand words
 
 > ## Exercise 1: What does this picture tell you about resting heart rates?  
 > Do the data appear to be normally distributed? Why does this matter?  
@@ -53,11 +57,11 @@ hist(simulated_heart_rates, xlab = "resting heart rate")
 > {: .solution}
 {: .challenge}
 
-Now create a boxplot of the same data.
+Now create a boxplot of the same sample data.
 
 
 ~~~
-boxplot(simulated_heart_rates)
+boxplot(sample100)
 ~~~
 {: .language-r}
 
@@ -80,12 +84,81 @@ boxplot(simulated_heart_rates)
 > {: .solution}
 {: .challenge}
 
-## Plotting
 Plotting the data can reveal relationships between variables, identify unusual 
 response measurements (**outliers**) and guide further statistical analysis.
 When data are not normally distributed (bell-shaped and symmetrical), many of 
 the statistical methods typically used will not perform well. In these cases
 the data can be transformed to a more symmetrical bell-shaped curve.
+
+## Probability and probability distributions
+Suppose you have measured the resting heart rate of the entire population of 
+people who are 70 or older, not just the 1,567 from the Generation 100 study. 
+Imagine you need to describe these numbers to someone who has no idea what 
+resting heart rate is. Suppose all the measurements are contained in 
+`simulated_heart_rates`. We could list out all of the numbers for them to see or 
+take a sample and show them the sample, but this would be inefficient and 
+wouldn't provide much insight into the data. A better approach is to define and 
+visualize a **distribution**. The simplest way to think of a distribution is as 
+a compact description of many numbers. 
+
+Histograms show us the proportion of values within an interval. Here is a 
+histogram showing all resting heart rates.
+
+
+
+Showing this plot is much more informative and easier to interpret than a long
+table of numbers. With this histogram we can approximate the number of 
+individuals in any given interval. For example, there are approximately
+30 individuals (~2%) with a resting heart rate greater than 100. The 
+probability distribution we see above approximates one that is very common in 
+nature: the bell curve, also known as the **normal distribution** or Gaussian
+distribution.
+
+
+
+The curve shown above is an example of a **probability density function** that
+defines a bell-shaped curve. The y-axis is the **probability density**. 
+Statistical convention denotes a variable that has a standard normal 
+distribution by *z*. The total area under the curve sums to 1.0. If you draw a
+random value from a normal distribution, the probability that the value falls in
+a particular interval, say from a to b, is given by the area under the curve
+between a and b. Software can be used to calculate these probabilities.
+
+When the histogram of a list of numbers approximates the normal distribution, 
+we can use a convenient mathematical formula to approximate the proportion of 
+values or outcomes in any given interval. Real-world populations may be 
+approximated by the mathematical ideal of the normal distribution. Repeat the
+sampling we did earlier and produce a new histogram of the sample.
+
+
+~~~
+sample100 <- sample(simulated_heart_rates, 100)
+hist(sample100, xlab = "resting heart rate for 100 participants")
+~~~
+{: .language-r}
+
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-sample_hist-1.png" alt="plot of chunk sample_hist" width="612" />
+<p class="caption">plot of chunk sample_hist</p>
+</div>
+
+> ## Exercise 3: Sampling from a population
+> Does the sample appear to be normally distributed?   
+> Can you estimate the mean resting heart rate by eye?  
+> What is the sample mean using R?  
+> Can you estimate the sample standard deviation by eye? Hint: if normally 
+> distributed, 68% of the data will lie within one standard deviation of the 
+> mean and 95% will lie within 2 standard deviations.
+> What is the sample standard deviation using R?  
+> What message does the sample deliver about the population from which it was
+> drawn?  
+> >
+> > ## Solution to Exercise 3
+> > 
+> > 
+> > 
+> {: .solution}
+{: .challenge}
 
 ## Statistical significance testing
 The Generation 100 studied aims to determine whether high-intensity exercise in
@@ -102,11 +175,9 @@ was objectively measured with a wearable sensor for one week between peak
 oxygen testing and blood volume measurements.
 
 
-## Probability and distribution
+## The t-test
 
 ## The perils of p-values
-
-## The t-test
 
 ## Confidence intervals
 
