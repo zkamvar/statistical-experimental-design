@@ -21,9 +21,9 @@ patients will affect each of them differently. A specific diet given to a cage
 of mice will affect each mouse differently. Ideally if something is measured 
 many times, each measurement will give exactly the same result and will 
 represent the true value. This ideal doesn't exist in the real world. For 
-example, the mass of one kilogram is defined by the (https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram)[International Prototype 
-Kilogram], a cylinder composed of platinum and iridium about the size of a golf
-ball. 
+example, the mass of one kilogram is defined by the [International Prototype 
+Kilogram](https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram), 
+a cylinder composed of platinum and iridium about the size of a golf ball. 
 ![International Prototype of the Kilogram](../fig/International_prototype_of_the_kilogram_aka_Le_Grand_K.png)
 
 Copies of this prototype kilogram (replicates) are distributed worldwide so each 
@@ -33,31 +33,31 @@ The reasons for this variation in measurements are not known. A kilogram in
 Austria differs from a kilogram in Australia, which differs from that in Brazil,
 Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute 
 measure of mass shows real-world natural variability. Variability is a feature
-of natural populations and also a natural part of every experiment we undertake.
+of natural systems and also a natural part of every experiment we undertake.
 
 ## Replication
 To figure out whether a difference in responses is real or inherently random, 
-*replication* applies the same treatment to multiple experimental units. The
+**replication** applies the same treatment to multiple experimental units. The
 variability of the responses within a set of replicates provides a measure 
 against which we can compare differences among different treatments. This 
-variability is known as *experimental error*. This does not mean that something 
+variability is known as **experimental error**. This does not mean that something 
 was done wrongly! It's a phrase describing the variability in the responses. 
-Random variation is also known as *random error* or *noise*.  It reflects 
+Random variation is also known as **random error** or **noise**.  It reflects 
 imprecision, but not inaccuracy. Larger sample sizes reduce this imprecision.
 
 In addition to random (experimental) error, also known as noise, there are two
-other sources of variability in experiments. *Systematic error* or bias, occurs 
+other sources of variability in experiments. **Systematic error** or bias, occurs 
 when there are deviations in measurements or observations that are consistently 
 in one particular direction, either overestimating or underestimating the true 
 value. As an example, a scale might be calibrated so that mass measurements 
 are consistently too high or too low. Unlike random error, systematic error is
 consistent in one direction, is predictable and follows a pattern. Larger sample 
 sizes don’t correct for systematic bias; equipment or measurement calibration 
-does. *Technical replicates* define this systematic bias by running the same 
+does. **Technical replicates** define this systematic bias by running the same 
 sample through the machine or measurement protocol multiple times to 
 characterize the variation caused by equipment or protocols.
 
-A *biological replicate* measures different biological samples in parallel to 
+A **biological replicate** measures different biological samples in parallel to 
 estimate the variation caused by the unique biology of the samples. The sample 
 or group of samples are derived from the same biological source, such as cells, 
 tissues, organisms, or individuals. Biological replicates assess the variability 
@@ -159,39 +159,39 @@ random_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         A            27  high fat
-2         B            99  high fat
-3         C            72      chow
-4         D            10      chow
-5         E            23  high fat
-6         F            60      chow
-7         G            95  high fat
-8         H            61  high fat
-9         I            66      chow
-10        J             9  high fat
-11        K            26      chow
-12        L            51  high fat
-13        M            94      chow
-14        N            14      chow
-15        O            78      chow
-16        P            67  high fat
-17        Q            18      chow
-18        R            35  high fat
-19        S            65  high fat
-20        T             6      chow
-21        U            15  high fat
-22        V            55  high fat
-23        W            54      chow
-24        X            11  high fat
+1         A            78      chow
+2         B            10      chow
+3         C            36      chow
+4         D            83  high fat
+5         E            70      chow
+6         F            57  high fat
+7         G            56      chow
+8         H            64      chow
+9         I            51  high fat
+10        J            98      chow
+11        K            73  high fat
+12        L            35  high fat
+13        M            62      chow
+14        N            84      chow
+15        O            95  high fat
+16        P            94      chow
+17        Q            43  high fat
+18        R            80      chow
+19        S            96      chow
+20        T            77  high fat
+21        U             8      chow
+22        V            15  high fat
+23        W            42      chow
+24        X            65  high fat
 25        Y            29  high fat
-26        Z            52      chow
+26        Z            99  high fat
 ~~~
 {: .output}
 
 This might produce unequal numbers between treatment and control groups. It 
-isn’t necessary to have equal numbers, however, *sensitivity* (the true positive 
-rate, or ability to detect an effect when it truly exists) is maximized when 
-sample numbers are equal.
+isn’t necessary to have equal numbers, however, **sensitivity** or 
+**statistical power** (the probability of detecting an effect when it truly 
+exists) is maximized when sample numbers are equal.
 
 
 ~~~
@@ -204,7 +204,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-      12       14 
+      14       12 
 ~~~
 {: .output}
 
@@ -231,32 +231,32 @@ equal_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         T             6      chow
-2         J             9      chow
-3         D            10      chow
-4         X            11      chow
-5         N            14      chow
-6         U            15      chow
-7         Q            18      chow
-8         E            23      chow
-9         K            26      chow
-10        A            27      chow
-11        Y            29      chow
-12        R            35      chow
-13        L            51      chow
-14        Z            52  high fat
-15        W            54  high fat
-16        V            55  high fat
-17        F            60  high fat
-18        H            61  high fat
-19        S            65  high fat
-20        I            66  high fat
-21        P            67  high fat
-22        C            72  high fat
-23        O            78  high fat
-24        M            94  high fat
-25        G            95  high fat
-26        B            99  high fat
+1         U             8      chow
+2         B            10      chow
+3         V            15      chow
+4         Y            29      chow
+5         L            35      chow
+6         C            36      chow
+7         W            42      chow
+8         Q            43      chow
+9         I            51      chow
+10        G            56      chow
+11        F            57      chow
+12        M            62      chow
+13        H            64      chow
+14        X            65  high fat
+15        E            70  high fat
+16        K            73  high fat
+17        T            77  high fat
+18        A            78  high fat
+19        R            80  high fat
+20        D            83  high fat
+21        N            84  high fat
+22        P            94  high fat
+23        O            95  high fat
+24        S            96  high fat
+25        J            98  high fat
+26        Z            99  high fat
 ~~~
 {: .output}
 
@@ -319,12 +319,12 @@ variation introduced by a nuisance variable, proximity to the light.
 
 ![shelves of cages beneath a light](../fig/half-racks.png)
 
-Shelf height is a *blocking factor* that should be included in the data analysis
-phase of the experiment. Adding a nuisance variable as a blocking factor 
-accounts for variability and can increase the probability of detecting a real 
-treatment effect (*statistical power*). If the blocking factor doesn't 
+Shelf height is a **blocking factor** that should be included in the data 
+analysis phase of the experiment. Adding a nuisance variable as a blocking 
+factor accounts for variability and can increase the probability of detecting a 
+real treatment effect (**statistical power**). If the blocking factor doesn't 
 substantially impact variability, however, it reduces the information used to 
-estimate a statistic (*degrees of freedom*) and diminishes statistical power. 
+estimate a statistic (**degrees of freedom**) and diminishes statistical power. 
 Blocking should only be used when a variable is suspected to impact the 
 experiment.
 
@@ -352,4 +352,17 @@ the subsequent data analysis.
 > {: .solution}
 {: .challenge}
 
+> ## Exercise 4: How and when to set up blocks
+> For the following scenarios, describe whether you would set up blocks and if
+> so, how you would set up the blocks.
+> 1. A large gene expression study will be run in five different batches or runs.  
+> 2. An experiment will use two different models of equipment to obtain 
+> measurements.
+> 3. Samples will be processed in the morning, afternoon and evening.
+> >
+> > ## Solution to Exercise 4
+> > 
+> > 
+> {: .solution}
+{: .challenge}
 {% include links.md %}

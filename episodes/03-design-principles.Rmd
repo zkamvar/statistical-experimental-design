@@ -22,9 +22,9 @@ patients will affect each of them differently. A specific diet given to a cage
 of mice will affect each mouse differently. Ideally if something is measured 
 many times, each measurement will give exactly the same result and will 
 represent the true value. This ideal doesn't exist in the real world. For 
-example, the mass of one kilogram is defined by the (https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram)[International Prototype 
-Kilogram], a cylinder composed of platinum and iridium about the size of a golf
-ball. 
+example, the mass of one kilogram is defined by the [International Prototype 
+Kilogram](https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram), 
+a cylinder composed of platinum and iridium about the size of a golf ball. 
 ![International Prototype of the Kilogram](../fig/International_prototype_of_the_kilogram_aka_Le_Grand_K.png)
 
 Copies of this prototype kilogram (replicates) are distributed worldwide so each 
@@ -34,31 +34,31 @@ The reasons for this variation in measurements are not known. A kilogram in
 Austria differs from a kilogram in Australia, which differs from that in Brazil,
 Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute 
 measure of mass shows real-world natural variability. Variability is a feature
-of natural populations and also a natural part of every experiment we undertake.
+of natural systems and also a natural part of every experiment we undertake.
 
 ## Replication
 To figure out whether a difference in responses is real or inherently random, 
-*replication* applies the same treatment to multiple experimental units. The
+**replication** applies the same treatment to multiple experimental units. The
 variability of the responses within a set of replicates provides a measure 
 against which we can compare differences among different treatments. This 
-variability is known as *experimental error*. This does not mean that something 
+variability is known as **experimental error**. This does not mean that something 
 was done wrongly! It's a phrase describing the variability in the responses. 
-Random variation is also known as *random error* or *noise*.  It reflects 
+Random variation is also known as **random error** or **noise**.  It reflects 
 imprecision, but not inaccuracy. Larger sample sizes reduce this imprecision.
 
 In addition to random (experimental) error, also known as noise, there are two
-other sources of variability in experiments. *Systematic error* or bias, occurs 
+other sources of variability in experiments. **Systematic error** or bias, occurs 
 when there are deviations in measurements or observations that are consistently 
 in one particular direction, either overestimating or underestimating the true 
 value. As an example, a scale might be calibrated so that mass measurements 
 are consistently too high or too low. Unlike random error, systematic error is
 consistent in one direction, is predictable and follows a pattern. Larger sample 
 sizes don’t correct for systematic bias; equipment or measurement calibration 
-does. *Technical replicates* define this systematic bias by running the same 
+does. **Technical replicates** define this systematic bias by running the same 
 sample through the machine or measurement protocol multiple times to 
 characterize the variation caused by equipment or protocols.
 
-A *biological replicate* measures different biological samples in parallel to 
+A **biological replicate** measures different biological samples in parallel to 
 estimate the variation caused by the unique biology of the samples. The sample 
 or group of samples are derived from the same biological source, such as cells, 
 tissues, organisms, or individuals. Biological replicates assess the variability 
@@ -155,9 +155,9 @@ random_allocation
 ```
 
 This might produce unequal numbers between treatment and control groups. It 
-isn’t necessary to have equal numbers, however, *sensitivity* (the true positive 
-rate, or ability to detect an effect when it truly exists) is maximized when 
-sample numbers are equal.
+isn’t necessary to have equal numbers, however, **sensitivity** or 
+**statistical power** (the probability of detecting an effect when it truly 
+exists) is maximized when sample numbers are equal.
 
 ```{r, random_assignment_table1}
 table(random_allocation$treatment)
@@ -238,12 +238,12 @@ variation introduced by a nuisance variable, proximity to the light.
 
 ![shelves of cages beneath a light](../fig/half-racks.png)
 
-Shelf height is a *blocking factor* that should be included in the data analysis
-phase of the experiment. Adding a nuisance variable as a blocking factor 
-accounts for variability and can increase the probability of detecting a real 
-treatment effect (*statistical power*). If the blocking factor doesn't 
+Shelf height is a **blocking factor** that should be included in the data 
+analysis phase of the experiment. Adding a nuisance variable as a blocking 
+factor accounts for variability and can increase the probability of detecting a 
+real treatment effect (**statistical power**). If the blocking factor doesn't 
 substantially impact variability, however, it reduces the information used to 
-estimate a statistic (*degrees of freedom*) and diminishes statistical power. 
+estimate a statistic (**degrees of freedom**) and diminishes statistical power. 
 Blocking should only be used when a variable is suspected to impact the 
 experiment.
 
@@ -264,11 +264,25 @@ the subsequent data analysis.
 > shelf treatment C).  
 > 2. Explain blocking to the technician and describe how it helps the 
 > experiment.
-> >
+> 
 > > ## Solution to Exercise 3
 > > 
 > > 
 > {: .solution}
 {: .challenge}
 
+> ## Exercise 4: How and when to set up blocks
+> For the following scenarios, describe whether you would set up blocks and if
+> so, how you would set up the blocks.
+> 1. A large gene expression study will be run in five different batches or runs.  
+> 2. An experiment will use two different models of equipment to obtain 
+> measurements.
+> 3. Samples will be processed in the morning, afternoon and evening.
+> 4. Eight different mouse strains will be involved in a study.
+> 
+> > ## Solution to Exercise 4
+> > 
+> > 
+> {: .solution}
+{: .challenge}
 {% include links.md %}
