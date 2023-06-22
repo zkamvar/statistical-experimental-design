@@ -32,8 +32,8 @@ replicas measure precisely the same despite careful storage and handling.
 The reasons for this variation in measurements are not known. A kilogram in 
 Austria differs from a kilogram in Australia, which differs from that in Brazil,
 Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute 
-measure of mass shows real-world natural variability. Variability is also a 
-natural part of every experiment we undertake.
+measure of mass shows real-world natural variability. Variability is a feature
+of natural populations and also a natural part of every experiment we undertake.
 
 ## Replication
 To figure out whether a difference in responses is real or inherently random, 
@@ -70,7 +70,7 @@ The greater the number of replications, the greater the precision (the closeness
 of two or more measurements to each other).  Having a large enough sample size 
 to ensure high precision is necessary to ensure reproducible results.    
 
-> ## Exercise 1: Which kind of error?
+> ## Exercise 2: Which kind of error?
 > A study used to determine the effect of a drug on weight loss 
 > could have the following sources of experimental error. 
 > Classify the following sources as either biological, 
@@ -81,7 +81,7 @@ to ensure high precision is necessary to ensure reproducible results.
 > 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
 >
 > >
-> > ## Solution to Exercise 1
+> > ## Solution to Exercise 2
 > > 
 > > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
 > > 2). systematic  
@@ -159,32 +159,32 @@ random_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         A            21  high fat
-2         B            98      chow
-3         C            48      chow
-4         D            54      chow
-5         E            24      chow
-6         F             6      chow
-7         G            18      chow
-8         H            79  high fat
-9         I            45  high fat
-10        J            25  high fat
-11        K            36      chow
-12        L            82      chow
-13        M            26      chow
-14        N            94      chow
-15        O            69  high fat
-16        P            49  high fat
-17        Q            34      chow
-18        R            17  high fat
-19        S            80      chow
-20        T            75  high fat
-21        U             5  high fat
-22        V            91  high fat
-23        W            57  high fat
-24        X            56      chow
-25        Y            74      chow
-26        Z            87  high fat
+1         A            27  high fat
+2         B            99  high fat
+3         C            72      chow
+4         D            10      chow
+5         E            23  high fat
+6         F            60      chow
+7         G            95  high fat
+8         H            61  high fat
+9         I            66      chow
+10        J             9  high fat
+11        K            26      chow
+12        L            51  high fat
+13        M            94      chow
+14        N            14      chow
+15        O            78      chow
+16        P            67  high fat
+17        Q            18      chow
+18        R            35  high fat
+19        S            65  high fat
+20        T             6      chow
+21        U            15  high fat
+22        V            55  high fat
+23        W            54      chow
+24        X            11  high fat
+25        Y            29  high fat
+26        Z            52      chow
 ~~~
 {: .output}
 
@@ -204,7 +204,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-      14       12 
+      12       14 
 ~~~
 {: .output}
 
@@ -231,32 +231,32 @@ equal_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         U             5      chow
-2         F             6      chow
-3         R            17      chow
-4         G            18      chow
-5         A            21      chow
-6         E            24      chow
-7         J            25      chow
-8         M            26      chow
-9         Q            34      chow
-10        K            36      chow
-11        I            45      chow
-12        C            48      chow
-13        P            49      chow
-14        D            54  high fat
-15        X            56  high fat
-16        W            57  high fat
-17        O            69  high fat
-18        Y            74  high fat
-19        T            75  high fat
-20        H            79  high fat
-21        S            80  high fat
-22        L            82  high fat
-23        Z            87  high fat
-24        V            91  high fat
-25        N            94  high fat
-26        B            98  high fat
+1         T             6      chow
+2         J             9      chow
+3         D            10      chow
+4         X            11      chow
+5         N            14      chow
+6         U            15      chow
+7         Q            18      chow
+8         E            23      chow
+9         K            26      chow
+10        A            27      chow
+11        Y            29      chow
+12        R            35      chow
+13        L            51      chow
+14        Z            52  high fat
+15        W            54  high fat
+16        V            55  high fat
+17        F            60  high fat
+18        H            61  high fat
+19        S            65  high fat
+20        I            66  high fat
+21        P            67  high fat
+22        C            72  high fat
+23        O            78  high fat
+24        M            94  high fat
+25        G            95  high fat
+26        B            99  high fat
 ~~~
 {: .output}
 
@@ -303,7 +303,53 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 > {: .solution}
 {: .challenge}
 
-## Blocking
+### Controlling Natural Variation with Blocking
+
 Experimental units can be grouped, or *blocked*, to increase the precision of
-treatment comparisons. 
+treatment comparisons. Blocking divides an experiment into groups of 
+experimental units to control natural variation among these units. Treatments 
+are randomized to experimental units within each block. Each block, then, is 
+effectively a sub-experiment.
+
+Randomization within blocks accounts for nuisance variables that could bias the
+results, such as day, time, cage proximity to light or ventilation, etc. In the
+illustration below, three treatments are randomized to the experimental units
+(the cages) on each shelf. Each shelf is a block that accounts for random
+variation introduced by a nuisance variable, proximity to the light.
+
+![shelves of cages beneath a light](../fig/half-racks.png)
+
+Shelf height is a *blocking factor* that should be included in the data analysis
+phase of the experiment. Adding a nuisance variable as a blocking factor 
+accounts for variability and can increase the probability of detecting a real 
+treatment effect (*statistical power*). If the blocking factor doesn't 
+substantially impact variability, however, it reduces the information used to 
+estimate a statistic (*degrees of freedom*) and diminishes statistical power. 
+Blocking should only be used when a variable is suspected to impact the 
+experiment.
+
+Another way to define blocks of experimental units is to use characteristics or
+traits that are likely associated with the response. Sex and age, for example, 
+can serve as blocking factors in experiments, with experimental units randomly
+allocated to each block based on age category and sex. *Stratified randomization*
+places experimental units into separate blocks for each age category and sex. As 
+with nuisance variables, these blocking factors (age and sex) should be used in 
+the subsequent data analysis.
+
+
+> ## Exercise 3: Explain blocking to the efficient technician
+> Your technician colleague is not only efficient but very well-organized. They
+> will administer treatments A, B and C shown in the figure above. 
+> 1. Explain to your colleague why the treatments should not be administered by 
+> shelf (e.g. the top shelf all get treatment A, the next shelf B and the lower 
+> shelf treatment C).  
+> 2. Explain blocking to the technician and describe how it helps the 
+> experiment.
+> >
+> > ## Solution to Exercise 3
+> > 
+> > 
+> {: .solution}
+{: .challenge}
+
 {% include links.md %}

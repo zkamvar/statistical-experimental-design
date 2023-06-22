@@ -144,32 +144,4 @@ data collection or data analysis can reduce experimental bias.
 > {: .solution}
 {: .challenge}
 
-### Controlling Natural Variation with Blocking
- 
-Blocking divides an experiment into groups of experimental units to control
-natural variation among these units. Treatments are randomized to experimental
-units within each block. Each block, then, is effectively a sub-experiment.
-Randomization within blocks accounts for nuisance variables that could bias the
-results, such as day, time, cage proximity to light or ventilation, etc. In the
-illustration below, three treatments are randomized to the experimental units
-(the cages) on each shelf. Each shelf is a block that accounts for random
-variation introduced by a nuisance variable, proximity to the light.
-
-![shelves of cages beneath a light](../fig/racks.png)
-
-Shelf height is a *blocking factor* that should be included in the data analysis
-phase of the experiment. Adding a nuisance variable as a blocking factor accounts
-for variability and can increase the power to detect a real treatment effect. 
-Blocking uses up degrees of freedom and reduces power, though, if the nuisance 
-variable doesn't substantially impact variability. Blocking should only be used 
-when a variable is suspected to impact the experiment.
-
-Another way to define blocks of experimental units is to use characteristics or
-traits that are likely associated with the response. Sex and age, for example, 
-can serve as blocking factors in experiments, with experimental units randomly
-allocated to each block based on age category and sex. *Stratified randomization*
-places experimental units into separate blocks for each age category and sex. As 
-with nuisance variables, these blocking factors (age and sex) should be used in 
-the subsequent data analysis.
-
 {% include links.md %}

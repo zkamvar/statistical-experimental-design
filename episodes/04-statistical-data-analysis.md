@@ -17,6 +17,37 @@ source: Rmd
 
 
 
+## A picture is worth a thousand words
+
+To motivate this next section on statistics, we start with an example of human
+variability. This 1975 living histogram of female students from the University 
+of Wisconsin Madison shows variability in a natural population.
+
+![living histogram of female student heights](../fig/joiner-living-histogram-heights.png)
+
+[B. Joiner, Int'l Stats Review, 1975](https://personal.psu.edu/drh20/talks/joiner_living_histograms.pdf)
+
+> ## Exercise 1: A living histogram
+> From the living histogram, can you estimate by eye  
+> 1). the mean and median heights?  
+> 2). the spread of the data? Estimate either standard deviation or variance. If
+> you're not sure about how to do this, think about how you would describe the
+> spread of the data from the mean rather than calculating a statistic.
+> 3). any outliers? Estimate by eye - don't worry about calculations.  
+> 4). What do you predict would happen to mean, median, spread and outliers if
+> an equal number of men were added to the histogram?
+>
+> >
+> > ## Solution to Exercise 1
+> > 
+> > 1).  
+> > 2). 
+> > 3).   
+> > 4). 
+> > 
+> {: .solution}
+{: .challenge}
+
 ## The first step in data analysis: plot the data!
 A picture is worth a thousand words, and a picture of your data could reveal
 important information that can guide you forward. So first, plot the data!
@@ -90,6 +121,41 @@ When data are not normally distributed (bell-shaped and symmetrical), many of
 the statistical methods typically used will not perform well. In these cases
 the data can be transformed to a more symmetrical bell-shaped curve.
 
+## Statistical significance testing
+The Generation 100 studied aims to determine whether high-intensity exercise in
+elderly adults affects lifespan and healthspan. A substudy looked at whether
+cardiorespiratory fitness, the supply of oxygen to skeletal muscles, is linked 
+to high blood volume in the elderly. It is well known that physical activity can increase blood volume and that high blood volume is crucial to athletic 
+performance, however, this is the first study to demonstrate this relationship 
+in elderly people.
+
+To test whether exercise affects blood volume, 50 volunteers from the Generation 
+100 participants were [placed in two groups](https://frontiersin.org/articles/10.3389/fspor.2021.638139/full) 
+- fit or unfit - depending on results of peak oxygen uptake testing. Exercise
+was objectively measured with a wearable sensor for one week between peak 
+oxygen testing and blood volume measurements. Simulated data are shown below.
+
+
+
+> ## Exercise 3: Comparing two groups
+> Does there appear to be a significant blood volume difference between the 
+> two groups? How would you know?   
+> Do any of the data overlap between the two boxplots?  
+> >
+> > ## Solution to Exercise 3
+> > 
+> > 
+> > 
+> {: .solution}
+{: .challenge}
+
+## The t-test
+What does it mean that a difference is statistically significant? We can eye
+plots like the one above and see a difference, however, we need something more 
+objective than eyeballs to claim a significant difference. 
+
+
+
 ## Probability and probability distributions
 Suppose you have measured the resting heart rate of the entire population of 
 people who are 70 or older, not just the 1,567 from the Generation 100 study. 
@@ -142,7 +208,7 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 <p class="caption">plot of chunk sample_hist</p>
 </div>
 
-> ## Exercise 3: Sampling from a population
+> ## Exercise 4: Sampling from a population
 > Does the sample appear to be normally distributed?   
 > Can you estimate the mean resting heart rate by eye?  
 > What is the sample mean using R?  
@@ -153,29 +219,12 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 > What message does the sample deliver about the population from which it was
 > drawn?  
 > >
-> > ## Solution to Exercise 3
+> > ## Solution to Exercise 4
 > > 
 > > 
 > > 
 > {: .solution}
 {: .challenge}
-
-## Statistical significance testing
-The Generation 100 studied aims to determine whether high-intensity exercise in
-elderly adults affects lifespan and healthspan. High cardiorespiratory fitness,
-the supply of oxygen to skeletal muscles, is linked to high blood volume in the 
-elderly. It is well known that physical activity can increase blood volume and
-that high blood volume is crucial to athletic performance, however, this is the
-first study to demonstrate this relationship in elderly people.
-
-To test whether exercise affects blood volume, a substudy of 50 volunteers from
-the Generation 100 study were [placed in two groups](https://frontiersin.org/articles/10.3389/fspor.2021.638139/full) 
-- fit or unfit - depending on results of peak oxygen uptake testing. Exercise
-was objectively measured with a wearable sensor for one week between peak 
-oxygen testing and blood volume measurements.
-
-
-## The t-test
 
 ## The perils of p-values
 

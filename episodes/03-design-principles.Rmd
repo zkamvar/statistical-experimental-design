@@ -33,8 +33,8 @@ replicas measure precisely the same despite careful storage and handling.
 The reasons for this variation in measurements are not known. A kilogram in 
 Austria differs from a kilogram in Australia, which differs from that in Brazil,
 Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute 
-measure of mass shows real-world natural variability. Variability is also a 
-natural part of every experiment we undertake.
+measure of mass shows real-world natural variability. Variability is a feature
+of natural populations and also a natural part of every experiment we undertake.
 
 ## Replication
 To figure out whether a difference in responses is real or inherently random, 
@@ -71,7 +71,7 @@ The greater the number of replications, the greater the precision (the closeness
 of two or more measurements to each other).  Having a large enough sample size 
 to ensure high precision is necessary to ensure reproducible results.    
 
-> ## Exercise 1: Which kind of error?
+> ## Exercise 2: Which kind of error?
 > A study used to determine the effect of a drug on weight loss 
 > could have the following sources of experimental error. 
 > Classify the following sources as either biological, 
@@ -82,7 +82,7 @@ to ensure high precision is necessary to ensure reproducible results.
 > 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
 >
 > >
-> > ## Solution to Exercise 1
+> > ## Solution to Exercise 2
 > > 
 > > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
 > > 2). systematic  
@@ -222,7 +222,53 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 > {: .solution}
 {: .challenge}
 
-## Blocking
+### Controlling Natural Variation with Blocking
+
 Experimental units can be grouped, or *blocked*, to increase the precision of
-treatment comparisons. 
+treatment comparisons. Blocking divides an experiment into groups of 
+experimental units to control natural variation among these units. Treatments 
+are randomized to experimental units within each block. Each block, then, is 
+effectively a sub-experiment.
+
+Randomization within blocks accounts for nuisance variables that could bias the
+results, such as day, time, cage proximity to light or ventilation, etc. In the
+illustration below, three treatments are randomized to the experimental units
+(the cages) on each shelf. Each shelf is a block that accounts for random
+variation introduced by a nuisance variable, proximity to the light.
+
+![shelves of cages beneath a light](../fig/half-racks.png)
+
+Shelf height is a *blocking factor* that should be included in the data analysis
+phase of the experiment. Adding a nuisance variable as a blocking factor 
+accounts for variability and can increase the probability of detecting a real 
+treatment effect (*statistical power*). If the blocking factor doesn't 
+substantially impact variability, however, it reduces the information used to 
+estimate a statistic (*degrees of freedom*) and diminishes statistical power. 
+Blocking should only be used when a variable is suspected to impact the 
+experiment.
+
+Another way to define blocks of experimental units is to use characteristics or
+traits that are likely associated with the response. Sex and age, for example, 
+can serve as blocking factors in experiments, with experimental units randomly
+allocated to each block based on age category and sex. *Stratified randomization*
+places experimental units into separate blocks for each age category and sex. As 
+with nuisance variables, these blocking factors (age and sex) should be used in 
+the subsequent data analysis.
+
+
+> ## Exercise 3: Explain blocking to the efficient technician
+> Your technician colleague is not only efficient but very well-organized. They
+> will administer treatments A, B and C shown in the figure above. 
+> 1. Explain to your colleague why the treatments should not be administered by 
+> shelf (e.g. the top shelf all get treatment A, the next shelf B and the lower 
+> shelf treatment C).  
+> 2. Explain blocking to the technician and describe how it helps the 
+> experiment.
+> >
+> > ## Solution to Exercise 3
+> > 
+> > 
+> {: .solution}
+{: .challenge}
+
 {% include links.md %}
