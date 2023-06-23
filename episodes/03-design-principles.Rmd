@@ -36,7 +36,7 @@ Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute
 measure of mass shows real-world natural variability. Variability is a feature
 of natural systems and also a natural part of every experiment we undertake.
 
-## Replication
+## Replication to characterize variability
 To figure out whether a difference in responses is real or inherently random, 
 **replication** applies the same treatment to multiple experimental units. The
 variability of the responses within a set of replicates provides a measure 
@@ -71,7 +71,7 @@ The greater the number of replications, the greater the precision (the closeness
 of two or more measurements to each other).  Having a large enough sample size 
 to ensure high precision is necessary to ensure reproducible results.    
 
-> ## Exercise 2: Which kind of error?
+> ## Exercise 1: Which kind of error?
 > A study used to determine the effect of a drug on weight loss 
 > could have the following sources of experimental error. 
 > Classify the following sources as either biological, 
@@ -82,7 +82,7 @@ to ensure high precision is necessary to ensure reproducible results.
 > 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
 >
 > >
-> > ## Solution to Exercise 2
+> > ## Solution to Exercise 1
 > > 
 > > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
 > > 2). systematic  
@@ -224,7 +224,7 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 
 ### Controlling Natural Variation with Blocking
 
-Experimental units can be grouped, or *blocked*, to increase the precision of
+Experimental units can be grouped, or **blocked**, to increase the precision of
 treatment comparisons. Blocking divides an experiment into groups of 
 experimental units to control natural variation among these units. Treatments 
 are randomized to experimental units within each block. Each block, then, is 
@@ -265,6 +265,7 @@ the subsequent data analysis.
 > 2. Explain blocking to the technician and describe how it helps the 
 > experiment.
 > 
+> > 
 > > ## Solution to Exercise 3
 > > 
 > > 
@@ -280,6 +281,7 @@ the subsequent data analysis.
 > 3. Samples will be processed in the morning, afternoon and evening.
 > 4. Eight different mouse strains will be involved in a study.
 > 
+> > 
 > > ## Solution to Exercise 4
 > > 
 > > 

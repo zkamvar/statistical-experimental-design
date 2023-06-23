@@ -35,7 +35,7 @@ Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute
 measure of mass shows real-world natural variability. Variability is a feature
 of natural systems and also a natural part of every experiment we undertake.
 
-## Replication
+## Replication to characterize variability
 To figure out whether a difference in responses is real or inherently random, 
 **replication** applies the same treatment to multiple experimental units. The
 variability of the responses within a set of replicates provides a measure 
@@ -70,7 +70,7 @@ The greater the number of replications, the greater the precision (the closeness
 of two or more measurements to each other).  Having a large enough sample size 
 to ensure high precision is necessary to ensure reproducible results.    
 
-> ## Exercise 2: Which kind of error?
+> ## Exercise 1: Which kind of error?
 > A study used to determine the effect of a drug on weight loss 
 > could have the following sources of experimental error. 
 > Classify the following sources as either biological, 
@@ -81,7 +81,7 @@ to ensure high precision is necessary to ensure reproducible results.
 > 4). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.  
 >
 > >
-> > ## Solution to Exercise 2
+> > ## Solution to Exercise 1
 > > 
 > > 1). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
 > > 2). systematic  
@@ -159,32 +159,32 @@ random_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         A            78      chow
-2         B            10      chow
-3         C            36      chow
-4         D            83  high fat
-5         E            70      chow
-6         F            57  high fat
-7         G            56      chow
-8         H            64      chow
-9         I            51  high fat
-10        J            98      chow
-11        K            73  high fat
-12        L            35  high fat
-13        M            62      chow
-14        N            84      chow
-15        O            95  high fat
-16        P            94      chow
-17        Q            43  high fat
-18        R            80      chow
-19        S            96      chow
-20        T            77  high fat
-21        U             8      chow
-22        V            15  high fat
-23        W            42      chow
-24        X            65  high fat
-25        Y            29  high fat
-26        Z            99  high fat
+1         A            94      chow
+2         B             2      chow
+3         C            51  high fat
+4         D            90      chow
+5         E            31  high fat
+6         F            35  high fat
+7         G            21  high fat
+8         H            17  high fat
+9         I            14      chow
+10        J            55  high fat
+11        K             1  high fat
+12        L            57  high fat
+13        M            30      chow
+14        N            78      chow
+15        O            97  high fat
+16        P            15  high fat
+17        Q            37  high fat
+18        R            54      chow
+19        S            20      chow
+20        T            33  high fat
+21        U            85  high fat
+22        V            75  high fat
+23        W            76      chow
+24        X            59  high fat
+25        Y            43  high fat
+26        Z           100      chow
 ~~~
 {: .output}
 
@@ -204,7 +204,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-      14       12 
+      10       16 
 ~~~
 {: .output}
 
@@ -231,32 +231,32 @@ equal_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         U             8      chow
-2         B            10      chow
-3         V            15      chow
-4         Y            29      chow
-5         L            35      chow
-6         C            36      chow
-7         W            42      chow
-8         Q            43      chow
-9         I            51      chow
-10        G            56      chow
-11        F            57      chow
-12        M            62      chow
-13        H            64      chow
-14        X            65  high fat
-15        E            70  high fat
-16        K            73  high fat
-17        T            77  high fat
-18        A            78  high fat
-19        R            80  high fat
-20        D            83  high fat
-21        N            84  high fat
-22        P            94  high fat
-23        O            95  high fat
-24        S            96  high fat
-25        J            98  high fat
-26        Z            99  high fat
+1         K             1      chow
+2         B             2      chow
+3         I            14      chow
+4         P            15      chow
+5         H            17      chow
+6         S            20      chow
+7         G            21      chow
+8         M            30      chow
+9         E            31      chow
+10        T            33      chow
+11        F            35      chow
+12        Q            37      chow
+13        Y            43      chow
+14        C            51  high fat
+15        R            54  high fat
+16        J            55  high fat
+17        L            57  high fat
+18        X            59  high fat
+19        V            75  high fat
+20        W            76  high fat
+21        N            78  high fat
+22        U            85  high fat
+23        D            90  high fat
+24        A            94  high fat
+25        O            97  high fat
+26        Z           100  high fat
 ~~~
 {: .output}
 
@@ -305,7 +305,7 @@ write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
 
 ### Controlling Natural Variation with Blocking
 
-Experimental units can be grouped, or *blocked*, to increase the precision of
+Experimental units can be grouped, or **blocked**, to increase the precision of
 treatment comparisons. Blocking divides an experiment into groups of 
 experimental units to control natural variation among these units. Treatments 
 are randomized to experimental units within each block. Each block, then, is 
@@ -345,7 +345,8 @@ the subsequent data analysis.
 > shelf treatment C).  
 > 2. Explain blocking to the technician and describe how it helps the 
 > experiment.
-> >
+> 
+> > 
 > > ## Solution to Exercise 3
 > > 
 > > 
@@ -359,7 +360,9 @@ the subsequent data analysis.
 > 2. An experiment will use two different models of equipment to obtain 
 > measurements.
 > 3. Samples will be processed in the morning, afternoon and evening.
-> >
+> 4. Eight different mouse strains will be involved in a study.
+> 
+> > 
 > > ## Solution to Exercise 4
 > > 
 > > 

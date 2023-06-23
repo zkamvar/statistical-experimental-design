@@ -29,24 +29,45 @@ of Wisconsin Madison shows variability in a natural population.
 
 > ## Exercise 1: A living histogram
 > From the living histogram, can you estimate by eye  
-> 1). the mean and median heights?  
-> 2). the spread of the data? Estimate either standard deviation or variance. If
-> you're not sure about how to do this, think about how you would describe the
-> spread of the data from the mean rather than calculating a statistic.
+> 1). the mean and median heights of this sample of female students?  
+> 2). the spread of the data? Estimate either standard deviation or variance by
+> eye. If you're not sure how to do this, think about how you would describe the
+> spread of the data from the mean. You do not need to calculate a statistic.  
 > 3). any outliers? Estimate by eye - don't worry about calculations.  
 > 4). What do you predict would happen to mean, median, spread and outliers if
-> an equal number of men were added to the histogram?
+> an equal number of male students were added to the histogram?
 >
 > >
 > > ## Solution to Exercise 1
 > > 
-> > 1).  
-> > 2). 
-> > 3).   
-> > 4). 
+> > 1). Mean and median are two measures of the center of the data. The median
+> > is the 50th% of the data with half the female students above this value and
+> > the other half below. There are approximately 100 students total. Fifty of
+> > them appear to be above 5 feet 5 inches and fifty of them appear to be below
+> > 5'5". The median is not influenced by extreme values (outliers), but the 
+> > mean value is. While there are some very tall and very short people, the
+> > bulk of them appear to be centered around a mean of 5 foot 5 inches with
+> > a somewhat longer right tail to the histogram.  
+> > 2). If the mean is approximately 5'5" and the distribution appears normal
+> > (bell-shaped), then we know that approximately 68% of the data lies within
+> > one standard deviation (sd) of the mean and ~95% lies within two sd's. If 
+> > there are ~100 people in the sample, 95% of them lie between 5'0" and 5'10"
+> > (2 sd's = 5" above and 5" below the mean). One standard deviation then would > > be about 5"/2 = 2.5" from the mean of 5'5". So 68% of the data (~68 people) > > lie within 5 feet 2.5 inches and 5 feet 7.5 inches.  
+> > 3). There are some very tall and very short people but it's not clear 
+> > whether they are outliers. Outliers deviate significantly from expected 
+> > values, specifically by more than 3 standard deviations in a normal
+> > distribution. Values that are greater than 3 sd's (7.5") above or below the
+> > mean could be considered outliers. Outliers would then be shorter than 4
+> > feet 7.5 inches or taller than 6 feet 2.5 inches. The shortest are 4 feet 9
+> > inches and the tallest 6' 0 inches. There are no outliers in this sample 
+> > because all heights fall within 3 sd's.
+> > 4). Average male heights are greater than average female heights, so you 
+> > could expect that a random sample of 100 male students would increase the
+> > average height of the sample of 200 students. The mean would shift to the
+> > right of the distribution toward taller heights, as would the median. 
 > > 
 > {: .solution}
-{: .challenge}
+{: .challenge} 
 
 ## The first step in data analysis: plot the data!
 A picture is worth a thousand words, and a picture of your data could reveal
@@ -73,7 +94,7 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 <p class="caption">plot of chunk simulate_gen100_data</p>
 </div>
 
-> ## Exercise 1: What does this picture tell you about resting heart rates?  
+> ## Exercise 2: What does this picture tell you about resting heart rates?  
 > Do the data appear to be normally distributed? Why does this matter?  
 > Do the left and right tails of the data seem to mirror each other or not?  
 > Are there gaps in the data?  
@@ -81,7 +102,7 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 > Are there apparent outliers?  
 > What message do the data deliver in this histogram?  
 > >
-> > ## Solution to Exercise 1
+> > ## Solution to Exercise 2
 > > 
 > > 
 > > 
@@ -101,14 +122,14 @@ boxplot(sample100)
 <p class="caption">plot of chunk boxplot_simulated_gen100_data</p>
 </div>
 
-> ## Exercise 2: What does this boxplot tell you about resting heart rates?  
+> ## Exercise 3: What does this boxplot tell you about resting heart rates?  
 > What does the box signify?  
 > What does horizontal black line dividing the box signify?  
 > Are there apparent outliers?  
 > How does the boxplot relate to the histogram?
 > What message do the data deliver in this boxplot?  
 > >
-> > ## Solution to Exercise 2
+> > ## Solution to Exercise 3
 > > 
 > > 
 > > 
@@ -137,6 +158,17 @@ oxygen testing and blood volume measurements. Simulated data are shown below.
 
 
 
+
+~~~
+boxplot(blood_volume ~ fitness, data = blood_volume)
+~~~
+{: .language-r}
+
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-03-simulate_BV_boxplot-1.png" alt="plot of chunk simulate_BV_boxplot" width="612" />
+<p class="caption">plot of chunk simulate_BV_boxplot</p>
+</div>
+
 > ## Exercise 3: Comparing two groups
 > Does there appear to be a significant blood volume difference between the 
 > two groups? How would you know?   
@@ -155,6 +187,35 @@ plots like the one above and see a difference, however, we need something more
 objective than eyeballs to claim a significant difference. 
 
 
+~~~
+# read in the simulated blood volume data
+blood_volume <- read.csv("../data/blood_volume.csv")
+CR_fit <- blood_volume[blood_volume$CR_fitness == "fit", "blood_volume"]
+CR_unfit <- blood_volume[blood_volume$CR_fitness == "unfit", "blood_volume"]
+
+t.test(x=CR_fit, y=CR_unfit)
+~~~
+{: .language-r}
+
+
+
+~~~
+
+	Welch Two Sample t-test
+
+data:  CR_fit and CR_unfit
+t = 3.3082, df = 47.837, p-value = 0.001789
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 0.3491155 1.4312897
+sample estimates:
+mean of x mean of y 
+ 4.941524  4.051322 
+~~~
+{: .output}
+The t-test, a test of statistical significance, indicates that fit people had a
+mean blood volume significantly greater than unfit people. Note: these are 
+simulated data, not real data from the study.
 
 ## Probability and probability distributions
 Suppose you have measured the resting heart rate of the entire population of 
