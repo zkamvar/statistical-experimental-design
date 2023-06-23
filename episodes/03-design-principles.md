@@ -159,32 +159,32 @@ random_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         A            94      chow
-2         B             2      chow
-3         C            51  high fat
-4         D            90      chow
-5         E            31  high fat
-6         F            35  high fat
-7         G            21  high fat
-8         H            17  high fat
-9         I            14      chow
-10        J            55  high fat
-11        K             1  high fat
-12        L            57  high fat
-13        M            30      chow
-14        N            78      chow
-15        O            97  high fat
-16        P            15  high fat
-17        Q            37  high fat
-18        R            54      chow
-19        S            20      chow
-20        T            33  high fat
-21        U            85  high fat
-22        V            75  high fat
-23        W            76      chow
-24        X            59  high fat
-25        Y            43  high fat
-26        Z           100      chow
+1         A            95  high fat
+2         B            46      chow
+3         C            64      chow
+4         D             1  high fat
+5         E            62      chow
+6         F            54      chow
+7         G            31  high fat
+8         H            39  high fat
+9         I            96      chow
+10        J            24      chow
+11        K            10      chow
+12        L            70      chow
+13        M            48      chow
+14        N            57  high fat
+15        O            50      chow
+16        P            44      chow
+17        Q            98      chow
+18        R            71  high fat
+19        S            28      chow
+20        T            37  high fat
+21        U            27  high fat
+22        V            32      chow
+23        W            58      chow
+24        X            33  high fat
+25        Y            45  high fat
+26        Z            82      chow
 ~~~
 {: .output}
 
@@ -204,7 +204,7 @@ table(random_allocation$treatment)
 ~~~
 
     chow high fat 
-      10       16 
+      16       10 
 ~~~
 {: .output}
 
@@ -231,32 +231,32 @@ equal_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         K             1      chow
-2         B             2      chow
-3         I            14      chow
-4         P            15      chow
-5         H            17      chow
-6         S            20      chow
-7         G            21      chow
-8         M            30      chow
-9         E            31      chow
-10        T            33      chow
-11        F            35      chow
-12        Q            37      chow
-13        Y            43      chow
-14        C            51  high fat
-15        R            54  high fat
-16        J            55  high fat
-17        L            57  high fat
-18        X            59  high fat
-19        V            75  high fat
-20        W            76  high fat
-21        N            78  high fat
-22        U            85  high fat
-23        D            90  high fat
-24        A            94  high fat
-25        O            97  high fat
-26        Z           100  high fat
+1         D             1      chow
+2         K            10      chow
+3         J            24      chow
+4         U            27      chow
+5         S            28      chow
+6         G            31      chow
+7         V            32      chow
+8         X            33      chow
+9         T            37      chow
+10        H            39      chow
+11        P            44      chow
+12        Y            45      chow
+13        B            46      chow
+14        M            48  high fat
+15        O            50  high fat
+16        F            54  high fat
+17        N            57  high fat
+18        W            58  high fat
+19        E            62  high fat
+20        C            64  high fat
+21        L            70  high fat
+22        R            71  high fat
+23        Z            82  high fat
+24        A            95  high fat
+25        I            96  high fat
+26        Q            98  high fat
 ~~~
 {: .output}
 

@@ -53,7 +53,9 @@ of Wisconsin Madison shows variability in a natural population.
 > > (bell-shaped), then we know that approximately 68% of the data lies within
 > > one standard deviation (sd) of the mean and ~95% lies within two sd's. If 
 > > there are ~100 people in the sample, 95% of them lie between 5'0" and 5'10"
-> > (2 sd's = 5" above and 5" below the mean). One standard deviation then would > > be about 5"/2 = 2.5" from the mean of 5'5". So 68% of the data (~68 people) > > lie within 5 feet 2.5 inches and 5 feet 7.5 inches.  
+> > (2 sd's = 5" above and 5" below the mean). One standard deviation then would 
+> > be about 5"/2 = 2.5" from the mean of 5'5". So 68% of the data (~68 people) 
+> > lie within 5 feet 2.5 inches and 5 feet 7.5 inches.  
 > > 3). There are some very tall and very short people but it's not clear 
 > > whether they are outliers. Outliers deviate significantly from expected 
 > > values, specifically by more than 3 standard deviations in a normal
@@ -61,7 +63,7 @@ of Wisconsin Madison shows variability in a natural population.
 > > mean could be considered outliers. Outliers would then be shorter than 4
 > > feet 7.5 inches or taller than 6 feet 2.5 inches. The shortest are 4 feet 9
 > > inches and the tallest 6' 0 inches. There are no outliers in this sample 
-> > because all heights fall within 3 sd's.
+> > because all heights fall within 3 sd's.  
 > > 4). Average male heights are greater than average female heights, so you 
 > > could expect that a random sample of 100 male students would increase the
 > > average height of the sample of 200 students. The mean would shift to the
@@ -123,8 +125,8 @@ boxplot(sample100)
 > {: .solution}
 {: .challenge}
 
-Plotting the data can reveal relationships between variables, identify unusual 
-response measurements (**outliers**) and guide further statistical analysis.
+Plotting the data can identify unusual response measurements (**outliers**), 
+reveal relationships between variables, and guide further statistical analysis.
 When data are not normally distributed (bell-shaped and symmetrical), many of 
 the statistical methods typically used will not perform well. In these cases
 the data can be transformed to a more symmetrical bell-shaped curve.
@@ -138,10 +140,11 @@ performance, however, this is the first study to demonstrate this relationship
 in elderly people.
 
 To test whether exercise affects blood volume, 50 volunteers from the Generation 
-100 participants were [placed in two groups](https://frontiersin.org/articles/10.3389/fspor.2021.638139/full) 
-- fit or unfit - depending on results of peak oxygen uptake testing. Exercise
+100 participants were [placed in two groups](https://frontiersin.org/articles/10.3389/fspor.2021.638139/full), either
+fit or unfit, depending on results of peak oxygen uptake testing. Exercise
 was objectively measured with a wearable sensor for one week between peak 
-oxygen testing and blood volume measurements. Simulated data are shown below.
+oxygen testing and blood volume measurements. Simulated data are shown in the 
+boxplots below.
 
 ```{r, simulate_BV_data, include=FALSE}
 # simulate blood volume data
@@ -175,58 +178,64 @@ boxplot(blood_volume ~ fitness, data = blood_volume)
 ## The t-test
 What does it mean that a difference is statistically significant? We can eye
 plots like the one above and see a difference, however, we need something more 
-objective than eyeballs to claim a significant difference. 
+objective than eyeballs to claim a significant difference. A t-test will report
+whether the difference in mean values between the two groups is significant. A 
+null hypothesis would state that there is no difference in mean values, while
+the alternative states that there is a difference in the means of the two
+samples.
 
 ```{r, t_test}
 # read in the simulated blood volume data
 blood_volume <- read.csv("../data/blood_volume.csv")
-CR_fit <- blood_volume[blood_volume$CR_fitness == "fit", "blood_volume"]
-CR_unfit <- blood_volume[blood_volume$CR_fitness == "unfit", "blood_volume"]
 
-t.test(x=CR_fit, y=CR_unfit)
+# provide a formula stating that blood volume is dependent on CR fitness
+t.test(blood_volume ~ CR_fitness, data=blood_volume)
 ```
 The t-test, a test of statistical significance, indicates that fit people had a
-mean blood volume significantly greater than unfit people. Note: these are 
-simulated data, not real data from the study.
+mean blood volume significantly greater than unfit people (p-value = 0.00173).
+The 95% confidence interval shows that this difference in means is likely 
+between 0.4079112 and 1.6565602. Note: these are simulated data, not real data 
+from the  study.
 
 ## Probability and probability distributions
 Suppose you have measured the resting heart rate of the entire population of 
 people who are 70 or older, not just the 1,567 from the Generation 100 study. 
 Imagine you need to describe these numbers to someone who has no idea what 
-resting heart rate is. Suppose all the measurements are contained in 
-`simulated_heart_rates`. We could list out all of the numbers for them to see or 
-take a sample and show them the sample, but this would be inefficient and 
-wouldn't provide much insight into the data. A better approach is to define and 
-visualize a **distribution**. The simplest way to think of a distribution is as 
-a compact description of many numbers. 
+resting heart rate is. Suppose all the measurements from the entire population
+are contained in `simulated_heart_rates`. We could list out all of the numbers 
+for them to see or take a sample and show them the sample, but this would be 
+inefficient and wouldn't provide much insight into the data. A better approach 
+is to define and visualize a **distribution**. The simplest way to think of a 
+distribution is as a compact description of many numbers. 
 
 Histograms show us the proportion of values within an interval. Here is a 
-histogram showing all resting heart rates.
+histogram showing all resting heart rates for the entire population.
 
-```{r, simulate_population_hist, include=FALSE}
+```{r, simulate_population_hist}
 hist(simulated_heart_rates, xlab = "resting heart rate")
 ```
 
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of 
 individuals in any given interval. For example, there are approximately
-30 individuals (~2%) with a resting heart rate greater than 100. The 
-probability distribution we see above approximates one that is very common in 
-nature: the bell curve, also known as the **normal distribution** or Gaussian
-distribution.
+30 individuals (~2%) with a resting heart rate greater than 100, and another ~30
+with a resting heart rate below 60. The probability distribution we see above 
+approximates one that is very common in nature: the bell curve, also known as 
+the **normal distribution** or Gaussian distribution.
 
-```{r, standard_normal_dist, include=FALSE}
+```{r, standard_normal_dist}
 plot(function(x) dnorm(x), -3.5, 3.5, main = "Standard normal distribution", 
      xlab = "z", ylab = "")
 ```
 
 The curve shown above is an example of a **probability density function** that
-defines a bell-shaped curve. The y-axis is the **probability density**. 
-Statistical convention denotes a variable that has a standard normal 
-distribution by *z*. The total area under the curve sums to 1.0. If you draw a
-random value from a normal distribution, the probability that the value falls in
-a particular interval, say from a to b, is given by the area under the curve
-between a and b. Software can be used to calculate these probabilities.
+defines a bell-shaped curve. The y-axis is the **probability density**, and
+the total area under the curve sums to 1.0 on the y-axis. The x-axis denotes a 
+variable *z* that by statistical convention has a standard normal distribution.
+If you draw a random value from a normal distribution, the probability that the 
+value falls in a particular interval, say from a to b, is given by the area 
+under the curve between a and b. Software can be used to calculate these 
+probabilities.
 
 When the histogram of a list of numbers approximates the normal distribution, 
 we can use a convenient mathematical formula to approximate the proportion of 
