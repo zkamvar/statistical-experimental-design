@@ -146,34 +146,24 @@ the data can be transformed to a more symmetrical bell-shaped curve.
 
 ## Statistical significance testing
 The Generation 100 studied aims to determine whether high-intensity exercise in
-elderly adults affects lifespan and healthspan. A substudy looked at whether
-cardiorespiratory fitness, the supply of oxygen to skeletal muscles, is linked 
-to high blood volume in the elderly. It is well known that physical activity can increase blood volume and that high blood volume is crucial to athletic 
-performance, however, this is the first study to demonstrate this relationship 
-in elderly people.
-
-To test whether exercise affects blood volume, 50 volunteers from the Generation 
-100 participants were [placed in two groups](https://frontiersin.org/articles/10.3389/fspor.2021.638139/full), either
-fit or unfit, depending on results of peak oxygen uptake testing. Exercise
-was objectively measured with a wearable sensor for one week between peak 
-oxygen testing and blood volume measurements. Simulated data are shown in the 
-boxplots below.
+elderly adults affects lifespan and healthspan. 
+To test whether exercise affects heart rate in elderly adults, 
 
 
 
 
 ~~~
-boxplot(blood_volume ~ fitness, data = blood_volume)
+boxplot(heart_rate ~ exercise_group, data = heart_rate)
 ~~~
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-03-simulate_BV_boxplot-1.png" alt="plot of chunk simulate_BV_boxplot" width="612" />
-<p class="caption">plot of chunk simulate_BV_boxplot</p>
+<img src="../fig/rmd-03-exercise_intensity_boxplot-1.png" alt="plot of chunk exercise_intensity_boxplot" width="612" />
+<p class="caption">plot of chunk exercise_intensity_boxplot</p>
 </div>
 
 > ## Exercise 3: Comparing two groups
-> Does there appear to be a significant blood volume difference between the 
+> Does there appear to be a significant heart rate difference between the 
 > two groups? How would you know?   
 > Do any of the data overlap between the two boxplots?  
 > >
@@ -184,6 +174,20 @@ boxplot(blood_volume ~ fitness, data = blood_volume)
 > {: .solution}
 {: .challenge}
 
+The boxplots above show a trend of lower heart rate in the high-intensity 
+exercise group and higher heart rate in the low-intensity exercise group. There 
+is inherent variability in heart rate in both groups however, which is to be 
+expected. That variability appears in the box and whisker lengths of the 
+boxplots, along with the outliers that appear as hollow circles. This
+variability in heart rate measurements also means that the boxplots overlap
+between the two groups. 
+
+Significance testing can answer questions about differences between the two
+groups in light of inherent variability in heart rate measurements. Comparing
+the data obtained to a probability distribution of data that might have been 
+obtained can help to answer questions about the effects of exercise intensity
+on heart rate.
+ 
 ## The t-test
 What does it mean that a difference is statistically significant? We can eye
 plots like the one above and see a difference, however, we need something more 
@@ -195,11 +199,11 @@ samples.
 
 
 ~~~
-# read in the simulated blood volume data
-blood_volume <- read.csv("../data/blood_volume.csv")
+# read in the simulated heart rate data
+heart_rate <- read.csv("../data/heart_rate.csv")
 
-# provide a formula stating that blood volume is dependent on CR fitness
-t.test(blood_volume ~ CR_fitness, data=blood_volume)
+# provide a formula stating that heart rate is dependent on exercise intensity
+t.test(heart_rate ~ exercise_group, data = heart_rate)
 ~~~
 {: .language-r}
 
@@ -209,21 +213,32 @@ t.test(blood_volume ~ CR_fitness, data=blood_volume)
 
 	Welch Two Sample t-test
 
-data:  blood_volume by CR_fitness
-t = 3.3082, df = 47.837, p-value = 0.001789
-alternative hypothesis: true difference in means between group fit and group unfit is not equal to 0
+data:  heart_rate by exercise_group
+t = -11.963, df = 997.96, p-value < 2.2e-16
+alternative hypothesis: true difference in means between group high intensity and group low intensity is not equal to 0
 95 percent confidence interval:
- 0.3491155 1.4312897
+ -18.30476 -13.14577
 sample estimates:
-  mean in group fit mean in group unfit 
-           4.941524            4.051322 
+mean in group high intensity  mean in group low intensity 
+                    69.00327                     84.72853 
 ~~~
 {: .output}
-The t-test, a test of statistical significance, indicates that fit people had a
-mean blood volume significantly greater than unfit people (p-value = 0.00173).
+The t-test, a test of statistical significance, indicates that people in the 
+high-intensity exercise group had a mean heart rate significantly lower than 
+people in the low-intensity exercise group (p-value = 
+6.45 &times; 10<sup>-31</sup>).
 The 95% confidence interval shows that this difference in means is likely 
-between 0.4079112 and 1.6565602. Note: these are simulated data, not real data 
-from the  study.
+between -18.3047551 
+and -13.1457665. 
+Note: these are simulated data, not real data from the  study. 
+
+P-values are often misinterpreted as the probability that, in this example, 
+high- and low-intensity exercise result in the same average heart rate.
+However, "high- and low-intensity exercise result in the same average heart 
+rate" is not a random variable like the outcome of 10 coin tosses. It's a 
+statement that doesn't have a probability distribution, so you can't make
+probability statements about it. To understand this better, we'll explore
+probability distributions next.
 
 ## Probability and probability distributions
 Suppose you have measured the resting heart rate of the entire population of 
@@ -279,9 +294,7 @@ value falls in a particular interval, say from a to b, is given by the area
 under the curve between a and b. Software can be used to calculate these 
 probabilities.
 
-When the histogram of a list of numbers approximates the normal distribution, 
-we can use a convenient mathematical formula to approximate the proportion of 
-values or outcomes in any given interval. Real-world populations may be 
+Real-world populations may be 
 approximated by the mathematical ideal of the normal distribution. Repeat the
 sampling we did earlier and produce a new histogram of the sample.
 
@@ -300,11 +313,12 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 > ## Exercise 4: Sampling from a population
 > Does the sample appear to be normally distributed?   
 > Can you estimate the mean resting heart rate by eye?  
-> What is the sample mean using R?  
+> What is the sample mean using R (hint: use `mean()`)?  
 > Can you estimate the sample standard deviation by eye? Hint: if normally 
 > distributed, 68% of the data will lie within one standard deviation of the 
 > mean and 95% will lie within 2 standard deviations.
-> What is the sample standard deviation using R?  
+> What is the sample standard deviation using R (hint: use `sd()`)? 
+> Estimate the number of people with a resting heart rate between 60 and 70.
 > What message does the sample deliver about the population from which it was
 > drawn?  
 > >
@@ -314,6 +328,10 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 > > 
 > {: .solution}
 {: .challenge}
+
+When the histogram of a list of numbers approximates the normal distribution, 
+we can use a convenient mathematical formula to approximate the proportion of 
+values or outcomes in any given interval. 
 
 ## The perils of p-values
 

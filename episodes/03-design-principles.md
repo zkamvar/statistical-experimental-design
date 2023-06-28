@@ -159,32 +159,32 @@ random_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         A            95  high fat
-2         B            46      chow
-3         C            64      chow
-4         D             1  high fat
-5         E            62      chow
-6         F            54      chow
-7         G            31  high fat
-8         H            39  high fat
-9         I            96      chow
-10        J            24      chow
-11        K            10      chow
-12        L            70      chow
-13        M            48      chow
-14        N            57  high fat
-15        O            50      chow
-16        P            44      chow
-17        Q            98      chow
-18        R            71  high fat
-19        S            28      chow
-20        T            37  high fat
-21        U            27  high fat
-22        V            32      chow
-23        W            58      chow
-24        X            33  high fat
-25        Y            45  high fat
-26        Z            82      chow
+1         A            68      chow
+2         B            94      chow
+3         C            45  high fat
+4         D            18      chow
+5         E             8      chow
+6         F             3  high fat
+7         G            63  high fat
+8         H            14      chow
+9         I            59  high fat
+10        J            38      chow
+11        K            33  high fat
+12        L           100      chow
+13        M            54      chow
+14        N            40      chow
+15        O            12      chow
+16        P            62      chow
+17        Q            91  high fat
+18        R            15  high fat
+19        S            25  high fat
+20        T            70      chow
+21        U            55  high fat
+22        V            20      chow
+23        W            98      chow
+24        X            32      chow
+25        Y            85  high fat
+26        Z            30      chow
 ~~~
 {: .output}
 
@@ -231,32 +231,32 @@ equal_allocation
 
 ~~~
    mouse_ID random_number treatment
-1         D             1      chow
-2         K            10      chow
-3         J            24      chow
-4         U            27      chow
-5         S            28      chow
-6         G            31      chow
-7         V            32      chow
-8         X            33      chow
-9         T            37      chow
-10        H            39      chow
-11        P            44      chow
-12        Y            45      chow
-13        B            46      chow
-14        M            48  high fat
-15        O            50  high fat
-16        F            54  high fat
-17        N            57  high fat
-18        W            58  high fat
-19        E            62  high fat
-20        C            64  high fat
-21        L            70  high fat
-22        R            71  high fat
-23        Z            82  high fat
-24        A            95  high fat
-25        I            96  high fat
-26        Q            98  high fat
+1         F             3      chow
+2         E             8      chow
+3         O            12      chow
+4         H            14      chow
+5         R            15      chow
+6         D            18      chow
+7         V            20      chow
+8         S            25      chow
+9         Z            30      chow
+10        X            32      chow
+11        K            33      chow
+12        J            38      chow
+13        N            40      chow
+14        C            45  high fat
+15        M            54  high fat
+16        U            55  high fat
+17        I            59  high fat
+18        P            62  high fat
+19        G            63  high fat
+20        A            68  high fat
+21        T            70  high fat
+22        Y            85  high fat
+23        Q            91  high fat
+24        B            94  high fat
+25        W            98  high fat
+26        L           100  high fat
 ~~~
 {: .output}
 
@@ -266,7 +266,7 @@ track of which samples are randomly assigned which diet.
 
 
 ~~~
-write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
+write.csv(equal_allocation, file = "../data/random-assign.csv", row.names = FALSE)
 ~~~
 {: .language-r}
 
@@ -358,9 +358,11 @@ the subsequent data analysis.
 > so, how you would set up the blocks.
 > 1. A large gene expression study will be run in five different batches or runs.  
 > 2. An experiment will use two different models of equipment to obtain 
-> measurements.
-> 3. Samples will be processed in the morning, afternoon and evening.
-> 4. Eight different mouse strains will be involved in a study.
+> measurements.  
+> 3. Samples will be processed in the morning, afternoon and evening.  
+> 4. In a study in which mice were randomly assigned to treatment and control 
+> groups, the air handler in the room went off and temperature and humidity
+> increased.
 > 
 > > 
 > > ## Solution to Exercise 4

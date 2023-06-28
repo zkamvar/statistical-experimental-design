@@ -186,7 +186,7 @@ then open it in Excel and use it to record your data collection or just keep
 track of which samples are randomly assigned which diet.
 
 ```{r, write_out_plan}
-write.csv(equal_allocation, file = "random-assign.csv", row.names = FALSE)
+write.csv(equal_allocation, file = "../data/random-assign.csv", row.names = FALSE)
 ```
 
 > ## Discussion
@@ -277,9 +277,11 @@ the subsequent data analysis.
 > so, how you would set up the blocks.
 > 1. A large gene expression study will be run in five different batches or runs.  
 > 2. An experiment will use two different models of equipment to obtain 
-> measurements.
-> 3. Samples will be processed in the morning, afternoon and evening.
-> 4. Eight different mouse strains will be involved in a study.
+> measurements.  
+> 3. Samples will be processed in the morning, afternoon and evening.  
+> 4. In a study in which mice were randomly assigned to treatment and control 
+> groups, the air handler in the room went off and temperature and humidity
+> increased.
 > 
 > > 
 > > ## Solution to Exercise 4
