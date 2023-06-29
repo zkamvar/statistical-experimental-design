@@ -92,7 +92,7 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-03-simulate_gen100_data-1.png" alt="plot of chunk simulate_gen100_data" width="612" />
+<img src="../fig/rmd-04-simulate_gen100_data-1.png" alt="plot of chunk simulate_gen100_data" width="612" />
 <p class="caption">plot of chunk simulate_gen100_data</p>
 </div>
 
@@ -120,7 +120,7 @@ boxplot(sample100)
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-03-boxplot_simulated_gen100_data-1.png" alt="plot of chunk boxplot_simulated_gen100_data" width="612" />
+<img src="../fig/rmd-04-boxplot_simulated_gen100_data-1.png" alt="plot of chunk boxplot_simulated_gen100_data" width="612" />
 <p class="caption">plot of chunk boxplot_simulated_gen100_data</p>
 </div>
 
@@ -158,7 +158,7 @@ boxplot(heart_rate ~ exercise_group, data = heart_rate)
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-03-exercise_intensity_boxplot-1.png" alt="plot of chunk exercise_intensity_boxplot" width="612" />
+<img src="../fig/rmd-04-exercise_intensity_boxplot-1.png" alt="plot of chunk exercise_intensity_boxplot" width="612" />
 <p class="caption">plot of chunk exercise_intensity_boxplot</p>
 </div>
 
@@ -223,10 +223,26 @@ mean in group high intensity  mean in group low intensity
                     69.00327                     84.72853 
 ~~~
 {: .output}
-The t-test, a test of statistical significance, indicates that people in the 
-high-intensity exercise group had a mean heart rate significantly lower than 
-people in the low-intensity exercise group (p-value = 
+The t-test, a test of statistical significance, reports that people in the 
+high-intensity exercise group had a mean heart rate of
+69.0032666, which
+is significantly lower than the mean heart rate
+(`t.test(heart_rate ~ exercise_group, data = heart_rate)$estimate[[2]]`)
+of people in the low-intensity exercise group (p-value = 
 6.45 &times; 10<sup>-31</sup>).
+
+> ## Exercise 4: What does a p-value mean?
+> What does this p-value tell us about the difference in means between the two
+> groups? How can we interpret this value? What does it say about the 
+> significance of the difference in mean values?
+> >
+> > ## Solution to Exercise 4
+> > 
+> > 
+> > 
+> {: .solution}
+{: .challenge}
+
 The 95% confidence interval shows that this difference in means is likely 
 between -18.3047551 
 and -13.1457665. 
@@ -235,10 +251,14 @@ Note: these are simulated data, not real data from the  study.
 P-values are often misinterpreted as the probability that, in this example, 
 high- and low-intensity exercise result in the same average heart rate.
 However, "high- and low-intensity exercise result in the same average heart 
-rate" is not a random variable like the outcome of 10 coin tosses. It's a 
-statement that doesn't have a probability distribution, so you can't make
-probability statements about it. To understand this better, we'll explore
-probability distributions next.
+rate" is not a **random variable** like the number of heads or tails in 10 flips 
+of a coin. It's a statement that doesn't have a **probability distribution**, so 
+you can't make probability statements about it. The p-value summarizes the 
+comparison between our data and the data we might have obtained from a
+probability distribution if there were no difference in mean heart rates. 
+Specifically, the p-value tells us how far out on the tail of that distribution
+the data we got falls. To understand this better, we'll explore probability 
+distributions next.
 
 ## Probability and probability distributions
 Suppose you have measured the resting heart rate of the entire population of 
@@ -252,7 +272,8 @@ is to define and visualize a **distribution**. The simplest way to think of a
 distribution is as a compact description of many numbers. 
 
 Histograms show us the proportion of values within an interval. Here is a 
-histogram showing all resting heart rates for the entire population.
+histogram showing all resting heart rates for the entire population 70 and 
+older.
 
 
 ~~~
@@ -261,7 +282,7 @@ hist(simulated_heart_rates, xlab = "resting heart rate")
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-03-simulate_population_hist-1.png" alt="plot of chunk simulate_population_hist" width="612" />
+<img src="../fig/rmd-04-simulate_population_hist-1.png" alt="plot of chunk simulate_population_hist" width="612" />
 <p class="caption">plot of chunk simulate_population_hist</p>
 </div>
 
@@ -269,9 +290,10 @@ Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of 
 individuals in any given interval. For example, there are approximately
 30 individuals (~2%) with a resting heart rate greater than 100, and another ~30
-with a resting heart rate below 60. The probability distribution we see above 
-approximates one that is very common in nature: the bell curve, also known as 
-the **normal distribution** or Gaussian distribution.
+with a resting heart rate below 60. 
+
+The histogram above approximates one that is very common in nature: the bell 
+curve, also known as the **normal distribution** or Gaussian distribution.
 
 
 ~~~
@@ -281,7 +303,7 @@ plot(function(x) dnorm(x), -3.5, 3.5, main = "Standard normal distribution",
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-03-standard_normal_dist-1.png" alt="plot of chunk standard_normal_dist" width="612" />
+<img src="../fig/rmd-04-standard_normal_dist-1.png" alt="plot of chunk standard_normal_dist" width="612" />
 <p class="caption">plot of chunk standard_normal_dist</p>
 </div>
 
@@ -290,8 +312,8 @@ defines a bell-shaped curve. The y-axis is the **probability density**, and
 the total area under the curve sums to 1.0 on the y-axis. The x-axis denotes a 
 variable *z* that by statistical convention has a standard normal distribution.
 If you draw a random value from a normal distribution, the probability that the 
-value falls in a particular interval, say from a to b, is given by the area 
-under the curve between a and b. Software can be used to calculate these 
+value falls in a particular interval, say from *a* to *b*, is given by the area 
+under the curve between *a* and *b*. Software can be used to calculate these 
 probabilities.
 
 Real-world populations may be 
@@ -306,7 +328,7 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-03-sample_hist-1.png" alt="plot of chunk sample_hist" width="612" />
+<img src="../fig/rmd-04-sample_hist-1.png" alt="plot of chunk sample_hist" width="612" />
 <p class="caption">plot of chunk sample_hist</p>
 </div>
 
