@@ -17,14 +17,15 @@ source: Rmd
 
 
 The [Generation 100 study](https://bmjopen.bmj.com/content/5/2/e007519) 
-evaluated the effects of exercise on more than 1500 elderly Norwegians to 
-determine if exercise led to a longer active and healthy life. Specifically the 
-researchers investigated the relationship between exercise intensity and health 
-and longevity. One group performed high-intensity interval training (10 minute 
-warm-up followed by four 4-minute intervals at ∼90% of peak heart rate) twice a 
-week for five years. A second group performed moderate exercise twice a week (50 
-minutes of continuous exercise at ∼70% of peak heart rate). A third control 
-group followed physical activity advice according to national recommendations. 
+evaluated the effects of exercise on more than 1500 elderly Norwegians from
+Trondheim, Norway, to determine if exercise led to a longer active and healthy 
+life. Specifically the researchers investigated the relationship between 
+exercise intensity and health and longevity. One group performed high-intensity 
+interval training (10 minute warm-up followed by four 4-minute intervals at ∼90% 
+of peak heart rate) twice a week for five years. A second group performed 
+moderate exercise twice a week (50 minutes of continuous exercise at ∼70% of 
+peak heart rate). A third control group followed physical activity advice 
+according to national recommendations. 
 Clinical examinations and questionnaires were administered to all at the start 
 and after one, three, and five years. Heart rate, blood pressure, leg and grip 
 strength, cognitive function, and other health indicators were measured during 
