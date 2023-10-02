@@ -1,21 +1,32 @@
 ---
-title: "Completely Randomized Design with More than One Treatment Factor"
+title: Completely Randomized Design with More than One Treatment Factor
 teaching: 0
 exercises: 0
-questions:
-- "How is a CRD with more than one treatment factor designed and analyzed?"
-objectives:
-- "."
-- "."
-keypoints:
-- "."
 source: Rmd
 ---
 
-```{r, include = FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("03-")
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- .
+- .
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How is a CRD with more than one treatment factor designed and analyzed?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+```{r, include=FALSE}
 ```
 
 
-{% include links.md %}
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- .
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

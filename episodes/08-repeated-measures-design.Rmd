@@ -1,30 +1,39 @@
 ---
-title: "Repeated Measures Designs"
+title: Repeated Measures Designs
 teaching: 0
 exercises: 0
-questions:
-- "What is a repeated measures design?"
-objectives:
-- "A repeated measures design measures the response of experimental units repeatedly during the study."
-keypoints:
-- "."
 source: Rmd
 ---
 
-```{r, include = FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("03-")
-```
+::::::::::::::::::::::::::::::::::::::: objectives
 
+- A repeated measures design measures the response of experimental units repeatedly during the study.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What is a repeated measures design?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+```{r, include=FALSE}
+```
 
 ## Drug effect on heart rate
 
-
-
 ## Among-subject vs. within-subject variability
+
 Each subject can be its own control
 
 ## crossover design for heart rate
 
 
-{% include links.md %}
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- .
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

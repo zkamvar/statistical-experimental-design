@@ -1,38 +1,41 @@
 ---
-title: "Randomized Complete Block Designs"
+title: Randomized Complete Block Designs
 teaching: 0
 exercises: 0
-questions:
-- "What is randomized complete block design?"
-objectives:
-- "A randomized complete block design randomizes treatments to experimental units within the block."
-- "Blocking increases the precision of treatment comparisons."
-keypoints:
-- "Replication, randomization and blocking determine the validity and usefulness of an experiment."
 source: Rmd
 ---
 
-```{r, include = FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("03-")
-```
+::::::::::::::::::::::::::::::::::::::: objectives
 
+- A randomized complete block design randomizes treatments to experimental units within the block.
+- Blocking increases the precision of treatment comparisons.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What is randomized complete block design?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+```{r, include=FALSE}
+```
 
 ## Design issues
 
-Imagine that you want to evaluate the effect of different 
+Imagine that you want to evaluate the effect of different
 doses of a new drug on the proliferation of cancer cell lines in vitro. You use
-four different cancer cell lines because you would like the results to 
-generalize to many types of cell lines. Divide each of the cell lines into four 
+four different cancer cell lines because you would like the results to
+generalize to many types of cell lines. Divide each of the cell lines into four
 treatment groups, each with the same number of cells. Each treatment group
 receives a different dose of the drug for five consecutive days.
 
 Group 1: Control (no drug)  
-Group 2: Low dose (10 μM) 
-Group 3: Medium dose (50 μM) 
-Group 4: High dose (100 μM) 
+Group 2: Low dose (10 μM)
+Group 3: Medium dose (50 μM)
+Group 4: High dose (100 μM)
 
-```{r, complete_random_block}
+```{r}
 
 # create treatment levels
 f <- factor(c("control", "low", "medium", "high"))
@@ -49,17 +52,23 @@ plan <- data.frame(cellLine = block, DishNumber = dishnum, treatment = treatment
 plan
 ```
 
-When analyzing a random complete block design, the effect of the block is 
-included in the equation along with the effect of the treatment. 
+When analyzing a random complete block design, the effect of the block is
+included in the equation along with the effect of the treatment.
 
 ## Randomized block design with a single replication
 
-
 ## Sizing a randomized block experiment
-
 
 ## True replication
 
 ## Balanced incomplete block designs
 
-{% include links.md %}
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Replication, randomization and blocking determine the validity and usefulness of an experiment.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

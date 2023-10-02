@@ -1,15 +1,29 @@
 ---
-title: "Introduction"
+title: Introduction
 teaching: 0
 exercises: 0
-questions:
-- "What is gained from good experimental design?"
-objectives:
-- "Connect experimental design with data quality and meaningful findings."
-keypoints:
-- "Good experimental design generates information-rich data with a clear message."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Connect experimental design with data quality and meaningful findings.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What is gained from good experimental design?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 FIXME
 
-{% include links.md %}
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Good experimental design generates information-rich data with a clear message.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
