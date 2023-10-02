@@ -27,7 +27,7 @@ life_cycle: 'pre-alpha'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/fishtree-attempt/statistical-experimental-design/'
+source: 'https://github.com/smcclatchy/statistical-experimental-design'
 
 # Default branch of your lesson
 branch: 'main'
@@ -83,7 +83,6 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
-url: https://preview.carpentries.org/statistical-experimental-design
+url: 'https://smcclatchy.github.io/statistical-experimental-design'
 analytics: carpentries
 lang: en
-workbench-beta: yes
