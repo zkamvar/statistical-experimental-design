@@ -217,9 +217,9 @@ meanDiff <- mean(control) - mean(HI)
 ```
 
 The actual difference in mean heart rates is
-1.9397103. Another way of stating this is that the
+2.9765203. Another way of stating this is that the
 high-intensity group had a mean heart rate that was
-3 percent lower than
+4 percent lower than
 the control group.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -244,7 +244,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 1.245962
+[1] 3.640051
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -259,7 +259,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.362455
+[1] 2.766192
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -283,7 +283,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 69.45986
+[1] 68.93267
 ```
 
 ```r
@@ -291,7 +291,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 71.75932
+[1] 71.42693
 ```
 
 ```r
@@ -299,7 +299,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 70.82025
+[1] 70.57359
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -331,7 +331,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] -0.2510433
+[1] 0.4086124
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -357,11 +357,11 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0767
+[1] 0.0126
 ```
 
 Slightly more than 1% of the 10,000 simulations are greater than the observed
-difference in means. We can expect then that we will see a difference in means approximately 1.3% of the time even if there is no effect of exercise on heart
+difference in means. We can expect then that we will see a difference in means approximately 1% of the time even if there is no effect of exercise on heart
 rate. This is known as a **p-value**, which we will address later in this
 lesson.
 
@@ -374,7 +374,7 @@ on heart rate.
 ## The t-test
 
 What does it mean that a difference is statistically significant? We can eye
-plots like the one above and see a difference, however, we need something more
+plots like the boxplots above and see a difference, however, we need something more
 objective than eyeballs to claim a significant difference. A t-test will report
 whether the difference in mean values between the two groups is significant. The
 **null hypothesis** would state that there is no difference in mean values,
@@ -403,8 +403,8 @@ significance of the difference in mean values?
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 P-values are often misinterpreted as the probability that, in this example,
-high- and control exercise result in the same average heart rate.
-However, "high- and control exercise result in the same average heart
+high-intensity and control exercise result in the same average heart rate.
+However, "high-intensity and control exercise result in the same average heart
 rate" is not a **random variable** like the number of heads or tails in 10 flips
 of a coin. It's a statement that doesn't have a **probability distribution**, so
 you can't make probability statements about it. The p-value summarizes the
