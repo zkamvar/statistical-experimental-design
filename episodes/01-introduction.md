@@ -22,7 +22,7 @@ collected data about variation in polio incidence after injecting hundreds of
 thousands of schoolchildren with vaccine or placebo (or by observing more than a
 million unvaccinated children for polio incidence and comparing this incidence
 to that of the treatment group). This controlled trial hypothesized that the
-vaccine would reduce the incidence of polio in schoolchildren
+vaccine would reduce the incidence of polio in schoolchildren.
 
 Naturalistic studies gather data with minimal intervention, such as in [monitoring birth weight in wild red deer](https://academic.oup.com/genetics/article/162/4/1863/6050019?login=false).
 
