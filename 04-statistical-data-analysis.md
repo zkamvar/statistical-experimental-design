@@ -217,7 +217,7 @@ meanDiff <- mean(control) - mean(HI)
 ```
 
 The actual difference in mean heart rates is
-2.7935505. Another way of stating this is that the
+2.9652626. Another way of stating this is that the
 high-intensity group had a mean heart rate that was
 4 percent lower than
 the control group.
@@ -244,7 +244,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.957359
+[1] 2.661124
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -259,7 +259,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.837206
+[1] 4.661731
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -283,7 +283,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 69.81077
+[1] 69.31612
 ```
 
 ```r
@@ -291,7 +291,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 70.72514
+[1] 69.63114
 ```
 
 ```r
@@ -299,7 +299,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 69.40607
+[1] 70.52501
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -331,7 +331,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] 0.5480207
+[1] -0.1176233
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -357,7 +357,7 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0168
+[1] 0.0158
 ```
 
 Slightly more than 2% of the 10,000 simulations are greater than the observed
