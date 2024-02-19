@@ -33,10 +33,10 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-6">
       <div class="large-logo">
-        <img alt="The Carpentries" src="../assets/images/carpentries-logo.svg"><abbr class="icon" title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught." style="text-decoration: unset">
-           
-          <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link" style="color: #383838">Pre-Alpha
-            <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="color: #FF4955; border-radius: 5px"></i>
+        <img alt="The Carpentries" src="../assets/images/carpentries-logo.svg"><abbr class="badge badge-light" title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught." style="background-color: #FF4955; border-radius: 5px">
+          <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link" style="color: #000">
+            <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
+            Pre-Alpha
           </a>
           <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
         </abbr>
@@ -57,7 +57,7 @@
     </div>
   </div>
   <hr></header><nav class="navbar navbar-expand-xl navbar-light bg-white bottom-nav carpentries" aria-label="Main Navigation"><div class="container-fluid nav-container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="menu-title">Menu</span>
     </button>
@@ -69,7 +69,7 @@
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
-      <i role="img" aria-label="search button" data-feather="search"></i>
+        <i role="img" aria-label="search button" data-feather="search"></i>
       -->
     </div>
     <div class="desktop-nav">
@@ -92,7 +92,11 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+<hr>
+<li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
+<li><a class="dropdown-item" href="reference.html">Glossary</a></li>
+          </ul>
 </li>
       </ul>
 </div>
@@ -121,7 +125,7 @@
         <!-- START: inst/pkgdown/templates/navbar.html -->
 <div id="sidebar-col" class="col-lg-4">
   <div id="sidebar" class="sidebar">
-      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle">
+      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle" data-collapse="Collapse " data-episodes="Episodes ">
           <i class="search-icon" data-feather="x" role="img"></i>
         </button>
         <div class="sidebar-inner">
@@ -296,7 +300,9 @@
                       <li>
                         <a href="../instructor/images.html">Extract All Images</a>
                       </li>
-                      
+                      <hr>
+<li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
+<li><a class="dropdown-item" href="reference.html">Glossary</a></li>
                     </ul>
 </div>
                 </div>
@@ -327,14 +333,7 @@
         
         
 <section id="01-introduction"><h2 class="section-heading"><a href="01-introduction.html">Introduction</a></h2>
-<hr class="half-width">
-<h3 id="01-introduction-figure-1">Figure 1</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Cervus elaphus Luc Viatour 6’</p>
-<a title="Lviatour, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Cervus_elaphus_Luc_Viatour_6.jpg" class="external-link"><img width="256" alt="Cervus elaphus Luc Viatour 6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Cervus_elaphus_Luc_Viatour_6.jpg/256px-Cervus_elaphus_Luc_Viatour_6.jpg" class="figure"></a><hr>
-<h3 id="01-introduction-figure-2">Figure 2</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Red deer (Cervus elaphus) hind’</p>
-<a title="Charles J. Sharp
-, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Red_deer_(Cervus_elaphus)_hind.jpg" class="external-link"><img width="256" alt="Red deer (Cervus elaphus) hind" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Red_deer_%28Cervus_elaphus%29_hind.jpg/256px-Red_deer_%28Cervus_elaphus%29_hind.jpg" class="figure"></a><hr></section><section id="02-experimental-structure"><h2 class="section-heading"><a href="02-experimental-structure.html">Essential Features of a Comparative Experiment</a></h2>
+<hr class="half-width"></section><section id="02-experimental-structure"><h2 class="section-heading"><a href="02-experimental-structure.html">Essential Features of a Comparative Experiment</a></h2>
 <hr class="half-width"></section><section id="03-design-principles"><h2 class="section-heading"><a href="03-design-principles.html">Experimental Design Principles</a></h2>
 <hr class="half-width">
 <h3 id="03-design-principles-figure-1">Figure 1</h3>
@@ -381,30 +380,28 @@ about the size of a golf ball. <img src="../fig/International_prototype_of_the_k
 <!--/div.row-->
       		<footer class="row footer mx-md-3"><hr>
 <div class="col-md-6">
-				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/README.md" class="external-link">Edit on GitHub</a>
         
 	
-        | <a href="https://github.com/smcclatchy/statistical-experimental-design/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/smcclatchy/statistical-experimental-design/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/smcclatchy/statistical-experimental-design/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/smcclatchy/statistical-experimental-design/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
         
-        <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
+        <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
-        <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.14.1" class="external-link">sandpaper (0.14.1)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/0.7.1" class="external-link">pegboard (0.7.1)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.3.3" class="external-link">varnish (0.3.3)</a>.</p>
+        <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.2" class="external-link">sandpaper (0.16.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.3" class="external-link">pegboard (0.7.3)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
 	<div id="to-top">
 		<a href="#top">
-			<i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back to top"></i><br><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
+      <i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back To Top"></i><br><!-- <span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top --><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
 		</a>
 	</div>
   <script type="application/ld+json">
@@ -412,6 +409,7 @@ about the size of a golf ball. <img src="../fig/International_prototype_of_the_k
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
   "@id": "https://smcclatchy.github.io/statistical-experimental-design/instructor/images.html",
+  "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
@@ -420,8 +418,8 @@ about the size of a golf ball. <img src="../fig/International_prototype_of_the_k
   "url": "https://smcclatchy.github.io/statistical-experimental-design/instructor/images.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/instructor/images.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2023-11-14",
-  "datePublished": "2023-11-14"
+  "dateModified": "2024-02-19",
+  "datePublished": "2024-02-19"
 }
 
   </script><script>

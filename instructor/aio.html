@@ -33,10 +33,10 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-6">
       <div class="large-logo">
-        <img alt="The Carpentries" src="../assets/images/carpentries-logo.svg"><abbr class="icon" title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught." style="text-decoration: unset">
-           
-          <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link" style="color: #383838">Pre-Alpha
-            <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="color: #FF4955; border-radius: 5px"></i>
+        <img alt="The Carpentries" src="../assets/images/carpentries-logo.svg"><abbr class="badge badge-light" title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught." style="background-color: #FF4955; border-radius: 5px">
+          <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link" style="color: #000">
+            <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
+            Pre-Alpha
           </a>
           <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
         </abbr>
@@ -57,7 +57,7 @@
     </div>
   </div>
   <hr></header><nav class="navbar navbar-expand-xl navbar-light bg-white bottom-nav carpentries" aria-label="Main Navigation"><div class="container-fluid nav-container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="menu-title">Menu</span>
     </button>
@@ -69,7 +69,7 @@
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
-      <i role="img" aria-label="search button" data-feather="search"></i>
+        <i role="img" aria-label="search button" data-feather="search"></i>
       -->
     </div>
     <div class="desktop-nav">
@@ -92,7 +92,11 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+<hr>
+<li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
+<li><a class="dropdown-item" href="reference.html">Glossary</a></li>
+          </ul>
 </li>
       </ul>
 </div>
@@ -121,7 +125,7 @@
         <!-- START: inst/pkgdown/templates/navbar.html -->
 <div id="sidebar-col" class="col-lg-4">
   <div id="sidebar" class="sidebar">
-      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle">
+      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle" data-collapse="Collapse " data-episodes="Episodes ">
           <i class="search-icon" data-feather="x" role="img"></i>
         </button>
         <div class="sidebar-inner">
@@ -296,7 +300,9 @@
                       <li>
                         <a href="../instructor/images.html">Extract All Images</a>
                       </li>
-                      
+                      <hr>
+<li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
+<li><a class="dropdown-item" href="reference.html">Glossary</a></li>
                     </ul>
 </div>
                 </div>
@@ -328,12 +334,12 @@
         
 <section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">Introduction</a></p>
 <hr>
-<p> Last updated on 2023-11-07 | 
+<p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 0 minutes </p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
 <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
@@ -361,29 +367,36 @@ findings.</li>
 </div>
 </div>
 </div>
+<p>Good experimental design generates information-rich data with a clear
+message. In both scientific research and industry, experimental design
+plays a critical role in obtaining reliable and meaningful results.
+Scientists can better understand their work when they carry out
+well-conceived, well-executed experiments and then extract, communicate,
+and act on information generated in those experiments. This course will
+prepare scientists to design rigorous experiments that generate
+high-value data and to extract and communicate its messages. By applying
+statistical concepts in designing experiments, understanding
+variability, and drawing meaningful inferences, participants will be
+equipped with the knowledge and skills for data-driven decision-making.
+Statistics involves collection, analysis, interpretation, and
+communication of data.</p>
 <p>Experimental design aims to describe and explain variation in natural
-systems. Experiments intervene to affect variation directly, in contrast
-with fieldwork that minimizes intervention. For example, the Salk polio
-vaccine trials collected data about variation in polio incidence after
-injecting hundreds of thousands of schoolchildren with vaccine or
-placebo (or by observing more than a million unvaccinated children for
-polio incidence and comparing this incidence to that of the treatment
-group). This controlled trial hypothesized that the vaccine would reduce
-the incidence of polio in schoolchildren.</p>
-<p>Naturalistic studies gather data with minimal intervention, such as
-in <a href="https://academic.oup.com/genetics/article/162/4/1863/6050019?login=false" class="external-link">monitoring
-birth weight in wild red deer</a>.</p>
-<p><a title="Lviatour, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Cervus_elaphus_Luc_Viatour_6.jpg" class="external-link"><img width="256" alt="Cervus elaphus Luc Viatour 6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Cervus_elaphus_Luc_Viatour_6.jpg/256px-Cervus_elaphus_Luc_Viatour_6.jpg" class="figure"></a>
-<a title="Charles J. Sharp
-, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Red_deer_(Cervus_elaphus)_hind.jpg" class="external-link"><img width="256" alt="Red deer (Cervus elaphus) hind" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Red_deer_%28Cervus_elaphus%29_hind.jpg/256px-Red_deer_%28Cervus_elaphus%29_hind.jpg" class="figure"></a>
-. Variation in birth weights conditions that influence variation e.g. in
-ecology In observational studies,</p>
+systems by intervening to affect that variation directly.</p>
+<p>For example, the Salk polio vaccine trials collected data about
+variation in polio incidence after injecting hundreds of thousands of
+schoolchildren with vaccine or placebo (or by observing more than a
+million unvaccinated children for polio incidence and comparing this
+incidence to that of the treatment group). This controlled trial
+hypothesized that the vaccine would reduce the incidence of polio in
+schoolchildren.</p>
+<p>Naturalistic studies gather data with minimal intervention, In
+observational studies,</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul>
@@ -394,12 +407,12 @@ clear message.</li>
 </div>
 </div></section><section id="aio-02-experimental-structure"><p>Content from <a href="02-experimental-structure.html">Essential Features of a Comparative Experiment</a></p>
 <hr>
-<p> Last updated on 2023-11-07 | 
+<p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/02-experimental-structure.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 0 minutes </p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
 <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
@@ -476,11 +489,9 @@ participant’s characteristics? Why or why not?</li>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The research question asked whether exercise, specifically
 high-intensity exercise, would affect healthspan and lifespan of elderly
@@ -543,11 +554,9 @@ room are fed regular chow.</li>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>The individual animal is the experimental unit.</p></li>
@@ -627,11 +636,9 @@ patients.</li>
 <div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>1 and 2 describe nonblind data collection reporting increased
 treatment effects. Inflated effect sizes are a common problem with
@@ -645,7 +652,7 @@ nonblinded studies. In 3 and 4 the experimenter</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul>
@@ -657,12 +664,12 @@ units, treatments and responses.</li>
 </div>
 </div></section><section id="aio-03-design-principles"><p>Content from <a href="03-design-principles.html">Experimental Design Principles</a></p>
 <hr>
-<p> Last updated on 2023-11-07 | 
+<p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/03-design-principles.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 0 minutes </p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
 <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
@@ -777,11 +784,9 @@ instrument readings, animal behavior, and indoor relative humidity.</p>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Solution to Exercise 1
-  </h4>
+  <h4 class="accordion-header" id="headingSolution1">Solution to Exercise 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>1). random, because the scale is broken and provides any kind of
 random reading it comes up with (inconsistent reading)<br>
@@ -831,11 +836,9 @@ Can you foresee any problems with the experimental results?</p>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  Solution to Exercise 2
-  </h4>
+  <h4 class="accordion-header" id="headingSolution2">Solution to Exercise 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -878,32 +881,32 @@ treatment, in this case, regular chow).</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         A            66      chow
-2         B            39  high fat
-3         C            67  high fat
-4         D            23  high fat
-5         E            70      chow
-6         F             6      chow
-7         G            43  high fat
-8         H            79  high fat
-9         I            64      chow
-10        J            93  high fat
-11        K            41  high fat
+1         A            58      chow
+2         B            52      chow
+3         C            99  high fat
+4         D            22      chow
+5         E            61  high fat
+6         F            60      chow
+7         G            89  high fat
+8         H             7  high fat
+9         I            82      chow
+10        J             1  high fat
+11        K            51  high fat
 12        L            49  high fat
-13        M           100      chow
-14        N            19  high fat
-15        O            52      chow
-16        P            32      chow
-17        Q            59  high fat
-18        R            35  high fat
-19        S            78      chow
-20        T            89  high fat
-21        U            76      chow
-22        V            71  high fat
-23        W            84      chow
-24        X            63  high fat
-25        Y            37  high fat
-26        Z            26      chow</code></pre>
+13        M            92      chow
+14        N            87  high fat
+15        O            31  high fat
+16        P            18      chow
+17        Q            34      chow
+18        R            13  high fat
+19        S            97  high fat
+20        T            54      chow
+21        U            95  high fat
+22        V            84      chow
+23        W            98      chow
+24        X            70      chow
+25        Y            45  high fat
+26        Z            47  high fat</code></pre>
 </div>
 <p>This might produce unequal numbers between treatment and control
 groups. It isn’t necessary to have equal numbers, however,
@@ -921,7 +924,7 @@ when sample numbers are equal.</p>
 </h3>
 <pre class="output" tabindex="0"><code>
     chow high fat 
-      11       15 </code></pre>
+      12       14 </code></pre>
 </div>
 <p>To randomly assign samples to groups with equal numbers, you can do
 the following.</p>
@@ -945,32 +948,32 @@ the following.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         F             6      chow
-2         N            19      chow
-3         D            23      chow
-4         Z            26      chow
-5         P            32      chow
-6         R            35      chow
-7         Y            37      chow
-8         B            39      chow
-9         K            41      chow
-10        G            43      chow
-11        L            49      chow
-12        O            52      chow
-13        Q            59      chow
-14        X            63  high fat
-15        I            64  high fat
-16        A            66  high fat
-17        C            67  high fat
-18        E            70  high fat
-19        V            71  high fat
-20        U            76  high fat
-21        S            78  high fat
-22        H            79  high fat
-23        W            84  high fat
-24        T            89  high fat
-25        J            93  high fat
-26        M           100  high fat</code></pre>
+1         J             1      chow
+2         H             7      chow
+3         R            13      chow
+4         P            18      chow
+5         D            22      chow
+6         O            31      chow
+7         Q            34      chow
+8         Y            45      chow
+9         Z            47      chow
+10        L            49      chow
+11        K            51      chow
+12        B            52      chow
+13        T            54      chow
+14        A            58  high fat
+15        F            60  high fat
+16        E            61  high fat
+17        X            70  high fat
+18        I            82  high fat
+19        V            84  high fat
+20        N            87  high fat
+21        G            89  high fat
+22        M            92  high fat
+23        U            95  high fat
+24        S            97  high fat
+25        W            98  high fat
+26        C            99  high fat</code></pre>
 </div>
 <p>You can write out this treatment plan to a comma-separated values
 (csv) file, then open it in Excel and use it to record your data
@@ -1011,11 +1014,9 @@ groups?</p>
 <div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -1099,11 +1100,9 @@ experiment.</li>
 <div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4">
-  Solution to Exercise 3
-  </h4>
+  <h4 class="accordion-header" id="headingSolution4">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 
 </div>
@@ -1137,11 +1136,9 @@ humidity increased.</li>
 <div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5">
-  Solution to Exercise 4
-  </h4>
+  <h4 class="accordion-header" id="headingSolution5">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1153,7 +1150,7 @@ humidity increased.</li>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul>
@@ -1166,12 +1163,12 @@ usefulness of an experiment.</li>
 </div>
 </section></section><section id="aio-04-statistical-data-analysis"><p>Content from <a href="04-statistical-data-analysis.html">Statistics in Data Analysis</a></p>
 <hr>
-<p> Last updated on 2023-11-07 | 
+<p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/04-statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 0 minutes </p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
 <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
@@ -1234,11 +1231,9 @@ equal number of male students were added to the histogram?</p>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Solution to Exercise 1
-  </h4>
+  <h4 class="accordion-header" id="headingSolution1">Solution to Exercise 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). Mean and median are two measures of the center of the data. The
 median is the 50th% of the data with half the female students above this
@@ -1311,11 +1306,9 @@ do the data deliver in this histogram?</p>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  Solution to Exercise 2
-  </h4>
+  <h4 class="accordion-header" id="headingSolution2">Solution to Exercise 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
@@ -1348,11 +1341,9 @@ boxplot?</p>
 <div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Solution to Exercise 3
-  </h4>
+  <h4 class="accordion-header" id="headingSolution3">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 
 </div>
@@ -1399,11 +1390,9 @@ say with certainty that a person belongs to one group or the other?</li>
 <div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4">
-  Solution to Exercise 3
-  </h4>
+  <h4 class="accordion-header" id="headingSolution4">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>There appears to be a trend of lower heart rate in the
@@ -1440,7 +1429,7 @@ answer the question about exercise intensity.</p>
 <span><span class="va">control</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span><span class="op">[</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">exercise_group</span><span class="op">==</span><span class="st">"control"</span>, <span class="st">"heart_rate"</span><span class="op">]</span></span>
 <span><span class="va">meanDiff</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">control</span><span class="op">)</span> <span class="op">-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">HI</span><span class="op">)</span></span></code></pre>
 </div>
-<p>The actual difference in mean heart rates is 2.7935505. Another way
+<p>The actual difference in mean heart rates is 2.9652626. Another way
 of stating this is that the high-intensity group had a mean heart rate
 that was 4 percent lower than the control group.</p>
 <p>So are we done now? Does this difference support the alternative
@@ -1469,7 +1458,7 @@ for those samples.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 2.957359</code></pre>
+<pre class="output" tabindex="0"><code>[1] 2.661124</code></pre>
 </div>
 <p>Now take another sample of 100 from each group and calculate the
 difference in means.</p>
@@ -1485,7 +1474,7 @@ difference in means.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 2.837206</code></pre>
+<pre class="output" tabindex="0"><code>[1] 4.661731</code></pre>
 </div>
 <p>Are the differences in sample means the same? We can repeat this
 sampling again and again, and each time arrive at a different value. The
@@ -1510,7 +1499,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.81077</code></pre>
+<pre class="output" tabindex="0"><code>[1] 69.31612</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1521,7 +1510,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 70.72514</code></pre>
+<pre class="output" tabindex="0"><code>[1] 69.63114</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1532,7 +1521,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.40607</code></pre>
+<pre class="output" tabindex="0"><code>[1] 70.52501</code></pre>
 </div>
 <p>Notice how the mean changes each time you sample. We can continue to
 do this many times to learn about the distribution of this random
@@ -1565,7 +1554,7 @@ then record the difference in means between two randomly split groups of
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.5480207</code></pre>
+<pre class="output" tabindex="0"><code>[1] -0.1176233</code></pre>
 </div>
 <p>Now let’s find the sample mean of 100 participants from each group
 10,000 times.</p>
@@ -1592,7 +1581,7 @@ treatment and control groups?</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.0168</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.0158</code></pre>
 </div>
 <p>Slightly more than 2% of the 10,000 simulations are greater than the
 observed difference in means. We can expect then that we will see a
@@ -1640,11 +1629,9 @@ the significance of the difference in mean values?</p>
 <div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5">
-  Solution to Exercise 4
-  </h4>
+  <h4 class="accordion-header" id="headingSolution5">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1758,11 +1745,9 @@ deliver about the population from which it was drawn?</p>
 <div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
-  <h4 class="accordion-header" id="headingSolution6">
-  Solution to Exercise 4
-  </h4>
+  <h4 class="accordion-header" id="headingSolution6">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 
 </div>
@@ -1787,7 +1772,7 @@ interval.</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul>
@@ -1799,12 +1784,12 @@ quantify effects against random variation.</li>
 </div>
 </section></section><section id="aio-05-complete-random-design"><p>Content from <a href="05-complete-random-design.html">Completely Randomized Designs</a></p>
 <hr>
-<p> Last updated on 2023-11-07 | 
+<p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/05-complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 0 minutes </p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
 <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
@@ -1854,7 +1839,7 @@ experimental units.</li>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul>
@@ -1866,12 +1851,12 @@ homogeneous.</li>
 </div>
 </section></section><section id="aio-06-complete-random-design-multitreatment-factors"><p>Content from <a href="06-complete-random-design-multitreatment-factors.html">Completely Randomized Design with More than One Treatment Factor</a></p>
 <hr>
-<p> Last updated on 2023-11-07 | 
+<p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/06-complete-random-design-multitreatment-factors.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 0 minutes </p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
 <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
@@ -1905,7 +1890,7 @@ analyzed?</li>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul>
@@ -1915,12 +1900,12 @@ analyzed?</li>
 </div>
 </div></section><section id="aio-07-complete-random-block"><p>Content from <a href="07-complete-random-block.html">Randomized Complete Block Designs</a></p>
 <hr>
-<p> Last updated on 2023-11-07 | 
+<p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/07-complete-random-block.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 0 minutes </p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
 <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
@@ -1984,22 +1969,22 @@ dose (100 μM)</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>    cellLine DishNumber treatment
-1  cellLine1          1       low
-2  cellLine1          2   control
+1  cellLine1          1      high
+2  cellLine1          2       low
 3  cellLine1          3    medium
-4  cellLine1          4      high
-5  cellLine2          1      high
+4  cellLine1          4   control
+5  cellLine2          1    medium
 6  cellLine2          2       low
-7  cellLine2          3    medium
-8  cellLine2          4   control
+7  cellLine2          3   control
+8  cellLine2          4      high
 9  cellLine3          1    medium
-10 cellLine3          2       low
-11 cellLine3          3      high
-12 cellLine3          4   control
-13 cellLine4          1      high
-14 cellLine4          2   control
-15 cellLine4          3    medium
-16 cellLine4          4       low</code></pre>
+10 cellLine3          2      high
+11 cellLine3          3   control
+12 cellLine3          4       low
+13 cellLine4          1   control
+14 cellLine4          2    medium
+15 cellLine4          3       low
+16 cellLine4          4      high</code></pre>
 </div>
 <p>When analyzing a random complete block design, the effect of the
 block is included in the equation along with the effect of the
@@ -2018,7 +2003,7 @@ treatment.</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul>
@@ -2030,12 +2015,12 @@ usefulness of an experiment.</li>
 </div>
 </section></section><section id="aio-08-repeated-measures-design"><p>Content from <a href="08-repeated-measures-design.html">Repeated Measures Designs</a></p>
 <hr>
-<p> Last updated on 2023-11-07 | 
+<p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/08-repeated-measures-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 0 minutes </p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
 <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
@@ -2077,7 +2062,7 @@ units repeatedly during the study.</li>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul>
@@ -2096,30 +2081,28 @@ units repeatedly during the study.</li>
 <!--/div.row-->
       		<footer class="row footer mx-md-3"><hr>
 <div class="col-md-6">
-				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/README.md" class="external-link">Edit on GitHub</a>
         
 	
-        | <a href="https://github.com/smcclatchy/statistical-experimental-design/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/smcclatchy/statistical-experimental-design/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/smcclatchy/statistical-experimental-design/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/smcclatchy/statistical-experimental-design/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
         
-        <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
+        <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
-        <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.14.1" class="external-link">sandpaper (0.14.1)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/0.7.1" class="external-link">pegboard (0.7.1)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.3.3" class="external-link">varnish (0.3.3)</a>.</p>
+        <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.2" class="external-link">sandpaper (0.16.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.3" class="external-link">pegboard (0.7.3)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
 	<div id="to-top">
 		<a href="#top">
-			<i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back to top"></i><br><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
+      <i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back To Top"></i><br><!-- <span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top --><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
 		</a>
 	</div>
   <script type="application/ld+json">
@@ -2127,6 +2110,7 @@ units repeatedly during the study.</li>
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
   "@id": "https://smcclatchy.github.io/statistical-experimental-design/instructor/aio.html",
+  "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
@@ -2135,8 +2119,8 @@ units repeatedly during the study.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/instructor/aio.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/instructor/aio.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2023-11-14",
-  "datePublished": "2023-11-14"
+  "dateModified": "2024-02-19",
+  "datePublished": "2024-02-19"
 }
 
   </script><script>
