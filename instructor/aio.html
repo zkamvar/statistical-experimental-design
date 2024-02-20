@@ -334,7 +334,7 @@
         
 <section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">Introduction</a></p>
 <hr>
-<p>Last updated on 2024-02-19 |
+<p>Last updated on 2024-02-20 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -407,7 +407,7 @@ clear message.</li>
 </div>
 </div></section><section id="aio-02-experimental-structure"><p>Content from <a href="02-experimental-structure.html">Essential Features of a Comparative Experiment</a></p>
 <hr>
-<p>Last updated on 2024-02-19 |
+<p>Last updated on 2024-02-20 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/02-experimental-structure.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -491,7 +491,7 @@ participant’s characteristics? Why or why not?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The research question asked whether exercise, specifically
 high-intensity exercise, would affect healthspan and lifespan of elderly
@@ -556,7 +556,7 @@ room are fed regular chow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>The individual animal is the experimental unit.</p></li>
@@ -638,7 +638,7 @@ patients.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>1 and 2 describe nonblind data collection reporting increased
 treatment effects. Inflated effect sizes are a common problem with
@@ -664,7 +664,7 @@ units, treatments and responses.</li>
 </div>
 </div></section><section id="aio-03-design-principles"><p>Content from <a href="03-design-principles.html">Experimental Design Principles</a></p>
 <hr>
-<p>Last updated on 2024-02-19 |
+<p>Last updated on 2024-02-20 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/03-design-principles.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -881,32 +881,32 @@ treatment, in this case, regular chow).</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         A            58      chow
-2         B            52      chow
-3         C            99  high fat
-4         D            22      chow
-5         E            61  high fat
-6         F            60      chow
-7         G            89  high fat
-8         H             7  high fat
-9         I            82      chow
-10        J             1  high fat
-11        K            51  high fat
-12        L            49  high fat
-13        M            92      chow
+1         A             3  high fat
+2         B             1  high fat
+3         C            61  high fat
+4         D            25  high fat
+5         E            92      chow
+6         F            12      chow
+7         G             2      chow
+8         H            40      chow
+9         I            14      chow
+10        J            82      chow
+11        K            11  high fat
+12        L            17  high fat
+13        M            79  high fat
 14        N            87  high fat
-15        O            31  high fat
-16        P            18      chow
-17        Q            34      chow
-18        R            13  high fat
-19        S            97  high fat
-20        T            54      chow
-21        U            95  high fat
-22        V            84      chow
-23        W            98      chow
-24        X            70      chow
-25        Y            45  high fat
-26        Z            47  high fat</code></pre>
+15        O            84      chow
+16        P            42      chow
+17        Q            71  high fat
+18        R             4      chow
+19        S            51  high fat
+20        T            38      chow
+21        U            18      chow
+22        V            59  high fat
+23        W            88      chow
+24        X            85  high fat
+25        Y            41  high fat
+26        Z            46      chow</code></pre>
 </div>
 <p>This might produce unequal numbers between treatment and control
 groups. It isn’t necessary to have equal numbers, however,
@@ -924,7 +924,7 @@ when sample numbers are equal.</p>
 </h3>
 <pre class="output" tabindex="0"><code>
     chow high fat 
-      12       14 </code></pre>
+      13       13 </code></pre>
 </div>
 <p>To randomly assign samples to groups with equal numbers, you can do
 the following.</p>
@@ -948,32 +948,32 @@ the following.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         J             1      chow
-2         H             7      chow
-3         R            13      chow
-4         P            18      chow
-5         D            22      chow
-6         O            31      chow
-7         Q            34      chow
-8         Y            45      chow
-9         Z            47      chow
-10        L            49      chow
-11        K            51      chow
-12        B            52      chow
-13        T            54      chow
-14        A            58  high fat
-15        F            60  high fat
-16        E            61  high fat
-17        X            70  high fat
-18        I            82  high fat
-19        V            84  high fat
-20        N            87  high fat
-21        G            89  high fat
-22        M            92  high fat
-23        U            95  high fat
-24        S            97  high fat
-25        W            98  high fat
-26        C            99  high fat</code></pre>
+1         B             1      chow
+2         G             2      chow
+3         A             3      chow
+4         R             4      chow
+5         K            11      chow
+6         F            12      chow
+7         I            14      chow
+8         L            17      chow
+9         U            18      chow
+10        D            25      chow
+11        T            38      chow
+12        H            40      chow
+13        Y            41      chow
+14        P            42  high fat
+15        Z            46  high fat
+16        S            51  high fat
+17        V            59  high fat
+18        C            61  high fat
+19        Q            71  high fat
+20        M            79  high fat
+21        J            82  high fat
+22        O            84  high fat
+23        X            85  high fat
+24        N            87  high fat
+25        W            88  high fat
+26        E            92  high fat</code></pre>
 </div>
 <p>You can write out this treatment plan to a comma-separated values
 (csv) file, then open it in Excel and use it to record your data
@@ -1163,7 +1163,7 @@ usefulness of an experiment.</li>
 </div>
 </section></section><section id="aio-04-statistical-data-analysis"><p>Content from <a href="04-statistical-data-analysis.html">Statistics in Data Analysis</a></p>
 <hr>
-<p>Last updated on 2024-02-19 |
+<p>Last updated on 2024-02-20 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/04-statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -1429,7 +1429,7 @@ answer the question about exercise intensity.</p>
 <span><span class="va">control</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span><span class="op">[</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">exercise_group</span><span class="op">==</span><span class="st">"control"</span>, <span class="st">"heart_rate"</span><span class="op">]</span></span>
 <span><span class="va">meanDiff</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">control</span><span class="op">)</span> <span class="op">-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">HI</span><span class="op">)</span></span></code></pre>
 </div>
-<p>The actual difference in mean heart rates is 2.9652626. Another way
+<p>The actual difference in mean heart rates is 2.6497889. Another way
 of stating this is that the high-intensity group had a mean heart rate
 that was 4 percent lower than the control group.</p>
 <p>So are we done now? Does this difference support the alternative
@@ -1458,7 +1458,7 @@ for those samples.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 2.661124</code></pre>
+<pre class="output" tabindex="0"><code>[1] 2.119381</code></pre>
 </div>
 <p>Now take another sample of 100 from each group and calculate the
 difference in means.</p>
@@ -1474,7 +1474,7 @@ difference in means.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 4.661731</code></pre>
+<pre class="output" tabindex="0"><code>[1] 3.638474</code></pre>
 </div>
 <p>Are the differences in sample means the same? We can repeat this
 sampling again and again, and each time arrive at a different value. The
@@ -1499,7 +1499,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.31612</code></pre>
+<pre class="output" tabindex="0"><code>[1] 69.88668</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1510,7 +1510,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.63114</code></pre>
+<pre class="output" tabindex="0"><code>[1] 71.49571</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1521,7 +1521,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 70.52501</code></pre>
+<pre class="output" tabindex="0"><code>[1] 70.88385</code></pre>
 </div>
 <p>Notice how the mean changes each time you sample. We can continue to
 do this many times to learn about the distribution of this random
@@ -1554,7 +1554,7 @@ then record the difference in means between two randomly split groups of
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] -0.1176233</code></pre>
+<pre class="output" tabindex="0"><code>[1] -1.335835</code></pre>
 </div>
 <p>Now let’s find the sample mean of 100 participants from each group
 10,000 times.</p>
@@ -1581,7 +1581,7 @@ treatment and control groups?</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.0158</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.0237</code></pre>
 </div>
 <p>Slightly more than 2% of the 10,000 simulations are greater than the
 observed difference in means. We can expect then that we will see a
@@ -1784,7 +1784,7 @@ quantify effects against random variation.</li>
 </div>
 </section></section><section id="aio-05-complete-random-design"><p>Content from <a href="05-complete-random-design.html">Completely Randomized Designs</a></p>
 <hr>
-<p>Last updated on 2024-02-19 |
+<p>Last updated on 2024-02-20 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/05-complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -1851,7 +1851,7 @@ homogeneous.</li>
 </div>
 </section></section><section id="aio-06-complete-random-design-multitreatment-factors"><p>Content from <a href="06-complete-random-design-multitreatment-factors.html">Completely Randomized Design with More than One Treatment Factor</a></p>
 <hr>
-<p>Last updated on 2024-02-19 |
+<p>Last updated on 2024-02-20 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/06-complete-random-design-multitreatment-factors.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -1900,7 +1900,7 @@ analyzed?</li>
 </div>
 </div></section><section id="aio-07-complete-random-block"><p>Content from <a href="07-complete-random-block.html">Randomized Complete Block Designs</a></p>
 <hr>
-<p>Last updated on 2024-02-19 |
+<p>Last updated on 2024-02-20 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/07-complete-random-block.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -1969,22 +1969,22 @@ dose (100 μM)</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>    cellLine DishNumber treatment
-1  cellLine1          1      high
-2  cellLine1          2       low
-3  cellLine1          3    medium
+1  cellLine1          1       low
+2  cellLine1          2    medium
+3  cellLine1          3      high
 4  cellLine1          4   control
-5  cellLine2          1    medium
-6  cellLine2          2       low
-7  cellLine2          3   control
-8  cellLine2          4      high
+5  cellLine2          1      high
+6  cellLine2          2   control
+7  cellLine2          3    medium
+8  cellLine2          4       low
 9  cellLine3          1    medium
-10 cellLine3          2      high
+10 cellLine3          2       low
 11 cellLine3          3   control
-12 cellLine3          4       low
-13 cellLine4          1   control
-14 cellLine4          2    medium
-15 cellLine4          3       low
-16 cellLine4          4      high</code></pre>
+12 cellLine3          4      high
+13 cellLine4          1      high
+14 cellLine4          2       low
+15 cellLine4          3   control
+16 cellLine4          4    medium</code></pre>
 </div>
 <p>When analyzing a random complete block design, the effect of the
 block is included in the equation along with the effect of the
@@ -2015,7 +2015,7 @@ usefulness of an experiment.</li>
 </div>
 </section></section><section id="aio-08-repeated-measures-design"><p>Content from <a href="08-repeated-measures-design.html">Repeated Measures Designs</a></p>
 <hr>
-<p>Last updated on 2024-02-19 |
+<p>Last updated on 2024-02-20 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/08-repeated-measures-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 0 minutes</p>
@@ -2119,8 +2119,8 @@ units repeatedly during the study.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/instructor/aio.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/instructor/aio.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2024-02-19",
-  "datePublished": "2024-02-19"
+  "dateModified": "2024-02-20",
+  "datePublished": "2024-02-20"
 }
 
   </script><script>
