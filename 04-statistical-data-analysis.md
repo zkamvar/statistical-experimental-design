@@ -217,7 +217,7 @@ meanDiff <- mean(control) - mean(HI)
 ```
 
 The actual difference in mean heart rates is
-2.6497889. Another way of stating this is that the
+3.0221291. Another way of stating this is that the
 high-intensity group had a mean heart rate that was
 4 percent lower than
 the control group.
@@ -244,7 +244,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.119381
+[1] 3.126522
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -259,7 +259,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 3.638474
+[1] 3.124493
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -283,7 +283,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 69.88668
+[1] 69.20483
 ```
 
 ```r
@@ -291,7 +291,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 71.49571
+[1] 70.50709
 ```
 
 ```r
@@ -299,7 +299,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 70.88385
+[1] 68.61582
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -331,7 +331,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] -1.335835
+[1] 0.7011857
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -357,11 +357,11 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0237
+[1] 0.0145
 ```
 
-Slightly more than 2% of the 10,000 simulations are greater than the observed
-difference in means. We can expect then that we will see a difference in means approximately 2% of the time even if there is no effect of exercise on heart
+Slightly more than 1% of the 10,000 simulations are greater than the observed
+difference in means. We can expect then that we will see a difference in means approximately 1% of the time even if there is no effect of exercise on heart
 rate. This is known as a **p-value**, which we will address later in this
 lesson.
 
