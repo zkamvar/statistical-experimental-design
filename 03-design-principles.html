@@ -286,7 +286,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Experimental Design Principles</h1>
-        <p>Last updated on 2024-03-12 |
+        <p>Last updated on 2024-03-19 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/03-design-principles.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -408,7 +408,7 @@ instrument readings, animal behavior, and indoor relative humidity.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Solution to Exercise 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). random, because the scale is broken and provides any kind of
 random reading it comes up with (inconsistent reading)<br>
@@ -459,7 +459,7 @@ Can you foresee any problems with the experimental results?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Solution to Exercise 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -502,32 +502,32 @@ treatment, in this case, regular chow).</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         A            25  high fat
-2         B            78      chow
-3         C            97  high fat
-4         D            87  high fat
-5         E            52      chow
-6         F            58      chow
-7         G            85  high fat
-8         H           100      chow
-9         I            21  high fat
-10        J            14      chow
-11        K            49  high fat
-12        L            19  high fat
-13        M            79  high fat
-14        N            57  high fat
-15        O            73  high fat
-16        P            15  high fat
-17        Q            23  high fat
-18        R            61  high fat
-19        S             9  high fat
-20        T            80      chow
-21        U             6      chow
-22        V            41  high fat
-23        W            33  high fat
-24        X            82      chow
-25        Y            27  high fat
-26        Z            60      chow</code></pre>
+1         A            65  high fat
+2         B            38      chow
+3         C            42      chow
+4         D            52      chow
+5         E            56      chow
+6         F            24      chow
+7         G            84      chow
+8         H            53  high fat
+9         I            74      chow
+10        J            20      chow
+11        K            32      chow
+12        L            14      chow
+13        M            89  high fat
+14        N            23  high fat
+15        O             6      chow
+16        P            45  high fat
+17        Q             5  high fat
+18        R            78      chow
+19        S            99  high fat
+20        T            59  high fat
+21        U            62      chow
+22        V            31  high fat
+23        W            47  high fat
+24        X             3  high fat
+25        Y            54      chow
+26        Z            34      chow</code></pre>
 </div>
 <p>This might produce unequal numbers between treatment and control
 groups. It isn’t necessary to have equal numbers, however,
@@ -545,7 +545,7 @@ when sample numbers are equal.</p>
 </h3>
 <pre class="output" tabindex="0"><code>
     chow high fat 
-       9       17 </code></pre>
+      15       11 </code></pre>
 </div>
 <p>To randomly assign samples to groups with equal numbers, you can do
 the following.</p>
@@ -569,32 +569,32 @@ the following.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         U             6      chow
-2         S             9      chow
-3         J            14      chow
-4         P            15      chow
-5         L            19      chow
-6         I            21      chow
-7         Q            23      chow
-8         A            25      chow
-9         Y            27      chow
-10        W            33      chow
-11        V            41      chow
-12        K            49      chow
-13        E            52      chow
-14        N            57  high fat
-15        F            58  high fat
-16        Z            60  high fat
-17        R            61  high fat
-18        O            73  high fat
-19        B            78  high fat
-20        M            79  high fat
-21        T            80  high fat
-22        X            82  high fat
-23        G            85  high fat
-24        D            87  high fat
-25        C            97  high fat
-26        H           100  high fat</code></pre>
+1         X             3      chow
+2         Q             5      chow
+3         O             6      chow
+4         L            14      chow
+5         J            20      chow
+6         N            23      chow
+7         F            24      chow
+8         V            31      chow
+9         K            32      chow
+10        Z            34      chow
+11        B            38      chow
+12        C            42      chow
+13        P            45      chow
+14        W            47  high fat
+15        D            52  high fat
+16        H            53  high fat
+17        Y            54  high fat
+18        E            56  high fat
+19        T            59  high fat
+20        U            62  high fat
+21        A            65  high fat
+22        I            74  high fat
+23        R            78  high fat
+24        G            84  high fat
+25        M            89  high fat
+26        S            99  high fat</code></pre>
 </div>
 <p>You can write out this treatment plan to a comma-separated values
 (csv) file, then open it in Excel and use it to record your data
@@ -637,7 +637,7 @@ groups?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -720,7 +720,7 @@ experiment.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 
 </div>
@@ -754,7 +754,7 @@ humidity increased.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -811,7 +811,7 @@ usefulness of an experiment.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.2" class="external-link">sandpaper (0.16.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.3" class="external-link">sandpaper (0.16.3)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -833,8 +833,8 @@ usefulness of an experiment.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/03-design-principles.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/03-design-principles.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2024-03-12",
-  "datePublished": "2024-03-12"
+  "dateModified": "2024-03-19",
+  "datePublished": "2024-03-19"
 }
 
   </script><script>
