@@ -68,8 +68,8 @@ measured were heart rate, blood pressure, strength, cognitive function and
 other health indicators. The main response measured was 5-year survival.
 If participants had been allowed to choose their preferred exercise group
 or if experimenters had chosen the groups based on participant
-characteristics, extraneous variables (e.g. state of depression) could
-be introduced into the study. When participants are randomly assigned to
+characteristics, extraneous variables (e.g. state of depression or anxiety) 
+could be introduced into the study. When participants are randomly assigned to
 treatment groups, these variables are spread across the groups and cancel
 out. Furthermore, if experimenters had used their own judgment to assign
 participants to groups, their own biases could have affected the results.
@@ -85,7 +85,12 @@ participants to groups, their own biases could have affected the results.
 Comparative experiments apply treatments to experimental units and measure the
 responses, then compare the responses to those treatments with statistical
 analysis. If in the Generation 100 study the experimenters had only one group
-(e.g. high-intensity training), they might have achieved good results but would have no way of knowing if either of the other treatments would have achieved the same or even better results. To know whether high-intensity training is better than moderate or low-intensity training, it was necessary to run experiments in which some experimental units engaged in high-intensity training, others in moderate, and others still in low-intensity training. Only then can the
+(e.g. high-intensity training), they might have achieved good results but would 
+have no way of knowing if either of the other treatments would have achieved the 
+same or even better results. To know whether high-intensity training is better 
+than moderate or low-intensity training, it was necessary to run experiments in 
+which some experimental units engaged in high-intensity training, others in 
+moderate, and others still in low-intensity training. Only then can the 
 responses to those treatments be statistically analyzed to determine treatment effects.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -121,25 +126,33 @@ your answers in the collaborative document.
 
 Randomized studies assign experimental units to treatment groups randomly by
 pulling a number out of a hat or using a computer's random number generator. The
-main purpose for randomization comes later during statistical analysis, where
-we compare the data we obtained to the data distribution we might have
-obtained. Randomization provides us a way to create the distribution of data
-we might have obtained and ensures that our comparisons between treatment groups
-are valid. Random assignment (*allocation*) of experimental units to treatment groups prevents the subjective bias that might be introduced by an experimenter who selects, even in good faith and with good intention, which experimental
-units should get which treatment. For example, if the experimenter selected
-which people would do high-, moderate- and low-intensity training they might unconsciously bias the groups by body size or shape. This *selection bias* would influence the outcome of the experiment.
+main purpose for *randomization* comes later during statistical analysis, where
+we compare the data we have with the data distribution we might have obtained
+by random chance. Randomization provides us a way to create the distribution of 
+data we might have obtained and ensures that our comparisons between treatment 
+groups are valid. Random assignment (*allocation*) of experimental units to 
+treatment groups prevents the subjective bias that might be introduced by an 
+experimenter who selects, even in good faith and with good intention, which 
+experimental units should get which treatment. For example, if the experimenter 
+selected which people would do high-, moderate- and low-intensity training they 
+might unconsciously bias the groups by body size or shape. This *selection bias* 
+would influence the outcome of the experiment.
 
-Randomization also accounts for or cancels out effects of "nuisance"
-variables like the time or day of the experiment, the investigator or
-technician, equipment calibration, exposure to light or ventilation in animal rooms, or other variables that are not being studied but that do influence the responses. Randomization balances out the effects of nuisance variables between treatment groups by giving an equal probability for an experimental unit to be assigned to any treatment group.
+Randomization also accounts for or cancels out effects of "nuisance" variables 
+like the time or day of the experiment, the investigator or technician, 
+equipment calibration, exposure to light or ventilation in animal rooms, or 
+other variables that are not being studied but that do influence the responses. Randomization balances out the effects of nuisance variables between treatment 
+groups by giving an equal probability for an experimental unit to be assigned to 
+any treatment group.
 
-Blinding (also known as masking) prevents the experimenter from influencing the
-outcome of an experiment to suit their expectations or preferred hypothesis.
+*Blinding* (also known as masking) prevents the experimenter from influencing 
+the outcome of an experiment to suit their expectations or preferred hypothesis.
 Ideally experimenters should not know which treatment the experimental units
-have received or will receive from the start to the statistical analysis stage
-of the experiment. This might require additional personnel like technicians or
-other colleague to perform some tasks, and should be considered during
-experimental design. If ideal circumstances can't be arranged, it should be possible to carry out at least some of the stages blind. Blinding during
+have received or will receive from the beginning through to the statistical 
+analysis stage of the experiment. This might require additional personnel like 
+technicians or other colleagues to perform some tasks, and should be planned 
+during experimental design. If ideal circumstances can't be arranged, it should 
+be possible to carry out at least some of the stages blind. Blinding during
 allocation (assignment of experimental units to treatment groups), treatment,
 data collection or data analysis can reduce experimental bias.
 
