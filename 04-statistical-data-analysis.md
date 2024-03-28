@@ -217,7 +217,7 @@ meanDiff <- mean(control) - mean(HI)
 ```
 
 The actual difference in mean heart rates is
-2.6318513. Another way of stating this is that the
+3.1330874. Another way of stating this is that the
 high-intensity group had a mean heart rate that was
 4 percent lower than
 the control group.
@@ -244,7 +244,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 4.20615
+[1] 4.973047
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -259,7 +259,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.653992
+[1] 3.782962
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -283,7 +283,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 69.89108
+[1] 69.89856
 ```
 
 ```r
@@ -291,7 +291,7 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 67.57879
+[1] 69.82651
 ```
 
 ```r
@@ -299,11 +299,33 @@ mean(sample(population, size=100))
 ```
 
 ```{.output}
-[1] 71.01689
+[1] 70.8618
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
 many times to learn about the distribution of this random variable.
+
+Significance testing can answer questions about differences between the two
+groups in light of inherent variability in heart rate measurements. Comparing
+the data obtained to a *probability distribution* of data that might have been
+obtained can help to answer questions about the effects of exercise intensity
+on heart rate.
+
+## The t-test
+
+What does it mean that a difference is statistically significant? We can eye
+plots like the boxplots above and see a difference, however, we need something 
+more objective than eyeballs to claim a significant difference. A t-test will 
+report whether the difference in mean values between the two groups is 
+significant. The**null hypothesis** would state that there is no difference in 
+mean values, while the **alternative hypothesis** states that there is a 
+difference in the means of the two **samples** from the whole **population** of 
+elders in Norway.
+
+
+```r
+# provide a formula stating that heart rate is dependent on exercise intensity
+```
 
 ## The null hypothesis
 
@@ -331,7 +353,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] -1.362951
+[1] -1.535361
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -344,7 +366,7 @@ null <- treatment - control
 hist(null)
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
 
 `null` contains the differences in means between the two groups sampled 10,000
 times each. The values in `null` make up the **null distribution**. How many of
@@ -357,34 +379,14 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0268
+[1] 0.0095
 ```
 
-Slightly more than 3% of the 10,000 simulations are greater than the observed
-difference in means. We can expect then that we will see a difference in means approximately 3% of the time even if there is no effect of exercise on heart
-rate. This is known as a **p-value**, which we will address later in this
-lesson.
-
-Significance testing can answer questions about differences between the two
-groups in light of inherent variability in heart rate measurements. Comparing
-the data obtained to a probability distribution of data that might have been
-obtained can help to answer questions about the effects of exercise intensity
-on heart rate.
-
-## The t-test
-
-What does it mean that a difference is statistically significant? We can eye
-plots like the boxplots above and see a difference, however, we need something more
-objective than eyeballs to claim a significant difference. A t-test will report
-whether the difference in mean values between the two groups is significant. The
-**null hypothesis** would state that there is no difference in mean values,
-while the **alternative hypothesis** states that there is a difference in the
-means of the two **samples** from the whole **population** of elders in Norway.
-
-
-```r
-# provide a formula stating that heart rate is dependent on exercise intensity
-```
+Approximately 1% of the 10,000 simulations 
+are greater than the observed difference in means. We can expect then that we 
+will see a difference in means approximately 
+1% of the time even if there is no effect 
+of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
