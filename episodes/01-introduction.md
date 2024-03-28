@@ -26,9 +26,6 @@ messages. By applying statistical concepts in designing experiments,
 understanding variability, and drawing meaningful inferences, participants will
 be equipped with the knowledge and skills for data-driven decision-making.
 
-Statistics is the collection, analysis, interpretation, and communication of
-data. 
-
 Experimental design aims to describe and explain variation in natural systems by
 intervening to affect that variation directly. 
 
