@@ -280,6 +280,27 @@ mean(sample(population, size=100))
 Notice how the mean changes each time you sample. We can continue to do this
 many times to learn about the distribution of this random variable.
 
+Significance testing can answer questions about differences between the two
+groups in light of inherent variability in heart rate measurements. Comparing
+the data obtained to a *probability distribution* of data that might have been
+obtained can help to answer questions about the effects of exercise intensity
+on heart rate.
+
+## The t-test
+
+What does it mean that a difference is statistically significant? We can eye
+plots like the boxplots above and see a difference, however, we need something 
+more objective than eyeballs to claim a significant difference. A t-test will 
+report whether the difference in mean values between the two groups is 
+significant. The**null hypothesis** would state that there is no difference in 
+mean values, while the **alternative hypothesis** states that there is a 
+difference in the means of the two **samples** from the whole **population** of 
+elders in Norway.
+
+```{r}
+# provide a formula stating that heart rate is dependent on exercise intensity
+```
+
 ## The null hypothesis
 
 Now let's return to the mean difference between treatment groups. How do we know
@@ -322,30 +343,11 @@ the actual treatment and control groups?
 mean(null >= meanDiff)
 ```
 
-Slightly more than `r round(mean(null >= meanDiff) * 100)`% of the 10,000 simulations are greater than the observed
-difference in means. We can expect then that we will see a difference in means approximately `r round(mean(null >= meanDiff) * 100)`% of the time even if there is no effect of exercise on heart
-rate. This is known as a **p-value**, which we will address later in this
-lesson.
-
-Significance testing can answer questions about differences between the two
-groups in light of inherent variability in heart rate measurements. Comparing
-the data obtained to a probability distribution of data that might have been
-obtained can help to answer questions about the effects of exercise intensity
-on heart rate.
-
-## The t-test
-
-What does it mean that a difference is statistically significant? We can eye
-plots like the boxplots above and see a difference, however, we need something more
-objective than eyeballs to claim a significant difference. A t-test will report
-whether the difference in mean values between the two groups is significant. The
-**null hypothesis** would state that there is no difference in mean values,
-while the **alternative hypothesis** states that there is a difference in the
-means of the two **samples** from the whole **population** of elders in Norway.
-
-```{r}
-# provide a formula stating that heart rate is dependent on exercise intensity
-```
+Approximately `r round(mean(null >= meanDiff) * 100)`% of the 10,000 simulations 
+are greater than the observed difference in means. We can expect then that we 
+will see a difference in means approximately 
+`r round(mean(null >= meanDiff) * 100)`% of the time even if there is no effect 
+of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
