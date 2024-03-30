@@ -28,13 +28,14 @@ represent the true value. This ideal doesn't exist in the real world. For
 example, the mass of one kilogram is defined by the [International Prototype
 Kilogram](https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram),
 a cylinder composed of platinum and iridium about the size of a golf ball.
+
 ![](fig/International_prototype_of_the_kilogram_aka_Le_Grand_K.png){alt='International Prototype of the Kilogram'}
 
 Copies of this prototype kilogram (replicates) are distributed worldwide so each
 country hosting a replica has its own national standard kilogram. None of the
-replicas measure precisely the same despite careful storage and handling.
-The reasons for this variation in measurements are not known. A kilogram in
-Austria differs from a kilogram in Australia, which differs from that in Brazil,
+replicas measure precisely the same despite careful storage and handling. The 
+reasons for this variation in measurements are not known. A kilogram in Austria 
+differs from a kilogram in Australia, which differs from that in Brazil,
 Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute
 measure of mass shows real-world natural variability. Variability is a feature
 of natural systems and also a natural part of every experiment we undertake.
@@ -68,8 +69,9 @@ or group of samples are derived from the same biological source, such as cells,
 tissues, organisms, or individuals. Biological replicates assess the variability
 and reproducibility of experimental results. For example, if a study examines
 the effect of a drug on cell growth, biological replicates would involve
-multiple sets of cells from the same cell line to test the drug's effects. This
-helps to ensure that any observed changes are due to the drug itself rather than variations in the biological material being used.
+multiple samples from the same cell line to test the drug's effects. This helps 
+to ensure that any observed changes are due to the drug itself rather than 
+variations in the biological material being used.
 
 The greater the number of replications, the greater the precision (the closeness
 of two or more measurements to each other).  Having a large enough sample size
@@ -85,14 +87,17 @@ Classify the following sources as either biological,
 systematic, or random error.  
 1\). A scale is broken and provides inconsistent readings.  
 2\). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.  
-3\). A mouse has an unusually high weight compared to its experimental group (i.e., it is an outlier).  
-4\). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.
+3\). A mouse has an unusually high weight compared to its experimental group 
+(i.e., it is an outlier).  
+4\). Strong atmospheric low pressure and accompanying storms affect instrument 
+readings, animal behavior, and indoor relative humidity.
 
 :::::::::::::::  solution
 
 ## Solution to Exercise 1
 
-1\). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
+1\). random, because the scale is broken and provides any kind of random reading 
+it comes up with (inconsistent reading)  
 2\). systematic  
 3\). biological  
 4\). random or systematic; you argue which and explain why
@@ -112,11 +117,63 @@ random error. We could assume that all random error will balance itself out, and
 that all samples will be equally subject to random error. A more precise way to
 mitigate random error is through blocking.
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 2: How many technical and biological replicates?
+
+In each scenario described below, identify how many technical and how many
+biological replicates are represented. What conclusions can be drawn about 
+experimental error in each scenario?
+
+1\). One person is weighed on a scale five times.  
+2\). Five people are weighed on a scale one time each.  
+3\). Five people are weighed on a scale three times each.  
+4\). A cell line is equally divided into four samples. Two samples receive a
+drug treatment, and the other two samples receive a different treatment. The 
+response of each sample is measured three times to produce twelve total 
+observations. In addition to the number of replicates, can you identify how many
+experimental units there are?  
+5\). A cell line is equally divided into two samples. One sample receives a
+drug treatment, and the other sample receives a different treatment. Each sample
+is then further divided into two subsamples, each of which is measured three 
+times to produce twelve total observations. In addition to the number of
+replicates, can you identify how many experimental units there are?  
+
+:::::::::::::::  solution
+
+## Solution to Exercise 2
+
+1\). One biological sample (not replicated) with five technical replicates. The
+only conclusion to be drawn from the measurements would be better 
+characterization of systematic error in measuring. It would help to describe 
+variation produced by the instrument itself, the scale. The measurements would 
+not generalize to other people.  
+2\). Five biological replicates with one technical measurement (not replicated).
+The conclusion would be a single snapshot of the weight of each person, which
+would not capture systematic error or variation in measurement of the scale. 
+There are five biological replicates, which would increase precision, however,
+there is considerable other variation that is unaccounted for.    
+3\). Five biological replicates with three technical replicates each. The three
+technical replicates would help to characterize systematic error, while the five
+biological replicates would help to characterize biological variability.  
+4\). Four biological replicates with three technical replicates each. The three
+technical replicates would help to characterize systematic error, while the four
+biological replicates would help to characterize biological variability. Since
+the treatments are applied to each of the four samples, there are four 
+experimental units.  
+5\). Two biological replicates with three technical replicates each. Since
+the treatments are applied to only the two original samples, there are only two 
+experimental units.
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Randomization
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 2: The efficient technician
+## Exercise 3: The efficient technician
 
 Your technician colleague finds a way to simplify and expedite an experiment.
 The experiment applies four different wheel-running treatments to twenty
@@ -132,7 +189,7 @@ Can you foresee any problems with the experimental results?
 
 :::::::::::::::  solution
 
-## Solution to Exercise 2
+## Solution to Exercise 3
 
 Since each treatment is run on only one day, the day effectively becomes
 the experimental unit (explain this). Each experimental unit (day) has five
@@ -172,32 +229,32 @@ random_allocation
 
 ```{.output}
    mouse_ID random_number treatment
-1         A            42      chow
-2         B            38      chow
-3         C            19  high fat
-4         D            54      chow
-5         E             8      chow
-6         F            58      chow
-7         G            17  high fat
-8         H            15  high fat
-9         I            26      chow
-10        J            81  high fat
-11        K            48      chow
-12        L            44      chow
-13        M            79  high fat
-14        N            87  high fat
-15        O            36      chow
-16        P            84      chow
-17        Q            66      chow
-18        R            25  high fat
-19        S             9  high fat
-20        T            77  high fat
-21        U             2      chow
-22        V            28      chow
-23        W            31  high fat
-24        X            91  high fat
-25        Y            74      chow
-26        Z             1  high fat
+1         A            36      chow
+2         B            89  high fat
+3         C            12      chow
+4         D            99  high fat
+5         E            67  high fat
+6         F            68      chow
+7         G            74      chow
+8         H            71  high fat
+9         I            10      chow
+10        J            40      chow
+11        K            41  high fat
+12        L            11  high fat
+13        M            39  high fat
+14        N            51  high fat
+15        O            70      chow
+16        P            62      chow
+17        Q            96      chow
+18        R            44      chow
+19        S            88      chow
+20        T            91  high fat
+21        U            54      chow
+22        V            49  high fat
+23        W             4      chow
+24        X             8      chow
+25        Y            42      chow
+26        Z            93  high fat
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -213,7 +270,7 @@ table(random_allocation$treatment)
 ```{.output}
 
     chow high fat 
-      14       12 
+      15       11 
 ```
 
 To randomly assign samples to groups with equal numbers, you can do the
@@ -236,32 +293,32 @@ equal_allocation
 
 ```{.output}
    mouse_ID random_number treatment
-1         Z             1      chow
-2         U             2      chow
-3         E             8      chow
-4         S             9      chow
-5         H            15      chow
-6         G            17      chow
-7         C            19      chow
-8         R            25      chow
-9         I            26      chow
-10        V            28      chow
-11        W            31      chow
-12        O            36      chow
-13        B            38      chow
-14        A            42  high fat
-15        L            44  high fat
-16        K            48  high fat
-17        D            54  high fat
-18        F            58  high fat
-19        Q            66  high fat
-20        Y            74  high fat
-21        T            77  high fat
-22        M            79  high fat
-23        J            81  high fat
-24        P            84  high fat
-25        N            87  high fat
-26        X            91  high fat
+1         W             4      chow
+2         X             8      chow
+3         I            10      chow
+4         L            11      chow
+5         C            12      chow
+6         A            36      chow
+7         M            39      chow
+8         J            40      chow
+9         K            41      chow
+10        Y            42      chow
+11        R            44      chow
+12        V            49      chow
+13        N            51      chow
+14        U            54  high fat
+15        P            62  high fat
+16        E            67  high fat
+17        F            68  high fat
+18        O            70  high fat
+19        H            71  high fat
+20        G            74  high fat
+21        S            88  high fat
+22        B            89  high fat
+23        T            91  high fat
+24        Z            93  high fat
+25        Q            96  high fat
+26        D            99  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,
