@@ -29,13 +29,14 @@ represent the true value. This ideal doesn't exist in the real world. For
 example, the mass of one kilogram is defined by the [International Prototype
 Kilogram](https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram),
 a cylinder composed of platinum and iridium about the size of a golf ball.
+
 ![](fig/International_prototype_of_the_kilogram_aka_Le_Grand_K.png){alt='International Prototype of the Kilogram'}
 
 Copies of this prototype kilogram (replicates) are distributed worldwide so each
 country hosting a replica has its own national standard kilogram. None of the
-replicas measure precisely the same despite careful storage and handling.
-The reasons for this variation in measurements are not known. A kilogram in
-Austria differs from a kilogram in Australia, which differs from that in Brazil,
+replicas measure precisely the same despite careful storage and handling. The 
+reasons for this variation in measurements are not known. A kilogram in Austria 
+differs from a kilogram in Australia, which differs from that in Brazil,
 Kazakhstan, Pakistan, Switzerland or the U.S. What we assume is an absolute
 measure of mass shows real-world natural variability. Variability is a feature
 of natural systems and also a natural part of every experiment we undertake.
@@ -69,8 +70,9 @@ or group of samples are derived from the same biological source, such as cells,
 tissues, organisms, or individuals. Biological replicates assess the variability
 and reproducibility of experimental results. For example, if a study examines
 the effect of a drug on cell growth, biological replicates would involve
-multiple sets of cells from the same cell line to test the drug's effects. This
-helps to ensure that any observed changes are due to the drug itself rather than variations in the biological material being used.
+multiple samples from the same cell line to test the drug's effects. This helps 
+to ensure that any observed changes are due to the drug itself rather than 
+variations in the biological material being used.
 
 The greater the number of replications, the greater the precision (the closeness
 of two or more measurements to each other).  Having a large enough sample size
@@ -86,14 +88,17 @@ Classify the following sources as either biological,
 systematic, or random error.  
 1\). A scale is broken and provides inconsistent readings.  
 2\). A scale is calibrated wrongly and consistently measures mice 1 gram heavier.  
-3\). A mouse has an unusually high weight compared to its experimental group (i.e., it is an outlier).  
-4\). Strong atmospheric low pressure and accompanying storms affect instrument readings, animal behavior, and indoor relative humidity.
+3\). A mouse has an unusually high weight compared to its experimental group 
+(i.e., it is an outlier).  
+4\). Strong atmospheric low pressure and accompanying storms affect instrument 
+readings, animal behavior, and indoor relative humidity.
 
 :::::::::::::::  solution
 
 ## Solution to Exercise 1
 
-1\). random, because the scale is broken and provides any kind of random reading it comes up with (inconsistent reading)  
+1\). random, because the scale is broken and provides any kind of random reading 
+it comes up with (inconsistent reading)  
 2\). systematic  
 3\). biological  
 4\). random or systematic; you argue which and explain why
@@ -113,11 +118,63 @@ random error. We could assume that all random error will balance itself out, and
 that all samples will be equally subject to random error. A more precise way to
 mitigate random error is through blocking.
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 2: How many technical and biological replicates?
+
+In each scenario described below, identify how many technical and how many
+biological replicates are represented. What conclusions can be drawn about 
+experimental error in each scenario?
+
+1\). One person is weighed on a scale five times.  
+2\). Five people are weighed on a scale one time each.  
+3\). Five people are weighed on a scale three times each.  
+4\). A cell line is equally divided into four samples. Two samples receive a
+drug treatment, and the other two samples receive a different treatment. The 
+response of each sample is measured three times to produce twelve total 
+observations. In addition to the number of replicates, can you identify how many
+experimental units there are?  
+5\). A cell line is equally divided into two samples. One sample receives a
+drug treatment, and the other sample receives a different treatment. Each sample
+is then further divided into two subsamples, each of which is measured three 
+times to produce twelve total observations. In addition to the number of
+replicates, can you identify how many experimental units there are?  
+
+:::::::::::::::  solution
+
+## Solution to Exercise 2
+
+1\). One biological sample (not replicated) with five technical replicates. The
+only conclusion to be drawn from the measurements would be better 
+characterization of systematic error in measuring. It would help to describe 
+variation produced by the instrument itself, the scale. The measurements would 
+not generalize to other people.  
+2\). Five biological replicates with one technical measurement (not replicated).
+The conclusion would be a single snapshot of the weight of each person, which
+would not capture systematic error or variation in measurement of the scale. 
+There are five biological replicates, which would increase precision, however,
+there is considerable other variation that is unaccounted for.    
+3\). Five biological replicates with three technical replicates each. The three
+technical replicates would help to characterize systematic error, while the five
+biological replicates would help to characterize biological variability.  
+4\). Four biological replicates with three technical replicates each. The three
+technical replicates would help to characterize systematic error, while the four
+biological replicates would help to characterize biological variability. Since
+the treatments are applied to each of the four samples, there are four 
+experimental units.  
+5\). Two biological replicates with three technical replicates each. Since
+the treatments are applied to only the two original samples, there are only two 
+experimental units.
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Randomization
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 2: The efficient technician
+## Exercise 3: The efficient technician
 
 Your technician colleague finds a way to simplify and expedite an experiment.
 The experiment applies four different wheel-running treatments to twenty
@@ -133,7 +190,7 @@ Can you foresee any problems with the experimental results?
 
 :::::::::::::::  solution
 
-## Solution to Exercise 2
+## Solution to Exercise 3
 
 Since each treatment is run on only one day, the day effectively becomes
 the experimental unit (explain this). Each experimental unit (day) has five
