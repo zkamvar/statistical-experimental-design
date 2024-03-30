@@ -286,7 +286,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Experimental Design Principles</h1>
-        <p>Last updated on 2024-03-28 |
+        <p>Last updated on 2024-03-30 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/03-design-principles.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -331,8 +331,8 @@ same result and will represent the true value. This ideal doesn’t exist
 in the real world. For example, the mass of one kilogram is defined by
 the <a href="https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram" class="external-link">International
 Prototype Kilogram</a>, a cylinder composed of platinum and iridium
-about the size of a golf ball. <img src="fig/International_prototype_of_the_kilogram_aka_Le_Grand_K.png" alt="International Prototype of the Kilogram" class="figure"></p>
-<p>Copies of this prototype kilogram (replicates) are distributed
+about the size of a golf ball.</p>
+<figure><img src="fig/International_prototype_of_the_kilogram_aka_Le_Grand_K.png" alt="International Prototype of the Kilogram" class="figure mx-auto d-block"></figure><p>Copies of this prototype kilogram (replicates) are distributed
 worldwide so each country hosting a replica has its own national
 standard kilogram. None of the replicas measure precisely the same
 despite careful storage and handling. The reasons for this variation in
@@ -374,7 +374,7 @@ the same biological source, such as cells, tissues, organisms, or
 individuals. Biological replicates assess the variability and
 reproducibility of experimental results. For example, if a study
 examines the effect of a drug on cell growth, biological replicates
-would involve multiple sets of cells from the same cell line to test the
+would involve multiple samples from the same cell line to test the
 drug’s effects. This helps to ensure that any observed changes are due
 to the drug itself rather than variations in the biological material
 being used.</p>
@@ -430,14 +430,78 @@ behavior, and indoor relative humidity, which introduces random error.
 We could assume that all random error will balance itself out, and that
 all samples will be equally subject to random error. A more precise way
 to mitigate random error is through blocking.</p>
-</section><section id="randomization"><h2 class="section-heading">Randomization<a class="anchor" aria-label="anchor" href="#randomization"></a>
-</h2>
-<hr class="half-width"><div id="exercise-2-the-efficient-technician" class="callout challenge">
+<div id="exercise-2-how-many-technical-and-biological-replicates" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-2-the-efficient-technician" class="callout-inner">
-<h3 class="callout-title">Exercise 2: The efficient technician<a class="anchor" aria-label="anchor" href="#exercise-2-the-efficient-technician"></a>
+<div id="exercise-2-how-many-technical-and-biological-replicates" class="callout-inner">
+<h3 class="callout-title">Exercise 2: How many technical and biological
+replicates?<a class="anchor" aria-label="anchor" href="#exercise-2-how-many-technical-and-biological-replicates"></a>
+</h3>
+<div class="callout-content">
+<p>In each scenario described below, identify how many technical and how
+many biological replicates are represented. What conclusions can be
+drawn about experimental error in each scenario?</p>
+<p>1). One person is weighed on a scale five times.<br>
+2). Five people are weighed on a scale one time each.<br>
+3). Five people are weighed on a scale three times each.<br>
+4). A cell line is equally divided into four samples. Two samples
+receive a drug treatment, and the other two samples receive a different
+treatment. The response of each sample is measured three times to
+produce twelve total observations. In addition to the number of
+replicates, can you identify how many experimental units there
+are?<br>
+5). A cell line is equally divided into two samples. One sample receives
+a drug treatment, and the other sample receives a different treatment.
+Each sample is then further divided into two subsamples, each of which
+is measured three times to produce twelve total observations. In
+addition to the number of replicates, can you identify how many
+experimental units there are?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">Solution to Exercise 2</h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>1). One biological sample (not replicated) with five technical
+replicates. The only conclusion to be drawn from the measurements would
+be better characterization of systematic error in measuring. It would
+help to describe variation produced by the instrument itself, the scale.
+The measurements would not generalize to other people.<br>
+2). Five biological replicates with one technical measurement (not
+replicated). The conclusion would be a single snapshot of the weight of
+each person, which would not capture systematic error or variation in
+measurement of the scale. There are five biological replicates, which
+would increase precision, however, there is considerable other variation
+that is unaccounted for.<br>
+3). Five biological replicates with three technical replicates each. The
+three technical replicates would help to characterize systematic error,
+while the five biological replicates would help to characterize
+biological variability.<br>
+4). Four biological replicates with three technical replicates each. The
+three technical replicates would help to characterize systematic error,
+while the four biological replicates would help to characterize
+biological variability. Since the treatments are applied to each of the
+four samples, there are four experimental units.<br>
+5). Two biological replicates with three technical replicates each.
+Since the treatments are applied to only the two original samples, there
+are only two experimental units.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="randomization"><h2 class="section-heading">Randomization<a class="anchor" aria-label="anchor" href="#randomization"></a>
+</h2>
+<hr class="half-width"><div id="exercise-3-the-efficient-technician" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3-the-efficient-technician" class="callout-inner">
+<h3 class="callout-title">Exercise 3: The efficient technician<a class="anchor" aria-label="anchor" href="#exercise-3-the-efficient-technician"></a>
 </h3>
 <div class="callout-content">
 <p>Your technician colleague finds a way to simplify and expedite an
@@ -454,12 +518,12 @@ Can you foresee any problems with the experimental results?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">Solution to Exercise 2</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -502,32 +566,32 @@ treatment, in this case, regular chow).</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         A            42      chow
-2         B            38      chow
-3         C            19  high fat
-4         D            54      chow
-5         E             8      chow
-6         F            58      chow
-7         G            17  high fat
-8         H            15  high fat
-9         I            26      chow
-10        J            81  high fat
-11        K            48      chow
-12        L            44      chow
-13        M            79  high fat
-14        N            87  high fat
-15        O            36      chow
-16        P            84      chow
-17        Q            66      chow
-18        R            25  high fat
-19        S             9  high fat
-20        T            77  high fat
-21        U             2      chow
-22        V            28      chow
-23        W            31  high fat
-24        X            91  high fat
-25        Y            74      chow
-26        Z             1  high fat</code></pre>
+1         A            36      chow
+2         B            89  high fat
+3         C            12      chow
+4         D            99  high fat
+5         E            67  high fat
+6         F            68      chow
+7         G            74      chow
+8         H            71  high fat
+9         I            10      chow
+10        J            40      chow
+11        K            41  high fat
+12        L            11  high fat
+13        M            39  high fat
+14        N            51  high fat
+15        O            70      chow
+16        P            62      chow
+17        Q            96      chow
+18        R            44      chow
+19        S            88      chow
+20        T            91  high fat
+21        U            54      chow
+22        V            49  high fat
+23        W             4      chow
+24        X             8      chow
+25        Y            42      chow
+26        Z            93  high fat</code></pre>
 </div>
 <p>This might produce unequal numbers between treatment and control
 groups. It isn’t necessary to have equal numbers, however,
@@ -545,7 +609,7 @@ when sample numbers are equal.</p>
 </h3>
 <pre class="output" tabindex="0"><code>
     chow high fat 
-      14       12 </code></pre>
+      15       11 </code></pre>
 </div>
 <p>To randomly assign samples to groups with equal numbers, you can do
 the following.</p>
@@ -569,32 +633,32 @@ the following.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         Z             1      chow
-2         U             2      chow
-3         E             8      chow
-4         S             9      chow
-5         H            15      chow
-6         G            17      chow
-7         C            19      chow
-8         R            25      chow
-9         I            26      chow
-10        V            28      chow
-11        W            31      chow
-12        O            36      chow
-13        B            38      chow
-14        A            42  high fat
-15        L            44  high fat
-16        K            48  high fat
-17        D            54  high fat
-18        F            58  high fat
-19        Q            66  high fat
-20        Y            74  high fat
-21        T            77  high fat
-22        M            79  high fat
-23        J            81  high fat
-24        P            84  high fat
-25        N            87  high fat
-26        X            91  high fat</code></pre>
+1         W             4      chow
+2         X             8      chow
+3         I            10      chow
+4         L            11      chow
+5         C            12      chow
+6         A            36      chow
+7         M            39      chow
+8         J            40      chow
+9         K            41      chow
+10        Y            42      chow
+11        R            44      chow
+12        V            49      chow
+13        N            51      chow
+14        U            54  high fat
+15        P            62  high fat
+16        E            67  high fat
+17        F            68  high fat
+18        O            70  high fat
+19        H            71  high fat
+20        G            74  high fat
+21        S            88  high fat
+22        B            89  high fat
+23        T            91  high fat
+24        Z            93  high fat
+25        Q            96  high fat
+26        D            99  high fat</code></pre>
 </div>
 <p>You can write out this treatment plan to a comma-separated values
 (csv) file, then open it in Excel and use it to record your data
@@ -632,12 +696,12 @@ groups?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -715,12 +779,12 @@ experiment.</li>
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4">Solution to Exercise 3</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 
 </div>
@@ -749,12 +813,12 @@ humidity increased.</li>
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5">Solution to Exercise 4</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 
 </div>
@@ -833,8 +897,8 @@ usefulness of an experiment.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/03-design-principles.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/03-design-principles.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2024-03-28",
-  "datePublished": "2024-03-28"
+  "dateModified": "2024-03-30",
+  "datePublished": "2024-03-30"
 }
 
   </script><script>
