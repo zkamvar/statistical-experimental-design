@@ -229,32 +229,32 @@ random_allocation
 
 ```{.output}
    mouse_ID random_number treatment
-1         A            36      chow
-2         B            89  high fat
-3         C            12      chow
-4         D            99  high fat
-5         E            67  high fat
-6         F            68      chow
-7         G            74      chow
-8         H            71  high fat
-9         I            10      chow
-10        J            40      chow
-11        K            41  high fat
-12        L            11  high fat
+1         A            16      chow
+2         B            13  high fat
+3         C            71  high fat
+4         D            75  high fat
+5         E             8      chow
+6         F            82      chow
+7         G             6      chow
+8         H            94      chow
+9         I            37  high fat
+10        J            41  high fat
+11        K            17  high fat
+12        L            91  high fat
 13        M            39  high fat
-14        N            51  high fat
-15        O            70      chow
-16        P            62      chow
-17        Q            96      chow
-18        R            44      chow
-19        S            88      chow
-20        T            91  high fat
-21        U            54      chow
-22        V            49  high fat
-23        W             4      chow
-24        X             8      chow
-25        Y            42      chow
-26        Z            93  high fat
+14        N            14      chow
+15        O            73  high fat
+16        P            35  high fat
+17        Q            78      chow
+18        R            46      chow
+19        S            55  high fat
+20        T            60      chow
+21        U            95  high fat
+22        V            42      chow
+23        W            54      chow
+24        X            45  high fat
+25        Y            25  high fat
+26        Z            52      chow
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -270,7 +270,7 @@ table(random_allocation$treatment)
 ```{.output}
 
     chow high fat 
-      15       11 
+      12       14 
 ```
 
 To randomly assign samples to groups with equal numbers, you can do the
@@ -293,32 +293,32 @@ equal_allocation
 
 ```{.output}
    mouse_ID random_number treatment
-1         W             4      chow
-2         X             8      chow
-3         I            10      chow
-4         L            11      chow
-5         C            12      chow
-6         A            36      chow
-7         M            39      chow
-8         J            40      chow
-9         K            41      chow
-10        Y            42      chow
-11        R            44      chow
-12        V            49      chow
-13        N            51      chow
-14        U            54  high fat
-15        P            62  high fat
-16        E            67  high fat
-17        F            68  high fat
-18        O            70  high fat
-19        H            71  high fat
-20        G            74  high fat
-21        S            88  high fat
-22        B            89  high fat
-23        T            91  high fat
-24        Z            93  high fat
-25        Q            96  high fat
-26        D            99  high fat
+1         G             6      chow
+2         E             8      chow
+3         B            13      chow
+4         N            14      chow
+5         A            16      chow
+6         K            17      chow
+7         Y            25      chow
+8         P            35      chow
+9         I            37      chow
+10        M            39      chow
+11        J            41      chow
+12        V            42      chow
+13        X            45      chow
+14        R            46  high fat
+15        Z            52  high fat
+16        W            54  high fat
+17        S            55  high fat
+18        T            60  high fat
+19        C            71  high fat
+20        O            73  high fat
+21        D            75  high fat
+22        Q            78  high fat
+23        F            82  high fat
+24        L            91  high fat
+25        H            94  high fat
+26        U            95  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,
@@ -327,16 +327,7 @@ track of which samples are randomly assigned which diet.
 
 
 ```r
-write.csv(equal_allocation, file = "../data/random-assign.csv", row.names = FALSE)
-```
-
-```{.warning}
-Warning in file(file, ifelse(append, "a", "w")): cannot open file
-'../data/random-assign.csv': No such file or directory
-```
-
-```{.error}
-Error in file(file, ifelse(append, "a", "w")): cannot open the connection
+write.csv(equal_allocation, file = "./data/random-assign.csv", row.names = FALSE)
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge

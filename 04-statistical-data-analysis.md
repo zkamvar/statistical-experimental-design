@@ -35,12 +35,12 @@ of Wisconsin Madison shows variability in a natural population.
 
 ## Exercise 1: A living histogram
 
-From the living histogram, can you estimate by eye
-1\). the mean and median heights of this sample of female students?
+From the living histogram, can you estimate by eye. 
+1\). the mean and median heights of this sample of female students?  
 2\). the spread of the data? Estimate either standard deviation or variance by
 eye. If you're not sure how to do this, think about how you would describe the
-spread of the data from the mean. You do not need to calculate a statistic.
-3\). any outliers? Estimate by eye - don't worry about calculations.
+spread of the data from the mean. You do not need to calculate a statistic.  
+3\). any outliers? Estimate by eye - don't worry about calculations.  
 4\). What do you predict would happen to mean, median, spread and outliers if
 an equal number of male students were added to the histogram?
 
@@ -170,7 +170,7 @@ boxplot(heart_rate ~ exercise_group, data = heart_rate)
 ## Exercise 3: Comparing two groups - control vs. high intensity
 
 1. Does there appear to be a significant heart rate difference between the
-  two groups? How would you know?
+  control and high intensity exercise groups? How would you know?
 2. Do any of the data overlap between the two boxplots?
 3. Can you know which exercise group a person belongs to just by knowing their
   heart rate? For example, for a heart rate of 80 could you say with certainty
@@ -211,16 +211,19 @@ question about exercise intensity.
 
 ```r
 # calculate the means of the two groups
-HI <- heart_rate[heart_rate$exercise_group=="high intensity", "heart_rate"]
-control <- heart_rate[heart_rate$exercise_group=="control", "heart_rate"]
-meanDiff <- mean(control) - mean(HI)
+# load the tidyverse library to write more easily interpreted code
+library(tidyverse)
+
+HI <- heart_rate %>% filter(exercise_group == "high intensity")
+control <- heart_rate %>% filter(exercise_group == "control")
+meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates is
-3.1330874. Another way of stating this is that the
-high-intensity group had a mean heart rate that was
-4 percent lower than
-the control group.
+2.7163173. Another way of stating this 
+is that the high-intensity group had a mean heart rate that was
+4 
+percent lower than the control group.
 
 So are we done now? Does this difference support the alternative hypothesis
 that there is a significant difference in mean heart rates? Or does it fail to
@@ -238,13 +241,13 @@ for those samples.
 
 ```r
 # calculate the sample mean of 100 people in each group
-HI100 <- mean(sample(HI, size=100))
-control100 <- mean(sample(control, size=100))
+HI100 <- mean(sample(HI$heart_rate, size = 100))
+control100 <- mean(sample(control$heart_rate, size = 100))
 control100 - HI100
 ```
 
 ```{.output}
-[1] 4.973047
+[1] 3.131937
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -253,13 +256,13 @@ means.
 
 ```r
 # calculate the sample mean of 100 people in each group
-HI100 <- mean(sample(HI, size=100))
-control100 <- mean(sample(control, size=100))
+HI100 <- mean(sample(HI$heart_rate, size = 100))
+control100 <- mean(sample(control$heart_rate, size = 100))
 control100 - HI100
 ```
 
 ```{.output}
-[1] 3.782962
+[1] 3.374045
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -279,27 +282,27 @@ have access to the entire population, so this is a thought exercise.
 population <- rbind(HI, control)
 
 # sample 100 of them and calculate the mean three times
-mean(sample(population, size=100))
+mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.89856
+[1] 68.71289
 ```
 
 ```r
-mean(sample(population, size=100))
+mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.82651
+[1] 71.77801
 ```
 
 ```r
-mean(sample(population, size=100))
+mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.8618
+[1] 69.98844
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -317,7 +320,7 @@ What does it mean that a difference is statistically significant? We can eye
 plots like the boxplots above and see a difference, however, we need something 
 more objective than eyeballs to claim a significant difference. A t-test will 
 report whether the difference in mean values between the two groups is 
-significant. The**null hypothesis** would state that there is no difference in 
+significant. The **null hypothesis** would state that there is no difference in 
 mean values, while the **alternative hypothesis** states that there is a 
 difference in the means of the two **samples** from the whole **population** of 
 elders in Norway.
@@ -325,19 +328,32 @@ elders in Norway.
 
 ```r
 # provide a formula stating that heart rate is dependent on exercise intensity
+t.test(formula = heart_rate ~ exercise_group, data = population)
+```
+
+```{.output}
+
+	Welch Two Sample t-test
+
+data:  heart_rate by exercise_group
+t = 4.2759, df = 1040.4, p-value = 2.078e-05
+alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
+95 percent confidence interval:
+ 1.469785 3.962850
+sample estimates:
+       mean in group control mean in group high intensity 
+                    71.01311                     68.29679 
 ```
 
 ## The null hypothesis
 
 Now let's return to the mean difference between treatment groups. How do we know
-that this difference is due to the exercise? What happens if all 100 in the
-sample do the same exercise intensity? Will we see a difference as large as we
-saw between the two treatment groups? This is called the null hypothesis. The
-word null reminds us to be skeptical and to entertain the possibility that there
-is no difference.
+that this difference is due to the exercise? What happens if all do the same 
+exercise intensity? Will we see a difference as large as we saw between the two treatment groups? This is called the null hypothesis. The word null reminds us 
+to be skeptical and to entertain the possibility that there is no difference.
 
 Because we have access to the population, we can randomly sample 100 controls to
-observe as many of the difference in means when exercise intensity has no
+observe as many of the differences in means when exercise intensity has no
 effect. We can give everyone the same exercise plan and then record the
 difference in means between two randomly split groups of 100 and 100.
 
@@ -346,22 +362,23 @@ Here is this process written in R code:
 
 ```r
 ## 100 controls
-control <- sample(population, 100)
+control <- sample(population$heart_rate, 100)
+
 ## another 100 controls that we pretend are on a high-intensity regimen
-treatment <- sample(population, 100)
+treatment <- sample(population$heart_rate, 100)
 mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] -1.535361
+[1] -2.009366
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
 
 
 ```r
-treatment <- replicate(n = 10000, mean(sample(population, 100)))
-control <- replicate(n = 10000, mean(sample(population, 100)))
+treatment <- replicate(n = 10000, mean(sample(population$heart_rate, 100)))
+control <- replicate(n = 10000, mean(sample(population$heart_rate, 100)))
 null <- treatment - control
 hist(null)
 ```
@@ -379,13 +396,13 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0095
+[1] 0.0246
 ```
 
-Approximately 1% of the 10,000 simulations 
+Approximately 2% of the 10,000 simulations 
 are greater than the observed difference in means. We can expect then that we 
 will see a difference in means approximately 
-1% of the time even if there is no effect 
+2% of the time even if there is no effect 
 of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -422,7 +439,7 @@ Suppose you have measured the resting heart rate of the entire population of
 elderly Norwegians 70 or older, not just the 1,567 from the Generation 100
 study. Imagine you need to describe all of these numbers to someone who has no
 idea what resting heart rate is. Imagine that all the measurements from the
-entire population are contained in `heart_rate`. We could list out
+entire population are contained in `population`. We could list out
 all of the numbers for them to see or take a sample and show them the sample of
 heart rates, but this would be inefficient and wouldn't provide much insight
 into the data. A better approach is to define and visualize a **distribution**.
@@ -435,18 +452,24 @@ older.
 
 
 ```r
-hist(heart_rate, xlab = "resting heart rate")
+population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 ```
 
-```{.error}
-Error in hist.default(heart_rate, xlab = "resting heart rate"): 'x' must be numeric
+```{.output}
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
+
+<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-30 individuals (~2%) with a resting heart rate greater than 100, and another ~30
-with a resting heart rate below 60.
+21 individuals 
+(~2%) 
+with a resting heart rate greater than 90, and another 
+35 individuals
+(~3%) 
+with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
 curve, also known as the **normal distribution** or Gaussian distribution.
@@ -468,20 +491,13 @@ value falls in a particular interval, say from *a* to *b*, is given by the area
 under the curve between *a* and *b*. Software can be used to calculate these
 probabilities.
 
-Real-world populations may be
-approximated by the mathematical ideal of the normal distribution. Repeat the
-sampling we did earlier and produce a new histogram of the sample.
+Real-world populations may be approximated by the mathematical ideal of the 
+normal distribution. Repeat the sampling we did earlier and produce a new 
+histogram of the sample.
 
 
 ```r
-sample100 <- sample(heart_rate, 100)
-```
-
-```{.error}
-Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when 'replace = FALSE'
-```
-
-```r
+sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
 
