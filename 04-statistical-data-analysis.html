@@ -294,7 +294,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Statistics in Data Analysis</h1>
-        <p>Last updated on 2024-03-28 |
+        <p>Last updated on 2024-04-01 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/04-statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -348,14 +348,17 @@ Joiner, Int’l Stats Review, 1975</a></p>
 <h3 class="callout-title">Exercise 1: A living histogram<a class="anchor" aria-label="anchor" href="#exercise-1-a-living-histogram"></a>
 </h3>
 <div class="callout-content">
-<p>From the living histogram, can you estimate by eye 1). the mean and
-median heights of this sample of female students? 2). the spread of the
-data? Estimate either standard deviation or variance by eye. If you’re
-not sure how to do this, think about how you would describe the spread
-of the data from the mean. You do not need to calculate a statistic. 3).
-any outliers? Estimate by eye - don’t worry about calculations. 4). What
-do you predict would happen to mean, median, spread and outliers if an
-equal number of male students were added to the histogram?</p>
+<p>From the living histogram, can you estimate by eye. 1). the mean and
+median heights of this sample of female students?<br>
+2). the spread of the data? Estimate either standard deviation or
+variance by eye. If you’re not sure how to do this, think about how you
+would describe the spread of the data from the mean. You do not need to
+calculate a statistic.<br>
+3). any outliers? Estimate by eye - don’t worry about
+calculations.<br>
+4). What do you predict would happen to mean, median, spread and
+outliers if an equal number of male students were added to the
+histogram?</p>
 </div>
 </div>
 </div>
@@ -364,7 +367,7 @@ equal number of male students were added to the histogram?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Solution to Exercise 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>1). Mean and median are two measures of the center of the data. The
 median is the 50th% of the data with half the female students above this
@@ -438,7 +441,7 @@ do the data deliver in this histogram?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Solution to Exercise 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
@@ -473,7 +476,7 @@ boxplot?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 
 </div>
@@ -506,7 +509,7 @@ vs. high intensity<a class="anchor" aria-label="anchor" href="#exercise-3-compa
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Does there appear to be a significant heart rate difference between
-the two groups? How would you know?</li>
+the control and high intensity exercise groups? How would you know?</li>
 <li>Do any of the data overlap between the two boxplots?</li>
 <li>Can you know which exercise group a person belongs to just by
 knowing their heart rate? For example, for a heart rate of 80 could you
@@ -519,7 +522,7 @@ say with certainty that a person belongs to one group or the other?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>There appears to be a trend of lower heart rate in the
 high-intensity exercise group, however, we can’t say whether or not it
@@ -550,11 +553,14 @@ answer the question about exercise intensity.</p>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># calculate the means of the two groups</span></span>
-<span><span class="va">HI</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span><span class="op">[</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">exercise_group</span><span class="op">==</span><span class="st">"high intensity"</span>, <span class="st">"heart_rate"</span><span class="op">]</span></span>
-<span><span class="va">control</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span><span class="op">[</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">exercise_group</span><span class="op">==</span><span class="st">"control"</span>, <span class="st">"heart_rate"</span><span class="op">]</span></span>
-<span><span class="va">meanDiff</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">control</span><span class="op">)</span> <span class="op">-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">HI</span><span class="op">)</span></span></code></pre>
+<span><span class="co"># load the tidyverse library to write more easily interpreted code</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">tidyverse</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">HI</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span> <span class="op">%&gt;%</span> <span class="fu">filter</span><span class="op">(</span><span class="va">exercise_group</span> <span class="op">==</span> <span class="st">"high intensity"</span><span class="op">)</span></span>
+<span><span class="va">control</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span> <span class="op">%&gt;%</span> <span class="fu">filter</span><span class="op">(</span><span class="va">exercise_group</span> <span class="op">==</span> <span class="st">"control"</span><span class="op">)</span></span>
+<span><span class="va">meanDiff</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">control</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span> <span class="op">-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">HI</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span></span></code></pre>
 </div>
-<p>The actual difference in mean heart rates is 3.1330874. Another way
+<p>The actual difference in mean heart rates is 2.7163173. Another way
 of stating this is that the high-intensity group had a mean heart rate
 that was 4 percent lower than the control group.</p>
 <p>So are we done now? Does this difference support the alternative
@@ -576,14 +582,14 @@ for those samples.</p>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># calculate the sample mean of 100 people in each group</span></span>
-<span><span class="va">HI100</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">HI</span>, size<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">control100</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">control</span>, size<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">HI100</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">HI</span><span class="op">$</span><span class="va">heart_rate</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">control100</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">control</span><span class="op">$</span><span class="va">heart_rate</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">control100</span> <span class="op">-</span> <span class="va">HI100</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 4.973047</code></pre>
+<pre class="output" tabindex="0"><code>[1] 3.131937</code></pre>
 </div>
 <p>Now take another sample of 100 from each group and calculate the
 difference in means.</p>
@@ -592,14 +598,14 @@ difference in means.</p>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># calculate the sample mean of 100 people in each group</span></span>
-<span><span class="va">HI100</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">HI</span>, size<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">control100</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">control</span>, size<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">HI100</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">HI</span><span class="op">$</span><span class="va">heart_rate</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">control100</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">control</span><span class="op">$</span><span class="va">heart_rate</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">control100</span> <span class="op">-</span> <span class="va">HI100</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 3.782962</code></pre>
+<pre class="output" tabindex="0"><code>[1] 3.374045</code></pre>
 </div>
 <p>Are the differences in sample means the same? We can repeat this
 sampling again and again, and each time arrive at a different value. The
@@ -619,34 +625,34 @@ a thought exercise.</p>
 <span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu">rbind</span><span class="op">(</span><span class="va">HI</span>, <span class="va">control</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># sample 100 of them and calculate the mean three times</span></span>
-<span><span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span>, size<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span><span class="op">$</span><span class="va">heart_rate</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.89856</code></pre>
+<pre class="output" tabindex="0"><code>[1] 68.71289</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span>, size<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span><span class="op">$</span><span class="va">heart_rate</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.82651</code></pre>
+<pre class="output" tabindex="0"><code>[1] 71.77801</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span>, size<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span><span class="op">$</span><span class="va">heart_rate</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 70.8618</code></pre>
+<pre class="output" tabindex="0"><code>[1] 69.98844</code></pre>
 </div>
 <p>Notice how the mean changes each time you sample. We can continue to
 do this many times to learn about the distribution of this random
@@ -663,7 +669,7 @@ rate.</p>
 can eye plots like the boxplots above and see a difference, however, we
 need something more objective than eyeballs to claim a significant
 difference. A t-test will report whether the difference in mean values
-between the two groups is significant. The<strong>null
+between the two groups is significant. The <strong>null
 hypothesis</strong> would state that there is no difference in mean
 values, while the <strong>alternative hypothesis</strong> states that
 there is a difference in the means of the two <strong>samples</strong>
@@ -672,45 +678,62 @@ from the whole <strong>population</strong> of elders in Norway.</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># provide a formula stating that heart rate is dependent on exercise intensity</span></span></code></pre>
+<code class="sourceCode R"><span><span class="co"># provide a formula stating that heart rate is dependent on exercise intensity</span></span>
+<span><span class="fu">t.test</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">heart_rate</span> <span class="op">~</span> <span class="va">exercise_group</span>, data <span class="op">=</span> <span class="va">population</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>
+	Welch Two Sample t-test
+
+data:  heart_rate by exercise_group
+t = 4.2759, df = 1040.4, p-value = 2.078e-05
+alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
+95 percent confidence interval:
+ 1.469785 3.962850
+sample estimates:
+       mean in group control mean in group high intensity 
+                    71.01311                     68.29679 </code></pre>
 </div>
 </section><section id="the-null-hypothesis"><h2 class="section-heading">The null hypothesis<a class="anchor" aria-label="anchor" href="#the-null-hypothesis"></a>
 </h2>
 <hr class="half-width"><p>Now let’s return to the mean difference between treatment groups. How
 do we know that this difference is due to the exercise? What happens if
-all 100 in the sample do the same exercise intensity? Will we see a
-difference as large as we saw between the two treatment groups? This is
-called the null hypothesis. The word null reminds us to be skeptical and
-to entertain the possibility that there is no difference.</p>
+all do the same exercise intensity? Will we see a difference as large as
+we saw between the two treatment groups? This is called the null
+hypothesis. The word null reminds us to be skeptical and to entertain
+the possibility that there is no difference.</p>
 <p>Because we have access to the population, we can randomly sample 100
-controls to observe as many of the difference in means when exercise
+controls to observe as many of the differences in means when exercise
 intensity has no effect. We can give everyone the same exercise plan and
 then record the difference in means between two randomly split groups of
 100 and 100.</p>
 <p>Here is this process written in R code:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## 100 controls</span></span>
-<span><span class="va">control</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">population</span>, <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="va">control</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">population</span><span class="op">$</span><span class="va">heart_rate</span>, <span class="fl">100</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co">## another 100 controls that we pretend are on a high-intensity regimen</span></span>
-<span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">population</span>, <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">population</span><span class="op">$</span><span class="va">heart_rate</span>, <span class="fl">100</span><span class="op">)</span></span>
 <span><span class="fu">mean</span><span class="op">(</span><span class="va">treatment</span><span class="op">)</span> <span class="op">-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">control</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] -1.535361</code></pre>
+<pre class="output" tabindex="0"><code>[1] -2.009366</code></pre>
 </div>
 <p>Now let’s find the sample mean of 100 participants from each group
 10,000 times.</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu">replicate</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10000</span>, <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">control</span> <span class="op">&lt;-</span> <span class="fu">replicate</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10000</span>, <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu">replicate</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10000</span>, <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span><span class="op">$</span><span class="va">heart_rate</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">control</span> <span class="op">&lt;-</span> <span class="fu">replicate</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10000</span>, <span class="fu">mean</span><span class="op">(</span><span class="fu">sample</span><span class="op">(</span><span class="va">population</span><span class="op">$</span><span class="va">heart_rate</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">null</span> <span class="op">&lt;-</span> <span class="va">treatment</span> <span class="op">-</span> <span class="va">control</span></span>
 <span><span class="fu">hist</span><span class="op">(</span><span class="va">null</span><span class="op">)</span></span></code></pre>
 </div>
@@ -719,7 +742,7 @@ groups sampled 10,000 times each. The values in <code>null</code> make
 up the <strong>null distribution</strong>. How many of these differences
 are greater than the observed difference in means between the actual
 treatment and control groups?</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -728,11 +751,11 @@ treatment and control groups?</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.0095</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.0246</code></pre>
 </div>
-<p>Approximately 1% of the 10,000 simulations are greater than the
+<p>Approximately 2% of the 10,000 simulations are greater than the
 observed difference in means. We can expect then that we will see a
-difference in means approximately 1% of the time even if there is no
+difference in means approximately 2% of the time even if there is no
 effect of exercise on heart rate. This is known as a
 <strong>p-value</strong>.</p>
 <div id="exercise-4-what-does-a-p-value-mean" class="callout challenge">
@@ -754,7 +777,7 @@ the significance of the difference in mean values?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 
 </div>
@@ -780,7 +803,7 @@ population of elderly Norwegians 70 or older, not just the 1,567 from
 the Generation 100 study. Imagine you need to describe all of these
 numbers to someone who has no idea what resting heart rate is. Imagine
 that all the measurements from the entire population are contained in
-<code>heart_rate</code>. We could list out all of the numbers for them
+<code>population</code>. We could list out all of the numbers for them
 to see or take a sample and show them the sample of heart rates, but
 this would be inefficient and wouldn’t provide much insight into the
 data. A better approach is to define and visualize a
@@ -789,26 +812,27 @@ distribution is as a compact description of many numbers.</p>
 <p>Histograms show us the proportion of values within an interval. Here
 is a histogram showing all resting heart rates for the entire population
 70 and older.</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">hist</span><span class="op">(</span><span class="va">heart_rate</span>, xlab <span class="op">=</span> <span class="st">"resting heart rate"</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">population</span> <span class="op">%&gt;%</span> <span class="fu">ggplot</span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in hist.default(heart_rate, xlab = "resting heart rate"): 'x' must be numeric</code></pre>
+<pre class="output" tabindex="0"><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
-<p>Showing this plot is much more informative and easier to interpret
+<figure><img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-14-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Showing this plot is much more informative and easier to interpret
 than a long table of numbers. With this histogram we can approximate the
 number of individuals in any given interval. For example, there are
-approximately 30 individuals (~2%) with a resting heart rate greater
-than 100, and another ~30 with a resting heart rate below 60.</p>
+approximately 21 individuals (~2%) with a resting heart rate greater
+than 90, and another 35 individuals (~3%) with a resting heart rate
+below 50.</p>
 <p>The histogram above approximates one that is very common in nature:
 the bell curve, also known as the <strong>normal distribution</strong>
 or Gaussian distribution.</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -827,22 +851,12 @@ Software can be used to calculate these probabilities.</p>
 <p>Real-world populations may be approximated by the mathematical ideal
 of the normal distribution. Repeat the sampling we did earlier and
 produce a new histogram of the sample.</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sample100</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">heart_rate</span>, <span class="fl">100</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when 'replace = FALSE'</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb26">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">hist</span><span class="op">(</span><span class="va">sample100</span>, xlab <span class="op">=</span> <span class="st">"resting heart rate for 100 participants"</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">sample100</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">heart_rate</span>, <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="fu">hist</span><span class="op">(</span><span class="va">sample100</span>, xlab <span class="op">=</span> <span class="st">"resting heart rate for 100 participants"</span><span class="op">)</span></span></code></pre>
 </div>
 <figure><img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="exercise-4-sampling-from-a-population" class="callout challenge">
 <div class="callout-square">
@@ -869,7 +883,7 @@ deliver about the population from which it was drawn?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 
 </div>
@@ -959,8 +973,8 @@ quantify effects against random variation.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/04-statistical-data-analysis.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/04-statistical-data-analysis.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2024-03-28",
-  "datePublished": "2024-03-30"
+  "dateModified": "2024-04-01",
+  "datePublished": "2024-04-01"
 }
 
   </script><script>
