@@ -259,7 +259,7 @@ then open it in Excel and use it to record your data collection or just keep
 track of which samples are randomly assigned which diet.
 
 ```{r}
-write.csv(equal_allocation, file = "../data/random-assign.csv", row.names = FALSE)
+write.csv(equal_allocation, file = "./data/random-assign.csv", row.names = FALSE)
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
