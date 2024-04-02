@@ -220,9 +220,9 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates is
-2.7163173. Another way of stating this 
+1.8993006. Another way of stating this 
 is that the high-intensity group had a mean heart rate that was
-4 
+3 
 percent lower than the control group.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -247,7 +247,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 3.131937
+[1] 1.620609
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -262,7 +262,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 3.374045
+[1] 1.363741
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -286,7 +286,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 68.71289
+[1] 69.4434
 ```
 
 ```r
@@ -294,7 +294,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 71.77801
+[1] 69.70187
 ```
 
 ```r
@@ -302,7 +302,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.98844
+[1] 71.85337
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -336,13 +336,13 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 4.2759, df = 1040.4, p-value = 2.078e-05
+t = 3.0401, df = 1042, p-value = 0.002424
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 1.469785 3.962850
+ 0.6733796 3.1252216
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.01311                     68.29679 
+                    70.76197                     68.86267 
 ```
 
 ## The null hypothesis
@@ -370,7 +370,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] -2.009366
+[1] 0.0745528
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -396,13 +396,13 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0246
+[1] 0.079
 ```
 
-Approximately 2% of the 10,000 simulations 
+Approximately 8% of the 10,000 simulations 
 are greater than the observed difference in means. We can expect then that we 
 will see a difference in means approximately 
-2% of the time even if there is no effect 
+8% of the time even if there is no effect 
 of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -464,11 +464,11 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-21 individuals 
+22 individuals 
 (~2%) 
 with a resting heart rate greater than 90, and another 
-35 individuals
-(~3%) 
+22 individuals
+(~2%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
