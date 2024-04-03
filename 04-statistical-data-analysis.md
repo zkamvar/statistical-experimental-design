@@ -220,10 +220,10 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates is
-1.8993006. Another way of stating this 
-is that the high-intensity group had a mean heart rate that was
+2.44. Another way of 
+stating this is that the high-intensity group had a mean heart rate that was
 3 
-percent lower than the control group.
+percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
 that there is a significant difference in mean heart rates? Or does it fail to
@@ -247,7 +247,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 1.620609
+[1] 2.817244
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -262,14 +262,14 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 1.363741
+[1] 2.26442
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
 and again, and each time arrive at a different value. The sample means are a
 random variable, meaning that they can take on any number of different values.
-Since they are random variables, the difference between the means is also a
-random variable.
+Since they are random variables, the difference between the means (the 
+*observed effect size*) is also a random variable.
 
 Let's explore random variables further. Imagine that you have measured the
 resting heart rate of the entire population of elderly people 70 or older,
@@ -286,7 +286,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.4434
+[1] 68.88653
 ```
 
 ```r
@@ -294,7 +294,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.70187
+[1] 70.12769
 ```
 
 ```r
@@ -302,7 +302,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 71.85337
+[1] 70.82499
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -336,13 +336,13 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 3.0401, df = 1042, p-value = 0.002424
+t = 3.9689, df = 1041.3, p-value = 7.715e-05
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 0.6733796 3.1252216
+ 1.233794 3.646730
 sample estimates:
        mean in group control mean in group high intensity 
-                    70.76197                     68.86267 
+                    71.57430                     69.13404 
 ```
 
 ## The null hypothesis
@@ -370,7 +370,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] 0.0745528
+[1] 0.1928423
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -396,13 +396,13 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.079
+[1] 0.0328
 ```
 
-Approximately 8% of the 10,000 simulations 
+Approximately 3% of the 10,000 simulations 
 are greater than the observed difference in means. We can expect then that we 
 will see a difference in means approximately 
-8% of the time even if there is no effect 
+3% of the time even if there is no effect 
 of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -430,8 +430,9 @@ you can't make probability statements about it. The p-value summarizes the
 comparison between our data and the data we might have obtained from a
 probability distribution if there were no difference in mean heart rates.
 Specifically, the p-value tells us how far out on the tail of that distribution
-the data we got falls. To understand this better, we'll explore probability
-distributions next.
+the data we got falls. The smaller the p-value, the greater the disparity 
+between the data we got and the data distribution that might have been. To 
+understand this better, we'll explore probability distributions next.
 
 ## Probability and probability distributions
 
@@ -459,15 +460,15 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-population_hist-1.png" style="display: block; margin: auto;" />
 
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-22 individuals 
+24 individuals 
 (~2%) 
 with a resting heart rate greater than 90, and another 
-22 individuals
+17 individuals
 (~2%) 
 with a resting heart rate below 50.
 
@@ -475,12 +476,6 @@ The histogram above approximates one that is very common in nature: the bell
 curve, also known as the **normal distribution** or Gaussian distribution.
 
 
-```r
-plot(function(x) dnorm(x), -3.5, 3.5, main = "Standard normal distribution",
-     xlab = "z", ylab = "")
-```
-
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
 
 The curve shown above is an example of a **probability density function** that
 defines a bell-shaped curve. The y-axis is the **probability density**, and
@@ -501,7 +496,7 @@ sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
