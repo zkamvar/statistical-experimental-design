@@ -73,9 +73,12 @@ multiple samples from the same cell line to test the drug's effects. This helps
 to ensure that any observed changes are due to the drug itself rather than 
 variations in the biological material being used.
 
-The greater the number of replications, the greater the precision (the closeness
-of two or more measurements to each other).  Having a large enough sample size
-to ensure high precision is necessary to ensure reproducible results.
+The greater the number of biological replicates, the greater the precision (the 
+closeness of two or more measurements to each other).  Having a large enough 
+sample size to ensure high precision is necessary to ensure reproducible 
+results. Note that increasing the number of technical replicates will not help
+to characterize biological variability! It is used to characterize systematic 
+error, not experimental error.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -209,10 +212,10 @@ used to assign random numbers to experimental units so that any experimental
 unit has equal chances of being assigned to a specific treatment group.
 
 Here is an example of randomization using a random number generator. The study
-asks how a high-fat diet affects blood pressure in mice. If the number is odd,
-the sample is assigned to the treatment group, which receives the high-fat diet.
-If the random number is even, the sample is assigned to the control group (the
-group that doesn't receive the treatment, in this case, regular chow).
+asks how a high-fat diet affects blood pressure in mice. If the random number is 
+odd, the sample is assigned to the treatment group, which receives the high-fat 
+diet. If the random number is even, the sample is assigned to the control group 
+(the group that doesn't receive the treatment, in this case, regular chow).
 
 
 ```r
@@ -222,6 +225,7 @@ random_number <- sample(x = 100, size = 26)
 
 # %% is the modulo operator, which returns the remainder from division by 2
 # if the remainder is 0 (even number), regular chow diet is assigned
+# if not, high fat is assigned
 treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
 random_allocation <- data.frame(mouse_ID, random_number, treatment)
 random_allocation
@@ -229,32 +233,32 @@ random_allocation
 
 ```{.output}
    mouse_ID random_number treatment
-1         A            81  high fat
-2         B            31  high fat
-3         C            15  high fat
-4         D            93  high fat
-5         E            64      chow
-6         F            20      chow
-7         G            89  high fat
-8         H            78      chow
-9         I            86      chow
-10        J            84      chow
-11        K           100      chow
-12        L            82      chow
-13        M            88      chow
+1         A            13  high fat
+2         B            54      chow
+3         C            27  high fat
+4         D            79  high fat
+5         E            31  high fat
+6         F            12      chow
+7         G            69  high fat
+8         H            15  high fat
+9         I            23  high fat
+10        J            25  high fat
+11        K            42      chow
+12        L             4      chow
+13        M            22      chow
 14        N            76      chow
-15        O            39  high fat
-16        P            19  high fat
-17        Q            18      chow
-18        R            28      chow
-19        S            43  high fat
-20        T            73  high fat
-21        U            33  high fat
-22        V            54      chow
-23        W            37  high fat
-24        X            65  high fat
-25        Y            96      chow
-26        Z            53  high fat
+15        O            28      chow
+16        P             7  high fat
+17        Q            89  high fat
+18        R            14      chow
+19        S            39  high fat
+20        T            84      chow
+21        U            67  high fat
+22        V            94      chow
+23        W            85  high fat
+24        X             5  high fat
+25        Y            93  high fat
+26        Z             3  high fat
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -270,7 +274,7 @@ table(random_allocation$treatment)
 ```{.output}
 
     chow high fat 
-      13       13 
+      10       16 
 ```
 
 To randomly assign samples to groups with equal numbers, you can do the
@@ -293,32 +297,32 @@ equal_allocation
 
 ```{.output}
    mouse_ID random_number treatment
-1         C            15      chow
-2         Q            18      chow
-3         P            19      chow
-4         F            20      chow
-5         R            28      chow
-6         B            31      chow
-7         U            33      chow
-8         W            37      chow
-9         O            39      chow
-10        S            43      chow
-11        Z            53      chow
-12        V            54      chow
-13        E            64      chow
-14        X            65  high fat
-15        T            73  high fat
-16        N            76  high fat
-17        H            78  high fat
-18        A            81  high fat
-19        L            82  high fat
-20        J            84  high fat
-21        I            86  high fat
-22        M            88  high fat
-23        G            89  high fat
-24        D            93  high fat
-25        Y            96  high fat
-26        K           100  high fat
+1         Z             3      chow
+2         L             4      chow
+3         X             5      chow
+4         P             7      chow
+5         F            12      chow
+6         A            13      chow
+7         R            14      chow
+8         H            15      chow
+9         M            22      chow
+10        I            23      chow
+11        J            25      chow
+12        C            27      chow
+13        O            28      chow
+14        E            31  high fat
+15        S            39  high fat
+16        K            42  high fat
+17        B            54  high fat
+18        U            67  high fat
+19        G            69  high fat
+20        N            76  high fat
+21        D            79  high fat
+22        T            84  high fat
+23        W            85  high fat
+24        Q            89  high fat
+25        Y            93  high fat
+26        V            94  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,

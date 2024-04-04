@@ -24,7 +24,7 @@ source: Rmd
 ## A picture is worth a thousand words
 
 To motivate this next section on statistics, we start with an example of human
-variability. This 1975 living histogram of female students from the University
+variability. This 1975 living histogram of women from the University
 of Wisconsin Madison shows variability in a natural population.
 
 ![](fig/joiner-living-histogram-heights.png){alt='living histogram of female student heights'}
@@ -35,21 +35,21 @@ of Wisconsin Madison shows variability in a natural population.
 
 ## Exercise 1: A living histogram
 
-From the living histogram, can you estimate by eye. 
-1\). the mean and median heights of this sample of female students?  
+From the living histogram, can you estimate by eye   
+1\). the mean and median heights of this sample of women?  
 2\). the spread of the data? Estimate either standard deviation or variance by
 eye. If you're not sure how to do this, think about how you would describe the
 spread of the data from the mean. You do not need to calculate a statistic.  
 3\). any outliers? Estimate by eye - don't worry about calculations.  
 4\). What do you predict would happen to mean, median, spread and outliers if
-an equal number of male students were added to the histogram?
+an equal number of men were added to the histogram?
 
 :::::::::::::::  solution
 
 ## Solution to Exercise 1
 
 1\). Mean and median are two measures of the center of the data. The median
-is the 50th% of the data with half the female students above this value and
+is the 50th% of the data with half the women above this value and
 the other half below. There are approximately 100 students total. Fifty of
 them appear to be above 5 feet 5 inches and fifty of them appear to be below
 5'5". The median is not influenced by extreme values (outliers), but the
@@ -71,10 +71,10 @@ mean could be considered outliers. Outliers would then be shorter than 4
 feet 7.5 inches or taller than 6 feet 2.5 inches. The shortest are 4 feet 9
 inches and the tallest 6' 0 inches. There are no outliers in this sample
 because all heights fall within 3 sd's.
-4\). Average male heights are greater than average female heights, so you
-could expect that a random sample of 100 male students would increase the
-average height of the sample of 200 students. The mean would shift to the
-right of the distribution toward taller heights, as would the median.
+4\). Average heights for men are greater than average heights for women, so you
+could expect that a random sample of 100 men would increase the average height 
+of the sample of 200 students. The mean would shift to the right of the 
+distribution toward taller heights, as would the median.
 
 :::::::::::::::::::::::::
 
@@ -153,17 +153,19 @@ When data are not normally distributed (bell-shaped and symmetrical), many of
 the statistical methods typically used will not perform well. In these cases
 the data can be transformed to a more symmetrical bell-shaped curve.
 
-## Statistical significance testing
+## Random variables
 
-The Generation 100 studied aims to determine whether high-intensity exercise in
+The Generation 100 study aims to determine whether high-intensity exercise in
 elderly adults affects lifespan and healthspan.
 
 
 ```r
+# heart_rate ~ exercise_group is a formula indicating that the response (heart
+# rate) is dependent on the treatment (exercise group)
 boxplot(heart_rate ~ exercise_group, data = heart_rate)
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-boxplot-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -185,7 +187,7 @@ boxplot(heart_rate ~ exercise_group, data = heart_rate)
   without performing statistical tests.
 2. There is considerable overlap between the two groups, which shows that
   there is considerable variability in the data.
-3. Someone with a heart rate of 80 could belong to either group. When
+3. Someone with a heart rate of 80 could belong to any group. When
   considering significance of heart rate differences between the two groups
   we don't look at individuals, rather, we look at averages between the two
   groups.
@@ -200,10 +202,10 @@ The boxplots above show a trend of lower heart rate in the high-intensity
 exercise group and higher heart rate in the control exercise group. There
 is inherent variability in heart rate in both groups however, which is to be
 expected. That variability appears in the box and whisker lengths of the
-boxplots, along with the outliers that appear as hollow circles. This
-variability in heart rate measurements also means that the boxplots overlap
-between the two groups, making it difficult to determine whether there is a
-significant difference in mean heart rate between the groups.
+boxplots, along with any outliers that appear as hollow circles outside of the
+whisker length. This variability in heart rate measurements also means that the
+boxplots overlap between the two groups, making it difficult to determine 
+whether there is a significant difference in mean heart rate between the groups.
 
 We can calculate the difference in means between the two groups to answer the
 question about exercise intensity.
@@ -219,10 +221,10 @@ control <- heart_rate %>% filter(exercise_group == "control")
 meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
-The actual difference in mean heart rates is
-2.44. Another way of 
+The actual difference in mean heart rates between the two groups is
+3.37. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
-3 
+5 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -247,7 +249,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.817244
+[1] 5.609081
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -262,7 +264,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.26442
+[1] 3.091054
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -271,10 +273,12 @@ random variable, meaning that they can take on any number of different values.
 Since they are random variables, the difference between the means (the 
 *observed effect size*) is also a random variable.
 
-Let's explore random variables further. Imagine that you have measured the
-resting heart rate of the entire population of elderly people 70 or older,
-not just the 1,567 from the Generation 100 study. In practice we would never
-have access to the entire population, so this is a thought exercise.
+Supposing we did have access to the entire population of elderly Norwegians. Can
+we determine the mean resting heart rate for the entire population, rather than
+just for samples of the population? Imagine that you have measured the resting 
+heart rate of the entire population of elders 70 or older, not just the 1,567 
+from the Generation 100 study. In practice we would never have access to the 
+entire population, so this is a thought exercise.
 
 
 ```r
@@ -286,7 +290,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 68.88653
+[1] 68.01095
 ```
 
 ```r
@@ -294,7 +298,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.12769
+[1] 68.96424
 ```
 
 ```r
@@ -302,48 +306,18 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.82499
+[1] 68.31658
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
 many times to learn about the distribution of this random variable.
 
-Significance testing can answer questions about differences between the two
-groups in light of inherent variability in heart rate measurements. Comparing
+Comparing
 the data obtained to a *probability distribution* of data that might have been
 obtained can help to answer questions about the effects of exercise intensity
 on heart rate.
 
-## The t-test
 
-What does it mean that a difference is statistically significant? We can eye
-plots like the boxplots above and see a difference, however, we need something 
-more objective than eyeballs to claim a significant difference. A t-test will 
-report whether the difference in mean values between the two groups is 
-significant. The **null hypothesis** would state that there is no difference in 
-mean values, while the **alternative hypothesis** states that there is a 
-difference in the means of the two **samples** from the whole **population** of 
-elders in Norway.
-
-
-```r
-# provide a formula stating that heart rate is dependent on exercise intensity
-t.test(formula = heart_rate ~ exercise_group, data = population)
-```
-
-```{.output}
-
-	Welch Two Sample t-test
-
-data:  heart_rate by exercise_group
-t = 3.9689, df = 1041.3, p-value = 7.715e-05
-alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
-95 percent confidence interval:
- 1.233794 3.646730
-sample estimates:
-       mean in group control mean in group high intensity 
-                    71.57430                     69.13404 
-```
 
 ## The null hypothesis
 
@@ -370,7 +344,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] 0.1928423
+[1] 0.8767521
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -383,7 +357,7 @@ null <- treatment - control
 hist(null)
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 `null` contains the differences in means between the two groups sampled 10,000
 times each. The values in `null` make up the **null distribution**. How many of
@@ -396,13 +370,13 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0328
+[1] 0.0078
 ```
 
-Approximately 3% of the 10,000 simulations 
+Approximately 1% of the 10,000 simulations 
 are greater than the observed difference in means. We can expect then that we 
 will see a difference in means approximately 
-3% of the time even if there is no effect 
+1% of the time even if there is no effect 
 of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -465,11 +439,11 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-24 individuals 
-(~2%) 
+29 individuals 
+(~3%) 
 with a resting heart rate greater than 90, and another 
-17 individuals
-(~2%) 
+31 individuals
+(~3%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
@@ -496,7 +470,7 @@ sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -525,6 +499,35 @@ When the histogram of a list of numbers approximates the normal distribution,
 we can use a convenient mathematical formula to approximate the proportion of
 values or outcomes in any given interval.
 
+## Statistical significance testing: the t-test
+
+Significance testing can answer questions about differences between the two 
+groups in light of inherent variability in heart rate measurements. What does it 
+mean that a difference is statistically significant? We can eye plots like the 
+boxplots above and see a difference, however, we need something more objective 
+than eyeballs to claim a significant difference. A t-test will report whether 
+the difference in mean values between the two groups is significant. The **null hypothesis** would state that there is no difference in mean values, while the **alternative hypothesis** states that there is a difference in the means of the 
+two **samples** from the whole **population** of elders in Norway.
+
+
+```r
+# provide a formula stating that heart rate is dependent on exercise intensity
+t.test(formula = heart_rate ~ exercise_group, data = population)
+```
+
+```{.output}
+
+	Welch Two Sample t-test
+
+data:  heart_rate by exercise_group
+t = 5.2477, df = 1038.6, p-value = 1.867e-07
+alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
+95 percent confidence interval:
+ 2.112839 4.636676
+sample estimates:
+       mean in group control mean in group high intensity 
+                    71.24763                     67.87287 
+```
 ## The perils of p-values
 
 ## Confidence intervals
