@@ -74,9 +74,12 @@ multiple samples from the same cell line to test the drug's effects. This helps
 to ensure that any observed changes are due to the drug itself rather than 
 variations in the biological material being used.
 
-The greater the number of replications, the greater the precision (the closeness
-of two or more measurements to each other).  Having a large enough sample size
-to ensure high precision is necessary to ensure reproducible results.
+The greater the number of biological replicates, the greater the precision (the 
+closeness of two or more measurements to each other).  Having a large enough 
+sample size to ensure high precision is necessary to ensure reproducible 
+results. Note that increasing the number of technical replicates will not help
+to characterize biological variability! It is used to characterize systematic 
+error, not experimental error.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -210,10 +213,10 @@ used to assign random numbers to experimental units so that any experimental
 unit has equal chances of being assigned to a specific treatment group.
 
 Here is an example of randomization using a random number generator. The study
-asks how a high-fat diet affects blood pressure in mice. If the number is odd,
-the sample is assigned to the treatment group, which receives the high-fat diet.
-If the random number is even, the sample is assigned to the control group (the
-group that doesn't receive the treatment, in this case, regular chow).
+asks how a high-fat diet affects blood pressure in mice. If the random number is 
+odd, the sample is assigned to the treatment group, which receives the high-fat 
+diet. If the random number is even, the sample is assigned to the control group 
+(the group that doesn't receive the treatment, in this case, regular chow).
 
 ```{r}
 # create the mouse IDs and 26 random numbers between 1 and 100
@@ -222,6 +225,7 @@ random_number <- sample(x = 100, size = 26)
 
 # %% is the modulo operator, which returns the remainder from division by 2
 # if the remainder is 0 (even number), regular chow diet is assigned
+# if not, high fat is assigned
 treatment <- ifelse(random_number %% 2 == 0, "chow", "high fat")
 random_allocation <- data.frame(mouse_ID, random_number, treatment)
 random_allocation
