@@ -484,7 +484,7 @@ participant’s characteristics? Why or why not?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The research question asked whether exercise, specifically
 high-intensity exercise, would affect healthspan and lifespan of elderly
@@ -550,7 +550,7 @@ room are fed regular chow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>The individual animal is the experimental unit.</p></li>
@@ -633,7 +633,7 @@ patients.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>1 and 2 describe nonblind data collection reporting increased
 treatment effects. Inflated effect sizes are a common problem with
@@ -659,7 +659,7 @@ units, treatments and responses.</li>
 </div>
 </div></section><section id="aio-03-design-principles"><p>Content from <a href="03-design-principles.html">Experimental Design Principles</a></p>
 <hr>
-<p>Last updated on 2024-04-02 |
+<p>Last updated on 2024-04-04 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/03-design-principles.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -750,10 +750,13 @@ would involve multiple samples from the same cell line to test the
 drug’s effects. This helps to ensure that any observed changes are due
 to the drug itself rather than variations in the biological material
 being used.</p>
-<p>The greater the number of replications, the greater the precision
-(the closeness of two or more measurements to each other). Having a
-large enough sample size to ensure high precision is necessary to ensure
-reproducible results.</p>
+<p>The greater the number of biological replicates, the greater the
+precision (the closeness of two or more measurements to each other).
+Having a large enough sample size to ensure high precision is necessary
+to ensure reproducible results. Note that increasing the number of
+technical replicates will not help to characterize biological
+variability! It is used to characterize systematic error, not
+experimental error.</p>
 <div id="exercise-1-which-kind-of-error" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -780,7 +783,7 @@ instrument readings, animal behavior, and indoor relative humidity.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Solution to Exercise 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>1). random, because the scale is broken and provides any kind of
 random reading it comes up with (inconsistent reading)<br>
@@ -837,7 +840,7 @@ experimental units there are?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Solution to Exercise 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>1). One biological sample (not replicated) with five technical
 replicates. The only conclusion to be drawn from the measurements would
@@ -896,7 +899,7 @@ Can you foresee any problems with the experimental results?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Since each treatment is run on only one day, the day effectively
 becomes the experimental unit (explain this). Each experimental unit
@@ -917,10 +920,10 @@ experimental units so that any experimental unit has equal chances of
 being assigned to a specific treatment group.</p>
 <p>Here is an example of randomization using a random number generator.
 The study asks how a high-fat diet affects blood pressure in mice. If
-the number is odd, the sample is assigned to the treatment group, which
-receives the high-fat diet. If the random number is even, the sample is
-assigned to the control group (the group that doesn’t receive the
-treatment, in this case, regular chow).</p>
+the random number is odd, the sample is assigned to the treatment group,
+which receives the high-fat diet. If the random number is even, the
+sample is assigned to the control group (the group that doesn’t receive
+the treatment, in this case, regular chow).</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -931,6 +934,7 @@ treatment, in this case, regular chow).</p>
 <span></span>
 <span><span class="co"># %% is the modulo operator, which returns the remainder from division by 2</span></span>
 <span><span class="co"># if the remainder is 0 (even number), regular chow diet is assigned</span></span>
+<span><span class="co"># if not, high fat is assigned</span></span>
 <span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu">ifelse</span><span class="op">(</span><span class="va">random_number</span> <span class="op">%%</span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span>, <span class="st">"chow"</span>, <span class="st">"high fat"</span><span class="op">)</span></span>
 <span><span class="va">random_allocation</span> <span class="op">&lt;-</span> <span class="fu">data.frame</span><span class="op">(</span><span class="va">mouse_ID</span>, <span class="va">random_number</span>, <span class="va">treatment</span><span class="op">)</span></span>
 <span><span class="va">random_allocation</span></span></code></pre>
@@ -939,32 +943,32 @@ treatment, in this case, regular chow).</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         A            81  high fat
-2         B            31  high fat
-3         C            15  high fat
-4         D            93  high fat
-5         E            64      chow
-6         F            20      chow
-7         G            89  high fat
-8         H            78      chow
-9         I            86      chow
-10        J            84      chow
-11        K           100      chow
-12        L            82      chow
-13        M            88      chow
+1         A            13  high fat
+2         B            54      chow
+3         C            27  high fat
+4         D            79  high fat
+5         E            31  high fat
+6         F            12      chow
+7         G            69  high fat
+8         H            15  high fat
+9         I            23  high fat
+10        J            25  high fat
+11        K            42      chow
+12        L             4      chow
+13        M            22      chow
 14        N            76      chow
-15        O            39  high fat
-16        P            19  high fat
-17        Q            18      chow
-18        R            28      chow
-19        S            43  high fat
-20        T            73  high fat
-21        U            33  high fat
-22        V            54      chow
-23        W            37  high fat
-24        X            65  high fat
-25        Y            96      chow
-26        Z            53  high fat</code></pre>
+15        O            28      chow
+16        P             7  high fat
+17        Q            89  high fat
+18        R            14      chow
+19        S            39  high fat
+20        T            84      chow
+21        U            67  high fat
+22        V            94      chow
+23        W            85  high fat
+24        X             5  high fat
+25        Y            93  high fat
+26        Z             3  high fat</code></pre>
 </div>
 <p>This might produce unequal numbers between treatment and control
 groups. It isn’t necessary to have equal numbers, however,
@@ -982,7 +986,7 @@ when sample numbers are equal.</p>
 </h3>
 <pre class="output" tabindex="0"><code>
     chow high fat 
-      13       13 </code></pre>
+      10       16 </code></pre>
 </div>
 <p>To randomly assign samples to groups with equal numbers, you can do
 the following.</p>
@@ -1006,32 +1010,32 @@ the following.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>   mouse_ID random_number treatment
-1         C            15      chow
-2         Q            18      chow
-3         P            19      chow
-4         F            20      chow
-5         R            28      chow
-6         B            31      chow
-7         U            33      chow
-8         W            37      chow
-9         O            39      chow
-10        S            43      chow
-11        Z            53      chow
-12        V            54      chow
-13        E            64      chow
-14        X            65  high fat
-15        T            73  high fat
-16        N            76  high fat
-17        H            78  high fat
-18        A            81  high fat
-19        L            82  high fat
-20        J            84  high fat
-21        I            86  high fat
-22        M            88  high fat
-23        G            89  high fat
-24        D            93  high fat
-25        Y            96  high fat
-26        K           100  high fat</code></pre>
+1         Z             3      chow
+2         L             4      chow
+3         X             5      chow
+4         P             7      chow
+5         F            12      chow
+6         A            13      chow
+7         R            14      chow
+8         H            15      chow
+9         M            22      chow
+10        I            23      chow
+11        J            25      chow
+12        C            27      chow
+13        O            28      chow
+14        E            31  high fat
+15        S            39  high fat
+16        K            42  high fat
+17        B            54  high fat
+18        U            67  high fat
+19        G            69  high fat
+20        N            76  high fat
+21        D            79  high fat
+22        T            84  high fat
+23        W            85  high fat
+24        Q            89  high fat
+25        Y            93  high fat
+26        V            94  high fat</code></pre>
 </div>
 <p>You can write out this treatment plan to a comma-separated values
 (csv) file, then open it in Excel and use it to record your data
@@ -1063,7 +1067,7 @@ groups?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>1). Scenario: One technician processed samples A through M, and a
 different technician processed samples N through Z. Might the first
@@ -1149,7 +1153,7 @@ experiment.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1185,7 +1189,7 @@ humidity increased.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 
 </div>
@@ -1210,7 +1214,7 @@ usefulness of an experiment.</li>
 </div>
 </section></section><section id="aio-04-statistical-data-analysis"><p>Content from <a href="04-statistical-data-analysis.html">Statistics in Data Analysis</a></p>
 <hr>
-<p>Last updated on 2024-04-03 |
+<p>Last updated on 2024-04-04 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/04-statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1250,8 +1254,8 @@ probabilities of different possible outcomes for an experiment.</li>
 </h2>
 <hr class="half-width">
 <p>To motivate this next section on statistics, we start with an example
-of human variability. This 1975 living histogram of female students from
-the University of Wisconsin Madison shows variability in a natural
+of human variability. This 1975 living histogram of women from the
+University of Wisconsin Madison shows variability in a natural
 population.</p>
 <figure><img src="fig/joiner-living-histogram-heights.png" alt="living histogram of female student heights" class="figure mx-auto d-block"></figure><p><a href="https://personal.psu.edu/drh20/talks/joiner_living_histograms.pdf" class="external-link">B.
 Joiner, Int’l Stats Review, 1975</a></p>
@@ -1263,8 +1267,8 @@ Joiner, Int’l Stats Review, 1975</a></p>
 <h3 class="callout-title">Exercise 1: A living histogram<a class="anchor" aria-label="anchor" href="#exercise-1-a-living-histogram"></a>
 </h3>
 <div class="callout-content">
-<p>From the living histogram, can you estimate by eye. 1). the mean and
-median heights of this sample of female students?<br>
+<p>From the living histogram, can you estimate by eye<br>
+1). the mean and median heights of this sample of women?<br>
 2). the spread of the data? Estimate either standard deviation or
 variance by eye. If you’re not sure how to do this, think about how you
 would describe the spread of the data from the mean. You do not need to
@@ -1272,8 +1276,7 @@ calculate a statistic.<br>
 3). any outliers? Estimate by eye - don’t worry about
 calculations.<br>
 4). What do you predict would happen to mean, median, spread and
-outliers if an equal number of male students were added to the
-histogram?</p>
+outliers if an equal number of men were added to the histogram?</p>
 </div>
 </div>
 </div>
@@ -1285,17 +1288,17 @@ histogram?</p>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>1). Mean and median are two measures of the center of the data. The
-median is the 50th% of the data with half the female students above this
-value and the other half below. There are approximately 100 students
-total. Fifty of them appear to be above 5 feet 5 inches and fifty of
-them appear to be below 5’5”. The median is not influenced by extreme
-values (outliers), but the mean value is. While there are some very tall
-and very short people, the bulk of them appear to be centered around a
-mean of 5 foot 5 inches with a somewhat longer right tail to the
-histogram. 2). If the mean is approximately 5’5” and the distribution
-appears normal (bell-shaped), then we know that approximately 68% of the
-data lies within one standard deviation (sd) of the mean and ~95% lies
-within two sd’s. If there are ~100 people in the sample, 95% of them lie
+median is the 50th% of the data with half the women above this value and
+the other half below. There are approximately 100 students total. Fifty
+of them appear to be above 5 feet 5 inches and fifty of them appear to
+be below 5’5”. The median is not influenced by extreme values
+(outliers), but the mean value is. While there are some very tall and
+very short people, the bulk of them appear to be centered around a mean
+of 5 foot 5 inches with a somewhat longer right tail to the histogram.
+2). If the mean is approximately 5’5” and the distribution appears
+normal (bell-shaped), then we know that approximately 68% of the data
+lies within one standard deviation (sd) of the mean and ~95% lies within
+two sd’s. If there are ~100 people in the sample, 95% of them lie
 between 5’0” and 5’10” (2 sd’s = 5” above and 5” below the mean). One
 standard deviation then would be about 5”/2 = 2.5” from the mean of
 5’5”. So 68% of the data (~68 people) lie within 5 feet 2.5 inches and 5
@@ -1307,10 +1310,10 @@ or below the mean could be considered outliers. Outliers would then be
 shorter than 4 feet 7.5 inches or taller than 6 feet 2.5 inches. The
 shortest are 4 feet 9 inches and the tallest 6’ 0 inches. There are no
 outliers in this sample because all heights fall within 3 sd’s. 4).
-Average male heights are greater than average female heights, so you
-could expect that a random sample of 100 male students would increase
-the average height of the sample of 200 students. The mean would shift
-to the right of the distribution toward taller heights, as would the
+Average heights for men are greater than average heights for women, so
+you could expect that a random sample of 100 men would increase the
+average height of the sample of 200 students. The mean would shift to
+the right of the distribution toward taller heights, as would the
 median.</p>
 </div>
 </div>
@@ -1405,18 +1408,20 @@ guide further statistical analysis. When data are not normally
 distributed (bell-shaped and symmetrical), many of the statistical
 methods typically used will not perform well. In these cases the data
 can be transformed to a more symmetrical bell-shaped curve.</p>
-</section><section id="statistical-significance-testing"><h2 class="section-heading">Statistical significance testing<a class="anchor" aria-label="anchor" href="#statistical-significance-testing"></a>
+</section><section id="random-variables"><h2 class="section-heading">Random variables<a class="anchor" aria-label="anchor" href="#random-variables"></a>
 </h2>
 <hr class="half-width">
-<p>The Generation 100 studied aims to determine whether high-intensity
+<p>The Generation 100 study aims to determine whether high-intensity
 exercise in elderly adults affects lifespan and healthspan.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">boxplot</span><span class="op">(</span><span class="va">heart_rate</span> <span class="op">~</span> <span class="va">exercise_group</span>, data <span class="op">=</span> <span class="va">heart_rate</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="co"># heart_rate ~ exercise_group is a formula indicating that the response (heart</span></span>
+<span><span class="co"># rate) is dependent on the treatment (exercise group)</span></span>
+<span><span class="fu">boxplot</span><span class="op">(</span><span class="va">heart_rate</span> <span class="op">~</span> <span class="va">exercise_group</span>, data <span class="op">=</span> <span class="va">heart_rate</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-5-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="exercise-3-comparing-two-groups---control-vs.-high-intensity" class="callout challenge">
+<figure><img src="fig/04-statistical-data-analysis-rendered-boxplot-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="exercise-3-comparing-two-groups---control-vs.-high-intensity" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -1449,7 +1454,7 @@ high-intensity exercise group, however, we can’t say whether or not it
 is significant without performing statistical tests.</li>
 <li>There is considerable overlap between the two groups, which shows
 that there is considerable variability in the data.</li>
-<li>Someone with a heart rate of 80 could belong to either group. When
+<li>Someone with a heart rate of 80 could belong to any group. When
 considering significance of heart rate differences between the two
 groups we don’t look at individuals, rather, we look at averages between
 the two groups.</li>
@@ -1462,11 +1467,11 @@ the two groups.</li>
 high-intensity exercise group and higher heart rate in the control
 exercise group. There is inherent variability in heart rate in both
 groups however, which is to be expected. That variability appears in the
-box and whisker lengths of the boxplots, along with the outliers that
-appear as hollow circles. This variability in heart rate measurements
-also means that the boxplots overlap between the two groups, making it
-difficult to determine whether there is a significant difference in mean
-heart rate between the groups.</p>
+box and whisker lengths of the boxplots, along with any outliers that
+appear as hollow circles outside of the whisker length. This variability
+in heart rate measurements also means that the boxplots overlap between
+the two groups, making it difficult to determine whether there is a
+significant difference in mean heart rate between the groups.</p>
 <p>We can calculate the difference in means between the two groups to
 answer the question about exercise intensity.</p>
 <div class="codewrapper sourceCode" id="cb4">
@@ -1481,10 +1486,10 @@ answer the question about exercise intensity.</p>
 <span><span class="va">control</span> <span class="op">&lt;-</span> <span class="va">heart_rate</span> <span class="op">%&gt;%</span> <span class="fu">filter</span><span class="op">(</span><span class="va">exercise_group</span> <span class="op">==</span> <span class="st">"control"</span><span class="op">)</span></span>
 <span><span class="va">meanDiff</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">control</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span> <span class="op">-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">HI</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span></span></code></pre>
 </div>
-<p>The actual difference in mean heart rates is 2.44. Another way of
-stating this is that the high-intensity group had a mean heart rate that
-was 3 percent lower than the control group. This is the <em>observed
-effect size</em>.</p>
+<p>The actual difference in mean heart rates between the two groups is
+3.37. Another way of stating this is that the high-intensity group had a
+mean heart rate that was 5 percent lower than the control group. This is
+the <em>observed effect size</em>.</p>
 <p>So are we done now? Does this difference support the alternative
 hypothesis that there is a significant difference in mean heart rates?
 Or does it fail to reject the null hypothesis of no significant
@@ -1511,7 +1516,7 @@ for those samples.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 2.817244</code></pre>
+<pre class="output" tabindex="0"><code>[1] 5.609081</code></pre>
 </div>
 <p>Now take another sample of 100 from each group and calculate the
 difference in means.</p>
@@ -1527,7 +1532,7 @@ difference in means.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 2.26442</code></pre>
+<pre class="output" tabindex="0"><code>[1] 3.091054</code></pre>
 </div>
 <p>Are the differences in sample means the same? We can repeat this
 sampling again and again, and each time arrive at a different value. The
@@ -1535,9 +1540,11 @@ sample means are a random variable, meaning that they can take on any
 number of different values. Since they are random variables, the
 difference between the means (the <em>observed effect size</em>) is also
 a random variable.</p>
-<p>Let’s explore random variables further. Imagine that you have
-measured the resting heart rate of the entire population of elderly
-people 70 or older, not just the 1,567 from the Generation 100 study. In
+<p>Supposing we did have access to the entire population of elderly
+Norwegians. Can we determine the mean resting heart rate for the entire
+population, rather than just for samples of the population? Imagine that
+you have measured the resting heart rate of the entire population of
+elders 70 or older, not just the 1,567 from the Generation 100 study. In
 practice we would never have access to the entire population, so this is
 a thought exercise.</p>
 <div class="codewrapper sourceCode" id="cb9">
@@ -1553,7 +1560,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 68.88653</code></pre>
+<pre class="output" tabindex="0"><code>[1] 68.01095</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1564,7 +1571,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 70.12769</code></pre>
+<pre class="output" tabindex="0"><code>[1] 68.96424</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1575,51 +1582,14 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 70.82499</code></pre>
+<pre class="output" tabindex="0"><code>[1] 68.31658</code></pre>
 </div>
 <p>Notice how the mean changes each time you sample. We can continue to
 do this many times to learn about the distribution of this random
 variable.</p>
-<p>Significance testing can answer questions about differences between
-the two groups in light of inherent variability in heart rate
-measurements. Comparing the data obtained to a <em>probability
-distribution</em> of data that might have been obtained can help to
-answer questions about the effects of exercise intensity on heart
-rate.</p>
-</section><section id="the-t-test"><h2 class="section-heading">The t-test<a class="anchor" aria-label="anchor" href="#the-t-test"></a>
-</h2>
-<hr class="half-width">
-<p>What does it mean that a difference is statistically significant? We
-can eye plots like the boxplots above and see a difference, however, we
-need something more objective than eyeballs to claim a significant
-difference. A t-test will report whether the difference in mean values
-between the two groups is significant. The <strong>null
-hypothesis</strong> would state that there is no difference in mean
-values, while the <strong>alternative hypothesis</strong> states that
-there is a difference in the means of the two <strong>samples</strong>
-from the whole <strong>population</strong> of elders in Norway.</p>
-<div class="codewrapper sourceCode" id="cb15">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># provide a formula stating that heart rate is dependent on exercise intensity</span></span>
-<span><span class="fu">t.test</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">heart_rate</span> <span class="op">~</span> <span class="va">exercise_group</span>, data <span class="op">=</span> <span class="va">population</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>
-	Welch Two Sample t-test
-
-data:  heart_rate by exercise_group
-t = 3.9689, df = 1041.3, p-value = 7.715e-05
-alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
-95 percent confidence interval:
- 1.233794 3.646730
-sample estimates:
-       mean in group control mean in group high intensity 
-                    71.57430                     69.13404 </code></pre>
-</div>
+<p>Comparing the data obtained to a <em>probability distribution</em> of
+data that might have been obtained can help to answer questions about
+the effects of exercise intensity on heart rate.</p>
 </section><section id="the-null-hypothesis"><h2 class="section-heading">The null hypothesis<a class="anchor" aria-label="anchor" href="#the-null-hypothesis"></a>
 </h2>
 <hr class="half-width">
@@ -1635,7 +1605,7 @@ intensity has no effect. We can give everyone the same exercise plan and
 then record the difference in means between two randomly split groups of
 100 and 100.</p>
 <p>Here is this process written in R code:</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1649,11 +1619,11 @@ then record the difference in means between two randomly split groups of
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.1928423</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.8767521</code></pre>
 </div>
 <p>Now let’s find the sample mean of 100 participants from each group
 10,000 times.</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1662,12 +1632,12 @@ then record the difference in means between two randomly split groups of
 <span><span class="va">null</span> <span class="op">&lt;-</span> <span class="va">treatment</span> <span class="op">-</span> <span class="va">control</span></span>
 <span><span class="fu">hist</span><span class="op">(</span><span class="va">null</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p><code>null</code> contains the differences in means between the two
+<figure><img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p><code>null</code> contains the differences in means between the two
 groups sampled 10,000 times each. The values in <code>null</code> make
 up the <strong>null distribution</strong>. How many of these differences
 are greater than the observed difference in means between the actual
 treatment and control groups?</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1676,11 +1646,11 @@ treatment and control groups?</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.0328</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.0078</code></pre>
 </div>
-<p>Approximately 3% of the 10,000 simulations are greater than the
+<p>Approximately 1% of the 10,000 simulations are greater than the
 observed difference in means. We can expect then that we will see a
-difference in means approximately 3% of the time even if there is no
+difference in means approximately 1% of the time even if there is no
 effect of exercise on heart rate. This is known as a
 <strong>p-value</strong>.</p>
 <div id="exercise-4-what-does-a-p-value-mean" class="callout challenge">
@@ -1740,7 +1710,7 @@ distribution is as a compact description of many numbers.</p>
 <p>Histograms show us the proportion of values within an interval. Here
 is a histogram showing all resting heart rates for the entire population
 70 and older.</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1754,8 +1724,8 @@ is a histogram showing all resting heart rates for the entire population
 <figure><img src="fig/04-statistical-data-analysis-rendered-population_hist-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Showing this plot is much more informative and easier to interpret
 than a long table of numbers. With this histogram we can approximate the
 number of individuals in any given interval. For example, there are
-approximately 24 individuals (~2%) with a resting heart rate greater
-than 90, and another 17 individuals (~2%) with a resting heart rate
+approximately 29 individuals (~3%) with a resting heart rate greater
+than 90, and another 31 individuals (~3%) with a resting heart rate
 below 50.</p>
 <p>The histogram above approximates one that is very common in nature:
 the bell curve, also known as the <strong>normal distribution</strong>
@@ -1772,14 +1742,14 @@ Software can be used to calculate these probabilities.</p>
 <p>Real-world populations may be approximated by the mathematical ideal
 of the normal distribution. Repeat the sampling we did earlier and
 produce a new histogram of the sample.</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sample100</span> <span class="op">&lt;-</span> <span class="fu">sample</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">heart_rate</span>, <span class="fl">100</span><span class="op">)</span></span>
 <span><span class="fu">hist</span><span class="op">(</span><span class="va">sample100</span>, xlab <span class="op">=</span> <span class="st">"resting heart rate for 100 participants"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-14-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="exercise-4-sampling-from-a-population" class="callout challenge">
+<figure><img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="exercise-4-sampling-from-a-population" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -1815,6 +1785,43 @@ deliver about the population from which it was drawn?</p>
 distribution, we can use a convenient mathematical formula to
 approximate the proportion of values or outcomes in any given
 interval.</p>
+</section><section id="statistical-significance-testing-the-t-test"><h2 class="section-heading">Statistical significance testing: the t-test<a class="anchor" aria-label="anchor" href="#statistical-significance-testing-the-t-test"></a>
+</h2>
+<hr class="half-width">
+<p>Significance testing can answer questions about differences between
+the two groups in light of inherent variability in heart rate
+measurements. What does it mean that a difference is statistically
+significant? We can eye plots like the boxplots above and see a
+difference, however, we need something more objective than eyeballs to
+claim a significant difference. A t-test will report whether the
+difference in mean values between the two groups is significant. The
+<strong>null hypothesis</strong> would state that there is no difference
+in mean values, while the <strong>alternative hypothesis</strong> states
+that there is a difference in the means of the two
+<strong>samples</strong> from the whole <strong>population</strong> of
+elders in Norway.</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># provide a formula stating that heart rate is dependent on exercise intensity</span></span>
+<span><span class="fu">t.test</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">heart_rate</span> <span class="op">~</span> <span class="va">exercise_group</span>, data <span class="op">=</span> <span class="va">population</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>
+	Welch Two Sample t-test
+
+data:  heart_rate by exercise_group
+t = 5.2477, df = 1038.6, p-value = 1.867e-07
+alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
+95 percent confidence interval:
+ 2.112839 4.636676
+sample estimates:
+       mean in group control mean in group high intensity 
+                    71.24763                     67.87287 </code></pre>
+</div>
 </section><section id="the-perils-of-p-values"><h2 class="section-heading">The perils of p-values<a class="anchor" aria-label="anchor" href="#the-perils-of-p-values"></a>
 </h2>
 <hr class="half-width"></section><section id="confidence-intervals"><h2 class="section-heading">Confidence intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"></a>
@@ -2172,8 +2179,8 @@ units repeatedly during the study.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/aio.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/aio.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2024-04-03",
-  "datePublished": "2024-04-03"
+  "dateModified": "2024-04-04",
+  "datePublished": "2024-04-04"
 }
 
   </script><script>
