@@ -222,9 +222,9 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates between the two groups is
-3.37. Another way of 
+2.62. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
-5 
+4 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -249,7 +249,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 5.609081
+[1] 5.615493
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -264,7 +264,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 3.091054
+[1] -0.458562
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -290,7 +290,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 68.01095
+[1] 70.1012
 ```
 
 ```r
@@ -298,7 +298,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 68.96424
+[1] 69.86644
 ```
 
 ```r
@@ -306,24 +306,21 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 68.31658
+[1] 69.91419
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
-many times to learn about the distribution of this random variable.
-
-Comparing
+many times to learn about the distribution of this random variable. Comparing
 the data obtained to a *probability distribution* of data that might have been
 obtained can help to answer questions about the effects of exercise intensity
 on heart rate.
-
-
 
 ## The null hypothesis
 
 Now let's return to the mean difference between treatment groups. How do we know
 that this difference is due to the exercise? What happens if all do the same 
-exercise intensity? Will we see a difference as large as we saw between the two treatment groups? This is called the null hypothesis. The word null reminds us 
+exercise intensity? Will we see a difference as large as we saw between the two 
+treatment groups? This is called the null hypothesis. The word null reminds us 
 to be skeptical and to entertain the possibility that there is no difference.
 
 Because we have access to the population, we can randomly sample 100 controls to
@@ -344,7 +341,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] 0.8767521
+[1] 1.05635
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -355,14 +352,16 @@ treatment <- replicate(n = 10000, mean(sample(population$heart_rate, 100)))
 control <- replicate(n = 10000, mean(sample(population$heart_rate, 100)))
 null <- treatment - control
 hist(null)
+abline(v=meanDiff, col="red", lwd=2)
 ```
 
 <img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 `null` contains the differences in means between the two groups sampled 10,000
-times each. The values in `null` make up the **null distribution**. How many of
-these differences are greater than the observed difference in means between
-the actual treatment and control groups?
+times each. The value of the observed difference in means between the two 
+groups, `meanDiff`, is shown as a vertical red line. The values in `null` make 
+up the **null distribution**. How many of these differences are greater than the 
+observed difference in means between the actual treatment and control groups?
 
 
 ```r
@@ -370,14 +369,14 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0078
+[1] 0.0276
 ```
 
-Approximately 1% of the 10,000 simulations 
-are greater than the observed difference in means. We can expect then that we 
-will see a difference in means approximately 
-1% of the time even if there is no effect 
-of exercise on heart rate. This is known as a **p-value**.
+Approximately 2.8% of the 10,000 
+simulations are greater than the observed difference in means. We can expect 
+then that we will see a difference in means approximately 
+2.8% of the time even if there is no 
+effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -405,7 +404,7 @@ comparison between our data and the data we might have obtained from a
 probability distribution if there were no difference in mean heart rates.
 Specifically, the p-value tells us how far out on the tail of that distribution
 the data we got falls. The smaller the p-value, the greater the disparity 
-between the data we got and the data distribution that might have been. To 
+between the data we have and the data distribution that might have been. To 
 understand this better, we'll explore probability distributions next.
 
 ## Probability and probability distributions
@@ -430,35 +429,52 @@ older.
 population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 ```
 
-```{.output}
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
-
 <img src="fig/04-statistical-data-analysis-rendered-population_hist-1.png" style="display: block; margin: auto;" />
-
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-29 individuals 
-(~3%) 
+48 individuals 
+(~3.1%) 
 with a resting heart rate greater than 90, and another 
-31 individuals
-(~3%) 
+42 individuals
+(~2.7%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
 curve, also known as the **normal distribution** or Gaussian distribution.
 
-
+<img src="fig/04-statistical-data-analysis-rendered-standard_normal_dist-1.png" style="display: block; margin: auto;" />
 
 The curve shown above is an example of a **probability density function** that
-defines a bell-shaped curve. The y-axis is the **probability density**, and
+defines a normal distribution. The y-axis is the **probability density**, and
 the total area under the curve sums to 1.0 on the y-axis. The x-axis denotes a
 variable *z* that by statistical convention has a standard normal distribution.
 If you draw a random value from a normal distribution, the probability that the
 value falls in a particular interval, say from *a* to *b*, is given by the area
-under the curve between *a* and *b*. Software can be used to calculate these
-probabilities.
+under the curve between *a* and *b*. When the histogram of a list of numbers 
+approximates the normal distribution, we can use a convenient mathematical 
+formula to approximate the proportion of values or outcomes in any given 
+interval. That formula is conveniently stored in the function `pnorm`
+
+If the normal approximation holds for our list of data values, then the mean and
+variance (spread) of the data can be used. For example, when we noticed that
+~ 2.8% of the values in the null 
+distribution were greater than `meanDiff`, the mean difference between control
+and high-intensity groups. We can compute the proportion of values below a value
+`x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
+deviation (the square root of the variance). 
+
+
+```r
+1 - pnorm(meanDiff, mean=mean(null), sd=sd(null))
+```
+
+```{.output}
+[1] 0.02828001
+```
+A useful characteristic of this approximation is that we only need to know `mu`
+and `sigma` to describe the entire distribution. From this, we can compute the
+proportion of values in any interval.
 
 Real-world populations may be approximated by the mathematical ideal of the 
 normal distribution. Repeat the sampling we did earlier and produce a new 
@@ -476,15 +492,15 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 
 ## Exercise 4: Sampling from a population
 
-Does the sample appear to be normally distributed?
-Can you estimate the mean resting heart rate by eye?
-What is the sample mean using R (hint: use `mean()`)?
-Can you estimate the sample standard deviation by eye? Hint: if normally
+1. Does the sample appear to be normally distributed?  
+1. Can you estimate the mean resting heart rate by eye?  
+1. What is the sample mean using R (hint: use `mean()`)?  
+1. Can you estimate the sample standard deviation by eye? Hint: if normally
 distributed, 68% of the data will lie within one standard deviation of the
-mean and 95% will lie within 2 standard deviations.
-What is the sample standard deviation using R (hint: use `sd()`)?
-Estimate the number of people with a resting heart rate between 60 and 70.
-What message does the sample deliver about the population from which it was
+mean and 95% will lie within 2 standard deviations.  
+1. What is the sample standard deviation using R (hint: use `sd()`)?  
+1. Estimate the number of people with a resting heart rate between 60 and 70.  
+1. What message does the sample deliver about the population from which it was
 drawn?
 
 :::::::::::::::  solution
@@ -495,9 +511,6 @@ drawn?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-When the histogram of a list of numbers approximates the normal distribution,
-we can use a convenient mathematical formula to approximate the proportion of
-values or outcomes in any given interval.
 
 ## Statistical significance testing: the t-test
 
@@ -520,15 +533,28 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 5.2477, df = 1038.6, p-value = 1.867e-07
+t = 5.1715, df = 1564, p-value = 2.621e-07
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 2.112839 4.636676
+ 1.624121 3.608932
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.24763                     67.87287 
+                    71.52900                     68.91247 
 ```
 ## The perils of p-values
+You can access the p-value alone from the t-test by saving the results and 
+accessing individual elements with the `$` operator.
+
+
+```r
+# provide a formula stating that heart rate is dependent on exercise intensity
+result <- t.test(formula = heart_rate ~ exercise_group, data = population)
+result$p.value
+```
+
+```{.output}
+[1] 2.621336e-07
+```
 
 ## Confidence intervals
 
