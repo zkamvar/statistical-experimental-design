@@ -169,7 +169,7 @@ boxplot(heart_rate ~ exercise_group, data = heart_rate)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 3: Comparing two groups - control vs. high intensity
+## Exercise 4: Comparing two groups - control vs. high intensity
 
 1. Does there appear to be a significant heart rate difference between the
   control and high intensity exercise groups? How would you know?
@@ -180,7 +180,7 @@ boxplot(heart_rate ~ exercise_group, data = heart_rate)
 
 :::::::::::::::  solution
 
-## Solution to Exercise 3
+## Solution to Exercise 4
 
 1. There appears to be a trend of lower heart rate in the high-intensity
   exercise group, however, we can't say whether or not it is significant
@@ -222,9 +222,9 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates between the two groups is
-2.62. Another way of 
+2.19. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
-4 
+3 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -249,7 +249,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 5.615493
+[1] 2.674469
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -264,7 +264,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] -0.458562
+[1] 1.01351
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -290,7 +290,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.1012
+[1] 68.95477
 ```
 
 ```r
@@ -298,7 +298,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.86644
+[1] 68.00007
 ```
 
 ```r
@@ -306,7 +306,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.91419
+[1] 68.90681
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -341,7 +341,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] 1.05635
+[1] 1.340398
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -369,18 +369,18 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0276
+[1] 0.0596
 ```
 
-Approximately 2.8% of the 10,000 
+Approximately 6% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
 then that we will see a difference in means approximately 
-2.8% of the time even if there is no 
+6% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 4: What does a p-value mean?
+## Exercise 5: What does a p-value mean?
 
 What does this p-value tell us about the difference in means between the two
 groups? How can we interpret this value? What does it say about the
@@ -388,7 +388,7 @@ significance of the difference in mean values?
 
 :::::::::::::::  solution
 
-## Solution to Exercise 4
+## Solution to Exercise 5
 
 :::::::::::::::::::::::::
 
@@ -433,11 +433,11 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-48 individuals 
-(~3.1%) 
+40 individuals 
+(~2.6%) 
 with a resting heart rate greater than 90, and another 
-42 individuals
-(~2.7%) 
+38 individuals
+(~2.4%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
@@ -458,7 +458,7 @@ interval. That formula is conveniently stored in the function `pnorm`
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
-~ 2.8% of the values in the null 
+~ 6% of the values in the null 
 distribution were greater than `meanDiff`, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below a value
 `x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
@@ -470,7 +470,7 @@ deviation (the square root of the variance).
 ```
 
 ```{.output}
-[1] 0.02828001
+[1] 0.05824075
 ```
 A useful characteristic of this approximation is that we only need to know `mu`
 and `sigma` to describe the entire distribution. From this, we can compute the
@@ -490,7 +490,7 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 4: Sampling from a population
+## Exercise 6: Sampling from a population
 
 1. Does the sample appear to be normally distributed?  
 1. Can you estimate the mean resting heart rate by eye?  
@@ -505,7 +505,7 @@ drawn?
 
 :::::::::::::::  solution
 
-## Solution to Exercise 4
+## Solution to Exercise 6
 
 :::::::::::::::::::::::::
 
@@ -533,13 +533,13 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 5.1715, df = 1564, p-value = 2.621e-07
+t = 4.3077, df = 1558.6, p-value = 1.753e-05
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 1.624121 3.608932
+ 1.190989 3.182362
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.52900                     68.91247 
+                    70.72745                     68.54078 
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
@@ -547,16 +547,70 @@ accessing individual elements with the `$` operator.
 
 
 ```r
-# provide a formula stating that heart rate is dependent on exercise intensity
+# save the t-test result and access the p-value alone
 result <- t.test(formula = heart_rate ~ exercise_group, data = population)
 result$p.value
 ```
 
 ```{.output}
-[1] 2.621336e-07
+[1] 1.752533e-05
 ```
+The p-value indicates a statistically significant difference between exercise
+groups. It is not enough, though, to report only a p-value. The p-value says
+nothing about the effect size (the observed difference). If the effect size was
+tiny, say .01 or less, would it matter how small the p-value is? The effect is 
+negligible, so the p-value does nothing to demonstrate practical relevance or
+meaning. We should question how large the effect is. The p-value can only tell
+us whether an effect exists. 
 
 ## Confidence intervals
+P-values report statistical significance of an effect, but what we want is
+scientific significance. Confidence intervals include estimates of the effect
+size and uncertainty associated with these estimates. 
+
+
+```r
+# access the confidence interval
+result$conf.int
+```
+
+```{.output}
+[1] 1.190989 3.182362
+attr(,"conf.level")
+[1] 0.95
+```
+The confidence interval states that the true difference in means is between
+1.1909892 and 3.1823623. A 95% confidence interval
+states that 95% of random intervals will contain the true value. This is not the
+same as saying that there is a 95% chance that the true value falls within the
+interval.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 7: How and when to set up blocks
+
+For each statement, explain to a partner why you believe the statement is true
+or untrue.
+
+1. A p-value of .02 means that there is only a 2% chance that high-intensity and
+control exercise result in the same average heart rate.
+2. A p-value of .02 demonstrates that there is a meaningful difference in 
+average heart rates between the two groups.
+3. A 95% confidence interval has a 95% chance of containing the true difference
+in means.
+4. A confidence interval should be reported along with the p-value.
+
+:::::::::::::::  solution
+
+## Solution to Exercise 7
+
+:::::::::::::::::::::::::
+
+
+
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Sample sizes and power curves
 
