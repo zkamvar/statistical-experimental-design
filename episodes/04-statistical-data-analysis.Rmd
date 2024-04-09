@@ -172,7 +172,7 @@ boxplot(heart_rate ~ exercise_group, data = heart_rate)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 3: Comparing two groups - control vs. high intensity
+## Exercise 4: Comparing two groups - control vs. high intensity
 
 1. Does there appear to be a significant heart rate difference between the
   control and high intensity exercise groups? How would you know?
@@ -183,7 +183,7 @@ boxplot(heart_rate ~ exercise_group, data = heart_rate)
 
 :::::::::::::::  solution
 
-## Solution to Exercise 3
+## Solution to Exercise 4
 
 1. There appears to be a trend of lower heart rate in the high-intensity
   exercise group, however, we can't say whether or not it is significant
@@ -340,7 +340,7 @@ effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 4: What does a p-value mean?
+## Exercise 5: What does a p-value mean?
 
 What does this p-value tell us about the difference in means between the two
 groups? How can we interpret this value? What does it say about the
@@ -348,7 +348,7 @@ significance of the difference in mean values?
 
 :::::::::::::::  solution
 
-## Solution to Exercise 4
+## Solution to Exercise 5
 
 :::::::::::::::::::::::::
 
@@ -442,7 +442,7 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 4: Sampling from a population
+## Exercise 6: Sampling from a population
 
 1. Does the sample appear to be normally distributed?  
 1. Can you estimate the mean resting heart rate by eye?  
@@ -457,7 +457,7 @@ drawn?
 
 :::::::::::::::  solution
 
-## Solution to Exercise 4
+## Solution to Exercise 6
 
 :::::::::::::::::::::::::
 
@@ -483,12 +483,59 @@ You can access the p-value alone from the t-test by saving the results and
 accessing individual elements with the `$` operator.
 
 ```{r p-value}
-# provide a formula stating that heart rate is dependent on exercise intensity
+# save the t-test result and access the p-value alone
 result <- t.test(formula = heart_rate ~ exercise_group, data = population)
 result$p.value
 ```
+The p-value indicates a statistically significant difference between exercise
+groups. It is not enough, though, to report only a p-value. The p-value says
+nothing about the effect size (the observed difference). If the effect size was
+tiny, say .01 or less, would it matter how small the p-value is? The effect is 
+negligible, so the p-value does nothing to demonstrate practical relevance or
+meaning. We should question how large the effect is. The p-value can only tell
+us whether an effect exists. 
 
 ## Confidence intervals
+P-values report statistical significance of an effect, but what we want is
+scientific significance. Confidence intervals include estimates of the effect
+size and uncertainty associated with these estimates. 
+
+```{r confidence-interval}
+# access the confidence interval
+result$conf.int
+```
+The confidence interval states that the true difference in means is between
+`r result$conf.int[1]` and `r result$conf.int[2]`. A 95% confidence interval
+states that 95% of random intervals will contain the true value. This is not the
+same as saying that there is a 95% chance that the true value falls within the
+interval.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 7: How and when to set up blocks
+
+For each statement, explain to a partner why you believe the statement is true
+or untrue.
+
+1. A p-value of .02 means that there is only a 2% chance that high-intensity and
+control exercise result in the same average heart rate.
+2. A p-value of .02 demonstrates that there is a meaningful difference in 
+average heart rates between the two groups.
+3. A 95% confidence interval has a 95% chance of containing the true difference
+in means.
+4. A confidence interval should be reported along with the p-value.
+
+:::::::::::::::  solution
+
+## Solution to Exercise 7
+
+:::::::::::::::::::::::::
+
+
+
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Sample sizes and power curves
 
