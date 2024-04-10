@@ -222,9 +222,9 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates between the two groups is
-2.19. Another way of 
+2.75. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
-3 
+4 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -249,7 +249,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.674469
+[1] 3.535737
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -264,7 +264,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 1.01351
+[1] 1.8257
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -290,7 +290,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 68.95477
+[1] 70.8663
 ```
 
 ```r
@@ -298,7 +298,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 68.00007
+[1] 70.42411
 ```
 
 ```r
@@ -306,7 +306,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 68.90681
+[1] 70.21912
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -341,7 +341,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] 1.340398
+[1] -0.2601422
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -369,13 +369,13 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0596
+[1] 0.0234
 ```
 
-Approximately 6% of the 10,000 
+Approximately 2.3% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
 then that we will see a difference in means approximately 
-6% of the time even if there is no 
+2.3% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -436,8 +436,8 @@ individuals in any given interval. For example, there are approximately
 40 individuals 
 (~2.6%) 
 with a resting heart rate greater than 90, and another 
-38 individuals
-(~2.4%) 
+35 individuals
+(~2.2%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
@@ -458,7 +458,7 @@ interval. That formula is conveniently stored in the function `pnorm`
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
-~ 6% of the values in the null 
+~ 2.3% of the values in the null 
 distribution were greater than `meanDiff`, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below a value
 `x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
@@ -470,7 +470,7 @@ deviation (the square root of the variance).
 ```
 
 ```{.output}
-[1] 0.05824075
+[1] 0.02340774
 ```
 A useful characteristic of this approximation is that we only need to know `mu`
 and `sigma` to describe the entire distribution. From this, we can compute the
@@ -486,7 +486,7 @@ sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
 
-<img src="fig/04-statistical-data-analysis-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="fig/04-statistical-data-analysis-rendered-sample-of-100-participants-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -495,9 +495,9 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 1. Does the sample appear to be normally distributed?  
 1. Can you estimate the mean resting heart rate by eye?  
 1. What is the sample mean using R (hint: use `mean()`)?  
-1. Can you estimate the sample standard deviation by eye? Hint: if normally
-distributed, 68% of the data will lie within one standard deviation of the
-mean and 95% will lie within 2 standard deviations.  
+1. Can you estimate the sample standard deviation by eye? Hint: if normally 
+distributed, 68% of the data will lie within one standard deviation of the mean 
+and 95% will lie within 2 standard deviations.  
 1. What is the sample standard deviation using R (hint: use `sd()`)?  
 1. Estimate the number of people with a resting heart rate between 60 and 70.  
 1. What message does the sample deliver about the population from which it was
@@ -511,6 +511,23 @@ drawn?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+If you have doubts about whether the sample follows a normal distribution, a 
+quantile-quantile (QQ) plot can make interpretation easier. 
+
+
+```r
+qqnorm(sample100)
+qqline(sample100)
+```
+
+<img src="fig/04-statistical-data-analysis-rendered-qq-plot-1.png" style="display: block; margin: auto;" />
+
+We can use qq-plots to confirm that a distribution is relatively close to 
+normally distributed. A qq-plot compares data on the y-axis against a 
+theoretical distribution on the x-axis. If the data points fall on the identity 
+line (diagonal line), then the data is close to the theoretical distribution.
+The larger the sample, the more forgiving the result is to the weakness of this 
+normal approximation. For small sample sizes, the t-distribution works well. 
 
 ## Statistical significance testing: the t-test
 
@@ -533,13 +550,13 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 4.3077, df = 1558.6, p-value = 1.753e-05
+t = 5.3438, df = 1563.2, p-value = 1.045e-07
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 1.190989 3.182362
+ 1.741462 3.761305
 sample estimates:
        mean in group control mean in group high intensity 
-                    70.72745                     68.54078 
+                    71.53969                     68.78831 
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
@@ -553,7 +570,7 @@ result$p.value
 ```
 
 ```{.output}
-[1] 1.752533e-05
+[1] 1.044779e-07
 ```
 The p-value indicates a statistically significant difference between exercise
 groups. It is not enough, though, to report only a p-value. The p-value says
@@ -566,7 +583,8 @@ us whether an effect exists.
 ## Confidence intervals
 P-values report statistical significance of an effect, but what we want is
 scientific significance. Confidence intervals include estimates of the effect
-size and uncertainty associated with these estimates. 
+size and uncertainty associated with these estimates. When reporting results, 
+use confidence intervals.
 
 
 ```r
@@ -575,19 +593,32 @@ result$conf.int
 ```
 
 ```{.output}
-[1] 1.190989 3.182362
+[1] 1.741462 3.761305
 attr(,"conf.level")
 [1] 0.95
 ```
 The confidence interval states that the true difference in means is between
-1.1909892 and 3.1823623. A 95% confidence interval
-states that 95% of random intervals will contain the true value. This is not the
-same as saying that there is a 95% chance that the true value falls within the
-interval.
+1.74 and 3.76. We can
+say, with 95% confidence, that high intensity exercise could decrease mean heart 
+rate from 1.74 to 3.76
+beats per minute. Note that these are simulated data and are not the outcomes of
+the Generation 100 study. 
+
+A 95% confidence interval states that 95% of random intervals will contain the 
+true value. This is not the same as saying that there is a 95% chance that the 
+true value falls within the interval. The graphic below helps to explain a 95% 
+confidence interval for the mean population heart rate.
+
+<img src="fig/04-statistical-data-analysis-rendered-confidence-interval-95-1.png" style="display: block; margin: auto;" />
+
+If we generate 200 confidence intervals for the mean population heart rate,
+those confidence intervals will include the mean (vertical gray dotted line) 
+approximately 95% of the time. You will see that about 5% of the confidence 
+intervals (shown in red) fail to cover the mean.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 7: How and when to set up blocks
+## Exercise 7: Explaining p-values and confidence intervals
 
 For each statement, explain to a partner why you believe the statement is true
 or untrue.
@@ -612,9 +643,19 @@ in means.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Comparing standard deviations
+When comparing the means of data from the two groups, we need to ask whether 
+these data have equal variances (spreads). Previous studies and prior knowledge
+can help us with this assumption. If we know from previous data or from our own
+expertise that adjusting a treatment will affect the mean response but not its
+variability, then we can assume equal variances. However, if we suspect that 
+changing a treatment will affect not only mean response but also its 
+variability, we will be as interested in comparing standard deviations (the 
+square root of the variance) as we are in comparing means.
+
 ## Sample sizes and power curves
 
-## Comparing standard deviations
+
 
 
 
