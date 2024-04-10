@@ -531,7 +531,7 @@ true value. This is not the same as saying that there is a 95% chance that the
 true value falls within the interval. The graphic below helps to explain a 95% 
 confidence interval for the mean population heart rate.
 
-```{r 95%-confidence-interval, echo=FALSE}
+```{r confidence-interval-95, echo=FALSE}
 Q <- qnorm(1- 0.05/2)
 N <- 30
 B <- 200
