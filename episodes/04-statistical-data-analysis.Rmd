@@ -498,21 +498,48 @@ us whether an effect exists.
 ## Confidence intervals
 P-values report statistical significance of an effect, but what we want is
 scientific significance. Confidence intervals include estimates of the effect
-size and uncertainty associated with these estimates. 
+size and uncertainty associated with these estimates. When reporting results, 
+use confidence intervals.
 
 ```{r confidence-interval}
 # access the confidence interval
 result$conf.int
 ```
 The confidence interval states that the true difference in means is between
-`r result$conf.int[1]` and `r result$conf.int[2]`. A 95% confidence interval
-states that 95% of random intervals will contain the true value. This is not the
-same as saying that there is a 95% chance that the true value falls within the
-interval.
+`r round(result$conf.int[1], 2)` and `r round(result$conf.int[2], 2)`. A 95%
+confidence interval states that 95% of random intervals will contain the true 
+value. This is not the same as saying that there is a 95% chance that the true 
+value falls within the interval. 
+
+The graphic below helps to explain a 95% confidence interval for the mean 
+population heart rate.
+
+```{r p-value, echo=FALSE}
+Q <- qnorm(1- 0.05/2)
+N <- 30
+B <- 200
+plot(mean(population$heart_rate) + c(-7,7), c(1,1), type="n", 
+     xlab="heart rate", ylab="confidence interval", ylim=c(1,B))
+abline(v=mean(population$heart_rate), col = "darkgray", lty = 3, lwd = 5)
+for (i in 1:B) {
+  hr <- sample(population$heart_rate, N)
+  se <- sd(hr)/sqrt(N)
+  interval <- c(mean(hr) - Q * se, mean(hr) + Q * se)
+  covered <- mean(population$heart_rate) <= interval[2] & 
+    mean(population$heart_rate) >= interval[1]
+  color <- ifelse(covered, "lightblue", "red")
+  lines(interval, c(i, i), col=color)
+  }
+```
+
+If we generate `r B` confidence intervals for the mean population heart rate,
+those confidence intervals will include the mean (vertical gray dotted line) 
+approximately 95% of the time. You will see that about 5% of the confidence 
+intervals (shown in red) fail to cover the mean.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 7: How and when to set up blocks
+## Exercise 7: Explaining p-values and confidence intervals
 
 For each statement, explain to a partner why you believe the statement is true
 or untrue.
