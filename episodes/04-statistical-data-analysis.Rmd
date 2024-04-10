@@ -435,7 +435,7 @@ Real-world populations may be approximated by the mathematical ideal of the
 normal distribution. Repeat the sampling we did earlier and produce a new 
 histogram of the sample.
 
-```{r}
+```{r sample-of-100-participants}
 sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
@@ -447,9 +447,9 @@ hist(sample100, xlab = "resting heart rate for 100 participants")
 1. Does the sample appear to be normally distributed?  
 1. Can you estimate the mean resting heart rate by eye?  
 1. What is the sample mean using R (hint: use `mean()`)?  
-1. Can you estimate the sample standard deviation by eye? Hint: if normally
-distributed, 68% of the data will lie within one standard deviation of the
-mean and 95% will lie within 2 standard deviations.  
+1. Can you estimate the sample standard deviation by eye? Hint: if normally 
+distributed, 68% of the data will lie within one standard deviation of the mean 
+and 95% will lie within 2 standard deviations.  
 1. What is the sample standard deviation using R (hint: use `sd()`)?  
 1. Estimate the number of people with a resting heart rate between 60 and 70.  
 1. What message does the sample deliver about the population from which it was
@@ -463,6 +463,20 @@ drawn?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+If you have doubts about whether the sample follows a normal distribution, a 
+quantile-quantile (QQ) plot can make interpretation easier. 
+
+```{r qq-plot}
+qqnorm(sample100)
+qqline(sample100)
+```
+
+We can use qq-plots to confirm that a distribution is relatively close to 
+normally distributed. A qq-plot compares data on the y-axis against a 
+theoretical distribution on the x-axis. If the data points fall on the identity 
+line (diagonal line), then the data is close to the theoretical distribution.
+The larger the sample, the more forgiving the result is to the weakness of this 
+normal approximation. For small sample sizes, the t-distribution works well. 
 
 ## Statistical significance testing: the t-test
 
@@ -506,15 +520,18 @@ use confidence intervals.
 result$conf.int
 ```
 The confidence interval states that the true difference in means is between
-`r round(result$conf.int[1], 2)` and `r round(result$conf.int[2], 2)`. A 95%
-confidence interval states that 95% of random intervals will contain the true 
-value. This is not the same as saying that there is a 95% chance that the true 
-value falls within the interval. 
+`r round(result$conf.int[1], 2)` and `r round(result$conf.int[2], 2)`. We can
+say, with 95% confidence, that high intensity exercise could decrease mean heart 
+rate from `r round(result$conf.int[1], 2)` to `r round(result$conf.int[2], 2)`
+beats per minute. Note that these are simulated data and are not the outcomes of
+the Generation 100 study. 
 
-The graphic below helps to explain a 95% confidence interval for the mean 
-population heart rate.
+A 95% confidence interval states that 95% of random intervals will contain the 
+true value. This is not the same as saying that there is a 95% chance that the 
+true value falls within the interval. The graphic below helps to explain a 95% 
+confidence interval for the mean population heart rate.
 
-```{r p-value, echo=FALSE}
+```{r 95%-confidence-interval, echo=FALSE}
 Q <- qnorm(1- 0.05/2)
 N <- 30
 B <- 200
@@ -564,9 +581,19 @@ in means.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Comparing standard deviations
+When comparing the means of data from the two groups, we need to ask whether 
+these data have equal variances (spreads). Previous studies and prior knowledge
+can help us with this assumption. If we know from previous data or from our own
+expertise that adjusting a treatment will affect the mean response but not its
+variability, then we can assume equal variances. However, if we suspect that 
+changing a treatment will affect not only mean response but also its 
+variability, we will be as interested in comparing standard deviations (the 
+square root of the variance) as we are in comparing means.
+
 ## Sample sizes and power curves
 
-## Comparing standard deviations
+
 
 
 
