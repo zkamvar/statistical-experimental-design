@@ -519,6 +519,7 @@ use confidence intervals.
 # access the confidence interval
 result$conf.int
 ```
+
 The confidence interval states that the true difference in means is between
 `r round(result$conf.int[1], 2)` and `r round(result$conf.int[2], 2)`. We can
 say, with 95% confidence, that high intensity exercise could decrease mean heart 
@@ -529,7 +530,8 @@ the Generation 100 study.
 A 95% confidence interval states that 95% of random intervals will contain the 
 true value. This is not the same as saying that there is a 95% chance that the 
 true value falls within the interval. The graphic below helps to explain a 95% 
-confidence interval for the mean population heart rate.
+confidence interval for mean heart rates of samples of size 30 taken from the
+overall population.
 
 ```{r confidence-interval-95, echo=FALSE}
 Q <- qnorm(1- 0.05/2)
@@ -549,10 +551,10 @@ for (i in 1:B) {
   }
 ```
 
-If we generate `r B` confidence intervals for the mean population heart rate,
-those confidence intervals will include the mean (vertical gray dotted line) 
-approximately 95% of the time. You will see that about 5% of the confidence 
-intervals (shown in red) fail to cover the mean.
+If we generate `r B` confidence intervals for the sample mean heart rate, those 
+confidence intervals will include the population mean (vertical gray dotted 
+line) approximately 95% of the time. You will see that about 5% of the 
+confidence intervals (shown in red) fail to cover the mean.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -586,10 +588,29 @@ When comparing the means of data from the two groups, we need to ask whether
 these data have equal variances (spreads). Previous studies and prior knowledge
 can help us with this assumption. If we know from previous data or from our own
 expertise that adjusting a treatment will affect the mean response but not its
-variability, then we can assume equal variances. However, if we suspect that 
-changing a treatment will affect not only mean response but also its 
-variability, we will be as interested in comparing standard deviations (the 
-square root of the variance) as we are in comparing means.
+variability, then we can assume equal variances between treatment groups. 
+However, if we suspect that changing a treatment will affect not only mean 
+response but also its variability, we will be as interested in comparing 
+standard deviations (the square root of the variance) as we are in comparing 
+means.
+
+```{r standard-deviation}
+heart_rate %>% group_by(exercise_group) %>%
+  summarise_at(vars(heart_rate), list(variance=var, standard_deviation = sd))
+```
+As a rule of thumb, if the ratio of the larger to the smaller variance is less
+than 4, the groups have equal variances. 
+
+```{r variance-ratio}
+heart_rate %>% group_by(exercise_group) %>%
+  summarise_at(vars(heart_rate), var) 
+```
+
+A more formal approach uses an F test.
+
+```{r f-test}
+var.test(heart_rate ~ exercise_group, data=heart_rate)
+```
 
 ## Sample sizes and power curves
 
