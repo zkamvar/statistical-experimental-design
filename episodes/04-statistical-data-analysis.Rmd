@@ -633,7 +633,7 @@ detect an effect). Let's calculate the statistical power of our experiment so
 far, and then determine the sample size we would need to run a similar 
 experiment on a different population.
 
-```{r power-analysis}
+```{r power-analysis-1}
 # sample size = 783 per group
 # delta = the observed effect size, meanDiff
 # standard deviation = the pooled sd of both groups
@@ -648,7 +648,7 @@ If we were to repeat the experiment with a different population of elders (e.g.
 Icelandic elders), what is the minimum sample size we would need for each 
 exercise group?
 
-```{r power-analysis}
+```{r power-analysis-2}
 # delta = the observed effect size, meanDiff
 # standard deviation = the pooled sd of both groups
 # significance level (Type 1 error probability or false positive rate) = 0.05
