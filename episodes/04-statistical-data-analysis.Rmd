@@ -719,12 +719,12 @@ ggplot(samp.out, aes(effect.size, power)) +
 ```
 Code adapted from [Power Curve in R](https://cinnipatel.medium.com/power-curve-in-r-8a1e67fb2600) by Cinni Patel.
 
-Now plot the function for sample sizes 100, 200, and 300.
+Now plot the function for sample sizes 5, 50, and 500.
 
 ```{r power-curve-by-sample-size}
-power.curve(100)
-power.curve(200)
-power.curve(300)
+power.curve(5)
+power.curve(50)
+power.curve(500)
 ```
 
 What do you notice about effect size and power as you increase the sample size?
