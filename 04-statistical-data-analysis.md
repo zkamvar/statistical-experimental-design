@@ -222,7 +222,7 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates between the two groups is
-2.75. Another way of 
+3.15. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
 4 
 percent lower than the control group. This is the *observed effect size*.
@@ -249,7 +249,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 3.535737
+[1] 3.087921
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -264,7 +264,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 1.8257
+[1] 2.95368
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -290,7 +290,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.8663
+[1] 68.64984
 ```
 
 ```r
@@ -298,7 +298,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.42411
+[1] 68.57271
 ```
 
 ```r
@@ -306,7 +306,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.21912
+[1] 69.82059
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -341,7 +341,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] -0.2601422
+[1] 1.7342
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -369,13 +369,13 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0234
+[1] 0.0135
 ```
 
-Approximately 2.3% of the 10,000 
+Approximately 1.4% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
 then that we will see a difference in means approximately 
-2.3% of the time even if there is no 
+1.4% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -433,11 +433,11 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-40 individuals 
-(~2.6%) 
+37 individuals 
+(~2.4%) 
 with a resting heart rate greater than 90, and another 
-35 individuals
-(~2.2%) 
+41 individuals
+(~2.6%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
@@ -458,7 +458,7 @@ interval. That formula is conveniently stored in the function `pnorm`
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
-~ 2.3% of the values in the null 
+~ 1.4% of the values in the null 
 distribution were greater than `meanDiff`, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below a value
 `x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
@@ -470,7 +470,7 @@ deviation (the square root of the variance).
 ```
 
 ```{.output}
-[1] 0.02340774
+[1] 0.01410098
 ```
 A useful characteristic of this approximation is that we only need to know `mu`
 and `sigma` to describe the entire distribution. From this, we can compute the
@@ -550,13 +550,13 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 5.3438, df = 1563.2, p-value = 1.045e-07
+t = 6.0275, df = 1558.8, p-value = 2.074e-09
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 1.741462 3.761305
+ 2.125653 4.176523
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.53969                     68.78831 
+                    71.29967                     68.14859 
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
@@ -570,7 +570,7 @@ result$p.value
 ```
 
 ```{.output}
-[1] 1.044779e-07
+[1] 2.074469e-09
 ```
 The p-value indicates a statistically significant difference between exercise
 groups. It is not enough, though, to report only a p-value. The p-value says
@@ -593,14 +593,14 @@ result$conf.int
 ```
 
 ```{.output}
-[1] 1.741462 3.761305
+[1] 2.125653 4.176523
 attr(,"conf.level")
 [1] 0.95
 ```
 The confidence interval states that the true difference in means is between
-1.74 and 3.76. We can
+2.13 and 4.18. We can
 say, with 95% confidence, that high intensity exercise could decrease mean heart 
-rate from 1.74 to 3.76
+rate from 2.13 to 4.18
 beats per minute. Note that these are simulated data and are not the outcomes of
 the Generation 100 study. 
 
@@ -646,19 +646,150 @@ in means.
 ## Comparing standard deviations
 When comparing the means of data from the two groups, we need to ask whether 
 these data have equal variances (spreads). Previous studies and prior knowledge
-can help us with this assumption. If we know from previous data or from our own
-expertise that adjusting a treatment will affect the mean response but not its
-variability, then we can assume equal variances. However, if we suspect that 
-changing a treatment will affect not only mean response but also its 
-variability, we will be as interested in comparing standard deviations (the 
-square root of the variance) as we are in comparing means.
+can help us with this assumption. If we know from previous data or from our own 
+expertise that adjusting a treatment will affect the mean response but not its 
+variability, then we can assume equal variances.
+
+<img src="fig/04-statistical-data-analysis-rendered-compare-standard-deviation-1.png" style="display: block; margin: auto;" />
+
+However, if we suspect that changing a treatment will affect not only mean 
+response but also its variability, we will be as interested in comparing 
+standard deviations (the square root of the variance) as we are in comparing 
+means.
+
+<img src="fig/04-statistical-data-analysis-rendered-compare-means-standard-deviation-1.png" style="display: block; margin: auto;" />
+As a rule of thumb, if the ratio of the larger variance to the smaller variance 
+is less than 4, the groups have equal variances.
+
+
+```r
+heart_rate %>% group_by(exercise_group) %>% 
+  summarise_at(vars(heart_rate), list(variance = var, standard_deviation = sd))
+```
+
+```{.output}
+# A tibble: 2 × 3
+  exercise_group variance standard_deviation
+  <chr>             <dbl>              <dbl>
+1 control            113.               10.6
+2 high intensity     101.               10.0
+```
+A more formal approach uses an F test to compare variances between samples drawn
+from a normal population.
+
+
+```r
+var.test(heart_rate ~ exercise_group, data = heart_rate)
+```
+
+```{.output}
+
+	F test to compare two variances
+
+data:  heart_rate by exercise_group
+F = 1.1222, num df = 782, denom df = 782, p-value = 0.1073
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.975295 1.291161
+sample estimates:
+ratio of variances 
+          1.122169 
+```
+The F test reports that the variances between the groups are not the same, 
+however, the ratio of variances is very close to 1.
 
 ## Sample sizes and power curves
+Statistical power analysis is an important preliminary step in experimental 
+design. Sample size is an important component of statistical power (the power to
+detect an effect). Let's calculate the statistical power of our experiment so 
+far, and then determine the sample size we would need to run a similar 
+experiment on a different population.
 
 
+```r
+# sample size = 783 per group
+# delta = the observed effect size, meanDiff
+# standard deviation = the pooled sd of both groups
+# significance level (Type 1 error probability or false positive rate) = 0.05
+# type = two-sample t-test
+# What is the power of this experiment to detect an effect of size meanDiff?
+power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate), 
+             sig.level = 0.05, type = "two.sample")
+```
+
+```{.output}
+
+     Two-sample t test power calculation 
+
+              n = 783
+          delta = 3.151088
+             sd = 10.46011
+      sig.level = 0.05
+          power = 0.9999679
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+```
+In biomedical studies, statistical power of 80% (0.8) is an accepted standard. 
+If we were to repeat the experiment with a different population of elders (e.g. 
+Icelandic elders), what is the minimum sample size we would need for each 
+exercise group?
 
 
+```r
+# delta = the observed effect size, meanDiff
+# standard deviation = the pooled sd of both groups
+# significance level (Type 1 error probability or false positive rate) = 0.05
+# type = two-sample t-test
+# What is the minimum sample size we would need at 80% power?
+power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate), 
+             sig.level = 0.05, type = "two.sample", power = 0.8)
+```
 
+```{.output}
+
+     Two-sample t test power calculation 
+
+              n = 173.9429
+          delta = 3.151088
+             sd = 10.46011
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+```
+As a rule of thumb, Lehr's equation streamlines calculation of sample size 
+assuming equal variances and sample sizes drawn from a normal distribution.
+
+
+```r
+# n = (16/delta squared), where delta is the standardized effect size
+# delta = effect size standardized as (difference in means)/(standard deviation)
+standardDiff <- meanDiff/sd(heart_rate$heart_rate)
+n <- 16/standardDiff^2
+n
+```
+
+```{.output}
+[1] 176.3078
+```
+Often budget constraints determine sample size. Lehr's equation can be 
+rearranged to determine the standardized effect size that can be calculated 
+for a given sample size.
+
+
+```r
+# difference in means = (4*sd/(square root of n)
+# n = 100, the number that I can afford
+pooledSD <- sd(heart_rate$heart_rate)
+detectableDifferenceInMeans <- (4 * pooledSD)/sqrt(100)
+detectableDifferenceInMeans
+```
+
+```{.output}
+[1] 4.184045
+```
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Plotting and significance testing describe patterns in the data and quantify effects against random variation.
