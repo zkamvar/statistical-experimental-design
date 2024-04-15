@@ -638,9 +638,11 @@ experiment on a different population.
 # sample size = 783 per group
 # delta = the observed effect size, meanDiff
 # sd = standard deviation 
-# significance level (Type 1 error probability or false positive rate) = 0.05
+# significance level (Type 1 error probability or 
+#                     false positive rate) = 0.05
 # type = two-sample t-test
-# What is the power of this experiment to detect an effect of size meanDiff?
+# What is the power of this experiment to detect 
+#                     an effect of size meanDiff?
 power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate), 
              sig.level = 0.05, type = "two.sample")
 ```
@@ -661,13 +663,13 @@ power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate),
 As a rule of thumb, Lehr's equation streamlines calculation of sample size 
 assuming equal variances and sample sizes drawn from a normal distribution.
 The effect size is standardized by dividing the difference in group means by the
-standard deviation. *Cohen's d* described standardized effect sizes from 0.01
+standard deviation. *Cohen's d* describes standardized effect sizes from 0.01
 (very small) to 2.0 (huge). 
 
 ```{r lehrs-equation}
 # n = (16/delta squared), where delta is the standardized effect size
 # delta = effect size standardized as Cohen's d
-# (difference in means)/(standard deviation)  
+#     (difference in means)/(standard deviation)  
 standardizedEffectSize <- meanDiff/sd(heart_rate$heart_rate)
 n <- 16/standardizedEffectSize^2
 n
@@ -677,7 +679,7 @@ rearranged to determine the effect size that can be detected for a given
 sample size.
 
 ```{r lehrs-equation-rearranged}
-# difference in means = (4 * sd/(square root of n)
+# difference in means = (4 * sd)/(square root of n)
 # n = 100, the number that I can afford
 SD <- sd(heart_rate$heart_rate)
 detectableDifferenceInMeans <- (4 * SD)/sqrt(100)
@@ -699,21 +701,23 @@ cd <- seq(.01, 2, .1)  #Vector of effect sizes
 samp.out <- NULL
 
 for(i in 1:length(cd)) {
-  power <-  power.t.test(n=n, delta=cd[i], sig.level=.05 ,type="two.sample")$power
+  power <-  power.t.test(n=n, delta=cd[i], 
+                         sig.level=.05, type="two.sample")$power
   power <-  data.frame(effect.size=cd[i], power=power)
   samp.out <- rbind(samp.out, power)
   }
 
-ggplot(samp.out, aes(effect.size, power))+
+ggplot(samp.out, aes(effect.size, power)) +
   geom_line() + 
   geom_point() +
   theme_minimal() +
-  geom_hline(yintercept = .8,lty=2, color='blue') +
+  geom_hline(yintercept = .8, lty=2, color='blue') +
   labs(title=paste0("t-test Power Curve for n=", n),
        x="Cohen's d",
        y="Power")
 }
 ```
+Code adapted from [Power Curve in R](https://cinnipatel.medium.com/power-curve-in-r-8a1e67fb2600) by Cinni Patel.
 
 Now plot the function for sample sizes 100, 200, and 300.
 
@@ -725,6 +729,52 @@ power.curve(300)
 
 What do you notice about effect size and power as you increase the sample size?
 
+Copy-paste the following code into the console to explore the relationships
+between effect size, sample size, and power.
+
+```{r power-curve-2}
+library(broom)
+
+# start with a vector of effect size values to plot
+seq(.01, 2, .49) %>% 
+  # reverse the vector so the legend labels 
+  # and the curves are in the same vertical order 
+  rev() %>% 
+  # map will help us perform power calculations for every
+  # value in the vector of effect sizes
+  map(
+    # the purrr function will first do the power calculations, 
+    # then turn it into a data frame,
+    # then make a column that records the effect size 
+    ~ power.t.test(
+      # small steps in n values make a smooth plot
+      n = seq(2, 100, .05), 
+      # .x is each value in the effect size vector
+      delta = .x) %>% 
+      # turn the power.htest object into a dataframe (tibble)
+      tidy() %>% 
+      # keep track of the effect size 
+      # for this set of calculations
+      mutate(effect_size=as.factor(.x)) 
+  ) %>%
+  # map will return a list of data frames of the power
+  # calculations so we need to turn it into a single dataframe
+  bind_rows() %>% 
+  # now we have data we can plot as usual!
+  ggplot(aes(n, power, color=effect_size)) +
+  # we used a lot of points so this geom_line will look smooth
+  geom_line() +
+  labs(y="Power",
+       x = "Sample size",
+       color = "Effect Size (Cohen's d)") +
+  theme_bw()
+```
+Code adapted from [How to Create Power Curves in ggplot](https://levibaguley.github.io/2020/06/22/how-to-create-power-curves-in-ggplot/) by Levi Baguley
+
+Notice that to detect a standardized effect size of 0.5 at 80% power, you would 
+need a sample size greater than 75. Larger effect sizes require much smaller
+sample sizes. Very small effects such as .01 never reach the 80% power 
+threshold regardless of sample size.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
