@@ -602,7 +602,7 @@ response but also its variability, we will be as interested in comparing
 standard deviations (the square root of the variance) as we are in comparing 
 means.
 
-```{r compare-standard-deviation, echo=FALSE}
+```{r compare-means-standard-deviation, echo=FALSE}
 ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
   stat_function(fun = dnorm, args = list(3, 2), color = "#7570b3", lwd=1) +
   stat_function(fun = dnorm, args = list(5, 1), color = "#d95f02", lwd=1) +
@@ -657,9 +657,27 @@ exercise group?
 power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate), 
              sig.level = 0.05, type = "two.sample", power = 0.8)
 ```
+As a rule of thumb, Lehr's equation streamlines calculation of sample size 
+assuming equal variances and sample sizes drawn from a normal distribution.
 
+```{r lehrs-equation}
+# n = (16/delta squared), where delta is the standardized effect size
+# delta = effect size standardized as (difference in means)/(standard deviation)
+standardDiff <- meanDiff/sd(heart_rate$heart_rate)
+n <- 16/standardDiff^2
+n
+```
+Often budget constraints determine sample size. Lehr's equation can be 
+rearranged to determine the standardized effect size that can be calculated 
+for a given sample size.
 
-
+```{r lehrs-equation-rearranged}
+# difference in means = (4*sd/(square root of n)
+# n = 100, the number that I can afford
+pooledSD <- sd(heart_rate$heart_rate)
+detectableDifferenceInMeans <- (4 * pooledSD)/sqrt(100)
+detectableDifferenceInMeans
+```
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Plotting and significance testing describe patterns in the data and quantify effects against random variation.
