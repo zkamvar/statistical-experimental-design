@@ -584,16 +584,79 @@ in means.
 ## Comparing standard deviations
 When comparing the means of data from the two groups, we need to ask whether 
 these data have equal variances (spreads). Previous studies and prior knowledge
-can help us with this assumption. If we know from previous data or from our own
-expertise that adjusting a treatment will affect the mean response but not its
-variability, then we can assume equal variances. However, if we suspect that 
-changing a treatment will affect not only mean response but also its 
-variability, we will be as interested in comparing standard deviations (the 
-square root of the variance) as we are in comparing means.
+can help us with this assumption. If we know from previous data or from our own 
+expertise that adjusting a treatment will affect the mean response but not its 
+variability, then we can assume equal variances.
+
+```{r compare-standard-deviation, echo=FALSE}
+ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
+  stat_function(fun = dnorm, args = list(3, 1), color = "#7570b3", lwd=1) +
+  stat_function(fun = dnorm, args = list(5, 1), color = "#d95f02", lwd=1) +
+  theme(axis.title.x=element_blank(), axis.title.y=element_blank()) + 
+  annotate('text', x = 1.5, y = 0.3, label= "mean = 3\nsd = 1", color = "#7570b3") + 
+  annotate('text', x = 6.5, y = 0.3, label= "mean = 5\nsd = 1", color = "#d95f02")
+```
+
+However, if we suspect that changing a treatment will affect not only mean 
+response but also its variability, we will be as interested in comparing 
+standard deviations (the square root of the variance) as we are in comparing 
+means.
+
+```{r compare-standard-deviation, echo=FALSE}
+ggplot(data.frame(x = c(0, 10)), aes(x = x)) +
+  stat_function(fun = dnorm, args = list(3, 2), color = "#7570b3", lwd=1) +
+  stat_function(fun = dnorm, args = list(5, 1), color = "#d95f02", lwd=1) +
+  theme(axis.title.x=element_blank(), axis.title.y=element_blank()) + 
+  annotate('text', x = 1.5, y = 0.2, label= "mean = 3\nsd = 2", color = "#7570b3") + 
+  annotate('text', x = 6.5, y = 0.3, label= "mean = 5\nsd = 1", color = "#d95f02")
+```
+As a rule of thumb, if the ratio of the larger variance to the smaller variance 
+is less than 4, the groups have equal variances.
+
+```{r standard-deviation}
+heart_rate %>% group_by(exercise_group) %>% 
+  summarise_at(vars(heart_rate), list(variance = var, standard_deviation = sd))
+```
+A more formal approach uses an F test to compare variances between samples drawn
+from a normal population.
+
+```{r f-test}
+var.test(heart_rate ~ exercise_group, data = heart_rate)
+```
+The F test reports that the variances between the groups are not the same, 
+however, the ratio of variances is very close to 1.
 
 ## Sample sizes and power curves
+Statistical power analysis is an important preliminary step in experimental 
+design. Sample size is an important component of statistical power (the power to
+detect an effect). Let's calculate the statistical power of our experiment so 
+far, and then determine the sample size we would need to run a similar 
+experiment on a different population.
 
+```{r power-analysis}
+# sample size = 783 per group
+# delta = the observed effect size, meanDiff
+# standard deviation = the pooled sd of both groups
+# significance level (Type 1 error probability or false positive rate) = 0.05
+# type = two-sample t-test
+# What is the power of this experiment to detect an effect of size meanDiff?
+power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate), 
+             sig.level = 0.05, type = "two.sample")
+```
+In biomedical studies, statistical power of 80% (0.8) is an accepted standard. 
+If we were to repeat the experiment with a different population of elders (e.g. 
+Icelandic elders), what is the minimum sample size we would need for each 
+exercise group?
 
+```{r power-analysis}
+# delta = the observed effect size, meanDiff
+# standard deviation = the pooled sd of both groups
+# significance level (Type 1 error probability or false positive rate) = 0.05
+# type = two-sample t-test
+# What is the minimum sample size we would need at 80% power?
+power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate), 
+             sig.level = 0.05, type = "two.sample", power = 0.8)
+```
 
 
 
