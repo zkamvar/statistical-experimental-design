@@ -488,7 +488,7 @@ participant’s characteristics? Why or why not?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The research question asked whether exercise, specifically
 high-intensity exercise, would affect healthspan and lifespan of elderly
@@ -554,7 +554,7 @@ room are fed regular chow.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>The individual animal is the experimental unit.</p></li>
@@ -637,7 +637,7 @@ patients.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>1 and 2 describe nonblind data collection reporting increased
 treatment effects. Inflated effect sizes are a common problem with
@@ -1289,7 +1289,7 @@ outliers if an equal number of men were added to the histogram?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Solution to Exercise 1</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>1). Mean and median are two measures of the center of the data. The
 median is the 50th% of the data with half the women above this value and
@@ -1364,7 +1364,7 @@ do the data deliver in this histogram?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Solution to Exercise 2</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
@@ -1399,7 +1399,7 @@ boxplot?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Solution to Exercise 3</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 
 </div>
@@ -1450,7 +1450,7 @@ say with certainty that a person belongs to one group or the other?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Solution to Exercise 4</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>There appears to be a trend of lower heart rate in the
@@ -1491,7 +1491,7 @@ answer the question about exercise intensity.</p>
 <span><span class="va">meanDiff</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">control</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span> <span class="op">-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">HI</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span></span></code></pre>
 </div>
 <p>The actual difference in mean heart rates between the two groups is
-2.78. Another way of stating this is that the high-intensity group had a
+2.9. Another way of stating this is that the high-intensity group had a
 mean heart rate that was 4 percent lower than the control group. This is
 the <em>observed effect size</em>.</p>
 <p>So are we done now? Does this difference support the alternative
@@ -1520,7 +1520,7 @@ for those samples.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 2.505255</code></pre>
+<pre class="output" tabindex="0"><code>[1] 2.441133</code></pre>
 </div>
 <p>Now take another sample of 100 from each group and calculate the
 difference in means.</p>
@@ -1536,7 +1536,7 @@ difference in means.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 1.2354</code></pre>
+<pre class="output" tabindex="0"><code>[1] 2.243537</code></pre>
 </div>
 <p>Are the differences in sample means the same? We can repeat this
 sampling again and again, and each time arrive at a different value. The
@@ -1564,7 +1564,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 70.31318</code></pre>
+<pre class="output" tabindex="0"><code>[1] 70.1055</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1575,7 +1575,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.64724</code></pre>
+<pre class="output" tabindex="0"><code>[1] 70.13115</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1586,7 +1586,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.8974</code></pre>
+<pre class="output" tabindex="0"><code>[1] 70.84292</code></pre>
 </div>
 <p>Notice how the mean changes each time you sample. We can continue to
 do this many times to learn about the distribution of this random
@@ -1623,7 +1623,7 @@ then record the difference in means between two randomly split groups of
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.09737618</code></pre>
+<pre class="output" tabindex="0"><code>[1] -2.407075</code></pre>
 </div>
 <p>Now let’s find the sample mean of 100 participants from each group
 10,000 times.</p>
@@ -1653,11 +1653,11 @@ treatment and control groups?</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.0261</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.0155</code></pre>
 </div>
-<p>Approximately 2.6% of the 10,000 simulations are greater than the
+<p>Approximately 1.6% of the 10,000 simulations are greater than the
 observed difference in means. We can expect then that we will see a
-difference in means approximately 2.6% of the time even if there is no
+difference in means approximately 1.6% of the time even if there is no
 effect of exercise on heart rate. This is known as a
 <strong>p-value</strong>.</p>
 <div id="exercise-5-what-does-a-p-value-mean" class="callout challenge">
@@ -1679,7 +1679,7 @@ the significance of the difference in mean values?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Solution to Exercise 5</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 
 </div>
@@ -1727,8 +1727,8 @@ is a histogram showing all resting heart rates for the entire population
 Showing this plot is much more informative and easier to interpret than
 a long table of numbers. With this histogram we can approximate the
 number of individuals in any given interval. For example, there are
-approximately 41 individuals (~2.6%) with a resting heart rate greater
-than 90, and another 37 individuals (~2.4%) with a resting heart rate
+approximately 32 individuals (~2%) with a resting heart rate greater
+than 90, and another 25 individuals (~1.6%) with a resting heart rate
 below 50.</p>
 <p>The histogram above approximates one that is very common in nature:
 the bell curve, also known as the <strong>normal distribution</strong>
@@ -1748,7 +1748,7 @@ That formula is conveniently stored in the function
 <code>pnorm</code></p>
 <p>If the normal approximation holds for our list of data values, then
 the mean and variance (spread) of the data can be used. For example,
-when we noticed that ~ 2.6% of the values in the null distribution were
+when we noticed that ~ 1.6% of the values in the null distribution were
 greater than <code>meanDiff</code>, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below
 a value <code>x</code> with <code>pnorm(x, mu, sigma)</code> where
@@ -1763,7 +1763,7 @@ deviation (the square root of the variance).</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.02725639</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.01399252</code></pre>
 </div>
 <p>A useful characteristic of this approximation is that we only need to
 know <code>mu</code> and <code>sigma</code> to describe the entire
@@ -1817,7 +1817,7 @@ it was drawn?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6">Solution to Exercise 6</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 
 </div>
@@ -1870,13 +1870,13 @@ elders in Norway.</p>
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 5.3749, df = 1564, p-value = 8.822e-08
+t = 5.9478, df = 1560.3, p-value = 3.348e-09
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 1.762311 3.787699
+ 1.945032 3.859157
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.41283                     68.63782 </code></pre>
+                    71.35122                     68.44912 </code></pre>
 </div>
 </section><section id="the-perils-of-p-values"><h2 class="section-heading">The perils of p-values<a class="anchor" aria-label="anchor" href="#the-perils-of-p-values"></a>
 </h2>
@@ -1895,7 +1895,7 @@ operator.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 8.821579e-08</code></pre>
+<pre class="output" tabindex="0"><code>[1] 3.348139e-09</code></pre>
 </div>
 <p>The p-value indicates a statistically significant difference between
 exercise groups. It is not enough, though, to report only a p-value. The
@@ -1922,13 +1922,13 @@ reporting results, use confidence intervals.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 1.762311 3.787699
+<pre class="output" tabindex="0"><code>[1] 1.945032 3.859157
 attr(,"conf.level")
 [1] 0.95</code></pre>
 </div>
 <p>The confidence interval states that the true difference in means is
-between 1.76 and 3.79. We can say, with 95% confidence, that high
-intensity exercise could decrease mean heart rate from 1.76 to 3.79
+between 1.95 and 3.86. We can say, with 95% confidence, that high
+intensity exercise could decrease mean heart rate from 1.95 to 3.86
 beats per minute. Note that these are simulated data and are not the
 outcomes of the Generation 100 study.</p>
 <p>A 95% confidence interval states that 95% of random intervals will
@@ -1970,7 +1970,7 @@ p-value.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7">Solution to Exercise 7</h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 
 </div>
@@ -2007,8 +2007,8 @@ variance is less than 4, the groups have equal variances.</p>
 <pre class="output" tabindex="0"><code># A tibble: 2 × 3
   exercise_group variance standard_deviation
   &lt;chr&gt;             &lt;dbl&gt;              &lt;dbl&gt;
-1 control            105.               10.2
-2 high intensity     104.               10.2</code></pre>
+1 control            97.7               9.89
+2 high intensity     88.7               9.42</code></pre>
 </div>
 <p>A more formal approach uses an F test to compare variances between
 samples drawn from a normal population.</p>
@@ -2025,13 +2025,13 @@ samples drawn from a normal population.</p>
 	F test to compare two variances
 
 data:  heart_rate by exercise_group
-F = 1.0047, num df = 782, denom df = 782, p-value = 0.948
+F = 1.1024, num df = 782, denom df = 782, p-value = 0.1729
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
- 0.8731771 1.1559706
+ 0.9581509 1.2684645
 sample estimates:
 ratio of variances 
-          1.004673 </code></pre>
+          1.102443 </code></pre>
 </div>
 <p>The F test reports that the variances between the groups are not the
 same, however, the ratio of variances is very close to 1.</p>
@@ -2051,9 +2051,11 @@ population.</p>
 <code class="sourceCode R"><span><span class="co"># sample size = 783 per group</span></span>
 <span><span class="co"># delta = the observed effect size, meanDiff</span></span>
 <span><span class="co"># sd = standard deviation </span></span>
-<span><span class="co"># significance level (Type 1 error probability or false positive rate) = 0.05</span></span>
+<span><span class="co"># significance level (Type 1 error probability or </span></span>
+<span><span class="co">#                     false positive rate) = 0.05</span></span>
 <span><span class="co"># type = two-sample t-test</span></span>
-<span><span class="co"># What is the power of this experiment to detect an effect of size meanDiff?</span></span>
+<span><span class="co"># What is the power of this experiment to detect </span></span>
+<span><span class="co">#                     an effect of size meanDiff?</span></span>
 <span><span class="fu">power.t.test</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">783</span>, delta <span class="op">=</span> <span class="va">meanDiff</span>, sd <span class="op">=</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span>, </span>
 <span>             sig.level <span class="op">=</span> <span class="fl">0.05</span>, type <span class="op">=</span> <span class="st">"two.sample"</span><span class="op">)</span></span></code></pre>
 </div>
@@ -2064,10 +2066,10 @@ population.</p>
      Two-sample t test power calculation 
 
               n = 783
-          delta = 2.775005
-             sd = 10.30613
+          delta = 2.902095
+             sd = 9.759762
       sig.level = 0.05
-          power = 0.9996164
+          power = 0.9999557
     alternative = two.sided
 
 NOTE: n is number in *each* group</code></pre>
@@ -2094,9 +2096,9 @@ sample size we would need for each exercise group?</p>
 <pre class="output" tabindex="0"><code>
      Two-sample t test power calculation 
 
-              n = 217.4862
-          delta = 2.775005
-             sd = 10.30613
+              n = 178.5041
+          delta = 2.902095
+             sd = 9.759762
       sig.level = 0.05
           power = 0.8
     alternative = two.sided
@@ -2106,7 +2108,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>As a rule of thumb, Lehr’s equation streamlines calculation of sample
 size assuming equal variances and sample sizes drawn from a normal
 distribution. The effect size is standardized by dividing the difference
-in group means by the standard deviation. <em>Cohen’s d</em> described
+in group means by the standard deviation. <em>Cohen’s d</em> describes
 standardized effect sizes from 0.01 (very small) to 2.0 (huge).</p>
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2114,7 +2116,7 @@ standardized effect sizes from 0.01 (very small) to 2.0 (huge).</p>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># n = (16/delta squared), where delta is the standardized effect size</span></span>
 <span><span class="co"># delta = effect size standardized as Cohen's d</span></span>
-<span><span class="co"># (difference in means)/(standard deviation)  </span></span>
+<span><span class="co">#     (difference in means)/(standard deviation)  </span></span>
 <span><span class="va">standardizedEffectSize</span> <span class="op">&lt;-</span> <span class="va">meanDiff</span><span class="op">/</span><span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">16</span><span class="op">/</span><span class="va">standardizedEffectSize</span><span class="op">^</span><span class="fl">2</span></span>
 <span><span class="va">n</span></span></code></pre>
@@ -2122,7 +2124,7 @@ standardized effect sizes from 0.01 (very small) to 2.0 (huge).</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 220.6905</code></pre>
+<pre class="output" tabindex="0"><code>[1] 180.957</code></pre>
 </div>
 <p>Often budget constraints determine sample size. Lehr’s equation can
 be rearranged to determine the effect size that can be detected for a
@@ -2131,7 +2133,7 @@ given sample size.</p>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># difference in means = (4 * sd/(square root of n)</span></span>
+<code class="sourceCode R"><span><span class="co"># difference in means = (4 * sd)/(square root of n)</span></span>
 <span><span class="co"># n = 100, the number that I can afford</span></span>
 <span><span class="va">SD</span> <span class="op">&lt;-</span> <span class="fu">sd</span><span class="op">(</span><span class="va">heart_rate</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span></span>
 <span><span class="va">detectableDifferenceInMeans</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fl">4</span> <span class="op">*</span> <span class="va">SD</span><span class="op">)</span><span class="op">/</span><span class="fu">sqrt</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
@@ -2140,7 +2142,7 @@ given sample size.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 4.122451</code></pre>
+<pre class="output" tabindex="0"><code>[1] 3.903905</code></pre>
 </div>
 <p>Try increasing or decreasing the sample size (100) to see how the
 detectable difference in mean changes. Note the relationship: for very
@@ -2159,21 +2161,24 @@ function that plots effect size and power for a given sample size.</p>
 <span><span class="va">samp.out</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
 <span></span>
 <span><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">length</span><span class="op">(</span><span class="va">cd</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">power</span> <span class="op">&lt;-</span>  <span class="fu">power.t.test</span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span>, delta<span class="op">=</span><span class="va">cd</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, sig.level<span class="op">=</span><span class="fl">.05</span> ,type<span class="op">=</span><span class="st">"two.sample"</span><span class="op">)</span><span class="op">$</span><span class="va">power</span></span>
+<span>  <span class="va">power</span> <span class="op">&lt;-</span>  <span class="fu">power.t.test</span><span class="op">(</span>n<span class="op">=</span><span class="va">n</span>, delta<span class="op">=</span><span class="va">cd</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, </span>
+<span>                         sig.level<span class="op">=</span><span class="fl">.05</span>, type<span class="op">=</span><span class="st">"two.sample"</span><span class="op">)</span><span class="op">$</span><span class="va">power</span></span>
 <span>  <span class="va">power</span> <span class="op">&lt;-</span>  <span class="fu">data.frame</span><span class="op">(</span>effect.size<span class="op">=</span><span class="va">cd</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, power<span class="op">=</span><span class="va">power</span><span class="op">)</span></span>
 <span>  <span class="va">samp.out</span> <span class="op">&lt;-</span> <span class="fu">rbind</span><span class="op">(</span><span class="va">samp.out</span>, <span class="va">power</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">samp.out</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">effect.size</span>, <span class="va">power</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">samp.out</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">effect.size</span>, <span class="va">power</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_hline</span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">.8</span>,lty<span class="op">=</span><span class="fl">2</span>, color<span class="op">=</span><span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_hline</span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">.8</span>, lty<span class="op">=</span><span class="fl">2</span>, color<span class="op">=</span><span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span>title<span class="op">=</span><span class="fu">paste0</span><span class="op">(</span><span class="st">"t-test Power Curve for n="</span>, <span class="va">n</span><span class="op">)</span>,</span>
 <span>       x<span class="op">=</span><span class="st">"Cohen's d"</span>,</span>
 <span>       y<span class="op">=</span><span class="st">"Power"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre>
 </div>
+<p>Code adapted from <a href="https://cinnipatel.medium.com/power-curve-in-r-8a1e67fb2600" class="external-link">Power
+Curve in R</a> by Cinni Patel.</p>
 <p>Now plot the function for sample sizes 100, 200, and 300.</p>
 <div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2195,6 +2200,55 @@ function that plots effect size and power for a given sample size.</p>
 </div>
 <figure><img src="fig/04-statistical-data-analysis-rendered-power-curve-by-sample-size-3.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>What do you notice about effect size and power as you increase the
 sample size?</p>
+<p>Copy-paste the following code into the console to explore the
+relationships between effect size, sample size, and power.</p>
+<div class="codewrapper sourceCode" id="cb47">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">broom</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># start with a vector of effect size values to plot</span></span>
+<span><span class="fu">seq</span><span class="op">(</span><span class="fl">.01</span>, <span class="fl">2</span>, <span class="fl">.49</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># reverse the vector so the legend labels </span></span>
+<span>  <span class="co"># and the curves are in the same vertical order </span></span>
+<span>  <span class="fu">rev</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># map will help us perform power calculations for every</span></span>
+<span>  <span class="co"># value in the vector of effect sizes</span></span>
+<span>  <span class="fu">map</span><span class="op">(</span></span>
+<span>    <span class="co"># the purrr function will first do the power calculations, </span></span>
+<span>    <span class="co"># then turn it into a data frame,</span></span>
+<span>    <span class="co"># then make a column that records the effect size </span></span>
+<span>    <span class="op">~</span> <span class="fu">power.t.test</span><span class="op">(</span></span>
+<span>      <span class="co"># small steps in n values make a smooth plot</span></span>
+<span>      n <span class="op">=</span> <span class="fu">seq</span><span class="op">(</span><span class="fl">2</span>, <span class="fl">100</span>, <span class="fl">.05</span><span class="op">)</span>, </span>
+<span>      <span class="co"># .x is each value in the effect size vector</span></span>
+<span>      delta <span class="op">=</span> <span class="va">.x</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>      <span class="co"># turn the power.htest object into a dataframe (tibble)</span></span>
+<span>      <span class="fu">tidy</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>      <span class="co"># keep track of the effect size </span></span>
+<span>      <span class="co"># for this set of calculations</span></span>
+<span>      <span class="fu">mutate</span><span class="op">(</span>effect_size<span class="op">=</span><span class="fu">as.factor</span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span> </span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="co"># map will return a list of data frames of the power</span></span>
+<span>  <span class="co"># calculations so we need to turn it into a single dataframe</span></span>
+<span>  <span class="fu">bind_rows</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># now we have data we can plot as usual!</span></span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">n</span>, <span class="va">power</span>, color<span class="op">=</span><span class="va">effect_size</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># we used a lot of points so this geom_line will look smooth</span></span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>y<span class="op">=</span><span class="st">"Power"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Sample size"</span>,</span>
+<span>       color <span class="op">=</span> <span class="st">"Effect Size (Cohen's d)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<p><img src="fig/04-statistical-data-analysis-rendered-power-curve-2-1.png" style="display: block; margin: auto;" class="figure">
+Code adapted from <a href="https://levibaguley.github.io/2020/06/22/how-to-create-power-curves-in-ggplot/" class="external-link">How
+to Create Power Curves in ggplot</a> by Levi Baguley</p>
+<p>Notice that to detect a standardized effect size of 0.5 at 80% power,
+you would need a sample size greater than 75. Larger effect sizes
+require much smaller sample sizes. Very small effects such as .01 never
+reach the 80% power threshold regardless of sample size.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
