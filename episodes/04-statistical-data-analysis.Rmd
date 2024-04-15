@@ -615,7 +615,8 @@ is less than 4, the groups have equal variances.
 
 ```{r standard-deviation}
 heart_rate %>% group_by(exercise_group) %>% 
-  summarise_at(vars(heart_rate), list(variance = var, standard_deviation = sd))
+  summarise_at(vars(heart_rate), 
+               list(variance = var, standard_deviation = sd))
 ```
 A more formal approach uses an F test to compare variances between samples drawn
 from a normal population.
@@ -636,7 +637,7 @@ experiment on a different population.
 ```{r power-analysis-1}
 # sample size = 783 per group
 # delta = the observed effect size, meanDiff
-# standard deviation = the pooled sd of both groups
+# sd = standard deviation 
 # significance level (Type 1 error probability or false positive rate) = 0.05
 # type = two-sample t-test
 # What is the power of this experiment to detect an effect of size meanDiff?
@@ -650,7 +651,7 @@ exercise group?
 
 ```{r power-analysis-2}
 # delta = the observed effect size, meanDiff
-# standard deviation = the pooled sd of both groups
+# sd = standard deviation
 # significance level (Type 1 error probability or false positive rate) = 0.05
 # type = two-sample t-test
 # What is the minimum sample size we would need at 80% power?
@@ -659,25 +660,72 @@ power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate),
 ```
 As a rule of thumb, Lehr's equation streamlines calculation of sample size 
 assuming equal variances and sample sizes drawn from a normal distribution.
+The effect size is standardized by dividing the difference in group means by the
+standard deviation. *Cohen's d* described standardized effect sizes from 0.01
+(very small) to 2.0 (huge). 
 
 ```{r lehrs-equation}
 # n = (16/delta squared), where delta is the standardized effect size
-# delta = effect size standardized as (difference in means)/(standard deviation)
-standardDiff <- meanDiff/sd(heart_rate$heart_rate)
-n <- 16/standardDiff^2
+# delta = effect size standardized as Cohen's d
+# (difference in means)/(standard deviation)  
+standardizedEffectSize <- meanDiff/sd(heart_rate$heart_rate)
+n <- 16/standardizedEffectSize^2
 n
 ```
 Often budget constraints determine sample size. Lehr's equation can be 
-rearranged to determine the standardized effect size that can be calculated 
-for a given sample size.
+rearranged to determine the effect size that can be detected for a given 
+sample size.
 
 ```{r lehrs-equation-rearranged}
-# difference in means = (4*sd/(square root of n)
+# difference in means = (4 * sd/(square root of n)
 # n = 100, the number that I can afford
-pooledSD <- sd(heart_rate$heart_rate)
-detectableDifferenceInMeans <- (4 * pooledSD)/sqrt(100)
+SD <- sd(heart_rate$heart_rate)
+detectableDifferenceInMeans <- (4 * SD)/sqrt(100)
 detectableDifferenceInMeans
 ```
+Try increasing or decreasing the sample size (100) to see how the detectable 
+difference in mean changes. Note the relationship: for very large effects, you
+can get away with smaller sample sizes. For small effects, you need large 
+sample sizes.
+
+A power curve can show us statistical power based on sample size and effect 
+size. Copy-paste the following code into the console to create a function that
+plots effect size and power for a given sample size.
+
+```{r power-curve-1}
+power.curve <- function(n){
+  
+cd <- seq(.01, 2, .1)  #Vector of effect sizes
+samp.out <- NULL
+
+for(i in 1:length(cd)) {
+  power <-  power.t.test(n=n, delta=cd[i], sig.level=.05 ,type="two.sample")$power
+  power <-  data.frame(effect.size=cd[i], power=power)
+  samp.out <- rbind(samp.out, power)
+  }
+
+ggplot(samp.out, aes(effect.size, power))+
+  geom_line() + 
+  geom_point() +
+  theme_minimal() +
+  geom_hline(yintercept = .8,lty=2, color='blue') +
+  labs(title=paste0("t-test Power Curve for n=", n),
+       x="Cohen's d",
+       y="Power")
+}
+```
+
+Now plot the function for sample sizes 100, 200, and 300.
+
+```{r power-curve-by-sample-size}
+power.curve(100)
+power.curve(200)
+power.curve(300)
+```
+
+What do you notice about effect size and power as you increase the sample size?
+
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Plotting and significance testing describe patterns in the data and quantify effects against random variation.
