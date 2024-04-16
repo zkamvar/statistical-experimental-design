@@ -509,6 +509,12 @@ negligible, so the p-value does nothing to demonstrate practical relevance or
 meaning. We should question how large the effect is. The p-value can only tell
 us whether an effect exists. 
 
+A p-value can only tell us whether an effect exists. However, a p-value greater 
+than .05 doesn't mean that no effect exists. The value .05 is rather arbitrary.
+Does a p-value of .06 mean that there is no effect? It does not. It would not
+provide evidence of an effect under standard statistical protocol. Absence of 
+evidence is not evidence of absence. There could still be an effect.
+
 ## Confidence intervals
 P-values report statistical significance of an effect, but what we want is
 scientific significance. Confidence intervals include estimates of the effect
