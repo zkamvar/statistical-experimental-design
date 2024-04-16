@@ -640,6 +640,19 @@ detect an effect). Let's calculate the statistical power of our experiment so
 far, and then determine the sample size we would need to run a similar 
 experiment on a different population.
 
+```{r simulate-power}
+set.seed(1)
+n_sims <- 1000 # we want 1000 simulations
+p_vals <- c()
+for(i in 1:n_sims){
+  group1 <- rnorm(30,1,2) # simulate group 1
+  group2 <- rnorm(30,0,2) # simulate group 2
+  p_vals[i] <- t.test(group1, group2, paired = FALSE, var.equal = TRUE, conf.level = 0.90)$p.value # run t-test and extract the p-value
+}
+mean(p_vals < .10) # check power (i.e. proportion of p-values that are smaller than alpha-level of .10)
+## [1] 0.592
+```
+
 ```{r power-analysis-1}
 # sample size = 783 per group
 # delta = the observed effect size, meanDiff
