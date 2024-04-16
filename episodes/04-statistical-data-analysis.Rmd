@@ -772,9 +772,9 @@ seq(.01, 2, .49) %>%
 Code adapted from [How to Create Power Curves in ggplot](https://levibaguley.github.io/2020/06/22/how-to-create-power-curves-in-ggplot/) by Levi Baguley
 
 Notice that to detect a standardized effect size of 0.5 at 80% power, you would 
-need a sample size greater than 75. Larger effect sizes require much smaller
-sample sizes. Very small effects such as .01 never reach the 80% power 
-threshold regardless of sample size.
+need a sample size of approximately 70. Larger effect sizes require much smaller
+sample sizes. Very small effects such as .01 never reach the 80% power threshold
+without enormous samples sizes in the hundreds of thousands.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
