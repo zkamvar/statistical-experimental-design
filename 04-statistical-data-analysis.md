@@ -222,7 +222,7 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates between the two groups is
-3.18. Another way of 
+2.53. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
 4 
 percent lower than the control group. This is the *observed effect size*.
@@ -249,7 +249,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 3.978866
+[1] 3.369064
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -264,7 +264,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 4.640345
+[1] 3.011698
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -290,7 +290,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.09609
+[1] 71.31535
 ```
 
 ```r
@@ -298,7 +298,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.5842
+[1] 70.90982
 ```
 
 ```r
@@ -306,7 +306,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.82758
+[1] 69.46826
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -341,7 +341,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] -0.2044906
+[1] -0.633429
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -369,13 +369,13 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0139
+[1] 0.0347
 ```
 
-Approximately 1.4% of the 10,000 
+Approximately 3.5% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
 then that we will see a difference in means approximately 
-1.4% of the time even if there is no 
+3.5% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -433,11 +433,11 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-46 individuals 
-(~2.9%) 
+40 individuals 
+(~2.6%) 
 with a resting heart rate greater than 90, and another 
-42 individuals
-(~2.7%) 
+30 individuals
+(~1.9%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
@@ -458,7 +458,7 @@ interval. That formula is conveniently stored in the function `pnorm`
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
-~ 1.4% of the values in the null 
+~ 3.5% of the values in the null 
 distribution were greater than `meanDiff`, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below a value
 `x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
@@ -470,7 +470,7 @@ deviation (the square root of the variance).
 ```
 
 ```{.output}
-[1] 0.01328148
+[1] 0.03586513
 ```
 A useful characteristic of this approximation is that we only need to know `mu`
 and `sigma` to describe the entire distribution. From this, we can compute the
@@ -550,13 +550,13 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 6.1381, df = 1563.1, p-value = 1.057e-09
+t = 4.9762, df = 1563.5, p-value = 7.201e-07
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 2.166476 4.201395
+ 1.531462 3.524316
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.30895                     68.12501 
+                    71.45853                     68.93064 
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
@@ -570,7 +570,7 @@ result$p.value
 ```
 
 ```{.output}
-[1] 1.056832e-09
+[1] 7.201004e-07
 ```
 The p-value indicates a statistically significant difference between exercise
 groups. It is not enough, though, to report only a p-value. The p-value says
@@ -579,6 +579,12 @@ tiny, say .01 or less, would it matter how small the p-value is? The effect is
 negligible, so the p-value does nothing to demonstrate practical relevance or
 meaning. We should question how large the effect is. The p-value can only tell
 us whether an effect exists. 
+
+A p-value can only tell us whether an effect exists. However, a p-value greater 
+than .05 doesn't mean that no effect exists. The value .05 is rather arbitrary.
+Does a p-value of .06 mean that there is no effect? It does not. It would not
+provide evidence of an effect under standard statistical protocol. Absence of 
+evidence is not evidence of absence. There could still be an effect.
 
 ## Confidence intervals
 P-values report statistical significance of an effect, but what we want is
@@ -593,14 +599,14 @@ result$conf.int
 ```
 
 ```{.output}
-[1] 2.166476 4.201395
+[1] 1.531462 3.524316
 attr(,"conf.level")
 [1] 0.95
 ```
 The confidence interval states that the true difference in means is between
-2.17 and 4.2. We can
+1.53 and 3.52. We can
 say, with 95% confidence, that high intensity exercise could decrease mean heart 
-rate from 2.17 to 4.2
+rate from 1.53 to 3.52
 beats per minute. Note that these are simulated data and are not the outcomes of
 the Generation 100 study. 
 
@@ -672,8 +678,8 @@ heart_rate %>% group_by(exercise_group) %>%
 # A tibble: 2 × 3
   exercise_group variance standard_deviation
   <chr>             <dbl>              <dbl>
-1 control            103.               10.1
-2 high intensity     108.               10.4
+1 control           103.               10.1 
+2 high intensity     99.3               9.97
 ```
 A more formal approach uses an F test to compare variances between samples drawn
 from a normal population.
@@ -688,13 +694,13 @@ var.test(heart_rate ~ exercise_group, data = heart_rate)
 	F test to compare two variances
 
 data:  heart_rate by exercise_group
-F = 0.95309, num df = 782, denom df = 782, p-value = 0.5018
+F = 1.0347, num df = 782, denom df = 782, p-value = 0.6338
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
- 0.8283415 1.0966142
+ 0.8992512 1.1904892
 sample estimates:
 ratio of variances 
-          0.953085 
+          1.034673 
 ```
 The F test reports that the variances between the groups are not the same, 
 however, the ratio of variances is very close to 1.
@@ -725,10 +731,10 @@ power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate),
      Two-sample t test power calculation 
 
               n = 783
-          delta = 3.183935
-             sd = 10.38314
+          delta = 2.527889
+             sd = 10.12743
       sig.level = 0.05
-          power = 0.9999797
+          power = 0.998539
     alternative = two.sided
 
 NOTE: n is number in *each* group
@@ -753,9 +759,9 @@ power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate),
 
      Two-sample t test power calculation 
 
-              n = 167.9081
-          delta = 3.183935
-             sd = 10.38314
+              n = 252.9174
+          delta = 2.527889
+             sd = 10.12743
       sig.level = 0.05
           power = 0.8
     alternative = two.sided
@@ -779,7 +785,7 @@ n
 ```
 
 ```{.output}
-[1] 170.1566
+[1] 256.8045
 ```
 Often budget constraints determine sample size. Lehr's equation can be 
 rearranged to determine the effect size that can be detected for a given 
@@ -795,7 +801,7 @@ detectableDifferenceInMeans
 ```
 
 ```{.output}
-[1] 4.153255
+[1] 4.050973
 ```
 Try increasing or decreasing the sample size (100) to see how the detectable 
 difference in mean changes. Note the relationship: for very large effects, you
