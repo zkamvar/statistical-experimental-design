@@ -222,9 +222,9 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates between the two groups is
-1.99. Another way of 
+2.76. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
-3 
+4 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -249,7 +249,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 3.272854
+[1] 2.448252
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
@@ -264,7 +264,7 @@ control100 - HI100
 ```
 
 ```{.output}
-[1] 2.222624
+[1] 0.674235
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -290,7 +290,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.09054
+[1] 71.95247
 ```
 
 ```r
@@ -298,7 +298,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 70.10277
+[1] 69.83653
 ```
 
 ```r
@@ -306,7 +306,7 @@ mean(sample(population$heart_rate, size = 100))
 ```
 
 ```{.output}
-[1] 69.72198
+[1] 70.0649
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -341,7 +341,7 @@ mean(treatment) - mean(control)
 ```
 
 ```{.output}
-[1] -1.032008
+[1] -0.2215438
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
@@ -369,13 +369,13 @@ mean(null >= meanDiff)
 ```
 
 ```{.output}
-[1] 0.0751
+[1] 0.0265
 ```
 
-Approximately 7.5% of the 10,000 
+Approximately 2.6% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
 then that we will see a difference in means approximately 
-7.5% of the time even if there is no 
+2.6% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -433,11 +433,11 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-37 individuals 
-(~2.4%) 
+44 individuals 
+(~2.8%) 
 with a resting heart rate greater than 90, and another 
-42 individuals
-(~2.7%) 
+38 individuals
+(~2.4%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
@@ -458,7 +458,7 @@ interval. That formula is conveniently stored in the function `pnorm`
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
-~ 7.5% of the values in the null 
+~ 2.6% of the values in the null 
 distribution were greater than `meanDiff`, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below a value
 `x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
@@ -470,7 +470,7 @@ deviation (the square root of the variance).
 ```
 
 ```{.output}
-[1] 0.07579436
+[1] 0.02583618
 ```
 A useful characteristic of this approximation is that we only need to know `mu`
 and `sigma` to describe the entire distribution. From this, we can compute the
@@ -550,13 +550,13 @@ t.test(formula = heart_rate ~ exercise_group, data = population)
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 3.8922, df = 1563.1, p-value = 0.0001035
+t = 5.4104, df = 1564, p-value = 7.265e-08
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 0.9863962 2.9906219
+ 1.760325 3.762592
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.07758                     69.08907 
+                    71.43482                     68.67336 
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
@@ -570,7 +570,7 @@ result$p.value
 ```
 
 ```{.output}
-[1] 0.0001035154
+[1] 7.264812e-08
 ```
 The p-value indicates a statistically significant difference between exercise
 groups. It is not enough, though, to report only a p-value. The p-value says
@@ -599,14 +599,14 @@ result$conf.int
 ```
 
 ```{.output}
-[1] 0.9863962 2.9906219
+[1] 1.760325 3.762592
 attr(,"conf.level")
 [1] 0.95
 ```
 The confidence interval states that the true difference in means is between
-0.99 and 2.99. We can
+1.76 and 3.76. We can
 say, with 95% confidence, that high intensity exercise could decrease mean heart 
-rate from 0.99 to 2.99
+rate from 1.76 to 3.76
 beats per minute. Note that these are simulated data and are not the outcomes of
 the Generation 100 study. 
 
@@ -678,8 +678,8 @@ heart_rate %>% group_by(exercise_group) %>%
 # A tibble: 2 × 3
   exercise_group variance standard_deviation
   <chr>             <dbl>              <dbl>
-1 control            99.7               9.98
-2 high intensity    105.               10.2 
+1 control            102.               10.1
+2 high intensity     102.               10.1
 ```
 A more formal approach uses an F test to compare variances between samples drawn
 from a normal population.
@@ -694,13 +694,13 @@ var.test(heart_rate ~ exercise_group, data = heart_rate)
 	F test to compare two variances
 
 data:  heart_rate by exercise_group
-F = 0.95196, num df = 782, denom df = 782, p-value = 0.4913
+F = 0.99705, num df = 782, denom df = 782, p-value = 0.967
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
- 0.8273599 1.0953146
+ 0.8665513 1.1471989
 sample estimates:
 ratio of variances 
-         0.9519556 
+          0.997049 
 ```
 The F test reports that the variances between the groups are not the same, 
 however, the ratio of variances is very close to 1.
@@ -708,30 +708,38 @@ however, the ratio of variances is very close to 1.
 ## Sample sizes and power curves
 Statistical power analysis is an important preliminary step in experimental 
 design. Sample size is an important component of statistical power (the power to
-detect an effect). Let's calculate the statistical power of our experiment so 
-far, and then determine the sample size we would need to run a similar 
-experiment on a different population.
+detect an effect). To get a better sense of statistical power, let's simulate
+a t-test for two groups with different means and equal variances. 
 
 
 ```r
 set.seed(1)
 n_sims <- 1000 # we want 1000 simulations
-p_vals <- c()
+p_vals <- c()  # create a vector to hold the p-values
+
 for(i in 1:n_sims){
-  group1 <- rnorm(30,1,2) # simulate group 1
-  group2 <- rnorm(30,0,2) # simulate group 2
-  p_vals[i] <- t.test(group1, group2, paired = FALSE, var.equal = TRUE, conf.level = 0.90)$p.value # run t-test and extract the p-value
+  group1 <- rnorm(n=30, mean=1, sd=2) # simulate group 1
+  group2 <- rnorm(n=30, mean=0, sd=2) # simulate group 2
+  
+  # run t-test and extract the p-value
+  p_vals[i] <- t.test(group1, group2, var.equal = TRUE)$p.value 
 }
-mean(p_vals < .10) # check power (i.e. proportion of p-values that are smaller than alpha-level of .10)
+
+mean(p_vals < .05) # check power (i.e. proportion of p-values that are smaller 
 ```
 
 ```{.output}
-[1] 0.592
+[1] 0.478
 ```
 
 ```r
-## [1] 0.592
+                   # than alpha-level of .05)
 ```
+
+
+Let's calculate the statistical power of our experiment so 
+far, and then determine the sample size we would need to run a similar 
+experiment on a different population.
 
 
 ```r
@@ -752,10 +760,10 @@ power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate),
      Two-sample t test power calculation 
 
               n = 783
-          delta = 1.988509
-             sd = 10.15436
+          delta = 2.761458
+             sd = 10.1897
       sig.level = 0.05
-          power = 0.9720864
+          power = 0.9996618
     alternative = two.sided
 
 NOTE: n is number in *each* group
@@ -780,9 +788,9 @@ power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate),
 
      Two-sample t test power calculation 
 
-              n = 410.3056
-          delta = 1.988509
-             sd = 10.15436
+              n = 214.7035
+          delta = 2.761458
+             sd = 10.1897
       sig.level = 0.05
           power = 0.8
     alternative = two.sided
@@ -806,7 +814,7 @@ n
 ```
 
 ```{.output}
-[1] 417.2244
+[1] 217.8542
 ```
 Often budget constraints determine sample size. Lehr's equation can be 
 rearranged to determine the effect size that can be detected for a given 
@@ -822,7 +830,7 @@ detectableDifferenceInMeans
 ```
 
 ```{.output}
-[1] 4.061743
+[1] 4.075881
 ```
 Try increasing or decreasing the sample size (100) to see how the detectable 
 difference in mean changes. Note the relationship: for very large effects, you
@@ -830,107 +838,25 @@ can get away with smaller sample sizes. For small effects, you need large
 sample sizes.
 
 A power curve can show us statistical power based on sample size and effect 
-size. Copy-paste the following code into the console to create a function that
-plots effect size and power for a given sample size.
+size. Review the following figures to explore the relationships between effect 
+size, sample size, and power. What is the relationship between effect size and 
+sample size? Between sample size and power? What do you notice about effect size 
+and power as you increase the sample size?
 
-
-```r
-power.curve <- function(n){
-  
-cd <- seq(.01, 2, .1)  #Vector of effect sizes
-samp.out <- NULL
-
-for(i in 1:length(cd)) {
-  power <-  power.t.test(n=n, delta=cd[i], 
-                         sig.level=.05, type="two.sample")$power
-  power <-  data.frame(effect.size=cd[i], power=power)
-  samp.out <- rbind(samp.out, power)
-  }
-
-ggplot(samp.out, aes(effect.size, power)) +
-  geom_line() + 
-  geom_point() +
-  theme_minimal() +
-  geom_hline(yintercept = .8, lty=2, color='blue') +
-  labs(title=paste0("t-test Power Curve for n=", n),
-       x="Cohen's d",
-       y="Power")
-}
-```
+<img src="fig/04-statistical-data-analysis-rendered-power-curve-1-1.png" style="display: block; margin: auto;" /><img src="fig/04-statistical-data-analysis-rendered-power-curve-1-2.png" style="display: block; margin: auto;" /><img src="fig/04-statistical-data-analysis-rendered-power-curve-1-3.png" style="display: block; margin: auto;" />
 Code adapted from [Power Curve in R](https://cinnipatel.medium.com/power-curve-in-r-8a1e67fb2600) by Cinni Patel.
 
-Now plot the function for sample sizes 5, 50, and 500.
-
-
-```r
-power.curve(5)
-```
-
-<img src="fig/04-statistical-data-analysis-rendered-power-curve-by-sample-size-1.png" style="display: block; margin: auto;" />
-
-```r
-power.curve(50)
-```
-
-<img src="fig/04-statistical-data-analysis-rendered-power-curve-by-sample-size-2.png" style="display: block; margin: auto;" />
-
-```r
-power.curve(500)
-```
-
-<img src="fig/04-statistical-data-analysis-rendered-power-curve-by-sample-size-3.png" style="display: block; margin: auto;" />
-
-What do you notice about effect size and power as you increase the sample size?
-
-Copy-paste the following code into the console to explore the relationships
-between effect size, sample size, and power.
-
-
-```r
-library(broom)
-
-# start with a vector of effect size values to plot
-seq(.01, 2, .49) %>% 
-  # reverse the vector so the legend labels 
-  # and the curves are in the same vertical order 
-  rev() %>% 
-  # map will help us perform power calculations for every
-  # value in the vector of effect sizes
-  map(
-    # the purrr function will first do the power calculations, 
-    # then turn it into a data frame,
-    # then make a column that records the effect size 
-    ~ power.t.test(
-      # small steps in n values make a smooth plot
-      n = seq(2, 100, .05), 
-      # .x is each value in the effect size vector
-      delta = .x) %>% 
-      # turn the power.htest object into a dataframe (tibble)
-      tidy() %>% 
-      # keep track of the effect size 
-      # for this set of calculations
-      mutate(effect_size=as.factor(.x)) 
-  ) %>%
-  # map will return a list of data frames of the power
-  # calculations so we need to turn it into a single dataframe
-  bind_rows() %>% 
-  # now we have data we can plot as usual!
-  ggplot(aes(n, power, color=effect_size)) +
-  # we used a lot of points so this geom_line will look smooth
-  geom_line() +
-  labs(y="Power",
-       x = "Sample size",
-       color = "Effect Size (Cohen's d)") +
-  theme_bw()
-```
+Review the following figure to explore the relationships between effect size, 
+sample size, and power. What is the relationship between effect size and sample 
+size? Between sample size and power?
 
 <img src="fig/04-statistical-data-analysis-rendered-power-curve-2-1.png" style="display: block; margin: auto;" />
 Code adapted from [How to Create Power Curves in ggplot](https://levibaguley.github.io/2020/06/22/how-to-create-power-curves-in-ggplot/) by Levi Baguley
 
 Notice that to detect a standardized effect size of 0.5 at 80% power, you would 
-need a sample size greater than 75. Larger effect sizes require much smaller
-sample sizes. Very small effects such as .01 never reach the 80% power 
-threshold regardless of sample size.
+need a sample size of approximately 70. Larger effect sizes require much smaller
+sample sizes. Very small effects such as .01 never reach the 80% power threshold
+without enormous samples sizes in the hundreds of thousands.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
