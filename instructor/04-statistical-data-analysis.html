@@ -301,7 +301,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Statistics in Data Analysis</h1>
-        <p>Last updated on 2024-04-30 |
+        <p>Last updated on 2024-05-02 |
         
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/04-statistical-data-analysis.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -571,7 +571,7 @@ answer the question about exercise intensity.</p>
 <span><span class="va">meanDiff</span> <span class="op">&lt;-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">control</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span> <span class="op">-</span> <span class="fu">mean</span><span class="op">(</span><span class="va">HI</span><span class="op">$</span><span class="va">heart_rate</span><span class="op">)</span></span></code></pre>
 </div>
 <p>The actual difference in mean heart rates between the two groups is
-2.35. Another way of stating this is that the high-intensity group had a
+2.21. Another way of stating this is that the high-intensity group had a
 mean heart rate that was 3 percent lower than the control group. This is
 the <em>observed effect size</em>.</p>
 <p>So are we done now? Does this difference support the alternative
@@ -600,7 +600,7 @@ for those samples.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 1.725167</code></pre>
+<pre class="output" tabindex="0"><code>[1] 1.556033</code></pre>
 </div>
 <p>Now take another sample of 100 from each group and calculate the
 difference in means.</p>
@@ -616,7 +616,7 @@ difference in means.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 2.343299</code></pre>
+<pre class="output" tabindex="0"><code>[1] 2.303506</code></pre>
 </div>
 <p>Are the differences in sample means the same? We can repeat this
 sampling again and again, and each time arrive at a different value. The
@@ -644,7 +644,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.53385</code></pre>
+<pre class="output" tabindex="0"><code>[1] 69.39432</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -655,7 +655,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 70.03536</code></pre>
+<pre class="output" tabindex="0"><code>[1] 70.69518</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -666,7 +666,7 @@ a thought exercise.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 69.90619</code></pre>
+<pre class="output" tabindex="0"><code>[1] 69.51392</code></pre>
 </div>
 <p>Notice how the mean changes each time you sample. We can continue to
 do this many times to learn about the distribution of this random
@@ -702,7 +702,7 @@ then record the difference in means between two randomly split groups of
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] -0.4889302</code></pre>
+<pre class="output" tabindex="0"><code>[1] 1.041263</code></pre>
 </div>
 <p>Now let’s find the sample mean of 100 participants from each group
 10,000 times.</p>
@@ -732,11 +732,11 @@ treatment and control groups?</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.0398</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.0583</code></pre>
 </div>
-<p>Approximately 4% of the 10,000 simulations are greater than the
+<p>Approximately 5.8% of the 10,000 simulations are greater than the
 observed difference in means. We can expect then that we will see a
-difference in means approximately 4% of the time even if there is no
+difference in means approximately 5.8% of the time even if there is no
 effect of exercise on heart rate. This is known as a
 <strong>p-value</strong>.</p>
 <div id="exercise-5-what-does-a-p-value-mean" class="callout challenge">
@@ -781,7 +781,26 @@ that might have been. To understand this better, we’ll explore
 probability distributions next.</p>
 </section><section id="the-alternative-hypothesis"><h2 class="section-heading">The alternative hypothesis<a class="anchor" aria-label="anchor" href="#the-alternative-hypothesis"></a>
 </h2>
-<hr class="half-width"><figure><img src="../fig/Null-hypothesis.png" alt="null hypothesis" class="figure mx-auto d-block"></figure><figure><img src="../fig/Alternative-hypothesis.png" alt="alternative hypothesis" class="figure mx-auto d-block"></figure></section><section id="probability-and-probability-distributions"><h2 class="section-heading">Probability and probability distributions<a class="anchor" aria-label="anchor" href="#probability-and-probability-distributions"></a>
+<hr class="half-width"><p>We assume that our observations are drawn from a null distribution
+with mean <i>μ<sub>0</sub></i>, which in this case equals zero because
+the null hypothesis states that there is no difference between the
+treatment groups. We reject the null hypothesis for values that fall
+within the region defined by <i>α</i>, they Type I error rate. If we
+have a value that falls within this region, it is possible to falsely
+reject the null hypothesis and to assume that there is a treatment
+effect when in reality none exists. False positives (Type I errors) are
+typically set at a low rate (0.05) in good experimental design so that
+specificity (1 - <i>α</i>) remains high. Specificity describes the
+likelihood of true negatives, or accepting the null hypothesis when it
+is true and correctly assuming that no effect exists.</p>
+<p><a href="../fig/Null-hypothesis.png" alt="null hypothesis"></a></p>
+<figure><img src="../fig/Alternative-hypothesis.png" alt="alternative hypothesis" class="figure mx-auto d-block"></figure><p>The alternative hypothesis challenges the null by stating that an
+effect exists and that the mean difference, <i>μ<sub>A</sub></i>, is
+greater than zero. The difference between <i>μ<sub>0</sub></i> and
+<i>μ<sub>A</sub></i> is known as the effect size, which is expressed in
+units of standard deviation: <i>d</i> = <i>μ<sub>A</sub></i> -
+<i>μ<sub>0</sub></i> / <i>σ</i>.</p>
+</section><section id="probability-and-probability-distributions"><h2 class="section-heading">Probability and probability distributions<a class="anchor" aria-label="anchor" href="#probability-and-probability-distributions"></a>
 </h2>
 <hr class="half-width"><p>Suppose you have measured the resting heart rate of the entire
 population of elderly Norwegians 70 or older, not just the 1,567 from
@@ -807,8 +826,8 @@ is a histogram showing all resting heart rates for the entire population
 Showing this plot is much more informative and easier to interpret than
 a long table of numbers. With this histogram we can approximate the
 number of individuals in any given interval. For example, there are
-approximately 35 individuals (~2.2%) with a resting heart rate greater
-than 90, and another 38 individuals (~2.4%) with a resting heart rate
+approximately 38 individuals (~2.4%) with a resting heart rate greater
+than 90, and another 44 individuals (~2.8%) with a resting heart rate
 below 50.</p>
 <p>The histogram above approximates one that is very common in nature:
 the bell curve, also known as the <strong>normal distribution</strong>
@@ -828,7 +847,7 @@ That formula is conveniently stored in the function
 <code>pnorm</code></p>
 <p>If the normal approximation holds for our list of data values, then
 the mean and variance (spread) of the data can be used. For example,
-when we noticed that ~ 4% of the values in the null distribution were
+when we noticed that ~ 5.8% of the values in the null distribution were
 greater than <code>meanDiff</code>, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below
 a value <code>x</code> with <code>pnorm(x, mu, sigma)</code> where
@@ -843,7 +862,7 @@ deviation (the square root of the variance).</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 0.04209128</code></pre>
+<pre class="output" tabindex="0"><code>[1] 0.05742643</code></pre>
 </div>
 <p>A useful characteristic of this approximation is that we only need to
 know <code>mu</code> and <code>sigma</code> to describe the entire
@@ -941,13 +960,13 @@ elders in Norway.</p>
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 4.6856, df = 1562, p-value = 3.034e-06
+t = 4.3418, df = 1563.5, p-value = 1.504e-05
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 1.367930 3.337899
+ 1.210325 3.205063
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.46136                     69.10845 </code></pre>
+                    70.99996                     68.79227 </code></pre>
 </div>
 </section><section id="the-perils-of-p-values"><h2 class="section-heading">The perils of p-values<a class="anchor" aria-label="anchor" href="#the-perils-of-p-values"></a>
 </h2>
@@ -965,7 +984,7 @@ operator.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 3.034452e-06</code></pre>
+<pre class="output" tabindex="0"><code>[1] 1.504139e-05</code></pre>
 </div>
 <p>The p-value indicates a statistically significant difference between
 exercise groups. It is not enough, though, to report only a p-value. The
@@ -997,13 +1016,13 @@ reporting results, use confidence intervals.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 1.367930 3.337899
+<pre class="output" tabindex="0"><code>[1] 1.210325 3.205063
 attr(,"conf.level")
 [1] 0.95</code></pre>
 </div>
 <p>The confidence interval states that the true difference in means is
-between 1.37 and 3.34. We can say, with 95% confidence, that high
-intensity exercise could decrease mean heart rate from 1.37 to 3.34
+between 1.21 and 3.21. We can say, with 95% confidence, that high
+intensity exercise could decrease mean heart rate from 1.21 to 3.21
 beats per minute. Note that these are simulated data and are not the
 outcomes of the Generation 100 study.</p>
 <p>A 95% confidence interval states that 95% of random intervals will
@@ -1079,8 +1098,8 @@ variance is less than 4, the groups have equal variances.</p>
 <pre class="output" tabindex="0"><code># A tibble: 2 × 3
   exercise_group variance standard_deviation
   &lt;chr&gt;             &lt;dbl&gt;              &lt;dbl&gt;
-1 control            95.2               9.76
-2 high intensity    102.               10.1 </code></pre>
+1 control           103.               10.2 
+2 high intensity     99.3               9.97</code></pre>
 </div>
 <p>A more formal approach uses an F test to compare variances between
 samples drawn from a normal population.</p>
@@ -1097,13 +1116,13 @@ samples drawn from a normal population.</p>
 	F test to compare two variances
 
 data:  heart_rate by exercise_group
-F = 0.93056, num df = 782, denom df = 782, p-value = 0.3145
+F = 1.0378, num df = 782, denom df = 782, p-value = 0.6041
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
- 0.8087642 1.0706965
+ 0.901964 1.194081
 sample estimates:
 ratio of variances 
-         0.9305595 </code></pre>
+          1.037795 </code></pre>
 </div>
 <p>The F test reports that the variances between the groups are not the
 same, however, the ratio of variances is very close to 1.</p>
@@ -1168,10 +1187,10 @@ on a different population.</p>
      Two-sample t test power calculation 
 
               n = 783
-          delta = 2.352915
-             sd = 10.00227
+          delta = 2.207694
+             sd = 10.11813
       sig.level = 0.05
-          power = 0.9964453
+          power = 0.9907288
     alternative = two.sided
 
 NOTE: n is number in *each* group</code></pre>
@@ -1198,9 +1217,9 @@ sample size we would need for each exercise group?</p>
 <pre class="output" tabindex="0"><code>
      Two-sample t test power calculation 
 
-              n = 284.6396
-          delta = 2.352915
-             sd = 10.00227
+              n = 330.6946
+          delta = 2.207694
+             sd = 10.11813
       sig.level = 0.05
           power = 0.8
     alternative = two.sided
@@ -1226,7 +1245,7 @@ standardized effect sizes from 0.01 (very small) to 2.0 (huge).</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 289.1379</code></pre>
+<pre class="output" tabindex="0"><code>[1] 336.08</code></pre>
 </div>
 <p>Often budget constraints determine sample size. Lehr’s equation can
 be rearranged to determine the effect size that can be detected for a
@@ -1244,7 +1263,7 @@ given sample size.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] 4.000909</code></pre>
+<pre class="output" tabindex="0"><code>[1] 4.047251</code></pre>
 </div>
 <p>Try increasing or decreasing the sample size (100) to see how the
 detectable difference in mean changes. Note the relationship: for very
@@ -1341,8 +1360,8 @@ quantify effects against random variation.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/instructor/04-statistical-data-analysis.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/instructor/04-statistical-data-analysis.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2024-04-30",
-  "datePublished": "2024-04-30"
+  "dateModified": "2024-05-02",
+  "datePublished": "2024-05-02"
 }
 
   </script><script>
