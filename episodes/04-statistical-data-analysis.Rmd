@@ -370,7 +370,7 @@ understand this better, we'll explore probability distributions next.
 ## The alternative hypothesis
 We assume that our observations are drawn from a null distribution with mean <i>&mu;<sub>0</sub></i>, which in this case equals zero because the null hypothesis states that there is no difference between the treatment groups. We reject the null hypothesis for values that fall within the region defined by <i>&alpha;</i>, they Type I error rate. If we have a value that falls within this region, it is possible to falsely reject the null hypothesis and to assume that there is a treatment effect when in reality none exists. False positives (Type I errors) are typically set at a low rate (0.05) in good experimental design so that specificity (1 - <i>&alpha;</i>) remains high. Specificity describes the likelihood of true negatives, or accepting the null hypothesis when it is true and correctly assuming that no effect exists. 
 
-[](fig/Null-hypothesis.png){alt='null hypothesis'}
+![](fig/Null-hypothesis.png){alt='null hypothesis'}
 
 ![](fig/Alternative-hypothesis.png){alt='alternative hypothesis'}
 
