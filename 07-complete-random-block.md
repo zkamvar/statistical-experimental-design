@@ -57,18 +57,18 @@ plan
 2  cellLine1          2      high
 3  cellLine1          3       low
 4  cellLine1          4    medium
-5  cellLine2          1   control
-6  cellLine2          2       low
-7  cellLine2          3      high
-8  cellLine2          4    medium
-9  cellLine3          1    medium
+5  cellLine2          1      high
+6  cellLine2          2    medium
+7  cellLine2          3       low
+8  cellLine2          4   control
+9  cellLine3          1       low
 10 cellLine3          2   control
-11 cellLine3          3      high
-12 cellLine3          4       low
-13 cellLine4          1      high
-14 cellLine4          2    medium
-15 cellLine4          3       low
-16 cellLine4          4   control
+11 cellLine3          3    medium
+12 cellLine3          4      high
+13 cellLine4          1       low
+14 cellLine4          2   control
+15 cellLine4          3      high
+16 cellLine4          4    medium
 ```
 
 When analyzing a random complete block design, the effect of the block is
