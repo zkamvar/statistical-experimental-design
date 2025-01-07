@@ -35,7 +35,7 @@ Group 3: Medium dose (50 μM)
 Group 4: High dose (100 μM)
 
 
-```r
+``` r
 # create treatment levels
 f <- factor(c("control", "low", "medium", "high"))
 
@@ -51,23 +51,23 @@ plan <- data.frame(cellLine = block, DishNumber = dishnum, treatment = treatment
 plan
 ```
 
-```{.output}
+``` output
     cellLine DishNumber treatment
-1  cellLine1          1   control
-2  cellLine1          2      high
-3  cellLine1          3       low
-4  cellLine1          4    medium
+1  cellLine1          1      high
+2  cellLine1          2   control
+3  cellLine1          3    medium
+4  cellLine1          4       low
 5  cellLine2          1      high
 6  cellLine2          2    medium
 7  cellLine2          3       low
 8  cellLine2          4   control
-9  cellLine3          1       low
-10 cellLine3          2   control
-11 cellLine3          3    medium
-12 cellLine3          4      high
-13 cellLine4          1       low
-14 cellLine4          2   control
-15 cellLine4          3      high
+9  cellLine3          1      high
+10 cellLine3          2    medium
+11 cellLine3          3       low
+12 cellLine3          4   control
+13 cellLine4          1      high
+14 cellLine4          2       low
+15 cellLine4          3   control
 16 cellLine4          4    medium
 ```
 

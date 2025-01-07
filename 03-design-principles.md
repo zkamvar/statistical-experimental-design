@@ -218,7 +218,7 @@ diet. If the random number is even, the sample is assigned to the control group
 (the group that doesn't receive the treatment, in this case, regular chow).
 
 
-```r
+``` r
 # create the mouse IDs and 26 random numbers between 1 and 100
 mouse_ID <- LETTERS
 random_number <- sample(x = 100, size = 26)
@@ -231,34 +231,34 @@ random_allocation <- data.frame(mouse_ID, random_number, treatment)
 random_allocation
 ```
 
-```{.output}
+``` output
    mouse_ID random_number treatment
-1         A            47  high fat
-2         B            67  high fat
-3         C            81  high fat
-4         D            48      chow
-5         E            95  high fat
-6         F            18      chow
-7         G            61  high fat
-8         H            79  high fat
-9         I            13  high fat
-10        J            94      chow
-11        K            33  high fat
-12        L            22      chow
-13        M            77  high fat
-14        N            59  high fat
-15        O            56      chow
-16        P            44      chow
-17        Q            69  high fat
-18        R            71  high fat
-19        S            12      chow
-20        T            20      chow
-21        U            40      chow
-22        V            51  high fat
-23        W            72      chow
-24        X            26      chow
-25        Y            82      chow
-26        Z            62      chow
+1         A            99  high fat
+2         B            96      chow
+3         C            47  high fat
+4         D             8      chow
+5         E            80      chow
+6         F            55  high fat
+7         G            14      chow
+8         H            66      chow
+9         I            79  high fat
+10        J           100      chow
+11        K             9  high fat
+12        L             1  high fat
+13        M            67  high fat
+14        N            33  high fat
+15        O            18      chow
+16        P            82      chow
+17        Q            24      chow
+18        R            76      chow
+19        S             4      chow
+20        T            25  high fat
+21        U            21  high fat
+22        V            59  high fat
+23        W            51  high fat
+24        X            58      chow
+25        Y            40      chow
+26        Z            83  high fat
 ```
 
 This might produce unequal numbers between treatment and control groups. It
@@ -267,11 +267,11 @@ isn't necessary to have equal numbers, however, **sensitivity** or
 exists) is maximized when sample numbers are equal.
 
 
-```r
+``` r
 table(random_allocation$treatment)
 ```
 
-```{.output}
+``` output
 
     chow high fat 
       13       13 
@@ -281,7 +281,7 @@ To randomly assign samples to groups with equal numbers, you can do the
 following.
 
 
-```r
+``` r
 # place IDs and random numbers in data frame
 equal_allocation <- data.frame(mouse_ID, random_number)
 
@@ -295,34 +295,34 @@ row.names(equal_allocation) <- 1:26
 equal_allocation
 ```
 
-```{.output}
+``` output
    mouse_ID random_number treatment
-1         S            12      chow
-2         I            13      chow
-3         F            18      chow
-4         T            20      chow
-5         L            22      chow
-6         X            26      chow
-7         K            33      chow
-8         U            40      chow
-9         P            44      chow
-10        A            47      chow
-11        D            48      chow
-12        V            51      chow
-13        O            56      chow
-14        N            59  high fat
-15        G            61  high fat
-16        Z            62  high fat
-17        B            67  high fat
-18        Q            69  high fat
-19        R            71  high fat
-20        W            72  high fat
-21        M            77  high fat
-22        H            79  high fat
-23        C            81  high fat
-24        Y            82  high fat
-25        J            94  high fat
-26        E            95  high fat
+1         L             1      chow
+2         S             4      chow
+3         D             8      chow
+4         K             9      chow
+5         G            14      chow
+6         O            18      chow
+7         U            21      chow
+8         Q            24      chow
+9         T            25      chow
+10        N            33      chow
+11        Y            40      chow
+12        C            47      chow
+13        W            51      chow
+14        F            55  high fat
+15        X            58  high fat
+16        V            59  high fat
+17        H            66  high fat
+18        M            67  high fat
+19        R            76  high fat
+20        I            79  high fat
+21        E            80  high fat
+22        P            82  high fat
+23        Z            83  high fat
+24        B            96  high fat
+25        A            99  high fat
+26        J           100  high fat
 ```
 
 You can write out this treatment plan to a comma-separated values (csv) file,
@@ -330,7 +330,7 @@ then open it in Excel and use it to record your data collection or just keep
 track of which samples are randomly assigned which diet.
 
 
-```r
+``` r
 write.csv(equal_allocation, file = "./data/random-assign.csv", row.names = FALSE)
 ```
 

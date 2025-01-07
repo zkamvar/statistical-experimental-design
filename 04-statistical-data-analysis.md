@@ -88,7 +88,7 @@ important information that can guide you forward. So first, plot the data!
 
 
 
-```r
+``` r
 # read in the simulated heart rate data
 heart_rate <- read.csv("data/heart_rate.csv")
 
@@ -123,7 +123,7 @@ What message do the data deliver in this histogram?
 Now create a boxplot of the same sample data.
 
 
-```r
+``` r
 boxplot(sample100)
 ```
 
@@ -159,7 +159,7 @@ The Generation 100 study aims to determine whether high-intensity exercise in
 elderly adults affects lifespan and healthspan.
 
 
-```r
+``` r
 # heart_rate ~ exercise_group is a formula indicating that the response (heart
 # rate) is dependent on the treatment (exercise group)
 boxplot(heart_rate ~ exercise_group, data = heart_rate)
@@ -211,7 +211,7 @@ We can calculate the difference in means between the two groups to answer the
 question about exercise intensity.
 
 
-```r
+``` r
 # calculate the means of the two groups
 # load the tidyverse library to write more easily interpreted code
 library(tidyverse)
@@ -222,9 +222,9 @@ meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
 ```
 
 The actual difference in mean heart rates between the two groups is
-3.12. Another way of 
+3.65. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
-4 
+5 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -241,30 +241,30 @@ take a sample from each exercise group and calculate the difference in means
 for those samples.
 
 
-```r
+``` r
 # calculate the sample mean of 100 people in each group
 HI100 <- mean(sample(HI$heart_rate, size = 100))
 control100 <- mean(sample(control$heart_rate, size = 100))
 control100 - HI100 
 ```
 
-```{.output}
-[1] 1.940963
+``` output
+[1] 4.916158
 ```
 
 Now take another sample of 100 from each group and calculate the difference in
 means.
 
 
-```r
+``` r
 # calculate the sample mean of 100 people in each group
 HI100 <- mean(sample(HI$heart_rate, size = 100))
 control100 <- mean(sample(control$heart_rate, size = 100))
 control100 - HI100
 ```
 
-```{.output}
-[1] 1.763052
+``` output
+[1] 3.205596
 ```
 
 Are the differences in sample means the same? We can repeat this sampling again
@@ -281,7 +281,7 @@ from the Generation 100 study. In practice we would never have access to the
 entire population, so this is a thought exercise.
 
 
-```r
+``` r
 # read in the heart rates of the entire population of all elderly people
 population <- rbind(HI, control)
 
@@ -289,24 +289,24 @@ population <- rbind(HI, control)
 mean(sample(population$heart_rate, size = 100))
 ```
 
-```{.output}
-[1] 69.19772
+``` output
+[1] 71.53335
 ```
 
-```r
+``` r
 mean(sample(population$heart_rate, size = 100))
 ```
 
-```{.output}
-[1] 70.83615
+``` output
+[1] 68.77677
 ```
 
-```r
+``` r
 mean(sample(population$heart_rate, size = 100))
 ```
 
-```{.output}
-[1] 68.71637
+``` output
+[1] 68.89302
 ```
 
 Notice how the mean changes each time you sample. We can continue to do this
@@ -331,7 +331,7 @@ difference in means between two randomly split groups of 100 and 100.
 Here is this process written in R code:
 
 
-```r
+``` r
 ## 100 controls
 control <- sample(population$heart_rate, 100)
 
@@ -340,14 +340,14 @@ treatment <- sample(population$heart_rate, 100)
 mean(control) - mean(treatment)
 ```
 
-```{.output}
-[1] 0.7698683
+``` output
+[1] 0.4401944
 ```
 
 Now let's find the sample mean of 100 participants from each group 10,000 times.
 
 
-```r
+``` r
 treatment <- replicate(n = 10000, mean(sample(population$heart_rate, 100)))
 control <- replicate(n = 10000, mean(sample(population$heart_rate, 100)))
 null <- control - treatment
@@ -364,18 +364,18 @@ up the **null distribution**. How many of these differences are greater than the
 observed difference in means between the actual treatment and control groups?
 
 
-```r
+``` r
 mean(null >= meanDiff)
 ```
 
-```{.output}
-[1] 0.0116
+``` output
+[1] 0.005
 ```
 
-Approximately 1.2% of the 10,000 
+Approximately 0.5% of the 10,000 
 simulations are greater than the observed difference in means. We can expect 
 then that we will see a difference in means approximately 
-1.2% of the time even if there is no 
+0.5% of the time even if there is no 
 effect of exercise on heart rate. This is known as a **p-value**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -435,7 +435,7 @@ histogram showing all resting heart rates for the entire population 70 and
 older.
 
 
-```r
+``` r
 population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 ```
 
@@ -443,11 +443,11 @@ population %>% ggplot(mapping = aes(heart_rate)) + geom_histogram()
 Showing this plot is much more informative and easier to interpret than a long
 table of numbers. With this histogram we can approximate the number of
 individuals in any given interval. For example, there are approximately
-42 individuals 
-(~2.7%) 
+44 individuals 
+(~2.8%) 
 with a resting heart rate greater than 90, and another 
-28 individuals
-(~1.8%) 
+43 individuals
+(~2.7%) 
 with a resting heart rate below 50.
 
 The histogram above approximates one that is very common in nature: the bell
@@ -468,19 +468,19 @@ interval. That formula is conveniently stored in the function `pnorm`
 
 If the normal approximation holds for our list of data values, then the mean and
 variance (spread) of the data can be used. For example, when we noticed that
-~ 1.2% of the values in the null 
+~ 0.5% of the values in the null 
 distribution were greater than `meanDiff`, the mean difference between control
 and high-intensity groups. We can compute the proportion of values below a value
 `x` with `pnorm(x, mu, sigma)` where `mu` is the mean and `sigma` the standard
 deviation (the square root of the variance). 
 
 
-```r
+``` r
 1 - pnorm(meanDiff, mean=mean(null), sd=sd(null))
 ```
 
-```{.output}
-[1] 0.01297879
+``` output
+[1] 0.005391247
 ```
 A useful characteristic of this approximation is that we only need to know `mu`
 and `sigma` to describe the entire distribution. From this, we can compute the
@@ -491,7 +491,7 @@ normal distribution. Repeat the sampling we did earlier and produce a new
 histogram of the sample.
 
 
-```r
+``` r
 sample100 <- sample(heart_rate$heart_rate, 100)
 hist(sample100, xlab = "resting heart rate for 100 participants")
 ```
@@ -525,7 +525,7 @@ If you have doubts about whether the sample follows a normal distribution, a
 quantile-quantile (QQ) plot can make interpretation easier. 
 
 
-```r
+``` r
 qqnorm(sample100)
 qqline(sample100)
 ```
@@ -550,37 +550,37 @@ the difference in mean values between the two groups is significant. The **null 
 two **samples** from the whole **population** of elders in Norway.
 
 
-```r
+``` r
 # provide a formula stating that heart rate is dependent on exercise intensity
 t.test(formula = heart_rate ~ exercise_group, data = population)
 ```
 
-```{.output}
+``` output
 
 	Welch Two Sample t-test
 
 data:  heart_rate by exercise_group
-t = 6.1415, df = 1561, p-value = 1.035e-09
+t = 7.1691, df = 1563.8, p-value = 1.16e-12
 alternative hypothesis: true difference in means between group control and group high intensity is not equal to 0
 95 percent confidence interval:
- 2.121801 4.113109
+ 2.651026 4.648069
 sample estimates:
        mean in group control mean in group high intensity 
-                    71.69471                     68.57725 
+                    71.73712                     68.08757 
 ```
 ## The perils of p-values
 You can access the p-value alone from the t-test by saving the results and 
 accessing individual elements with the `$` operator.
 
 
-```r
+``` r
 # save the t-test result and access the p-value alone
 result <- t.test(formula = heart_rate ~ exercise_group, data = population)
 result$p.value
 ```
 
-```{.output}
-[1] 1.034889e-09
+``` output
+[1] 1.159527e-12
 ```
 The p-value indicates a statistically significant difference between exercise
 groups. It is not enough, though, to report only a p-value. The p-value says
@@ -603,34 +603,36 @@ size and uncertainty associated with these estimates. When reporting results,
 use confidence intervals.
 
 
-```r
+``` r
 # access the confidence interval
 result$conf.int
 ```
 
-```{.output}
-[1] 2.121801 4.113109
+``` output
+[1] 2.651026 4.648069
 attr(,"conf.level")
 [1] 0.95
 ```
+
 The confidence interval states that the true difference in means is between
-2.12 and 4.11. We can
+2.65 and 4.65. We can
 say, with 95% confidence, that high intensity exercise could decrease mean heart 
-rate from 2.12 to 4.11
+rate from 2.65 to 4.65
 beats per minute. Note that these are simulated data and are not the outcomes of
 the Generation 100 study. 
 
 A 95% confidence interval states that 95% of random intervals will contain the 
 true value. This is not the same as saying that there is a 95% chance that the 
 true value falls within the interval. The graphic below helps to explain a 95% 
-confidence interval for the mean population heart rate.
+confidence interval for mean heart rates of samples of size 30 taken from the
+overall population.
 
 <img src="fig/04-statistical-data-analysis-rendered-confidence-interval-95-1.png" style="display: block; margin: auto;" />
 
-If we generate 200 confidence intervals for the mean population heart rate,
-those confidence intervals will include the mean (vertical gray dotted line) 
-approximately 95% of the time. You will see that about 5% of the confidence 
-intervals (shown in red) fail to cover the mean.
+If we generate 200 confidence intervals for the sample mean heart rate, those 
+confidence intervals will include the population mean (vertical gray dotted 
+line) approximately 95% of the time. You will see that about 5% of the 
+confidence intervals (shown in red) fail to cover the mean.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -662,9 +664,9 @@ in means.
 ## Comparing standard deviations
 When comparing the means of data from the two groups, we need to ask whether 
 these data have equal variances (spreads). Previous studies and prior knowledge
-can help us with this assumption. If we know from previous data or from our own 
-expertise that adjusting a treatment will affect the mean response but not its 
-variability, then we can assume equal variances.
+can help us with this assumption. If we know from previous data or from our own
+expertise that adjusting a treatment will affect the mean response but not its
+variability, then we can assume equal variances between treatment groups. 
 
 <img src="fig/04-statistical-data-analysis-rendered-compare-standard-deviation-1.png" style="display: block; margin: auto;" />
 
@@ -674,44 +676,60 @@ standard deviations (the square root of the variance) as we are in comparing
 means.
 
 <img src="fig/04-statistical-data-analysis-rendered-compare-means-standard-deviation-1.png" style="display: block; margin: auto;" />
-As a rule of thumb, if the ratio of the larger variance to the smaller variance 
-is less than 4, the groups have equal variances.
 
 
-```r
-heart_rate %>% group_by(exercise_group) %>% 
-  summarise_at(vars(heart_rate), 
-               list(variance = var, standard_deviation = sd))
+``` r
+heart_rate %>% group_by(exercise_group) %>%
+  summarise_at(vars(heart_rate), list(variance=var, standard_deviation = sd))
 ```
 
-```{.output}
+``` output
 # A tibble: 2 × 3
   exercise_group variance standard_deviation
   <chr>             <dbl>              <dbl>
-1 control            96.4               9.82
-2 high intensity    105.               10.3 
+1 control            103.               10.1
+2 high intensity     100.               10.0
 ```
+
+As a rule of thumb, if the ratio of the larger to the smaller variance is less
+than 4, the groups have equal variances. 
+
+
+``` r
+heart_rate %>% group_by(exercise_group) %>%
+  summarise_at(vars(heart_rate), var) 
+```
+
+``` output
+# A tibble: 2 × 2
+  exercise_group heart_rate
+  <chr>               <dbl>
+1 control              103.
+2 high intensity       100.
+```
+
 A more formal approach uses an F test to compare variances between samples drawn
 from a normal population.
 
 
-```r
-var.test(heart_rate ~ exercise_group, data = heart_rate)
+``` r
+var.test(heart_rate ~ exercise_group, data=heart_rate)
 ```
 
-```{.output}
+``` output
 
 	F test to compare two variances
 
 data:  heart_rate by exercise_group
-F = 0.91564, num df = 782, denom df = 782, p-value = 0.2181
+F = 1.023, num df = 782, denom df = 782, p-value = 0.7509
 alternative hypothesis: true ratio of variances is not equal to 1
 95 percent confidence interval:
- 0.7957992 1.0535325
+ 0.8890825 1.1770271
 sample estimates:
 ratio of variances 
-         0.9156421 
+          1.022973 
 ```
+
 The F test reports that the variances between the groups are not the same, 
 however, the ratio of variances is very close to 1.
 
@@ -722,7 +740,7 @@ detect an effect). To get a better sense of statistical power, let's simulate
 a t-test for two groups with different means and equal variances. 
 
 
-```r
+``` r
 set.seed(1)
 n_sims <- 1000 # we want 1000 simulations
 p_vals <- c()  # create a vector to hold the p-values
@@ -738,21 +756,20 @@ for(i in 1:n_sims){
 mean(p_vals < .05) # check power (i.e. proportion of p-values that are smaller 
 ```
 
-```{.output}
+``` output
 [1] 0.478
 ```
 
-```r
+``` r
                    # than alpha-level of .05)
 ```
-
 
 Let's calculate the statistical power of our experiment so 
 far, and then determine the sample size we would need to run a similar 
 experiment on a different population.
 
 
-```r
+``` r
 # sample size = 783 per group
 # delta = the observed effect size, meanDiff
 # sd = standard deviation 
@@ -765,15 +782,15 @@ power.t.test(n = 783, delta = meanDiff, sd = sd(heart_rate$heart_rate),
              sig.level = 0.05, type = "two.sample")
 ```
 
-```{.output}
+``` output
 
      Two-sample t test power calculation 
 
               n = 783
-          delta = 3.117455
-             sd = 10.16074
+          delta = 3.649547
+             sd = 10.23343
       sig.level = 0.05
-          power = 0.99998
+          power = 0.9999998
     alternative = two.sided
 
 NOTE: n is number in *each* group
@@ -784,7 +801,7 @@ Icelandic elders), what is the minimum sample size we would need for each
 exercise group?
 
 
-```r
+``` r
 # delta = the observed effect size, meanDiff
 # sd = standard deviation
 # significance level (Type 1 error probability or false positive rate) = 0.05
@@ -794,13 +811,13 @@ power.t.test(delta = meanDiff, sd = sd(heart_rate$heart_rate),
              sig.level = 0.05, type = "two.sample", power = 0.8)
 ```
 
-```{.output}
+``` output
 
      Two-sample t test power calculation 
 
-              n = 167.7242
-          delta = 3.117455
-             sd = 10.16074
+              n = 124.3925
+          delta = 3.649547
+             sd = 10.23343
       sig.level = 0.05
           power = 0.8
     alternative = two.sided
@@ -814,7 +831,7 @@ standard deviation. *Cohen's d* describes standardized effect sizes from 0.01
 (very small) to 2.0 (huge). 
 
 
-```r
+``` r
 # n = (16/delta squared), where delta is the standardized effect size
 # delta = effect size standardized as Cohen's d
 #     (difference in means)/(standard deviation)  
@@ -823,15 +840,15 @@ n <- 16/standardizedEffectSize^2
 n
 ```
 
-```{.output}
-[1] 169.9692
+``` output
+[1] 125.8012
 ```
 Often budget constraints determine sample size. Lehr's equation can be 
 rearranged to determine the effect size that can be detected for a given 
 sample size.
 
 
-```r
+``` r
 # difference in means = (4 * sd)/(square root of n)
 # n = 100, the number that I can afford
 SD <- sd(heart_rate$heart_rate)
@@ -839,8 +856,8 @@ detectableDifferenceInMeans <- (4 * SD)/sqrt(100)
 detectableDifferenceInMeans
 ```
 
-```{.output}
-[1] 4.064295
+``` output
+[1] 4.093373
 ```
 Try increasing or decreasing the sample size (100) to see how the detectable 
 difference in mean changes. Note the relationship: for very large effects, you

@@ -17,10 +17,21 @@ source: Rmd
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - What is a completely randomized design (CRD)?
+- What are the limitations of CRD?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+
+A completely randomized design (CRD) is the simplest experimental design. In 
+CRD, experimental units are randomly assigned to treatments with equal 
+probability. Any systematic differences between experimental units (e.g. 
+differences in measurement protocols, equipment calibration, personnel) are
+minimized, which minimizes confounding of treatment effects. CRD is simple, 
+however it can result in larger experimental error compared to other designs if 
+experimental units are not similar. In general CRD is a straightforward 
+experimental design that effectively minimizes systematic errors through 
+randomization.
 
 ## A single qualitative factor
 
@@ -28,9 +39,11 @@ source: Rmd
 
 ## Equal variances and normality
 
+## Confidence intervals
+
 ## Inference
 
-## A single quantitative factor
+## Prediction intervals
 
 ## Design issues
 
@@ -38,7 +51,7 @@ source: Rmd
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- CRD is a simple design that can be used when experimental are homogeneous.
+- CRD is a simple design that can be used when experimental units are homogeneous.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
