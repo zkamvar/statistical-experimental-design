@@ -20,7 +20,9 @@ source: Rmd
 
 
 
-The [Generation 100 study](https://bmjopen.bmj.com/content/5/2/e007519)
+Well-designed experiments can deliver information that has a clear impact on 
+human health. The 
+[Generation 100 study](https://bmjopen.bmj.com/content/5/2/e007519)
 evaluated the effects of exercise on more than 1500 elderly Norwegians from
 Trondheim, Norway, to determine if exercise led to a longer active and healthy
 life. Specifically the researchers investigated the relationship between
