@@ -350,7 +350,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Completely Randomized Designs</h1>
-        <p>Last updated on 2025-01-07 |
+        <p>Last updated on 2025-01-09 |
 
         <a href="https://github.com/smcclatchy/statistical-experimental-design/edit/main/episodes/05-complete-random-design.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -395,14 +395,106 @@ experimental units.</li>
 design. In CRD, experimental units are randomly assigned to treatments
 with equal probability. Any systematic differences between experimental
 units (e.g.  differences in measurement protocols, equipment
-calibration, personnel) are minimized, which minimizes confounding of
-treatment effects. CRD is simple, however it can result in larger
-experimental error compared to other designs if experimental units are
-not similar. In general CRD is a straightforward experimental design
-that effectively minimizes systematic errors through randomization.</p>
+calibration, personnel) are minimized, which minimizes confounding. CRD
+is simple, however it can result in larger experimental error compared
+to other designs if experimental units are not similar. This means that
+the variation among experimental units that receive the same treatment
+(i.e. variation within a treatment group) will be greater. In general
+though, CRD is a straightforward experimental design that effectively
+minimizes systematic errors through randomization.</p>
 <section><h2 class="section-heading" id="a-single-qualitative-factor">A single qualitative factor<a class="anchor" aria-label="anchor" href="#a-single-qualitative-factor"></a></h2>
-<hr class="half-width"></section><section><h2 class="section-heading" id="analysis-of-variance-anova">Analysis of variance (ANOVA)<a class="anchor" aria-label="anchor" href="#analysis-of-variance-anova"></a></h2>
-<hr class="half-width"></section><section><h2 class="section-heading" id="equal-variances-and-normality">Equal variances and normality<a class="anchor" aria-label="anchor" href="#equal-variances-and-normality"></a></h2>
+<hr class="half-width"><p>The <a href="https://bmjopen.bmj.com/content/5/2/e007519" class="external-link">Generation
+100 study</a> employed a single qualitative factor (exercise) at three
+treatment levels - high intensity, moderate intensity and a control
+group that followed national exercise recommendations. The experimental
+units were the individuals in the study who engaged in one of the
+treatment levels.</p>
+<div id="challenge-1-raw-ingredients-of-a-comparative-experiment" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-1-raw-ingredients-of-a-comparative-experiment" class="callout-inner">
+<h3 class="callout-title">Challenge 1: Raw ingredients of a comparative experiment</h3>
+<div class="callout-content">
+<p>Discuss the following questions with your partner, then share your
+answers to each question in the collaborative document.</p>
+<ol style="list-style-type: decimal"><li>How would you randomize the 1,500+ individuals in the study to one
+of the treatment levels?<br></li>
+<li>Is blinding possible in this study? If not, what are the
+consequences of not blinding the participants or investigators to
+treatment assignments?<br></li>
+<li>Is CRD a good design for this study? Why or why not?</li>
+</ol></div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li>How would you randomize the 1,500+ individuals in the study to one
+of the treatment levels?<br>
+You can use a random number generator like we did previously to assign
+all individuals to one of three treatment levels.<br></li>
+<li>Is blinding possible in this study? If not, what are the
+consequences of not blinding the participants or investigators to
+treatment assignments?<br>
+Blinding isn’t possible because people must know which treatment they
+have been assigned so that they can exercise at the appropriate level.
+There is a risk of response bias from participants knowing which
+treatment they have been assigned. The investigators don’t need to know
+which treatment group an individual is in, however, so they could be
+blinded to the treatments to prevent reporting bias from entering when
+following study protocols. In either case random assignment of
+participants to treatment levels will minimize bias.<br></li>
+<li>Is CRD a good design for this study? Why or why not?<br>
+CRD is best when experimental units are homogeneous or similar. In this
+study, all individuals were between the ages of 70-77 years and all
+lived in Trondheim, Norway. They were not all of the same sex, however,
+and sex will certainly affect the study outcomes and lead to greater
+experimental error within each treatment group. Stratification, or
+grouping, by sex followed by random assignment to treatments within each
+stratum would alleviate this problem. So, randomly assigning all women
+to one of the three treatment groups, then randomly assigning all men to
+one of the three treatment groups would be the best way to handle this
+situation.<br>
+In addition to stratification by sex, the Generation 100 investigators
+stratified by marital status because this would also influence study
+outcomes.</li>
+</ol></div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="analysis-of-variance-anova">Analysis of variance (ANOVA)<a class="anchor" aria-label="anchor" href="#analysis-of-variance-anova"></a></h2>
+<hr class="half-width"><p>Previously we tested the difference in means between two treatment
+groups, high intensity and control, using a t-test. We could continue
+using the t-test to determine whether there is a significant difference
+between high intensity and moderate intensity, and between moderate
+intensity and control groups. This would be tedious though because we
+would need to test each possible combination of two treatment groups
+separately.</p>
+<p>Analysis of variance (ANOVA) addresses two sources of variation in
+the data: 1) the variation within each treatment group; and 2) the
+variation among the treatment groups. In the boxplots below, the
+variation within each treatment group shows in the vertical length of
+the each box and its whiskers. The variation among treatment groups is
+shown horizontally as upward or downward shift of the treatment groups
+relative to one another. ANOVA quantifies and compares these two sources
+of variation.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">heart_rate</span> <span class="op">%&gt;%</span> <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">exercise_group</span>, <span class="va">heart_rate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in heart_rate %&gt;% ggplot(aes(exercise_group, heart_rate)): could not find function "%&gt;%"</code></pre>
+</div>
+</section><section><h2 class="section-heading" id="equal-variances-and-normality">Equal variances and normality<a class="anchor" aria-label="anchor" href="#equal-variances-and-normality"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="confidence-intervals">Confidence intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="inference">Inference<a class="anchor" aria-label="anchor" href="#inference"></a></h2>
 <hr class="half-width"></section><section><h2 class="section-heading" id="prediction-intervals">Prediction intervals<a class="anchor" aria-label="anchor" href="#prediction-intervals"></a></h2>
@@ -477,8 +569,8 @@ homogeneous.</li>
   "url": "https://smcclatchy.github.io/statistical-experimental-design/instructor/05-complete-random-design.html",
   "identifier": "https://smcclatchy.github.io/statistical-experimental-design/instructor/05-complete-random-design.html",
   "dateCreated": "2023-04-03",
-  "dateModified": "2025-01-07",
-  "datePublished": "2025-01-07"
+  "dateModified": "2025-01-09",
+  "datePublished": "2025-01-09"
 }
 
   </script><script>
