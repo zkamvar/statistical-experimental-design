@@ -87,21 +87,12 @@ distribution toward taller heights, as would the median.
 A picture is worth a thousand words, and a picture of your data could reveal
 important information that can guide you forward. So first, plot the data!
 
-```{r, include=FALSE}
-# simulate exercise group heart rate data
-lowHR <- rnorm(n = 783, mean = 68.6, sd = 10)
-highHR <- rnorm(n = 783, mean = 71.4, sd = 10)
-lowHR <- cbind(lowHR, rep("high intensity", length(lowHR)))
-highHR <- cbind(highHR, rep("control", length(highHR)))
-heart_rate <- as.data.frame(rbind(lowHR, highHR))
-names(heart_rate) <- c("heart_rate", "exercise_group")
-heart_rate$heart_rate <- as.numeric(heart_rate$heart_rate)
-write.csv(heart_rate, file = "./data/heart_rate.csv", row.names = FALSE)
-```
-
 ```{r}
+# load the tidyverse library to write more easily interpreted code
+library(tidyverse)
+
 # read in the simulated heart rate data
-heart_rate <- read.csv("data/heart_rate.csv")
+heart_rate <- read_csv("data/simulated_heart_rates.csv")
 
 # take a random sample of 100 and create a histogram
 # first set the seed for the random number generator
@@ -165,9 +156,7 @@ The Generation 100 study aims to determine whether high-intensity exercise in
 elderly adults affects lifespan and healthspan.
 
 ```{r boxplot}
-# heart_rate ~ exercise_group is a formula indicating that the response (heart
-# rate) is dependent on the treatment (exercise group)
-boxplot(heart_rate ~ exercise_group, data = heart_rate)
+heart_rate %>% filter(exercise_group %in% c("high intensity", "control")) %>%     ggplot(aes(exercise_group, heart_rate)) + geom_boxplot()
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -215,18 +204,23 @@ question about exercise intensity.
 
 ```{r}
 # calculate the means of the two groups
-# load the tidyverse library to write more easily interpreted code
-library(tidyverse)
-
-HI <- heart_rate %>% filter(exercise_group == "high intensity")
-control <- heart_rate %>% filter(exercise_group == "control")
-meanDiff <- mean(control$heart_rate) - mean(HI$heart_rate)
+# unlist() converts a tibble (special tidyverse table) to a vector
+highHR <- heart_rate %>% 
+            filter(exercise_group == "high intensity") %>% 
+            select(heart_rate) %>% 
+            unlist() 
+controlHR <- heart_rate %>% 
+                filter(exercise_group == "control") %>% 
+                select(heart_rate) %>% 
+                unlist() 
+meanDiff <- mean(controlHR) - mean(highHR)
+meanDiff
 ```
 
 The actual difference in mean heart rates between the two groups is
-`r  round(mean(control$heart_rate) - mean(HI$heart_rate), 2)`. Another way of 
+`r  round(mean(controlHR) - mean(highHR), 2)`. Another way of 
 stating this is that the high-intensity group had a mean heart rate that was
-`r round(((mean(control$heart_rate) - mean(HI$heart_rate))/mean(control$heart_rate)) * 100)` 
+`r round(((mean(controlHR) - mean(highHR))/mean(controlHR)) * 100)` 
 percent lower than the control group. This is the *observed effect size*.
 
 So are we done now? Does this difference support the alternative hypothesis
@@ -244,8 +238,8 @@ for those samples.
 
 ```{r}
 # calculate the sample mean of 100 people in each group
-HI100 <- mean(sample(HI$heart_rate, size = 100))
-control100 <- mean(sample(control$heart_rate, size = 100))
+HI100 <- mean(sample(highHR, size = 100))
+control100 <- mean(sample(controlHR, size = 100))
 control100 - HI100 
 ```
 
@@ -254,8 +248,8 @@ means.
 
 ```{r}
 # calculate the sample mean of 100 people in each group
-HI100 <- mean(sample(HI$heart_rate, size = 100))
-control100 <- mean(sample(control$heart_rate, size = 100))
+HI100 <- mean(sample(highHR, size = 100))
+control100 <- mean(sample(controlHR, size = 100))
 control100 - HI100
 ```
 
@@ -274,7 +268,8 @@ entire population, so this is a thought exercise.
 
 ```{r}
 # read in the heart rates of the entire population of all elderly people
-population <- rbind(HI, control)
+population <- heart_rate %>% 
+              filter(exercise_group %in% c("high intensity", "control"))
 
 # sample 100 of them and calculate the mean three times
 mean(sample(population$heart_rate, size = 100))
@@ -305,10 +300,10 @@ Here is this process written in R code:
 
 ```{r}
 ## 100 controls
-control <- sample(population$heart_rate, 100)
+control <- sample(population$heart_rate, size = 100)
 
 ## another 100 controls that we pretend are on a high-intensity regimen
-treatment <- sample(population$heart_rate, 100)
+treatment <- sample(population$heart_rate, size = 100)
 mean(control) - mean(treatment)
 ```
 
